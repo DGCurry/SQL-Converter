@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/Assignment3/src-gen" creationIcons="false" editDirectory="/Assignment3.edit/src-gen"
+    editorDirectory="/Assignment3.editor/src-gen" modelPluginID="Assignment3" modelName="Assignment3"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>assignment3.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Assignment3" disposableProviderFactory="true" ecorePackage="assignment3.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="assignment3.ecore#//BinaryFunction">
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//BinaryFunction/mult"/>
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//BinaryFunction/sum"/>
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//BinaryFunction/divide"/>
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//BinaryFunction/concat"/>
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//BinaryFunction/equal"/>
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//BinaryFunction/notequal"/>
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//BinaryFunction/smaller"/>
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//BinaryFunction/greater"/>
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//BinaryFunction/or"/>
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//BinaryFunction/and"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="assignment3.ecore#//Type">
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//Type/string"/>
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//Type/integer"/>
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//Type/floats"/>
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//Type/sets"/>
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//Type/DateTime"/>
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//Type/Null"/>
+      <genEnumLiterals ecoreEnumLiteral="assignment3.ecore#//Type/bool"/>
+    </genEnums>
+    <genClasses ecoreClass="assignment3.ecore#//Table">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assignment3.ecore#//Table/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assignment3.ecore#//Table/columns"/>
+    </genClasses>
+    <genClasses ecoreClass="assignment3.ecore#//Source"/>
+    <genClasses ecoreClass="assignment3.ecore#//Target"/>
+    <genClasses ecoreClass="assignment3.ecore#//Columns">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assignment3.ecore#//Columns/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assignment3.ecore#//Columns/name"/>
+    </genClasses>
+    <genClasses ecoreClass="assignment3.ecore#//Mapping">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assignment3.ecore#//Mapping/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assignment3.ecore#//Mapping/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//Mapping/fields"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//Mapping/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="assignment3.ecore#//MappingField">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//MappingField/souceField"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//MappingField/targetField"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//MappingField/transformations"/>
+    </genClasses>
+    <genClasses ecoreClass="assignment3.ecore#//Transformation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//Transformation/parameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assignment3.ecore#//Transformation/returnType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//Transformation/returnStatement"/>
+    </genClasses>
+    <genClasses ecoreClass="assignment3.ecore#//Expression"/>
+    <genClasses ecoreClass="assignment3.ecore#//Conditional"/>
+    <genClasses ecoreClass="assignment3.ecore#//NewEClass10"/>
+    <genClasses ecoreClass="assignment3.ecore#//NewEClass11"/>
+    <genClasses ecoreClass="assignment3.ecore#//parameterExpression"/>
+    <genClasses ecoreClass="assignment3.ecore#//BinaryOperationExpression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//BinaryOperationExpression/left"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//BinaryOperationExpression/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assignment3.ecore#//BinaryOperationExpression/operation"/>
+    </genClasses>
+    <genClasses ecoreClass="assignment3.ecore#//ConstantExpression"/>
+    <genClasses ecoreClass="assignment3.ecore#//IntegerConstantExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assignment3.ecore#//IntegerConstantExpression/value"/>
+    </genClasses>
+    <genClasses ecoreClass="assignment3.ecore#//BooleanConstantExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assignment3.ecore#//BooleanConstantExpression/value"/>
+    </genClasses>
+    <genClasses ecoreClass="assignment3.ecore#//StringConstantExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assignment3.ecore#//StringConstantExpression/value"/>
+    </genClasses>
+    <genClasses ecoreClass="assignment3.ecore#//FloatConstantExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assignment3.ecore#//FloatConstantExpression/value"/>
+    </genClasses>
+    <genClasses ecoreClass="assignment3.ecore#//InExpression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//InExpression/statement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//InExpression/constantSet"/>
+    </genClasses>
+    <genClasses ecoreClass="assignment3.ecore#//Parameter"/>
+    <genClasses ecoreClass="assignment3.ecore#//ParameterStatement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//ParameterStatement/statement"/>
+    </genClasses>
+    <genClasses ecoreClass="assignment3.ecore#//ReferenceStatement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//ReferenceStatement/columns"/>
+    </genClasses>
+    <genClasses ecoreClass="assignment3.ecore#//ConditionalStatement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//ConditionalStatement/condition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//ConditionalStatement/ifBody"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//ConditionalStatement/elseBody"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="assignment3.ecore#//Statement"/>
+    <genClasses ecoreClass="assignment3.ecore#//ParseExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assignment3.ecore#//ParseExpression/outputType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assignment3.ecore#//ParseExpression/expression"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

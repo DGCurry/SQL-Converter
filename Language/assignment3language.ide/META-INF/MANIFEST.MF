@@ -7,7 +7,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: assignment3language.ide; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: assignment3language,
- Assignment3,
+ Assignment3Model,
  org.eclipse.xtext.ide,
  org.eclipse.xtext.xbase.ide
 Bundle-RequiredExecutionEnvironment: JavaSE-11

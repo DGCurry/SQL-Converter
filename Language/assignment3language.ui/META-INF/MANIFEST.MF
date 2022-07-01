@@ -8,7 +8,7 @@ Bundle-SymbolicName: assignment3language.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: assignment3language,
  assignment3language.ide,
- Assignment3,
+ Assignment3Model,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,

@@ -6,8 +6,9 @@ import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 
 @SuppressWarnings("all")
-public class Generator extends AbstractGenerator {
+public class TransformationQueryLanguageGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource input, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    fsa.generateFile("query.tql", "content");
   }
 }

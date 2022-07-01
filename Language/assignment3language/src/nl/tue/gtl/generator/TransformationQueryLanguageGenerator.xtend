@@ -5,10 +5,10 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 
-class Generator extends AbstractGenerator {
+class TransformationQueryLanguageGenerator extends AbstractGenerator {
 	
 	override void doGenerate(Resource input, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		
+		fsa.generateFile("query.tql", "content")
 	}
 	
 	

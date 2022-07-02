@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: nl.tue.gtl.tql
+Bundle-ManifestVersion: 2
+Bundle-Name: nl.tue.gtl.tql
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: nl.tue.gtl.tql; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: tqlModel,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: nl.tue.gtl.validation,
+ nl.tue.gtl.generator,
+ nl.tue.gtl,
+ nl.tue.gtl.parser.antlr,
+ nl.tue.gtl.scoping,
+ nl.tue.gtl.parser.antlr.internal,
+ nl.tue.gtl.services,
+ nl.tue.gtl.formatting2,
+ nl.tue.gtl.serializer
+Import-Package: org.apache.log4j

@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: nl.tue.gtl.tql.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: nl.tue.gtl.tql.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: nl.tue.gtl.tql.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: nl.tue.gtl.tql,
+ nl.tue.gtl.tql.ide,
+ tqlModel,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: nl.tue.gtl.tql.ui.internal,
+ nl.tue.gtl.ui.contentassist,
+ nl.tue.gtl.ui.quickfix
+Bundle-Activator: nl.tue.gtl.tql.ui.internal.TqlActivator

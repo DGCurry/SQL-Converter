@@ -14,47 +14,48 @@
   <eClassifiers xsi:type="ecore:EClass" name="StringConstantExpression" eSuperTypes="#//ConstantExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterStatement" eSuperTypes="#//Parameter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="statement" eType="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpressionParameter" eSuperTypes="#//Parameter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Expression" lowerBound="1"
+        eType="#//Expression"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ReferenceStatement" eSuperTypes="#//Parameter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="columns" eType="#//Columns"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReferenceParameter" eSuperTypes="#//Parameter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references" lowerBound="1"
+        eType="#//TableField"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanConstantExpression" eSuperTypes="#//ConstantExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true" interface="true"
-      eSuperTypes="#//Statement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="IntegerConstantExpression" eSuperTypes="#//ConstantExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Source" eSuperTypes="#//Table"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Mapping">
+  <eClassifiers xsi:type="ecore:EClass" name="MappingSourceTable" eSuperTypes="#//Table"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Mapping" eSuperTypes="#//Block">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" upperBound="-1"
-        eType="#//Source" containment="true"/>
+        eType="#//MappingSourceTable" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" upperBound="-1"
-        eType="#//Target" containment="true"/>
+        eType="#//MappingTargetTable" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fields" lowerBound="1"
         upperBound="-1" eType="#//MappingField"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Expression"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="statement" eType="#//Expression"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constantSet" lowerBound="1"
         upperBound="-1" eType="#//ConstantExpression"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Table">
+  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//Block">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" lowerBound="1"
-        upperBound="-1" eType="#//Columns" containment="true"/>
+        upperBound="-1" eType="#//TableField" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConditionalStatement" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
         eType="#//Expression"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="booleanExression" eType="#//BooleanOperationExpression"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ifBody" lowerBound="1"
-        eType="#//Statement"/>
+        upperBound="-1" eType="#//Statement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elseBody" lowerBound="1"
-        eType="#//Statement"/>
+        upperBound="-1" eType="#//Statement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParseExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputType" eType="#//Type"/>
@@ -67,16 +68,45 @@
   <eClassifiers xsi:type="ecore:EClass" name="Parameter" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ConstantExpression" abstract="true"
       interface="true" eSuperTypes="#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Target" eSuperTypes="#//Table"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MappingTargetTable" eSuperTypes="#//Table"/>
   <eClassifiers xsi:type="ecore:EClass" name="MappingField">
     <eStructuralFeatures xsi:type="ecore:EReference" name="souceField" lowerBound="1"
-        eType="#//Columns"/>
+        eType="#//TableField"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetField" lowerBound="1"
-        eType="#//Columns"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="transformations" upperBound="-1"
-        eType="#//Transformation"/>
+        eType="#//TableField"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" eType="#//Transformation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true" interface="true"
+      eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="BinaryFunction">
+    <eLiterals name="mult"/>
+    <eLiterals name="sum" value="1"/>
+    <eLiterals name="divide" value="2"/>
+    <eLiterals name="concat" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryOperationExpression" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" lowerBound="1" eType="#//Expression"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" lowerBound="1" eType="#//Expression"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="#//BinaryFunction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableField">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transformation" eSuperTypes="#//Block">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnType" lowerBound="1"
+        eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selfType" lowerBound="1"
+        eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="booleanoperationexpression"
+        eType="#//BooleanOperationExpression"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnStatement" lowerBound="1"
+        upperBound="-1" eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Block" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EEnum" name="BinaryFunction">
     <eLiterals name="mult"/>
     <eLiterals name="sum" value="1"/>
@@ -89,20 +119,17 @@
     <eLiterals name="or" value="8"/>
     <eLiterals name="and" value="9"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BinaryOperationExpression" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" lowerBound="1" eType="#//Expression"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" lowerBound="1" eType="#//Expression"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="#//BinaryFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanOperationExpression" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="#//BooleanFunction"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Columns">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//Type"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Transformation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//Parameter"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnType" eType="#//Type"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="returnStatement" lowerBound="1"
-        eType="#//Statement"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="BooleanFunction">
+    <eLiterals name="equal"/>
+    <eLiterals name="notequal" value="1"/>
+    <eLiterals name="smaller" value="2"/>
+    <eLiterals name="greater" value="3"/>
+    <eLiterals name="smaller" value="4"/>
+    <eLiterals name="greater" value="5"/>
+    <eLiterals name="or" value="6"/>
+    <eLiterals name="and" value="7"/>
   </eClassifiers>
 </ecore:EPackage>

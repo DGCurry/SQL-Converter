@@ -4,8 +4,6 @@ package tqlModel;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Table</b></em>'.
@@ -23,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Table extends EObject {
+public interface Table extends Block {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -48,7 +46,7 @@ public interface Table extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
-	 * The list contents are of type {@link tqlModel.Columns}.
+	 * The list contents are of type {@link tqlModel.TableField}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Columns</em>' containment reference list.
@@ -56,6 +54,6 @@ public interface Table extends EObject {
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Columns> getColumns();
+	EList<TableField> getColumns();
 
 } // Table

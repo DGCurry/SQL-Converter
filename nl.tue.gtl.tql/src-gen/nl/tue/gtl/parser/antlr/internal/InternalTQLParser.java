@@ -22,9 +22,8 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalTQLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'BinaryOperationExpression'", "'{'", "'operation'", "'left'", "'right'", "'}'", "'parameterExpression'", "'StringConstantExpression'", "'value'", "'BooleanConstantExpression'", "'IntegerConstantExpression'", "'InExpression'", "'statement'", "'constantSet'", "'('", "','", "')'", "'ParseExpression'", "'outputType'", "'expression'", "'FloatConstantExpression'", "'-'", "'.'", "'E'", "'e'", "'mult'", "'sum'", "'divide'", "'concat'", "'equal'", "'notequal'", "'smaller'", "'greater'", "'or'", "'and'", "'string'", "'integer'", "'floats'", "'sets'", "'DateTime'", "'Null'", "'bool'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'BinaryOperationExpression'", "'{'", "'operation'", "'left'", "'right'", "'}'", "'parameterExpression'", "'StringConstantExpression'", "'value'", "'BooleanConstantExpression'", "'IntegerConstantExpression'", "'InExpression'", "'statement'", "'constantSet'", "'('", "','", "')'", "'ParseExpression'", "'outputType'", "'expression'", "'FloatConstantExpression'", "'-'", "'.'", "'E'", "'e'", "'mult'", "'sum'", "'divide'", "'concat'", "'string'", "'integer'", "'floats'", "'sets'", "'DateTime'", "'Null'", "'bool'"
     };
-    public static final int T__50=50;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
@@ -34,8 +33,6 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
-    public static final int T__51=51;
-    public static final int T__52=52;
     public static final int RULE_ID=5;
     public static final int T__26=26;
     public static final int T__27=27;
@@ -64,12 +61,9 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
     public static final int T__32=32;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
-    public static final int T__48=48;
-    public static final int T__49=49;
     public static final int T__44=44;
     public static final int T__45=45;
     public static final int T__46=46;
-    public static final int T__47=47;
     public static final int T__40=40;
     public static final int T__41=41;
     public static final int T__42=42;
@@ -1759,7 +1753,7 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBinaryFunction"
-    // InternalTQL.g:712:1: ruleBinaryFunction returns [Enumerator current=null] : ( (enumLiteral_0= 'mult' ) | (enumLiteral_1= 'sum' ) | (enumLiteral_2= 'divide' ) | (enumLiteral_3= 'concat' ) | (enumLiteral_4= 'equal' ) | (enumLiteral_5= 'notequal' ) | (enumLiteral_6= 'smaller' ) | (enumLiteral_7= 'greater' ) | (enumLiteral_8= 'or' ) | (enumLiteral_9= 'and' ) ) ;
+    // InternalTQL.g:712:1: ruleBinaryFunction returns [Enumerator current=null] : ( (enumLiteral_0= 'mult' ) | (enumLiteral_1= 'sum' ) | (enumLiteral_2= 'divide' ) | (enumLiteral_3= 'concat' ) ) ;
     public final Enumerator ruleBinaryFunction() throws RecognitionException {
         Enumerator current = null;
 
@@ -1767,22 +1761,16 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
         Token enumLiteral_1=null;
         Token enumLiteral_2=null;
         Token enumLiteral_3=null;
-        Token enumLiteral_4=null;
-        Token enumLiteral_5=null;
-        Token enumLiteral_6=null;
-        Token enumLiteral_7=null;
-        Token enumLiteral_8=null;
-        Token enumLiteral_9=null;
 
 
         	enterRule();
 
         try {
-            // InternalTQL.g:718:2: ( ( (enumLiteral_0= 'mult' ) | (enumLiteral_1= 'sum' ) | (enumLiteral_2= 'divide' ) | (enumLiteral_3= 'concat' ) | (enumLiteral_4= 'equal' ) | (enumLiteral_5= 'notequal' ) | (enumLiteral_6= 'smaller' ) | (enumLiteral_7= 'greater' ) | (enumLiteral_8= 'or' ) | (enumLiteral_9= 'and' ) ) )
-            // InternalTQL.g:719:2: ( (enumLiteral_0= 'mult' ) | (enumLiteral_1= 'sum' ) | (enumLiteral_2= 'divide' ) | (enumLiteral_3= 'concat' ) | (enumLiteral_4= 'equal' ) | (enumLiteral_5= 'notequal' ) | (enumLiteral_6= 'smaller' ) | (enumLiteral_7= 'greater' ) | (enumLiteral_8= 'or' ) | (enumLiteral_9= 'and' ) )
+            // InternalTQL.g:718:2: ( ( (enumLiteral_0= 'mult' ) | (enumLiteral_1= 'sum' ) | (enumLiteral_2= 'divide' ) | (enumLiteral_3= 'concat' ) ) )
+            // InternalTQL.g:719:2: ( (enumLiteral_0= 'mult' ) | (enumLiteral_1= 'sum' ) | (enumLiteral_2= 'divide' ) | (enumLiteral_3= 'concat' ) )
             {
-            // InternalTQL.g:719:2: ( (enumLiteral_0= 'mult' ) | (enumLiteral_1= 'sum' ) | (enumLiteral_2= 'divide' ) | (enumLiteral_3= 'concat' ) | (enumLiteral_4= 'equal' ) | (enumLiteral_5= 'notequal' ) | (enumLiteral_6= 'smaller' ) | (enumLiteral_7= 'greater' ) | (enumLiteral_8= 'or' ) | (enumLiteral_9= 'and' ) )
-            int alt12=10;
+            // InternalTQL.g:719:2: ( (enumLiteral_0= 'mult' ) | (enumLiteral_1= 'sum' ) | (enumLiteral_2= 'divide' ) | (enumLiteral_3= 'concat' ) )
+            int alt12=4;
             switch ( input.LA(1) ) {
             case 36:
                 {
@@ -1802,36 +1790,6 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
             case 39:
                 {
                 alt12=4;
-                }
-                break;
-            case 40:
-                {
-                alt12=5;
-                }
-                break;
-            case 41:
-                {
-                alt12=6;
-                }
-                break;
-            case 42:
-                {
-                alt12=7;
-                }
-                break;
-            case 43:
-                {
-                alt12=8;
-                }
-                break;
-            case 44:
-                {
-                alt12=9;
-                }
-                break;
-            case 45:
-                {
-                alt12=10;
                 }
                 break;
             default:
@@ -1910,108 +1868,6 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 5 :
-                    // InternalTQL.g:752:3: (enumLiteral_4= 'equal' )
-                    {
-                    // InternalTQL.g:752:3: (enumLiteral_4= 'equal' )
-                    // InternalTQL.g:753:4: enumLiteral_4= 'equal'
-                    {
-                    enumLiteral_4=(Token)match(input,40,FOLLOW_2); 
-
-                    				current = grammarAccess.getBinaryFunctionAccess().getEqualEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_4, grammarAccess.getBinaryFunctionAccess().getEqualEnumLiteralDeclaration_4());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 6 :
-                    // InternalTQL.g:760:3: (enumLiteral_5= 'notequal' )
-                    {
-                    // InternalTQL.g:760:3: (enumLiteral_5= 'notequal' )
-                    // InternalTQL.g:761:4: enumLiteral_5= 'notequal'
-                    {
-                    enumLiteral_5=(Token)match(input,41,FOLLOW_2); 
-
-                    				current = grammarAccess.getBinaryFunctionAccess().getNotequalEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_5, grammarAccess.getBinaryFunctionAccess().getNotequalEnumLiteralDeclaration_5());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 7 :
-                    // InternalTQL.g:768:3: (enumLiteral_6= 'smaller' )
-                    {
-                    // InternalTQL.g:768:3: (enumLiteral_6= 'smaller' )
-                    // InternalTQL.g:769:4: enumLiteral_6= 'smaller'
-                    {
-                    enumLiteral_6=(Token)match(input,42,FOLLOW_2); 
-
-                    				current = grammarAccess.getBinaryFunctionAccess().getSmallerEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_6, grammarAccess.getBinaryFunctionAccess().getSmallerEnumLiteralDeclaration_6());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 8 :
-                    // InternalTQL.g:776:3: (enumLiteral_7= 'greater' )
-                    {
-                    // InternalTQL.g:776:3: (enumLiteral_7= 'greater' )
-                    // InternalTQL.g:777:4: enumLiteral_7= 'greater'
-                    {
-                    enumLiteral_7=(Token)match(input,43,FOLLOW_2); 
-
-                    				current = grammarAccess.getBinaryFunctionAccess().getGreaterEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_7, grammarAccess.getBinaryFunctionAccess().getGreaterEnumLiteralDeclaration_7());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 9 :
-                    // InternalTQL.g:784:3: (enumLiteral_8= 'or' )
-                    {
-                    // InternalTQL.g:784:3: (enumLiteral_8= 'or' )
-                    // InternalTQL.g:785:4: enumLiteral_8= 'or'
-                    {
-                    enumLiteral_8=(Token)match(input,44,FOLLOW_2); 
-
-                    				current = grammarAccess.getBinaryFunctionAccess().getOrEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_8, grammarAccess.getBinaryFunctionAccess().getOrEnumLiteralDeclaration_8());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 10 :
-                    // InternalTQL.g:792:3: (enumLiteral_9= 'and' )
-                    {
-                    // InternalTQL.g:792:3: (enumLiteral_9= 'and' )
-                    // InternalTQL.g:793:4: enumLiteral_9= 'and'
-                    {
-                    enumLiteral_9=(Token)match(input,45,FOLLOW_2); 
-
-                    				current = grammarAccess.getBinaryFunctionAccess().getAndEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_9, grammarAccess.getBinaryFunctionAccess().getAndEnumLiteralDeclaration_9());
-                    			
-
-                    }
-
-
-                    }
-                    break;
 
             }
 
@@ -2035,7 +1891,7 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleType"
-    // InternalTQL.g:803:1: ruleType returns [Enumerator current=null] : ( (enumLiteral_0= 'string' ) | (enumLiteral_1= 'integer' ) | (enumLiteral_2= 'floats' ) | (enumLiteral_3= 'sets' ) | (enumLiteral_4= 'DateTime' ) | (enumLiteral_5= 'Null' ) | (enumLiteral_6= 'bool' ) ) ;
+    // InternalTQL.g:755:1: ruleType returns [Enumerator current=null] : ( (enumLiteral_0= 'string' ) | (enumLiteral_1= 'integer' ) | (enumLiteral_2= 'floats' ) | (enumLiteral_3= 'sets' ) | (enumLiteral_4= 'DateTime' ) | (enumLiteral_5= 'Null' ) | (enumLiteral_6= 'bool' ) ) ;
     public final Enumerator ruleType() throws RecognitionException {
         Enumerator current = null;
 
@@ -2051,43 +1907,43 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalTQL.g:809:2: ( ( (enumLiteral_0= 'string' ) | (enumLiteral_1= 'integer' ) | (enumLiteral_2= 'floats' ) | (enumLiteral_3= 'sets' ) | (enumLiteral_4= 'DateTime' ) | (enumLiteral_5= 'Null' ) | (enumLiteral_6= 'bool' ) ) )
-            // InternalTQL.g:810:2: ( (enumLiteral_0= 'string' ) | (enumLiteral_1= 'integer' ) | (enumLiteral_2= 'floats' ) | (enumLiteral_3= 'sets' ) | (enumLiteral_4= 'DateTime' ) | (enumLiteral_5= 'Null' ) | (enumLiteral_6= 'bool' ) )
+            // InternalTQL.g:761:2: ( ( (enumLiteral_0= 'string' ) | (enumLiteral_1= 'integer' ) | (enumLiteral_2= 'floats' ) | (enumLiteral_3= 'sets' ) | (enumLiteral_4= 'DateTime' ) | (enumLiteral_5= 'Null' ) | (enumLiteral_6= 'bool' ) ) )
+            // InternalTQL.g:762:2: ( (enumLiteral_0= 'string' ) | (enumLiteral_1= 'integer' ) | (enumLiteral_2= 'floats' ) | (enumLiteral_3= 'sets' ) | (enumLiteral_4= 'DateTime' ) | (enumLiteral_5= 'Null' ) | (enumLiteral_6= 'bool' ) )
             {
-            // InternalTQL.g:810:2: ( (enumLiteral_0= 'string' ) | (enumLiteral_1= 'integer' ) | (enumLiteral_2= 'floats' ) | (enumLiteral_3= 'sets' ) | (enumLiteral_4= 'DateTime' ) | (enumLiteral_5= 'Null' ) | (enumLiteral_6= 'bool' ) )
+            // InternalTQL.g:762:2: ( (enumLiteral_0= 'string' ) | (enumLiteral_1= 'integer' ) | (enumLiteral_2= 'floats' ) | (enumLiteral_3= 'sets' ) | (enumLiteral_4= 'DateTime' ) | (enumLiteral_5= 'Null' ) | (enumLiteral_6= 'bool' ) )
             int alt13=7;
             switch ( input.LA(1) ) {
-            case 46:
+            case 40:
                 {
                 alt13=1;
                 }
                 break;
-            case 47:
+            case 41:
                 {
                 alt13=2;
                 }
                 break;
-            case 48:
+            case 42:
                 {
                 alt13=3;
                 }
                 break;
-            case 49:
+            case 43:
                 {
                 alt13=4;
                 }
                 break;
-            case 50:
+            case 44:
                 {
                 alt13=5;
                 }
                 break;
-            case 51:
+            case 45:
                 {
                 alt13=6;
                 }
                 break;
-            case 52:
+            case 46:
                 {
                 alt13=7;
                 }
@@ -2101,12 +1957,12 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
 
             switch (alt13) {
                 case 1 :
-                    // InternalTQL.g:811:3: (enumLiteral_0= 'string' )
+                    // InternalTQL.g:763:3: (enumLiteral_0= 'string' )
                     {
-                    // InternalTQL.g:811:3: (enumLiteral_0= 'string' )
-                    // InternalTQL.g:812:4: enumLiteral_0= 'string'
+                    // InternalTQL.g:763:3: (enumLiteral_0= 'string' )
+                    // InternalTQL.g:764:4: enumLiteral_0= 'string'
                     {
-                    enumLiteral_0=(Token)match(input,46,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,40,FOLLOW_2); 
 
                     				current = grammarAccess.getTypeAccess().getStringEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getTypeAccess().getStringEnumLiteralDeclaration_0());
@@ -2118,12 +1974,12 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalTQL.g:819:3: (enumLiteral_1= 'integer' )
+                    // InternalTQL.g:771:3: (enumLiteral_1= 'integer' )
                     {
-                    // InternalTQL.g:819:3: (enumLiteral_1= 'integer' )
-                    // InternalTQL.g:820:4: enumLiteral_1= 'integer'
+                    // InternalTQL.g:771:3: (enumLiteral_1= 'integer' )
+                    // InternalTQL.g:772:4: enumLiteral_1= 'integer'
                     {
-                    enumLiteral_1=(Token)match(input,47,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,41,FOLLOW_2); 
 
                     				current = grammarAccess.getTypeAccess().getIntegerEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getTypeAccess().getIntegerEnumLiteralDeclaration_1());
@@ -2135,12 +1991,12 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalTQL.g:827:3: (enumLiteral_2= 'floats' )
+                    // InternalTQL.g:779:3: (enumLiteral_2= 'floats' )
                     {
-                    // InternalTQL.g:827:3: (enumLiteral_2= 'floats' )
-                    // InternalTQL.g:828:4: enumLiteral_2= 'floats'
+                    // InternalTQL.g:779:3: (enumLiteral_2= 'floats' )
+                    // InternalTQL.g:780:4: enumLiteral_2= 'floats'
                     {
-                    enumLiteral_2=(Token)match(input,48,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,42,FOLLOW_2); 
 
                     				current = grammarAccess.getTypeAccess().getFloatsEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getTypeAccess().getFloatsEnumLiteralDeclaration_2());
@@ -2152,12 +2008,12 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalTQL.g:835:3: (enumLiteral_3= 'sets' )
+                    // InternalTQL.g:787:3: (enumLiteral_3= 'sets' )
                     {
-                    // InternalTQL.g:835:3: (enumLiteral_3= 'sets' )
-                    // InternalTQL.g:836:4: enumLiteral_3= 'sets'
+                    // InternalTQL.g:787:3: (enumLiteral_3= 'sets' )
+                    // InternalTQL.g:788:4: enumLiteral_3= 'sets'
                     {
-                    enumLiteral_3=(Token)match(input,49,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,43,FOLLOW_2); 
 
                     				current = grammarAccess.getTypeAccess().getSetsEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getTypeAccess().getSetsEnumLiteralDeclaration_3());
@@ -2169,12 +2025,12 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalTQL.g:843:3: (enumLiteral_4= 'DateTime' )
+                    // InternalTQL.g:795:3: (enumLiteral_4= 'DateTime' )
                     {
-                    // InternalTQL.g:843:3: (enumLiteral_4= 'DateTime' )
-                    // InternalTQL.g:844:4: enumLiteral_4= 'DateTime'
+                    // InternalTQL.g:795:3: (enumLiteral_4= 'DateTime' )
+                    // InternalTQL.g:796:4: enumLiteral_4= 'DateTime'
                     {
-                    enumLiteral_4=(Token)match(input,50,FOLLOW_2); 
+                    enumLiteral_4=(Token)match(input,44,FOLLOW_2); 
 
                     				current = grammarAccess.getTypeAccess().getDateTimeEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_4, grammarAccess.getTypeAccess().getDateTimeEnumLiteralDeclaration_4());
@@ -2186,12 +2042,12 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalTQL.g:851:3: (enumLiteral_5= 'Null' )
+                    // InternalTQL.g:803:3: (enumLiteral_5= 'Null' )
                     {
-                    // InternalTQL.g:851:3: (enumLiteral_5= 'Null' )
-                    // InternalTQL.g:852:4: enumLiteral_5= 'Null'
+                    // InternalTQL.g:803:3: (enumLiteral_5= 'Null' )
+                    // InternalTQL.g:804:4: enumLiteral_5= 'Null'
                     {
-                    enumLiteral_5=(Token)match(input,51,FOLLOW_2); 
+                    enumLiteral_5=(Token)match(input,45,FOLLOW_2); 
 
                     				current = grammarAccess.getTypeAccess().getNullEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_5, grammarAccess.getTypeAccess().getNullEnumLiteralDeclaration_5());
@@ -2203,12 +2059,12 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalTQL.g:859:3: (enumLiteral_6= 'bool' )
+                    // InternalTQL.g:811:3: (enumLiteral_6= 'bool' )
                     {
-                    // InternalTQL.g:859:3: (enumLiteral_6= 'bool' )
-                    // InternalTQL.g:860:4: enumLiteral_6= 'bool'
+                    // InternalTQL.g:811:3: (enumLiteral_6= 'bool' )
+                    // InternalTQL.g:812:4: enumLiteral_6= 'bool'
                     {
-                    enumLiteral_6=(Token)match(input,52,FOLLOW_2); 
+                    enumLiteral_6=(Token)match(input,46,FOLLOW_2); 
 
                     				current = grammarAccess.getTypeAccess().getBoolEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_6, grammarAccess.getTypeAccess().getBoolEnumLiteralDeclaration_6());
@@ -2249,7 +2105,7 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000006000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x00003FF000000000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x000000F000000000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000030L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000008000L});
@@ -2262,7 +2118,7 @@ public class InternalTQLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x000000000C000000L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000060000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x001FC00000000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x00007F0000000000L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000040000000L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000300000040L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000000040L});

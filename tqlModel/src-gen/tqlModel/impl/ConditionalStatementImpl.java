@@ -2,7 +2,12 @@
  */
 package tqlModel.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -10,6 +15,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import tqlModel.BooleanOperationExpression;
 import tqlModel.ConditionalStatement;
 import tqlModel.Expression;
 import tqlModel.Statement;
@@ -26,6 +35,7 @@ import tqlModel.TqlModelPackage;
  *   <li>{@link tqlModel.impl.ConditionalStatementImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link tqlModel.impl.ConditionalStatementImpl#getIfBody <em>If Body</em>}</li>
  *   <li>{@link tqlModel.impl.ConditionalStatementImpl#getElseBody <em>Else Body</em>}</li>
+ *   <li>{@link tqlModel.impl.ConditionalStatementImpl#getBooleanoperationexpression <em>Booleanoperationexpression</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,24 +52,34 @@ public class ConditionalStatementImpl extends MinimalEObjectImpl.Container imple
 	protected Expression condition;
 
 	/**
-	 * The cached value of the '{@link #getIfBody() <em>If Body</em>}' reference.
+	 * The cached value of the '{@link #getIfBody() <em>If Body</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIfBody()
 	 * @generated
 	 * @ordered
 	 */
-	protected Statement ifBody;
+	protected EList<Statement> ifBody;
 
 	/**
-	 * The cached value of the '{@link #getElseBody() <em>Else Body</em>}' reference.
+	 * The cached value of the '{@link #getElseBody() <em>Else Body</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getElseBody()
 	 * @generated
 	 * @ordered
 	 */
-	protected Statement elseBody;
+	protected EList<Statement> elseBody;
+
+	/**
+	 * The cached value of the '{@link #getBooleanoperationexpression() <em>Booleanoperationexpression</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBooleanoperationexpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected BooleanOperationExpression booleanoperationexpression;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -125,15 +145,10 @@ public class ConditionalStatementImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Statement getIfBody() {
-		if (ifBody != null && ifBody.eIsProxy()) {
-			InternalEObject oldIfBody = (InternalEObject) ifBody;
-			ifBody = (Statement) eResolveProxy(oldIfBody);
-			if (ifBody != oldIfBody) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							TqlModelPackage.CONDITIONAL_STATEMENT__IF_BODY, oldIfBody, ifBody));
-			}
+	public EList<Statement> getIfBody() {
+		if (ifBody == null) {
+			ifBody = new EObjectContainmentEList<Statement>(Statement.class, this,
+					TqlModelPackage.CONDITIONAL_STATEMENT__IF_BODY);
 		}
 		return ifBody;
 	}
@@ -143,37 +158,10 @@ public class ConditionalStatementImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Statement basicGetIfBody() {
-		return ifBody;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIfBody(Statement newIfBody) {
-		Statement oldIfBody = ifBody;
-		ifBody = newIfBody;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TqlModelPackage.CONDITIONAL_STATEMENT__IF_BODY,
-					oldIfBody, ifBody));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Statement getElseBody() {
-		if (elseBody != null && elseBody.eIsProxy()) {
-			InternalEObject oldElseBody = (InternalEObject) elseBody;
-			elseBody = (Statement) eResolveProxy(oldElseBody);
-			if (elseBody != oldElseBody) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							TqlModelPackage.CONDITIONAL_STATEMENT__ELSE_BODY, oldElseBody, elseBody));
-			}
+	public EList<Statement> getElseBody() {
+		if (elseBody == null) {
+			elseBody = new EObjectContainmentEList<Statement>(Statement.class, this,
+					TqlModelPackage.CONDITIONAL_STATEMENT__ELSE_BODY);
 		}
 		return elseBody;
 	}
@@ -183,8 +171,18 @@ public class ConditionalStatementImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Statement basicGetElseBody() {
-		return elseBody;
+	public BooleanOperationExpression getBooleanoperationexpression() {
+		if (booleanoperationexpression != null && booleanoperationexpression.eIsProxy()) {
+			InternalEObject oldBooleanoperationexpression = (InternalEObject) booleanoperationexpression;
+			booleanoperationexpression = (BooleanOperationExpression) eResolveProxy(oldBooleanoperationexpression);
+			if (booleanoperationexpression != oldBooleanoperationexpression) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							TqlModelPackage.CONDITIONAL_STATEMENT__BOOLEANOPERATIONEXPRESSION,
+							oldBooleanoperationexpression, booleanoperationexpression));
+			}
+		}
+		return booleanoperationexpression;
 	}
 
 	/**
@@ -192,12 +190,38 @@ public class ConditionalStatementImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setElseBody(Statement newElseBody) {
-		Statement oldElseBody = elseBody;
-		elseBody = newElseBody;
+	public BooleanOperationExpression basicGetBooleanoperationexpression() {
+		return booleanoperationexpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBooleanoperationexpression(BooleanOperationExpression newBooleanoperationexpression) {
+		BooleanOperationExpression oldBooleanoperationexpression = booleanoperationexpression;
+		booleanoperationexpression = newBooleanoperationexpression;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TqlModelPackage.CONDITIONAL_STATEMENT__ELSE_BODY,
-					oldElseBody, elseBody));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					TqlModelPackage.CONDITIONAL_STATEMENT__BOOLEANOPERATIONEXPRESSION, oldBooleanoperationexpression,
+					booleanoperationexpression));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case TqlModelPackage.CONDITIONAL_STATEMENT__IF_BODY:
+			return ((InternalEList<?>) getIfBody()).basicRemove(otherEnd, msgs);
+		case TqlModelPackage.CONDITIONAL_STATEMENT__ELSE_BODY:
+			return ((InternalEList<?>) getElseBody()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -213,13 +237,13 @@ public class ConditionalStatementImpl extends MinimalEObjectImpl.Container imple
 				return getCondition();
 			return basicGetCondition();
 		case TqlModelPackage.CONDITIONAL_STATEMENT__IF_BODY:
-			if (resolve)
-				return getIfBody();
-			return basicGetIfBody();
+			return getIfBody();
 		case TqlModelPackage.CONDITIONAL_STATEMENT__ELSE_BODY:
+			return getElseBody();
+		case TqlModelPackage.CONDITIONAL_STATEMENT__BOOLEANOPERATIONEXPRESSION:
 			if (resolve)
-				return getElseBody();
-			return basicGetElseBody();
+				return getBooleanoperationexpression();
+			return basicGetBooleanoperationexpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -229,6 +253,7 @@ public class ConditionalStatementImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -236,10 +261,15 @@ public class ConditionalStatementImpl extends MinimalEObjectImpl.Container imple
 			setCondition((Expression) newValue);
 			return;
 		case TqlModelPackage.CONDITIONAL_STATEMENT__IF_BODY:
-			setIfBody((Statement) newValue);
+			getIfBody().clear();
+			getIfBody().addAll((Collection<? extends Statement>) newValue);
 			return;
 		case TqlModelPackage.CONDITIONAL_STATEMENT__ELSE_BODY:
-			setElseBody((Statement) newValue);
+			getElseBody().clear();
+			getElseBody().addAll((Collection<? extends Statement>) newValue);
+			return;
+		case TqlModelPackage.CONDITIONAL_STATEMENT__BOOLEANOPERATIONEXPRESSION:
+			setBooleanoperationexpression((BooleanOperationExpression) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -257,10 +287,13 @@ public class ConditionalStatementImpl extends MinimalEObjectImpl.Container imple
 			setCondition((Expression) null);
 			return;
 		case TqlModelPackage.CONDITIONAL_STATEMENT__IF_BODY:
-			setIfBody((Statement) null);
+			getIfBody().clear();
 			return;
 		case TqlModelPackage.CONDITIONAL_STATEMENT__ELSE_BODY:
-			setElseBody((Statement) null);
+			getElseBody().clear();
+			return;
+		case TqlModelPackage.CONDITIONAL_STATEMENT__BOOLEANOPERATIONEXPRESSION:
+			setBooleanoperationexpression((BooleanOperationExpression) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -277,9 +310,11 @@ public class ConditionalStatementImpl extends MinimalEObjectImpl.Container imple
 		case TqlModelPackage.CONDITIONAL_STATEMENT__CONDITION:
 			return condition != null;
 		case TqlModelPackage.CONDITIONAL_STATEMENT__IF_BODY:
-			return ifBody != null;
+			return ifBody != null && !ifBody.isEmpty();
 		case TqlModelPackage.CONDITIONAL_STATEMENT__ELSE_BODY:
-			return elseBody != null;
+			return elseBody != null && !elseBody.isEmpty();
+		case TqlModelPackage.CONDITIONAL_STATEMENT__BOOLEANOPERATIONEXPRESSION:
+			return booleanoperationexpression != null;
 		}
 		return super.eIsSet(featureID);
 	}

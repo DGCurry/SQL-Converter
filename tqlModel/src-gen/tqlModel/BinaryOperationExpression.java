@@ -11,8 +11,6 @@ package tqlModel;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link tqlModel.BinaryOperationExpression#getLeft <em>Left</em>}</li>
- *   <li>{@link tqlModel.BinaryOperationExpression#getRight <em>Right</em>}</li>
  *   <li>{@link tqlModel.BinaryOperationExpression#getOperation <em>Operation</em>}</li>
  * </ul>
  *
@@ -20,51 +18,7 @@ package tqlModel;
  * @model
  * @generated
  */
-public interface BinaryOperationExpression extends Expression {
-	/**
-	 * Returns the value of the '<em><b>Left</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Left</em>' reference.
-	 * @see #setLeft(Expression)
-	 * @see tqlModel.TqlModelPackage#getBinaryOperationExpression_Left()
-	 * @model required="true"
-	 * @generated
-	 */
-	Expression getLeft();
-
-	/**
-	 * Sets the value of the '{@link tqlModel.BinaryOperationExpression#getLeft <em>Left</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Left</em>' reference.
-	 * @see #getLeft()
-	 * @generated
-	 */
-	void setLeft(Expression value);
-
-	/**
-	 * Returns the value of the '<em><b>Right</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Right</em>' reference.
-	 * @see #setRight(Expression)
-	 * @see tqlModel.TqlModelPackage#getBinaryOperationExpression_Right()
-	 * @model required="true"
-	 * @generated
-	 */
-	Expression getRight();
-
-	/**
-	 * Sets the value of the '{@link tqlModel.BinaryOperationExpression#getRight <em>Right</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Right</em>' reference.
-	 * @see #getRight()
-	 * @generated
-	 */
-	void setRight(Expression value);
-
+public interface BinaryOperationExpression extends OperationExpression {
 	/**
 	 * Returns the value of the '<em><b>Operation</b></em>' attribute.
 	 * The literals are from the enumeration {@link tqlModel.BinaryFunction}.

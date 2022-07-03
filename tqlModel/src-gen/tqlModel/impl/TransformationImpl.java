@@ -5,6 +5,7 @@ package tqlModel.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -14,10 +15,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
+import tqlModel.Expression;
 import tqlModel.Parameter;
-import tqlModel.Statement;
 import tqlModel.TqlModelPackage;
 import tqlModel.Transformation;
 import tqlModel.Type;
@@ -30,24 +32,16 @@ import tqlModel.Type;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link tqlModel.impl.TransformationImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link tqlModel.impl.TransformationImpl#getReturnType <em>Return Type</em>}</li>
+ *   <li>{@link tqlModel.impl.TransformationImpl#getSelfType <em>Self Type</em>}</li>
+ *   <li>{@link tqlModel.impl.TransformationImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link tqlModel.impl.TransformationImpl#getReturnStatement <em>Return Statement</em>}</li>
+ *   <li>{@link tqlModel.impl.TransformationImpl#getParameter <em>Parameter</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TransformationImpl extends MinimalEObjectImpl.Container implements Transformation {
-	/**
-	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParameters()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Parameter> parameters;
-
 	/**
 	 * The default value of the '{@link #getReturnType() <em>Return Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -69,14 +63,64 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
 	protected Type returnType = RETURN_TYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getReturnStatement() <em>Return Statement</em>}' reference.
+	 * The default value of the '{@link #getSelfType() <em>Self Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelfType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Type SELF_TYPE_EDEFAULT = Type.STRING;
+
+	/**
+	 * The cached value of the '{@link #getSelfType() <em>Self Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelfType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type selfType = SELF_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LABEL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected String label = LABEL_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getReturnStatement() <em>Return Statement</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getReturnStatement()
 	 * @generated
 	 * @ordered
 	 */
-	protected Statement returnStatement;
+	protected EList<Expression> returnStatement;
+
+	/**
+	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameter()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Parameter> parameter;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,19 +139,6 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	protected EClass eStaticClass() {
 		return TqlModelPackage.Literals.TRANSFORMATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Parameter> getParameters() {
-		if (parameters == null) {
-			parameters = new EObjectResolvingEList<Parameter>(Parameter.class, this,
-					TqlModelPackage.TRANSFORMATION__PARAMETERS);
-		}
-		return parameters;
 	}
 
 	/**
@@ -137,15 +168,54 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Statement getReturnStatement() {
-		if (returnStatement != null && returnStatement.eIsProxy()) {
-			InternalEObject oldReturnStatement = (InternalEObject) returnStatement;
-			returnStatement = (Statement) eResolveProxy(oldReturnStatement);
-			if (returnStatement != oldReturnStatement) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							TqlModelPackage.TRANSFORMATION__RETURN_STATEMENT, oldReturnStatement, returnStatement));
-			}
+	public Type getSelfType() {
+		return selfType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSelfType(Type newSelfType) {
+		Type oldSelfType = selfType;
+		selfType = newSelfType == null ? SELF_TYPE_EDEFAULT : newSelfType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TqlModelPackage.TRANSFORMATION__SELF_TYPE,
+					oldSelfType, selfType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getLabel() {
+		return label;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLabel(String newLabel) {
+		String oldLabel = label;
+		label = newLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TqlModelPackage.TRANSFORMATION__LABEL, oldLabel,
+					label));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Expression> getReturnStatement() {
+		if (returnStatement == null) {
+			returnStatement = new EObjectContainmentEList<Expression>(Expression.class, this,
+					TqlModelPackage.TRANSFORMATION__RETURN_STATEMENT);
 		}
 		return returnStatement;
 	}
@@ -155,8 +225,12 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Statement basicGetReturnStatement() {
-		return returnStatement;
+	public EList<Parameter> getParameter() {
+		if (parameter == null) {
+			parameter = new EObjectContainmentEList<Parameter>(Parameter.class, this,
+					TqlModelPackage.TRANSFORMATION__PARAMETER);
+		}
+		return parameter;
 	}
 
 	/**
@@ -164,12 +238,15 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReturnStatement(Statement newReturnStatement) {
-		Statement oldReturnStatement = returnStatement;
-		returnStatement = newReturnStatement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TqlModelPackage.TRANSFORMATION__RETURN_STATEMENT,
-					oldReturnStatement, returnStatement));
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case TqlModelPackage.TRANSFORMATION__RETURN_STATEMENT:
+			return ((InternalEList<?>) getReturnStatement()).basicRemove(otherEnd, msgs);
+		case TqlModelPackage.TRANSFORMATION__PARAMETER:
+			return ((InternalEList<?>) getParameter()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -180,14 +257,16 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TqlModelPackage.TRANSFORMATION__PARAMETERS:
-			return getParameters();
 		case TqlModelPackage.TRANSFORMATION__RETURN_TYPE:
 			return getReturnType();
+		case TqlModelPackage.TRANSFORMATION__SELF_TYPE:
+			return getSelfType();
+		case TqlModelPackage.TRANSFORMATION__LABEL:
+			return getLabel();
 		case TqlModelPackage.TRANSFORMATION__RETURN_STATEMENT:
-			if (resolve)
-				return getReturnStatement();
-			return basicGetReturnStatement();
+			return getReturnStatement();
+		case TqlModelPackage.TRANSFORMATION__PARAMETER:
+			return getParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -201,15 +280,22 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TqlModelPackage.TRANSFORMATION__PARAMETERS:
-			getParameters().clear();
-			getParameters().addAll((Collection<? extends Parameter>) newValue);
-			return;
 		case TqlModelPackage.TRANSFORMATION__RETURN_TYPE:
 			setReturnType((Type) newValue);
 			return;
+		case TqlModelPackage.TRANSFORMATION__SELF_TYPE:
+			setSelfType((Type) newValue);
+			return;
+		case TqlModelPackage.TRANSFORMATION__LABEL:
+			setLabel((String) newValue);
+			return;
 		case TqlModelPackage.TRANSFORMATION__RETURN_STATEMENT:
-			setReturnStatement((Statement) newValue);
+			getReturnStatement().clear();
+			getReturnStatement().addAll((Collection<? extends Expression>) newValue);
+			return;
+		case TqlModelPackage.TRANSFORMATION__PARAMETER:
+			getParameter().clear();
+			getParameter().addAll((Collection<? extends Parameter>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -223,14 +309,20 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TqlModelPackage.TRANSFORMATION__PARAMETERS:
-			getParameters().clear();
-			return;
 		case TqlModelPackage.TRANSFORMATION__RETURN_TYPE:
 			setReturnType(RETURN_TYPE_EDEFAULT);
 			return;
+		case TqlModelPackage.TRANSFORMATION__SELF_TYPE:
+			setSelfType(SELF_TYPE_EDEFAULT);
+			return;
+		case TqlModelPackage.TRANSFORMATION__LABEL:
+			setLabel(LABEL_EDEFAULT);
+			return;
 		case TqlModelPackage.TRANSFORMATION__RETURN_STATEMENT:
-			setReturnStatement((Statement) null);
+			getReturnStatement().clear();
+			return;
+		case TqlModelPackage.TRANSFORMATION__PARAMETER:
+			getParameter().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -244,12 +336,16 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TqlModelPackage.TRANSFORMATION__PARAMETERS:
-			return parameters != null && !parameters.isEmpty();
 		case TqlModelPackage.TRANSFORMATION__RETURN_TYPE:
 			return returnType != RETURN_TYPE_EDEFAULT;
+		case TqlModelPackage.TRANSFORMATION__SELF_TYPE:
+			return selfType != SELF_TYPE_EDEFAULT;
+		case TqlModelPackage.TRANSFORMATION__LABEL:
+			return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 		case TqlModelPackage.TRANSFORMATION__RETURN_STATEMENT:
-			return returnStatement != null;
+			return returnStatement != null && !returnStatement.isEmpty();
+		case TqlModelPackage.TRANSFORMATION__PARAMETER:
+			return parameter != null && !parameter.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -267,6 +363,10 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (returnType: ");
 		result.append(returnType);
+		result.append(", selfType: ");
+		result.append(selfType);
+		result.append(", label: ");
+		result.append(label);
 		result.append(')');
 		return result.toString();
 	}

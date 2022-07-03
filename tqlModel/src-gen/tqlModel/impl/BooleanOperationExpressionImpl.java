@@ -8,24 +8,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import tqlModel.BinaryFunction;
-import tqlModel.BinaryOperationExpression;
+import tqlModel.BooleanFunction;
+import tqlModel.BooleanOperationExpression;
 import tqlModel.TqlModelPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Binary Operation Expression</b></em>'.
+ * An implementation of the model object '<em><b>Boolean Operation Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link tqlModel.impl.BinaryOperationExpressionImpl#getOperation <em>Operation</em>}</li>
+ *   <li>{@link tqlModel.impl.BooleanOperationExpressionImpl#getOperation <em>Operation</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class BinaryOperationExpressionImpl extends OperationExpressionImpl implements BinaryOperationExpression {
+public class BooleanOperationExpressionImpl extends OperationExpressionImpl implements BooleanOperationExpression {
 	/**
 	 * The default value of the '{@link #getOperation() <em>Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -34,7 +34,7 @@ public class BinaryOperationExpressionImpl extends OperationExpressionImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected static final BinaryFunction OPERATION_EDEFAULT = BinaryFunction.MULT;
+	protected static final BooleanFunction OPERATION_EDEFAULT = BooleanFunction.EQUAL;
 
 	/**
 	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' attribute.
@@ -44,14 +44,14 @@ public class BinaryOperationExpressionImpl extends OperationExpressionImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected BinaryFunction operation = OPERATION_EDEFAULT;
+	protected BooleanFunction operation = OPERATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BinaryOperationExpressionImpl() {
+	protected BooleanOperationExpressionImpl() {
 		super();
 	}
 
@@ -62,7 +62,7 @@ public class BinaryOperationExpressionImpl extends OperationExpressionImpl imple
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return TqlModelPackage.Literals.BINARY_OPERATION_EXPRESSION;
+		return TqlModelPackage.Literals.BOOLEAN_OPERATION_EXPRESSION;
 	}
 
 	/**
@@ -70,7 +70,7 @@ public class BinaryOperationExpressionImpl extends OperationExpressionImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BinaryFunction getOperation() {
+	public BooleanFunction getOperation() {
 		return operation;
 	}
 
@@ -79,12 +79,12 @@ public class BinaryOperationExpressionImpl extends OperationExpressionImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOperation(BinaryFunction newOperation) {
-		BinaryFunction oldOperation = operation;
+	public void setOperation(BooleanFunction newOperation) {
+		BooleanFunction oldOperation = operation;
 		operation = newOperation == null ? OPERATION_EDEFAULT : newOperation;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					TqlModelPackage.BINARY_OPERATION_EXPRESSION__OPERATION, oldOperation, operation));
+					TqlModelPackage.BOOLEAN_OPERATION_EXPRESSION__OPERATION, oldOperation, operation));
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class BinaryOperationExpressionImpl extends OperationExpressionImpl imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TqlModelPackage.BINARY_OPERATION_EXPRESSION__OPERATION:
+		case TqlModelPackage.BOOLEAN_OPERATION_EXPRESSION__OPERATION:
 			return getOperation();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -109,8 +109,8 @@ public class BinaryOperationExpressionImpl extends OperationExpressionImpl imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TqlModelPackage.BINARY_OPERATION_EXPRESSION__OPERATION:
-			setOperation((BinaryFunction) newValue);
+		case TqlModelPackage.BOOLEAN_OPERATION_EXPRESSION__OPERATION:
+			setOperation((BooleanFunction) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -124,7 +124,7 @@ public class BinaryOperationExpressionImpl extends OperationExpressionImpl imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TqlModelPackage.BINARY_OPERATION_EXPRESSION__OPERATION:
+		case TqlModelPackage.BOOLEAN_OPERATION_EXPRESSION__OPERATION:
 			setOperation(OPERATION_EDEFAULT);
 			return;
 		}
@@ -139,7 +139,7 @@ public class BinaryOperationExpressionImpl extends OperationExpressionImpl imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TqlModelPackage.BINARY_OPERATION_EXPRESSION__OPERATION:
+		case TqlModelPackage.BOOLEAN_OPERATION_EXPRESSION__OPERATION:
 			return operation != OPERATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -162,4 +162,4 @@ public class BinaryOperationExpressionImpl extends OperationExpressionImpl imple
 		return result.toString();
 	}
 
-} //BinaryOperationExpressionImpl
+} //BooleanOperationExpressionImpl

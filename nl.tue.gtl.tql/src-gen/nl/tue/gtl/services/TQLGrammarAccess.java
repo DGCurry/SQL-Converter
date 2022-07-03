@@ -183,6 +183,7 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Action cParameterExpressionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cParameterExpressionKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
+		// //| equal = 'equal' | notequal = 'notequal' | smaller = 'smaller' | greater = 'greater' | or = 'or' | and = 'and';
 		//parameterExpression returns parameterExpression:
 		//    {parameterExpression}
 		//    'parameterExpression'
@@ -626,24 +627,12 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cDivideDivideKeyword_2_0 = (Keyword)cDivideEnumLiteralDeclaration_2.eContents().get(0);
 		private final EnumLiteralDeclaration cConcatEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
 		private final Keyword cConcatConcatKeyword_3_0 = (Keyword)cConcatEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cEqualEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cEqualEqualKeyword_4_0 = (Keyword)cEqualEnumLiteralDeclaration_4.eContents().get(0);
-		private final EnumLiteralDeclaration cNotequalEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
-		private final Keyword cNotequalNotequalKeyword_5_0 = (Keyword)cNotequalEnumLiteralDeclaration_5.eContents().get(0);
-		private final EnumLiteralDeclaration cSmallerEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
-		private final Keyword cSmallerSmallerKeyword_6_0 = (Keyword)cSmallerEnumLiteralDeclaration_6.eContents().get(0);
-		private final EnumLiteralDeclaration cGreaterEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
-		private final Keyword cGreaterGreaterKeyword_7_0 = (Keyword)cGreaterEnumLiteralDeclaration_7.eContents().get(0);
-		private final EnumLiteralDeclaration cOrEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
-		private final Keyword cOrOrKeyword_8_0 = (Keyword)cOrEnumLiteralDeclaration_8.eContents().get(0);
-		private final EnumLiteralDeclaration cAndEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
-		private final Keyword cAndAndKeyword_9_0 = (Keyword)cAndEnumLiteralDeclaration_9.eContents().get(0);
 		
 		//enum BinaryFunction returns BinaryFunction:
-		//                mult = 'mult' | sum = 'sum' | divide = 'divide' | concat = 'concat' | equal = 'equal' | notequal = 'notequal' | smaller = 'smaller' | greater = 'greater' | or = 'or' | and = 'and';
+		//                mult = 'mult' | sum = 'sum' | divide = 'divide' | concat = 'concat';
 		public EnumRule getRule() { return rule; }
 		
-		//mult = 'mult' | sum = 'sum' | divide = 'divide' | concat = 'concat' | equal = 'equal' | notequal = 'notequal' | smaller = 'smaller' | greater = 'greater' | or = 'or' | and = 'and'
+		//mult = 'mult' | sum = 'sum' | divide = 'divide' | concat = 'concat'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//mult = 'mult'
@@ -669,42 +658,6 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//'concat'
 		public Keyword getConcatConcatKeyword_3_0() { return cConcatConcatKeyword_3_0; }
-		
-		//equal = 'equal'
-		public EnumLiteralDeclaration getEqualEnumLiteralDeclaration_4() { return cEqualEnumLiteralDeclaration_4; }
-		
-		//'equal'
-		public Keyword getEqualEqualKeyword_4_0() { return cEqualEqualKeyword_4_0; }
-		
-		//notequal = 'notequal'
-		public EnumLiteralDeclaration getNotequalEnumLiteralDeclaration_5() { return cNotequalEnumLiteralDeclaration_5; }
-		
-		//'notequal'
-		public Keyword getNotequalNotequalKeyword_5_0() { return cNotequalNotequalKeyword_5_0; }
-		
-		//smaller = 'smaller'
-		public EnumLiteralDeclaration getSmallerEnumLiteralDeclaration_6() { return cSmallerEnumLiteralDeclaration_6; }
-		
-		//'smaller'
-		public Keyword getSmallerSmallerKeyword_6_0() { return cSmallerSmallerKeyword_6_0; }
-		
-		//greater = 'greater'
-		public EnumLiteralDeclaration getGreaterEnumLiteralDeclaration_7() { return cGreaterEnumLiteralDeclaration_7; }
-		
-		//'greater'
-		public Keyword getGreaterGreaterKeyword_7_0() { return cGreaterGreaterKeyword_7_0; }
-		
-		//or = 'or'
-		public EnumLiteralDeclaration getOrEnumLiteralDeclaration_8() { return cOrEnumLiteralDeclaration_8; }
-		
-		//'or'
-		public Keyword getOrOrKeyword_8_0() { return cOrOrKeyword_8_0; }
-		
-		//and = 'and'
-		public EnumLiteralDeclaration getAndEnumLiteralDeclaration_9() { return cAndEnumLiteralDeclaration_9; }
-		
-		//'and'
-		public Keyword getAndAndKeyword_9_0() { return cAndAndKeyword_9_0; }
 	}
 	public class TypeElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Type");
@@ -881,7 +834,7 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//enum BinaryFunction returns BinaryFunction:
-	//                mult = 'mult' | sum = 'sum' | divide = 'divide' | concat = 'concat' | equal = 'equal' | notequal = 'notequal' | smaller = 'smaller' | greater = 'greater' | or = 'or' | and = 'and';
+	//                mult = 'mult' | sum = 'sum' | divide = 'divide' | concat = 'concat';
 	public BinaryFunctionElements getBinaryFunctionAccess() {
 		return eBinaryFunction;
 	}
@@ -890,6 +843,7 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getBinaryFunctionAccess().getRule();
 	}
 	
+	// //| equal = 'equal' | notequal = 'notequal' | smaller = 'smaller' | greater = 'greater' | or = 'or' | and = 'and';
 	//parameterExpression returns parameterExpression:
 	//    {parameterExpression}
 	//    'parameterExpression'

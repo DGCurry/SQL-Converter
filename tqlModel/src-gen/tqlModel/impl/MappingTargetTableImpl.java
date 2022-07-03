@@ -4,23 +4,23 @@ package tqlModel.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import tqlModel.Target;
+import tqlModel.MappingTargetTable;
 import tqlModel.TqlModelPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Target</b></em>'.
+ * An implementation of the model object '<em><b>Mapping Target Table</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class TargetImpl extends TableImpl implements Target {
+public class MappingTargetTableImpl extends TableImpl implements MappingTargetTable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TargetImpl() {
+	protected MappingTargetTableImpl() {
 		super();
 	}
 
@@ -31,7 +31,7 @@ public class TargetImpl extends TableImpl implements Target {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return TqlModelPackage.Literals.TARGET;
+		return TqlModelPackage.Literals.MAPPING_TARGET_TABLE;
 	}
 
-} //TargetImpl
+} //MappingTargetTableImpl

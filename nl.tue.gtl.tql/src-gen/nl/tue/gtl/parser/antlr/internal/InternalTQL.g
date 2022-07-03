@@ -748,54 +748,6 @@ ruleBinaryFunction returns [Enumerator current=null]
 				newLeafNode(enumLiteral_3, grammarAccess.getBinaryFunctionAccess().getConcatEnumLiteralDeclaration_3());
 			}
 		)
-		    |
-		(
-			enumLiteral_4='equal'
-			{
-				$current = grammarAccess.getBinaryFunctionAccess().getEqualEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_4, grammarAccess.getBinaryFunctionAccess().getEqualEnumLiteralDeclaration_4());
-			}
-		)
-		    |
-		(
-			enumLiteral_5='notequal'
-			{
-				$current = grammarAccess.getBinaryFunctionAccess().getNotequalEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_5, grammarAccess.getBinaryFunctionAccess().getNotequalEnumLiteralDeclaration_5());
-			}
-		)
-		    |
-		(
-			enumLiteral_6='smaller'
-			{
-				$current = grammarAccess.getBinaryFunctionAccess().getSmallerEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_6, grammarAccess.getBinaryFunctionAccess().getSmallerEnumLiteralDeclaration_6());
-			}
-		)
-		    |
-		(
-			enumLiteral_7='greater'
-			{
-				$current = grammarAccess.getBinaryFunctionAccess().getGreaterEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_7, grammarAccess.getBinaryFunctionAccess().getGreaterEnumLiteralDeclaration_7());
-			}
-		)
-		    |
-		(
-			enumLiteral_8='or'
-			{
-				$current = grammarAccess.getBinaryFunctionAccess().getOrEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_8, grammarAccess.getBinaryFunctionAccess().getOrEnumLiteralDeclaration_8());
-			}
-		)
-		    |
-		(
-			enumLiteral_9='and'
-			{
-				$current = grammarAccess.getBinaryFunctionAccess().getAndEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_9, grammarAccess.getBinaryFunctionAccess().getAndEnumLiteralDeclaration_9());
-			}
-		)
 	)
 ;
 

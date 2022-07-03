@@ -22,9 +22,8 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalTQLParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'E'", "'e'", "'mult'", "'sum'", "'divide'", "'concat'", "'equal'", "'notequal'", "'smaller'", "'greater'", "'or'", "'and'", "'string'", "'integer'", "'floats'", "'sets'", "'DateTime'", "'Null'", "'bool'", "'BinaryOperationExpression'", "'{'", "'left'", "'right'", "'}'", "'operation'", "'parameterExpression'", "'StringConstantExpression'", "'value'", "'BooleanConstantExpression'", "'IntegerConstantExpression'", "'InExpression'", "'constantSet'", "'('", "')'", "'statement'", "','", "'ParseExpression'", "'expression'", "'outputType'", "'FloatConstantExpression'", "'-'", "'.'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'E'", "'e'", "'mult'", "'sum'", "'divide'", "'concat'", "'string'", "'integer'", "'floats'", "'sets'", "'DateTime'", "'Null'", "'bool'", "'BinaryOperationExpression'", "'{'", "'left'", "'right'", "'}'", "'operation'", "'parameterExpression'", "'StringConstantExpression'", "'value'", "'BooleanConstantExpression'", "'IntegerConstantExpression'", "'InExpression'", "'constantSet'", "'('", "')'", "'statement'", "','", "'ParseExpression'", "'expression'", "'outputType'", "'FloatConstantExpression'", "'-'", "'.'"
     };
-    public static final int T__50=50;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
@@ -34,8 +33,6 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
-    public static final int T__51=51;
-    public static final int T__52=52;
     public static final int RULE_ID=5;
     public static final int T__26=26;
     public static final int T__27=27;
@@ -64,12 +61,9 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
     public static final int T__32=32;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
-    public static final int T__48=48;
-    public static final int T__49=49;
     public static final int T__44=44;
     public static final int T__45=45;
     public static final int T__46=46;
-    public static final int T__47=47;
     public static final int T__40=40;
     public static final int T__41=41;
     public static final int T__42=42;
@@ -1194,14 +1188,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryFunction__Alternatives"
-    // InternalTQL.g:401:1: rule__BinaryFunction__Alternatives : ( ( ( 'mult' ) ) | ( ( 'sum' ) ) | ( ( 'divide' ) ) | ( ( 'concat' ) ) | ( ( 'equal' ) ) | ( ( 'notequal' ) ) | ( ( 'smaller' ) ) | ( ( 'greater' ) ) | ( ( 'or' ) ) | ( ( 'and' ) ) );
+    // InternalTQL.g:401:1: rule__BinaryFunction__Alternatives : ( ( ( 'mult' ) ) | ( ( 'sum' ) ) | ( ( 'divide' ) ) | ( ( 'concat' ) ) );
     public final void rule__BinaryFunction__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:405:1: ( ( ( 'mult' ) ) | ( ( 'sum' ) ) | ( ( 'divide' ) ) | ( ( 'concat' ) ) | ( ( 'equal' ) ) | ( ( 'notequal' ) ) | ( ( 'smaller' ) ) | ( ( 'greater' ) ) | ( ( 'or' ) ) | ( ( 'and' ) ) )
-            int alt3=10;
+            // InternalTQL.g:405:1: ( ( ( 'mult' ) ) | ( ( 'sum' ) ) | ( ( 'divide' ) ) | ( ( 'concat' ) ) )
+            int alt3=4;
             switch ( input.LA(1) ) {
             case 13:
                 {
@@ -1221,36 +1215,6 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
             case 16:
                 {
                 alt3=4;
-                }
-                break;
-            case 17:
-                {
-                alt3=5;
-                }
-                break;
-            case 18:
-                {
-                alt3=6;
-                }
-                break;
-            case 19:
-                {
-                alt3=7;
-                }
-                break;
-            case 20:
-                {
-                alt3=8;
-                }
-                break;
-            case 21:
-                {
-                alt3=9;
-                }
-                break;
-            case 22:
-                {
-                alt3=10;
                 }
                 break;
             default:
@@ -1345,132 +1309,6 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
                     }
                     break;
-                case 5 :
-                    // InternalTQL.g:430:2: ( ( 'equal' ) )
-                    {
-                    // InternalTQL.g:430:2: ( ( 'equal' ) )
-                    // InternalTQL.g:431:3: ( 'equal' )
-                    {
-                     before(grammarAccess.getBinaryFunctionAccess().getEqualEnumLiteralDeclaration_4()); 
-                    // InternalTQL.g:432:3: ( 'equal' )
-                    // InternalTQL.g:432:4: 'equal'
-                    {
-                    match(input,17,FOLLOW_2); 
-
-                    }
-
-                     after(grammarAccess.getBinaryFunctionAccess().getEqualEnumLiteralDeclaration_4()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 6 :
-                    // InternalTQL.g:436:2: ( ( 'notequal' ) )
-                    {
-                    // InternalTQL.g:436:2: ( ( 'notequal' ) )
-                    // InternalTQL.g:437:3: ( 'notequal' )
-                    {
-                     before(grammarAccess.getBinaryFunctionAccess().getNotequalEnumLiteralDeclaration_5()); 
-                    // InternalTQL.g:438:3: ( 'notequal' )
-                    // InternalTQL.g:438:4: 'notequal'
-                    {
-                    match(input,18,FOLLOW_2); 
-
-                    }
-
-                     after(grammarAccess.getBinaryFunctionAccess().getNotequalEnumLiteralDeclaration_5()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 7 :
-                    // InternalTQL.g:442:2: ( ( 'smaller' ) )
-                    {
-                    // InternalTQL.g:442:2: ( ( 'smaller' ) )
-                    // InternalTQL.g:443:3: ( 'smaller' )
-                    {
-                     before(grammarAccess.getBinaryFunctionAccess().getSmallerEnumLiteralDeclaration_6()); 
-                    // InternalTQL.g:444:3: ( 'smaller' )
-                    // InternalTQL.g:444:4: 'smaller'
-                    {
-                    match(input,19,FOLLOW_2); 
-
-                    }
-
-                     after(grammarAccess.getBinaryFunctionAccess().getSmallerEnumLiteralDeclaration_6()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 8 :
-                    // InternalTQL.g:448:2: ( ( 'greater' ) )
-                    {
-                    // InternalTQL.g:448:2: ( ( 'greater' ) )
-                    // InternalTQL.g:449:3: ( 'greater' )
-                    {
-                     before(grammarAccess.getBinaryFunctionAccess().getGreaterEnumLiteralDeclaration_7()); 
-                    // InternalTQL.g:450:3: ( 'greater' )
-                    // InternalTQL.g:450:4: 'greater'
-                    {
-                    match(input,20,FOLLOW_2); 
-
-                    }
-
-                     after(grammarAccess.getBinaryFunctionAccess().getGreaterEnumLiteralDeclaration_7()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 9 :
-                    // InternalTQL.g:454:2: ( ( 'or' ) )
-                    {
-                    // InternalTQL.g:454:2: ( ( 'or' ) )
-                    // InternalTQL.g:455:3: ( 'or' )
-                    {
-                     before(grammarAccess.getBinaryFunctionAccess().getOrEnumLiteralDeclaration_8()); 
-                    // InternalTQL.g:456:3: ( 'or' )
-                    // InternalTQL.g:456:4: 'or'
-                    {
-                    match(input,21,FOLLOW_2); 
-
-                    }
-
-                     after(grammarAccess.getBinaryFunctionAccess().getOrEnumLiteralDeclaration_8()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 10 :
-                    // InternalTQL.g:460:2: ( ( 'and' ) )
-                    {
-                    // InternalTQL.g:460:2: ( ( 'and' ) )
-                    // InternalTQL.g:461:3: ( 'and' )
-                    {
-                     before(grammarAccess.getBinaryFunctionAccess().getAndEnumLiteralDeclaration_9()); 
-                    // InternalTQL.g:462:3: ( 'and' )
-                    // InternalTQL.g:462:4: 'and'
-                    {
-                    match(input,22,FOLLOW_2); 
-
-                    }
-
-                     after(grammarAccess.getBinaryFunctionAccess().getAndEnumLiteralDeclaration_9()); 
-
-                    }
-
-
-                    }
-                    break;
 
             }
         }
@@ -1489,46 +1327,46 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Type__Alternatives"
-    // InternalTQL.g:470:1: rule__Type__Alternatives : ( ( ( 'string' ) ) | ( ( 'integer' ) ) | ( ( 'floats' ) ) | ( ( 'sets' ) ) | ( ( 'DateTime' ) ) | ( ( 'Null' ) ) | ( ( 'bool' ) ) );
+    // InternalTQL.g:434:1: rule__Type__Alternatives : ( ( ( 'string' ) ) | ( ( 'integer' ) ) | ( ( 'floats' ) ) | ( ( 'sets' ) ) | ( ( 'DateTime' ) ) | ( ( 'Null' ) ) | ( ( 'bool' ) ) );
     public final void rule__Type__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:474:1: ( ( ( 'string' ) ) | ( ( 'integer' ) ) | ( ( 'floats' ) ) | ( ( 'sets' ) ) | ( ( 'DateTime' ) ) | ( ( 'Null' ) ) | ( ( 'bool' ) ) )
+            // InternalTQL.g:438:1: ( ( ( 'string' ) ) | ( ( 'integer' ) ) | ( ( 'floats' ) ) | ( ( 'sets' ) ) | ( ( 'DateTime' ) ) | ( ( 'Null' ) ) | ( ( 'bool' ) ) )
             int alt4=7;
             switch ( input.LA(1) ) {
-            case 23:
+            case 17:
                 {
                 alt4=1;
                 }
                 break;
-            case 24:
+            case 18:
                 {
                 alt4=2;
                 }
                 break;
-            case 25:
+            case 19:
                 {
                 alt4=3;
                 }
                 break;
-            case 26:
+            case 20:
                 {
                 alt4=4;
                 }
                 break;
-            case 27:
+            case 21:
                 {
                 alt4=5;
                 }
                 break;
-            case 28:
+            case 22:
                 {
                 alt4=6;
                 }
                 break;
-            case 29:
+            case 23:
                 {
                 alt4=7;
                 }
@@ -1542,16 +1380,16 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
             switch (alt4) {
                 case 1 :
-                    // InternalTQL.g:475:2: ( ( 'string' ) )
+                    // InternalTQL.g:439:2: ( ( 'string' ) )
                     {
-                    // InternalTQL.g:475:2: ( ( 'string' ) )
-                    // InternalTQL.g:476:3: ( 'string' )
+                    // InternalTQL.g:439:2: ( ( 'string' ) )
+                    // InternalTQL.g:440:3: ( 'string' )
                     {
                      before(grammarAccess.getTypeAccess().getStringEnumLiteralDeclaration_0()); 
-                    // InternalTQL.g:477:3: ( 'string' )
-                    // InternalTQL.g:477:4: 'string'
+                    // InternalTQL.g:441:3: ( 'string' )
+                    // InternalTQL.g:441:4: 'string'
                     {
-                    match(input,23,FOLLOW_2); 
+                    match(input,17,FOLLOW_2); 
 
                     }
 
@@ -1563,16 +1401,16 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalTQL.g:481:2: ( ( 'integer' ) )
+                    // InternalTQL.g:445:2: ( ( 'integer' ) )
                     {
-                    // InternalTQL.g:481:2: ( ( 'integer' ) )
-                    // InternalTQL.g:482:3: ( 'integer' )
+                    // InternalTQL.g:445:2: ( ( 'integer' ) )
+                    // InternalTQL.g:446:3: ( 'integer' )
                     {
                      before(grammarAccess.getTypeAccess().getIntegerEnumLiteralDeclaration_1()); 
-                    // InternalTQL.g:483:3: ( 'integer' )
-                    // InternalTQL.g:483:4: 'integer'
+                    // InternalTQL.g:447:3: ( 'integer' )
+                    // InternalTQL.g:447:4: 'integer'
                     {
-                    match(input,24,FOLLOW_2); 
+                    match(input,18,FOLLOW_2); 
 
                     }
 
@@ -1584,16 +1422,16 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalTQL.g:487:2: ( ( 'floats' ) )
+                    // InternalTQL.g:451:2: ( ( 'floats' ) )
                     {
-                    // InternalTQL.g:487:2: ( ( 'floats' ) )
-                    // InternalTQL.g:488:3: ( 'floats' )
+                    // InternalTQL.g:451:2: ( ( 'floats' ) )
+                    // InternalTQL.g:452:3: ( 'floats' )
                     {
                      before(grammarAccess.getTypeAccess().getFloatsEnumLiteralDeclaration_2()); 
-                    // InternalTQL.g:489:3: ( 'floats' )
-                    // InternalTQL.g:489:4: 'floats'
+                    // InternalTQL.g:453:3: ( 'floats' )
+                    // InternalTQL.g:453:4: 'floats'
                     {
-                    match(input,25,FOLLOW_2); 
+                    match(input,19,FOLLOW_2); 
 
                     }
 
@@ -1605,16 +1443,16 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalTQL.g:493:2: ( ( 'sets' ) )
+                    // InternalTQL.g:457:2: ( ( 'sets' ) )
                     {
-                    // InternalTQL.g:493:2: ( ( 'sets' ) )
-                    // InternalTQL.g:494:3: ( 'sets' )
+                    // InternalTQL.g:457:2: ( ( 'sets' ) )
+                    // InternalTQL.g:458:3: ( 'sets' )
                     {
                      before(grammarAccess.getTypeAccess().getSetsEnumLiteralDeclaration_3()); 
-                    // InternalTQL.g:495:3: ( 'sets' )
-                    // InternalTQL.g:495:4: 'sets'
+                    // InternalTQL.g:459:3: ( 'sets' )
+                    // InternalTQL.g:459:4: 'sets'
                     {
-                    match(input,26,FOLLOW_2); 
+                    match(input,20,FOLLOW_2); 
 
                     }
 
@@ -1626,16 +1464,16 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalTQL.g:499:2: ( ( 'DateTime' ) )
+                    // InternalTQL.g:463:2: ( ( 'DateTime' ) )
                     {
-                    // InternalTQL.g:499:2: ( ( 'DateTime' ) )
-                    // InternalTQL.g:500:3: ( 'DateTime' )
+                    // InternalTQL.g:463:2: ( ( 'DateTime' ) )
+                    // InternalTQL.g:464:3: ( 'DateTime' )
                     {
                      before(grammarAccess.getTypeAccess().getDateTimeEnumLiteralDeclaration_4()); 
-                    // InternalTQL.g:501:3: ( 'DateTime' )
-                    // InternalTQL.g:501:4: 'DateTime'
+                    // InternalTQL.g:465:3: ( 'DateTime' )
+                    // InternalTQL.g:465:4: 'DateTime'
                     {
-                    match(input,27,FOLLOW_2); 
+                    match(input,21,FOLLOW_2); 
 
                     }
 
@@ -1647,16 +1485,16 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 6 :
-                    // InternalTQL.g:505:2: ( ( 'Null' ) )
+                    // InternalTQL.g:469:2: ( ( 'Null' ) )
                     {
-                    // InternalTQL.g:505:2: ( ( 'Null' ) )
-                    // InternalTQL.g:506:3: ( 'Null' )
+                    // InternalTQL.g:469:2: ( ( 'Null' ) )
+                    // InternalTQL.g:470:3: ( 'Null' )
                     {
                      before(grammarAccess.getTypeAccess().getNullEnumLiteralDeclaration_5()); 
-                    // InternalTQL.g:507:3: ( 'Null' )
-                    // InternalTQL.g:507:4: 'Null'
+                    // InternalTQL.g:471:3: ( 'Null' )
+                    // InternalTQL.g:471:4: 'Null'
                     {
-                    match(input,28,FOLLOW_2); 
+                    match(input,22,FOLLOW_2); 
 
                     }
 
@@ -1668,16 +1506,16 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 7 :
-                    // InternalTQL.g:511:2: ( ( 'bool' ) )
+                    // InternalTQL.g:475:2: ( ( 'bool' ) )
                     {
-                    // InternalTQL.g:511:2: ( ( 'bool' ) )
-                    // InternalTQL.g:512:3: ( 'bool' )
+                    // InternalTQL.g:475:2: ( ( 'bool' ) )
+                    // InternalTQL.g:476:3: ( 'bool' )
                     {
                      before(grammarAccess.getTypeAccess().getBoolEnumLiteralDeclaration_6()); 
-                    // InternalTQL.g:513:3: ( 'bool' )
-                    // InternalTQL.g:513:4: 'bool'
+                    // InternalTQL.g:477:3: ( 'bool' )
+                    // InternalTQL.g:477:4: 'bool'
                     {
-                    match(input,29,FOLLOW_2); 
+                    match(input,23,FOLLOW_2); 
 
                     }
 
@@ -1706,14 +1544,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group__0"
-    // InternalTQL.g:521:1: rule__BinaryOperationExpression__Group__0 : rule__BinaryOperationExpression__Group__0__Impl rule__BinaryOperationExpression__Group__1 ;
+    // InternalTQL.g:485:1: rule__BinaryOperationExpression__Group__0 : rule__BinaryOperationExpression__Group__0__Impl rule__BinaryOperationExpression__Group__1 ;
     public final void rule__BinaryOperationExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:525:1: ( rule__BinaryOperationExpression__Group__0__Impl rule__BinaryOperationExpression__Group__1 )
-            // InternalTQL.g:526:2: rule__BinaryOperationExpression__Group__0__Impl rule__BinaryOperationExpression__Group__1
+            // InternalTQL.g:489:1: ( rule__BinaryOperationExpression__Group__0__Impl rule__BinaryOperationExpression__Group__1 )
+            // InternalTQL.g:490:2: rule__BinaryOperationExpression__Group__0__Impl rule__BinaryOperationExpression__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__BinaryOperationExpression__Group__0__Impl();
@@ -1744,20 +1582,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group__0__Impl"
-    // InternalTQL.g:533:1: rule__BinaryOperationExpression__Group__0__Impl : ( 'BinaryOperationExpression' ) ;
+    // InternalTQL.g:497:1: rule__BinaryOperationExpression__Group__0__Impl : ( 'BinaryOperationExpression' ) ;
     public final void rule__BinaryOperationExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:537:1: ( ( 'BinaryOperationExpression' ) )
-            // InternalTQL.g:538:1: ( 'BinaryOperationExpression' )
+            // InternalTQL.g:501:1: ( ( 'BinaryOperationExpression' ) )
+            // InternalTQL.g:502:1: ( 'BinaryOperationExpression' )
             {
-            // InternalTQL.g:538:1: ( 'BinaryOperationExpression' )
-            // InternalTQL.g:539:2: 'BinaryOperationExpression'
+            // InternalTQL.g:502:1: ( 'BinaryOperationExpression' )
+            // InternalTQL.g:503:2: 'BinaryOperationExpression'
             {
              before(grammarAccess.getBinaryOperationExpressionAccess().getBinaryOperationExpressionKeyword_0()); 
-            match(input,30,FOLLOW_2); 
+            match(input,24,FOLLOW_2); 
              after(grammarAccess.getBinaryOperationExpressionAccess().getBinaryOperationExpressionKeyword_0()); 
 
             }
@@ -1781,14 +1619,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group__1"
-    // InternalTQL.g:548:1: rule__BinaryOperationExpression__Group__1 : rule__BinaryOperationExpression__Group__1__Impl rule__BinaryOperationExpression__Group__2 ;
+    // InternalTQL.g:512:1: rule__BinaryOperationExpression__Group__1 : rule__BinaryOperationExpression__Group__1__Impl rule__BinaryOperationExpression__Group__2 ;
     public final void rule__BinaryOperationExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:552:1: ( rule__BinaryOperationExpression__Group__1__Impl rule__BinaryOperationExpression__Group__2 )
-            // InternalTQL.g:553:2: rule__BinaryOperationExpression__Group__1__Impl rule__BinaryOperationExpression__Group__2
+            // InternalTQL.g:516:1: ( rule__BinaryOperationExpression__Group__1__Impl rule__BinaryOperationExpression__Group__2 )
+            // InternalTQL.g:517:2: rule__BinaryOperationExpression__Group__1__Impl rule__BinaryOperationExpression__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__BinaryOperationExpression__Group__1__Impl();
@@ -1819,20 +1657,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group__1__Impl"
-    // InternalTQL.g:560:1: rule__BinaryOperationExpression__Group__1__Impl : ( '{' ) ;
+    // InternalTQL.g:524:1: rule__BinaryOperationExpression__Group__1__Impl : ( '{' ) ;
     public final void rule__BinaryOperationExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:564:1: ( ( '{' ) )
-            // InternalTQL.g:565:1: ( '{' )
+            // InternalTQL.g:528:1: ( ( '{' ) )
+            // InternalTQL.g:529:1: ( '{' )
             {
-            // InternalTQL.g:565:1: ( '{' )
-            // InternalTQL.g:566:2: '{'
+            // InternalTQL.g:529:1: ( '{' )
+            // InternalTQL.g:530:2: '{'
             {
              before(grammarAccess.getBinaryOperationExpressionAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,31,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getBinaryOperationExpressionAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -1856,14 +1694,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group__2"
-    // InternalTQL.g:575:1: rule__BinaryOperationExpression__Group__2 : rule__BinaryOperationExpression__Group__2__Impl rule__BinaryOperationExpression__Group__3 ;
+    // InternalTQL.g:539:1: rule__BinaryOperationExpression__Group__2 : rule__BinaryOperationExpression__Group__2__Impl rule__BinaryOperationExpression__Group__3 ;
     public final void rule__BinaryOperationExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:579:1: ( rule__BinaryOperationExpression__Group__2__Impl rule__BinaryOperationExpression__Group__3 )
-            // InternalTQL.g:580:2: rule__BinaryOperationExpression__Group__2__Impl rule__BinaryOperationExpression__Group__3
+            // InternalTQL.g:543:1: ( rule__BinaryOperationExpression__Group__2__Impl rule__BinaryOperationExpression__Group__3 )
+            // InternalTQL.g:544:2: rule__BinaryOperationExpression__Group__2__Impl rule__BinaryOperationExpression__Group__3
             {
             pushFollow(FOLLOW_4);
             rule__BinaryOperationExpression__Group__2__Impl();
@@ -1894,29 +1732,29 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group__2__Impl"
-    // InternalTQL.g:587:1: rule__BinaryOperationExpression__Group__2__Impl : ( ( rule__BinaryOperationExpression__Group_2__0 )? ) ;
+    // InternalTQL.g:551:1: rule__BinaryOperationExpression__Group__2__Impl : ( ( rule__BinaryOperationExpression__Group_2__0 )? ) ;
     public final void rule__BinaryOperationExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:591:1: ( ( ( rule__BinaryOperationExpression__Group_2__0 )? ) )
-            // InternalTQL.g:592:1: ( ( rule__BinaryOperationExpression__Group_2__0 )? )
+            // InternalTQL.g:555:1: ( ( ( rule__BinaryOperationExpression__Group_2__0 )? ) )
+            // InternalTQL.g:556:1: ( ( rule__BinaryOperationExpression__Group_2__0 )? )
             {
-            // InternalTQL.g:592:1: ( ( rule__BinaryOperationExpression__Group_2__0 )? )
-            // InternalTQL.g:593:2: ( rule__BinaryOperationExpression__Group_2__0 )?
+            // InternalTQL.g:556:1: ( ( rule__BinaryOperationExpression__Group_2__0 )? )
+            // InternalTQL.g:557:2: ( rule__BinaryOperationExpression__Group_2__0 )?
             {
              before(grammarAccess.getBinaryOperationExpressionAccess().getGroup_2()); 
-            // InternalTQL.g:594:2: ( rule__BinaryOperationExpression__Group_2__0 )?
+            // InternalTQL.g:558:2: ( rule__BinaryOperationExpression__Group_2__0 )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==35) ) {
+            if ( (LA5_0==29) ) {
                 alt5=1;
             }
             switch (alt5) {
                 case 1 :
-                    // InternalTQL.g:594:3: rule__BinaryOperationExpression__Group_2__0
+                    // InternalTQL.g:558:3: rule__BinaryOperationExpression__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__BinaryOperationExpression__Group_2__0();
@@ -1952,14 +1790,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group__3"
-    // InternalTQL.g:602:1: rule__BinaryOperationExpression__Group__3 : rule__BinaryOperationExpression__Group__3__Impl rule__BinaryOperationExpression__Group__4 ;
+    // InternalTQL.g:566:1: rule__BinaryOperationExpression__Group__3 : rule__BinaryOperationExpression__Group__3__Impl rule__BinaryOperationExpression__Group__4 ;
     public final void rule__BinaryOperationExpression__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:606:1: ( rule__BinaryOperationExpression__Group__3__Impl rule__BinaryOperationExpression__Group__4 )
-            // InternalTQL.g:607:2: rule__BinaryOperationExpression__Group__3__Impl rule__BinaryOperationExpression__Group__4
+            // InternalTQL.g:570:1: ( rule__BinaryOperationExpression__Group__3__Impl rule__BinaryOperationExpression__Group__4 )
+            // InternalTQL.g:571:2: rule__BinaryOperationExpression__Group__3__Impl rule__BinaryOperationExpression__Group__4
             {
             pushFollow(FOLLOW_5);
             rule__BinaryOperationExpression__Group__3__Impl();
@@ -1990,20 +1828,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group__3__Impl"
-    // InternalTQL.g:614:1: rule__BinaryOperationExpression__Group__3__Impl : ( 'left' ) ;
+    // InternalTQL.g:578:1: rule__BinaryOperationExpression__Group__3__Impl : ( 'left' ) ;
     public final void rule__BinaryOperationExpression__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:618:1: ( ( 'left' ) )
-            // InternalTQL.g:619:1: ( 'left' )
+            // InternalTQL.g:582:1: ( ( 'left' ) )
+            // InternalTQL.g:583:1: ( 'left' )
             {
-            // InternalTQL.g:619:1: ( 'left' )
-            // InternalTQL.g:620:2: 'left'
+            // InternalTQL.g:583:1: ( 'left' )
+            // InternalTQL.g:584:2: 'left'
             {
              before(grammarAccess.getBinaryOperationExpressionAccess().getLeftKeyword_3()); 
-            match(input,32,FOLLOW_2); 
+            match(input,26,FOLLOW_2); 
              after(grammarAccess.getBinaryOperationExpressionAccess().getLeftKeyword_3()); 
 
             }
@@ -2027,14 +1865,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group__4"
-    // InternalTQL.g:629:1: rule__BinaryOperationExpression__Group__4 : rule__BinaryOperationExpression__Group__4__Impl rule__BinaryOperationExpression__Group__5 ;
+    // InternalTQL.g:593:1: rule__BinaryOperationExpression__Group__4 : rule__BinaryOperationExpression__Group__4__Impl rule__BinaryOperationExpression__Group__5 ;
     public final void rule__BinaryOperationExpression__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:633:1: ( rule__BinaryOperationExpression__Group__4__Impl rule__BinaryOperationExpression__Group__5 )
-            // InternalTQL.g:634:2: rule__BinaryOperationExpression__Group__4__Impl rule__BinaryOperationExpression__Group__5
+            // InternalTQL.g:597:1: ( rule__BinaryOperationExpression__Group__4__Impl rule__BinaryOperationExpression__Group__5 )
+            // InternalTQL.g:598:2: rule__BinaryOperationExpression__Group__4__Impl rule__BinaryOperationExpression__Group__5
             {
             pushFollow(FOLLOW_6);
             rule__BinaryOperationExpression__Group__4__Impl();
@@ -2065,21 +1903,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group__4__Impl"
-    // InternalTQL.g:641:1: rule__BinaryOperationExpression__Group__4__Impl : ( ( rule__BinaryOperationExpression__LeftAssignment_4 ) ) ;
+    // InternalTQL.g:605:1: rule__BinaryOperationExpression__Group__4__Impl : ( ( rule__BinaryOperationExpression__LeftAssignment_4 ) ) ;
     public final void rule__BinaryOperationExpression__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:645:1: ( ( ( rule__BinaryOperationExpression__LeftAssignment_4 ) ) )
-            // InternalTQL.g:646:1: ( ( rule__BinaryOperationExpression__LeftAssignment_4 ) )
+            // InternalTQL.g:609:1: ( ( ( rule__BinaryOperationExpression__LeftAssignment_4 ) ) )
+            // InternalTQL.g:610:1: ( ( rule__BinaryOperationExpression__LeftAssignment_4 ) )
             {
-            // InternalTQL.g:646:1: ( ( rule__BinaryOperationExpression__LeftAssignment_4 ) )
-            // InternalTQL.g:647:2: ( rule__BinaryOperationExpression__LeftAssignment_4 )
+            // InternalTQL.g:610:1: ( ( rule__BinaryOperationExpression__LeftAssignment_4 ) )
+            // InternalTQL.g:611:2: ( rule__BinaryOperationExpression__LeftAssignment_4 )
             {
              before(grammarAccess.getBinaryOperationExpressionAccess().getLeftAssignment_4()); 
-            // InternalTQL.g:648:2: ( rule__BinaryOperationExpression__LeftAssignment_4 )
-            // InternalTQL.g:648:3: rule__BinaryOperationExpression__LeftAssignment_4
+            // InternalTQL.g:612:2: ( rule__BinaryOperationExpression__LeftAssignment_4 )
+            // InternalTQL.g:612:3: rule__BinaryOperationExpression__LeftAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__BinaryOperationExpression__LeftAssignment_4();
@@ -2112,14 +1950,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group__5"
-    // InternalTQL.g:656:1: rule__BinaryOperationExpression__Group__5 : rule__BinaryOperationExpression__Group__5__Impl rule__BinaryOperationExpression__Group__6 ;
+    // InternalTQL.g:620:1: rule__BinaryOperationExpression__Group__5 : rule__BinaryOperationExpression__Group__5__Impl rule__BinaryOperationExpression__Group__6 ;
     public final void rule__BinaryOperationExpression__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:660:1: ( rule__BinaryOperationExpression__Group__5__Impl rule__BinaryOperationExpression__Group__6 )
-            // InternalTQL.g:661:2: rule__BinaryOperationExpression__Group__5__Impl rule__BinaryOperationExpression__Group__6
+            // InternalTQL.g:624:1: ( rule__BinaryOperationExpression__Group__5__Impl rule__BinaryOperationExpression__Group__6 )
+            // InternalTQL.g:625:2: rule__BinaryOperationExpression__Group__5__Impl rule__BinaryOperationExpression__Group__6
             {
             pushFollow(FOLLOW_5);
             rule__BinaryOperationExpression__Group__5__Impl();
@@ -2150,20 +1988,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group__5__Impl"
-    // InternalTQL.g:668:1: rule__BinaryOperationExpression__Group__5__Impl : ( 'right' ) ;
+    // InternalTQL.g:632:1: rule__BinaryOperationExpression__Group__5__Impl : ( 'right' ) ;
     public final void rule__BinaryOperationExpression__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:672:1: ( ( 'right' ) )
-            // InternalTQL.g:673:1: ( 'right' )
+            // InternalTQL.g:636:1: ( ( 'right' ) )
+            // InternalTQL.g:637:1: ( 'right' )
             {
-            // InternalTQL.g:673:1: ( 'right' )
-            // InternalTQL.g:674:2: 'right'
+            // InternalTQL.g:637:1: ( 'right' )
+            // InternalTQL.g:638:2: 'right'
             {
              before(grammarAccess.getBinaryOperationExpressionAccess().getRightKeyword_5()); 
-            match(input,33,FOLLOW_2); 
+            match(input,27,FOLLOW_2); 
              after(grammarAccess.getBinaryOperationExpressionAccess().getRightKeyword_5()); 
 
             }
@@ -2187,14 +2025,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group__6"
-    // InternalTQL.g:683:1: rule__BinaryOperationExpression__Group__6 : rule__BinaryOperationExpression__Group__6__Impl rule__BinaryOperationExpression__Group__7 ;
+    // InternalTQL.g:647:1: rule__BinaryOperationExpression__Group__6 : rule__BinaryOperationExpression__Group__6__Impl rule__BinaryOperationExpression__Group__7 ;
     public final void rule__BinaryOperationExpression__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:687:1: ( rule__BinaryOperationExpression__Group__6__Impl rule__BinaryOperationExpression__Group__7 )
-            // InternalTQL.g:688:2: rule__BinaryOperationExpression__Group__6__Impl rule__BinaryOperationExpression__Group__7
+            // InternalTQL.g:651:1: ( rule__BinaryOperationExpression__Group__6__Impl rule__BinaryOperationExpression__Group__7 )
+            // InternalTQL.g:652:2: rule__BinaryOperationExpression__Group__6__Impl rule__BinaryOperationExpression__Group__7
             {
             pushFollow(FOLLOW_7);
             rule__BinaryOperationExpression__Group__6__Impl();
@@ -2225,21 +2063,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group__6__Impl"
-    // InternalTQL.g:695:1: rule__BinaryOperationExpression__Group__6__Impl : ( ( rule__BinaryOperationExpression__RightAssignment_6 ) ) ;
+    // InternalTQL.g:659:1: rule__BinaryOperationExpression__Group__6__Impl : ( ( rule__BinaryOperationExpression__RightAssignment_6 ) ) ;
     public final void rule__BinaryOperationExpression__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:699:1: ( ( ( rule__BinaryOperationExpression__RightAssignment_6 ) ) )
-            // InternalTQL.g:700:1: ( ( rule__BinaryOperationExpression__RightAssignment_6 ) )
+            // InternalTQL.g:663:1: ( ( ( rule__BinaryOperationExpression__RightAssignment_6 ) ) )
+            // InternalTQL.g:664:1: ( ( rule__BinaryOperationExpression__RightAssignment_6 ) )
             {
-            // InternalTQL.g:700:1: ( ( rule__BinaryOperationExpression__RightAssignment_6 ) )
-            // InternalTQL.g:701:2: ( rule__BinaryOperationExpression__RightAssignment_6 )
+            // InternalTQL.g:664:1: ( ( rule__BinaryOperationExpression__RightAssignment_6 ) )
+            // InternalTQL.g:665:2: ( rule__BinaryOperationExpression__RightAssignment_6 )
             {
              before(grammarAccess.getBinaryOperationExpressionAccess().getRightAssignment_6()); 
-            // InternalTQL.g:702:2: ( rule__BinaryOperationExpression__RightAssignment_6 )
-            // InternalTQL.g:702:3: rule__BinaryOperationExpression__RightAssignment_6
+            // InternalTQL.g:666:2: ( rule__BinaryOperationExpression__RightAssignment_6 )
+            // InternalTQL.g:666:3: rule__BinaryOperationExpression__RightAssignment_6
             {
             pushFollow(FOLLOW_2);
             rule__BinaryOperationExpression__RightAssignment_6();
@@ -2272,14 +2110,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group__7"
-    // InternalTQL.g:710:1: rule__BinaryOperationExpression__Group__7 : rule__BinaryOperationExpression__Group__7__Impl ;
+    // InternalTQL.g:674:1: rule__BinaryOperationExpression__Group__7 : rule__BinaryOperationExpression__Group__7__Impl ;
     public final void rule__BinaryOperationExpression__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:714:1: ( rule__BinaryOperationExpression__Group__7__Impl )
-            // InternalTQL.g:715:2: rule__BinaryOperationExpression__Group__7__Impl
+            // InternalTQL.g:678:1: ( rule__BinaryOperationExpression__Group__7__Impl )
+            // InternalTQL.g:679:2: rule__BinaryOperationExpression__Group__7__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BinaryOperationExpression__Group__7__Impl();
@@ -2305,20 +2143,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group__7__Impl"
-    // InternalTQL.g:721:1: rule__BinaryOperationExpression__Group__7__Impl : ( '}' ) ;
+    // InternalTQL.g:685:1: rule__BinaryOperationExpression__Group__7__Impl : ( '}' ) ;
     public final void rule__BinaryOperationExpression__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:725:1: ( ( '}' ) )
-            // InternalTQL.g:726:1: ( '}' )
+            // InternalTQL.g:689:1: ( ( '}' ) )
+            // InternalTQL.g:690:1: ( '}' )
             {
-            // InternalTQL.g:726:1: ( '}' )
-            // InternalTQL.g:727:2: '}'
+            // InternalTQL.g:690:1: ( '}' )
+            // InternalTQL.g:691:2: '}'
             {
              before(grammarAccess.getBinaryOperationExpressionAccess().getRightCurlyBracketKeyword_7()); 
-            match(input,34,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getBinaryOperationExpressionAccess().getRightCurlyBracketKeyword_7()); 
 
             }
@@ -2342,14 +2180,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group_2__0"
-    // InternalTQL.g:737:1: rule__BinaryOperationExpression__Group_2__0 : rule__BinaryOperationExpression__Group_2__0__Impl rule__BinaryOperationExpression__Group_2__1 ;
+    // InternalTQL.g:701:1: rule__BinaryOperationExpression__Group_2__0 : rule__BinaryOperationExpression__Group_2__0__Impl rule__BinaryOperationExpression__Group_2__1 ;
     public final void rule__BinaryOperationExpression__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:741:1: ( rule__BinaryOperationExpression__Group_2__0__Impl rule__BinaryOperationExpression__Group_2__1 )
-            // InternalTQL.g:742:2: rule__BinaryOperationExpression__Group_2__0__Impl rule__BinaryOperationExpression__Group_2__1
+            // InternalTQL.g:705:1: ( rule__BinaryOperationExpression__Group_2__0__Impl rule__BinaryOperationExpression__Group_2__1 )
+            // InternalTQL.g:706:2: rule__BinaryOperationExpression__Group_2__0__Impl rule__BinaryOperationExpression__Group_2__1
             {
             pushFollow(FOLLOW_8);
             rule__BinaryOperationExpression__Group_2__0__Impl();
@@ -2380,20 +2218,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group_2__0__Impl"
-    // InternalTQL.g:749:1: rule__BinaryOperationExpression__Group_2__0__Impl : ( 'operation' ) ;
+    // InternalTQL.g:713:1: rule__BinaryOperationExpression__Group_2__0__Impl : ( 'operation' ) ;
     public final void rule__BinaryOperationExpression__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:753:1: ( ( 'operation' ) )
-            // InternalTQL.g:754:1: ( 'operation' )
+            // InternalTQL.g:717:1: ( ( 'operation' ) )
+            // InternalTQL.g:718:1: ( 'operation' )
             {
-            // InternalTQL.g:754:1: ( 'operation' )
-            // InternalTQL.g:755:2: 'operation'
+            // InternalTQL.g:718:1: ( 'operation' )
+            // InternalTQL.g:719:2: 'operation'
             {
              before(grammarAccess.getBinaryOperationExpressionAccess().getOperationKeyword_2_0()); 
-            match(input,35,FOLLOW_2); 
+            match(input,29,FOLLOW_2); 
              after(grammarAccess.getBinaryOperationExpressionAccess().getOperationKeyword_2_0()); 
 
             }
@@ -2417,14 +2255,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group_2__1"
-    // InternalTQL.g:764:1: rule__BinaryOperationExpression__Group_2__1 : rule__BinaryOperationExpression__Group_2__1__Impl ;
+    // InternalTQL.g:728:1: rule__BinaryOperationExpression__Group_2__1 : rule__BinaryOperationExpression__Group_2__1__Impl ;
     public final void rule__BinaryOperationExpression__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:768:1: ( rule__BinaryOperationExpression__Group_2__1__Impl )
-            // InternalTQL.g:769:2: rule__BinaryOperationExpression__Group_2__1__Impl
+            // InternalTQL.g:732:1: ( rule__BinaryOperationExpression__Group_2__1__Impl )
+            // InternalTQL.g:733:2: rule__BinaryOperationExpression__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BinaryOperationExpression__Group_2__1__Impl();
@@ -2450,21 +2288,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__Group_2__1__Impl"
-    // InternalTQL.g:775:1: rule__BinaryOperationExpression__Group_2__1__Impl : ( ( rule__BinaryOperationExpression__OperationAssignment_2_1 ) ) ;
+    // InternalTQL.g:739:1: rule__BinaryOperationExpression__Group_2__1__Impl : ( ( rule__BinaryOperationExpression__OperationAssignment_2_1 ) ) ;
     public final void rule__BinaryOperationExpression__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:779:1: ( ( ( rule__BinaryOperationExpression__OperationAssignment_2_1 ) ) )
-            // InternalTQL.g:780:1: ( ( rule__BinaryOperationExpression__OperationAssignment_2_1 ) )
+            // InternalTQL.g:743:1: ( ( ( rule__BinaryOperationExpression__OperationAssignment_2_1 ) ) )
+            // InternalTQL.g:744:1: ( ( rule__BinaryOperationExpression__OperationAssignment_2_1 ) )
             {
-            // InternalTQL.g:780:1: ( ( rule__BinaryOperationExpression__OperationAssignment_2_1 ) )
-            // InternalTQL.g:781:2: ( rule__BinaryOperationExpression__OperationAssignment_2_1 )
+            // InternalTQL.g:744:1: ( ( rule__BinaryOperationExpression__OperationAssignment_2_1 ) )
+            // InternalTQL.g:745:2: ( rule__BinaryOperationExpression__OperationAssignment_2_1 )
             {
              before(grammarAccess.getBinaryOperationExpressionAccess().getOperationAssignment_2_1()); 
-            // InternalTQL.g:782:2: ( rule__BinaryOperationExpression__OperationAssignment_2_1 )
-            // InternalTQL.g:782:3: rule__BinaryOperationExpression__OperationAssignment_2_1
+            // InternalTQL.g:746:2: ( rule__BinaryOperationExpression__OperationAssignment_2_1 )
+            // InternalTQL.g:746:3: rule__BinaryOperationExpression__OperationAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__BinaryOperationExpression__OperationAssignment_2_1();
@@ -2497,14 +2335,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParameterExpression__Group__0"
-    // InternalTQL.g:791:1: rule__ParameterExpression__Group__0 : rule__ParameterExpression__Group__0__Impl rule__ParameterExpression__Group__1 ;
+    // InternalTQL.g:755:1: rule__ParameterExpression__Group__0 : rule__ParameterExpression__Group__0__Impl rule__ParameterExpression__Group__1 ;
     public final void rule__ParameterExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:795:1: ( rule__ParameterExpression__Group__0__Impl rule__ParameterExpression__Group__1 )
-            // InternalTQL.g:796:2: rule__ParameterExpression__Group__0__Impl rule__ParameterExpression__Group__1
+            // InternalTQL.g:759:1: ( rule__ParameterExpression__Group__0__Impl rule__ParameterExpression__Group__1 )
+            // InternalTQL.g:760:2: rule__ParameterExpression__Group__0__Impl rule__ParameterExpression__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__ParameterExpression__Group__0__Impl();
@@ -2535,21 +2373,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParameterExpression__Group__0__Impl"
-    // InternalTQL.g:803:1: rule__ParameterExpression__Group__0__Impl : ( () ) ;
+    // InternalTQL.g:767:1: rule__ParameterExpression__Group__0__Impl : ( () ) ;
     public final void rule__ParameterExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:807:1: ( ( () ) )
-            // InternalTQL.g:808:1: ( () )
+            // InternalTQL.g:771:1: ( ( () ) )
+            // InternalTQL.g:772:1: ( () )
             {
-            // InternalTQL.g:808:1: ( () )
-            // InternalTQL.g:809:2: ()
+            // InternalTQL.g:772:1: ( () )
+            // InternalTQL.g:773:2: ()
             {
              before(grammarAccess.getParameterExpressionAccess().getParameterExpressionAction_0()); 
-            // InternalTQL.g:810:2: ()
-            // InternalTQL.g:810:3: 
+            // InternalTQL.g:774:2: ()
+            // InternalTQL.g:774:3: 
             {
             }
 
@@ -2572,14 +2410,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParameterExpression__Group__1"
-    // InternalTQL.g:818:1: rule__ParameterExpression__Group__1 : rule__ParameterExpression__Group__1__Impl ;
+    // InternalTQL.g:782:1: rule__ParameterExpression__Group__1 : rule__ParameterExpression__Group__1__Impl ;
     public final void rule__ParameterExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:822:1: ( rule__ParameterExpression__Group__1__Impl )
-            // InternalTQL.g:823:2: rule__ParameterExpression__Group__1__Impl
+            // InternalTQL.g:786:1: ( rule__ParameterExpression__Group__1__Impl )
+            // InternalTQL.g:787:2: rule__ParameterExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ParameterExpression__Group__1__Impl();
@@ -2605,20 +2443,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParameterExpression__Group__1__Impl"
-    // InternalTQL.g:829:1: rule__ParameterExpression__Group__1__Impl : ( 'parameterExpression' ) ;
+    // InternalTQL.g:793:1: rule__ParameterExpression__Group__1__Impl : ( 'parameterExpression' ) ;
     public final void rule__ParameterExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:833:1: ( ( 'parameterExpression' ) )
-            // InternalTQL.g:834:1: ( 'parameterExpression' )
+            // InternalTQL.g:797:1: ( ( 'parameterExpression' ) )
+            // InternalTQL.g:798:1: ( 'parameterExpression' )
             {
-            // InternalTQL.g:834:1: ( 'parameterExpression' )
-            // InternalTQL.g:835:2: 'parameterExpression'
+            // InternalTQL.g:798:1: ( 'parameterExpression' )
+            // InternalTQL.g:799:2: 'parameterExpression'
             {
              before(grammarAccess.getParameterExpressionAccess().getParameterExpressionKeyword_1()); 
-            match(input,36,FOLLOW_2); 
+            match(input,30,FOLLOW_2); 
              after(grammarAccess.getParameterExpressionAccess().getParameterExpressionKeyword_1()); 
 
             }
@@ -2642,14 +2480,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringConstantExpression__Group__0"
-    // InternalTQL.g:845:1: rule__StringConstantExpression__Group__0 : rule__StringConstantExpression__Group__0__Impl rule__StringConstantExpression__Group__1 ;
+    // InternalTQL.g:809:1: rule__StringConstantExpression__Group__0 : rule__StringConstantExpression__Group__0__Impl rule__StringConstantExpression__Group__1 ;
     public final void rule__StringConstantExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:849:1: ( rule__StringConstantExpression__Group__0__Impl rule__StringConstantExpression__Group__1 )
-            // InternalTQL.g:850:2: rule__StringConstantExpression__Group__0__Impl rule__StringConstantExpression__Group__1
+            // InternalTQL.g:813:1: ( rule__StringConstantExpression__Group__0__Impl rule__StringConstantExpression__Group__1 )
+            // InternalTQL.g:814:2: rule__StringConstantExpression__Group__0__Impl rule__StringConstantExpression__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__StringConstantExpression__Group__0__Impl();
@@ -2680,20 +2518,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringConstantExpression__Group__0__Impl"
-    // InternalTQL.g:857:1: rule__StringConstantExpression__Group__0__Impl : ( 'StringConstantExpression' ) ;
+    // InternalTQL.g:821:1: rule__StringConstantExpression__Group__0__Impl : ( 'StringConstantExpression' ) ;
     public final void rule__StringConstantExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:861:1: ( ( 'StringConstantExpression' ) )
-            // InternalTQL.g:862:1: ( 'StringConstantExpression' )
+            // InternalTQL.g:825:1: ( ( 'StringConstantExpression' ) )
+            // InternalTQL.g:826:1: ( 'StringConstantExpression' )
             {
-            // InternalTQL.g:862:1: ( 'StringConstantExpression' )
-            // InternalTQL.g:863:2: 'StringConstantExpression'
+            // InternalTQL.g:826:1: ( 'StringConstantExpression' )
+            // InternalTQL.g:827:2: 'StringConstantExpression'
             {
              before(grammarAccess.getStringConstantExpressionAccess().getStringConstantExpressionKeyword_0()); 
-            match(input,37,FOLLOW_2); 
+            match(input,31,FOLLOW_2); 
              after(grammarAccess.getStringConstantExpressionAccess().getStringConstantExpressionKeyword_0()); 
 
             }
@@ -2717,14 +2555,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringConstantExpression__Group__1"
-    // InternalTQL.g:872:1: rule__StringConstantExpression__Group__1 : rule__StringConstantExpression__Group__1__Impl rule__StringConstantExpression__Group__2 ;
+    // InternalTQL.g:836:1: rule__StringConstantExpression__Group__1 : rule__StringConstantExpression__Group__1__Impl rule__StringConstantExpression__Group__2 ;
     public final void rule__StringConstantExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:876:1: ( rule__StringConstantExpression__Group__1__Impl rule__StringConstantExpression__Group__2 )
-            // InternalTQL.g:877:2: rule__StringConstantExpression__Group__1__Impl rule__StringConstantExpression__Group__2
+            // InternalTQL.g:840:1: ( rule__StringConstantExpression__Group__1__Impl rule__StringConstantExpression__Group__2 )
+            // InternalTQL.g:841:2: rule__StringConstantExpression__Group__1__Impl rule__StringConstantExpression__Group__2
             {
             pushFollow(FOLLOW_10);
             rule__StringConstantExpression__Group__1__Impl();
@@ -2755,20 +2593,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringConstantExpression__Group__1__Impl"
-    // InternalTQL.g:884:1: rule__StringConstantExpression__Group__1__Impl : ( '{' ) ;
+    // InternalTQL.g:848:1: rule__StringConstantExpression__Group__1__Impl : ( '{' ) ;
     public final void rule__StringConstantExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:888:1: ( ( '{' ) )
-            // InternalTQL.g:889:1: ( '{' )
+            // InternalTQL.g:852:1: ( ( '{' ) )
+            // InternalTQL.g:853:1: ( '{' )
             {
-            // InternalTQL.g:889:1: ( '{' )
-            // InternalTQL.g:890:2: '{'
+            // InternalTQL.g:853:1: ( '{' )
+            // InternalTQL.g:854:2: '{'
             {
              before(grammarAccess.getStringConstantExpressionAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,31,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getStringConstantExpressionAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -2792,14 +2630,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringConstantExpression__Group__2"
-    // InternalTQL.g:899:1: rule__StringConstantExpression__Group__2 : rule__StringConstantExpression__Group__2__Impl rule__StringConstantExpression__Group__3 ;
+    // InternalTQL.g:863:1: rule__StringConstantExpression__Group__2 : rule__StringConstantExpression__Group__2__Impl rule__StringConstantExpression__Group__3 ;
     public final void rule__StringConstantExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:903:1: ( rule__StringConstantExpression__Group__2__Impl rule__StringConstantExpression__Group__3 )
-            // InternalTQL.g:904:2: rule__StringConstantExpression__Group__2__Impl rule__StringConstantExpression__Group__3
+            // InternalTQL.g:867:1: ( rule__StringConstantExpression__Group__2__Impl rule__StringConstantExpression__Group__3 )
+            // InternalTQL.g:868:2: rule__StringConstantExpression__Group__2__Impl rule__StringConstantExpression__Group__3
             {
             pushFollow(FOLLOW_5);
             rule__StringConstantExpression__Group__2__Impl();
@@ -2830,20 +2668,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringConstantExpression__Group__2__Impl"
-    // InternalTQL.g:911:1: rule__StringConstantExpression__Group__2__Impl : ( 'value' ) ;
+    // InternalTQL.g:875:1: rule__StringConstantExpression__Group__2__Impl : ( 'value' ) ;
     public final void rule__StringConstantExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:915:1: ( ( 'value' ) )
-            // InternalTQL.g:916:1: ( 'value' )
+            // InternalTQL.g:879:1: ( ( 'value' ) )
+            // InternalTQL.g:880:1: ( 'value' )
             {
-            // InternalTQL.g:916:1: ( 'value' )
-            // InternalTQL.g:917:2: 'value'
+            // InternalTQL.g:880:1: ( 'value' )
+            // InternalTQL.g:881:2: 'value'
             {
              before(grammarAccess.getStringConstantExpressionAccess().getValueKeyword_2()); 
-            match(input,38,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getStringConstantExpressionAccess().getValueKeyword_2()); 
 
             }
@@ -2867,14 +2705,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringConstantExpression__Group__3"
-    // InternalTQL.g:926:1: rule__StringConstantExpression__Group__3 : rule__StringConstantExpression__Group__3__Impl rule__StringConstantExpression__Group__4 ;
+    // InternalTQL.g:890:1: rule__StringConstantExpression__Group__3 : rule__StringConstantExpression__Group__3__Impl rule__StringConstantExpression__Group__4 ;
     public final void rule__StringConstantExpression__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:930:1: ( rule__StringConstantExpression__Group__3__Impl rule__StringConstantExpression__Group__4 )
-            // InternalTQL.g:931:2: rule__StringConstantExpression__Group__3__Impl rule__StringConstantExpression__Group__4
+            // InternalTQL.g:894:1: ( rule__StringConstantExpression__Group__3__Impl rule__StringConstantExpression__Group__4 )
+            // InternalTQL.g:895:2: rule__StringConstantExpression__Group__3__Impl rule__StringConstantExpression__Group__4
             {
             pushFollow(FOLLOW_7);
             rule__StringConstantExpression__Group__3__Impl();
@@ -2905,21 +2743,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringConstantExpression__Group__3__Impl"
-    // InternalTQL.g:938:1: rule__StringConstantExpression__Group__3__Impl : ( ( rule__StringConstantExpression__ValueAssignment_3 ) ) ;
+    // InternalTQL.g:902:1: rule__StringConstantExpression__Group__3__Impl : ( ( rule__StringConstantExpression__ValueAssignment_3 ) ) ;
     public final void rule__StringConstantExpression__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:942:1: ( ( ( rule__StringConstantExpression__ValueAssignment_3 ) ) )
-            // InternalTQL.g:943:1: ( ( rule__StringConstantExpression__ValueAssignment_3 ) )
+            // InternalTQL.g:906:1: ( ( ( rule__StringConstantExpression__ValueAssignment_3 ) ) )
+            // InternalTQL.g:907:1: ( ( rule__StringConstantExpression__ValueAssignment_3 ) )
             {
-            // InternalTQL.g:943:1: ( ( rule__StringConstantExpression__ValueAssignment_3 ) )
-            // InternalTQL.g:944:2: ( rule__StringConstantExpression__ValueAssignment_3 )
+            // InternalTQL.g:907:1: ( ( rule__StringConstantExpression__ValueAssignment_3 ) )
+            // InternalTQL.g:908:2: ( rule__StringConstantExpression__ValueAssignment_3 )
             {
              before(grammarAccess.getStringConstantExpressionAccess().getValueAssignment_3()); 
-            // InternalTQL.g:945:2: ( rule__StringConstantExpression__ValueAssignment_3 )
-            // InternalTQL.g:945:3: rule__StringConstantExpression__ValueAssignment_3
+            // InternalTQL.g:909:2: ( rule__StringConstantExpression__ValueAssignment_3 )
+            // InternalTQL.g:909:3: rule__StringConstantExpression__ValueAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__StringConstantExpression__ValueAssignment_3();
@@ -2952,14 +2790,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringConstantExpression__Group__4"
-    // InternalTQL.g:953:1: rule__StringConstantExpression__Group__4 : rule__StringConstantExpression__Group__4__Impl ;
+    // InternalTQL.g:917:1: rule__StringConstantExpression__Group__4 : rule__StringConstantExpression__Group__4__Impl ;
     public final void rule__StringConstantExpression__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:957:1: ( rule__StringConstantExpression__Group__4__Impl )
-            // InternalTQL.g:958:2: rule__StringConstantExpression__Group__4__Impl
+            // InternalTQL.g:921:1: ( rule__StringConstantExpression__Group__4__Impl )
+            // InternalTQL.g:922:2: rule__StringConstantExpression__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__StringConstantExpression__Group__4__Impl();
@@ -2985,20 +2823,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringConstantExpression__Group__4__Impl"
-    // InternalTQL.g:964:1: rule__StringConstantExpression__Group__4__Impl : ( '}' ) ;
+    // InternalTQL.g:928:1: rule__StringConstantExpression__Group__4__Impl : ( '}' ) ;
     public final void rule__StringConstantExpression__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:968:1: ( ( '}' ) )
-            // InternalTQL.g:969:1: ( '}' )
+            // InternalTQL.g:932:1: ( ( '}' ) )
+            // InternalTQL.g:933:1: ( '}' )
             {
-            // InternalTQL.g:969:1: ( '}' )
-            // InternalTQL.g:970:2: '}'
+            // InternalTQL.g:933:1: ( '}' )
+            // InternalTQL.g:934:2: '}'
             {
              before(grammarAccess.getStringConstantExpressionAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,34,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getStringConstantExpressionAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -3022,14 +2860,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanConstantExpression__Group__0"
-    // InternalTQL.g:980:1: rule__BooleanConstantExpression__Group__0 : rule__BooleanConstantExpression__Group__0__Impl rule__BooleanConstantExpression__Group__1 ;
+    // InternalTQL.g:944:1: rule__BooleanConstantExpression__Group__0 : rule__BooleanConstantExpression__Group__0__Impl rule__BooleanConstantExpression__Group__1 ;
     public final void rule__BooleanConstantExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:984:1: ( rule__BooleanConstantExpression__Group__0__Impl rule__BooleanConstantExpression__Group__1 )
-            // InternalTQL.g:985:2: rule__BooleanConstantExpression__Group__0__Impl rule__BooleanConstantExpression__Group__1
+            // InternalTQL.g:948:1: ( rule__BooleanConstantExpression__Group__0__Impl rule__BooleanConstantExpression__Group__1 )
+            // InternalTQL.g:949:2: rule__BooleanConstantExpression__Group__0__Impl rule__BooleanConstantExpression__Group__1
             {
             pushFollow(FOLLOW_11);
             rule__BooleanConstantExpression__Group__0__Impl();
@@ -3060,21 +2898,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanConstantExpression__Group__0__Impl"
-    // InternalTQL.g:992:1: rule__BooleanConstantExpression__Group__0__Impl : ( ( rule__BooleanConstantExpression__ValueAssignment_0 ) ) ;
+    // InternalTQL.g:956:1: rule__BooleanConstantExpression__Group__0__Impl : ( ( rule__BooleanConstantExpression__ValueAssignment_0 ) ) ;
     public final void rule__BooleanConstantExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:996:1: ( ( ( rule__BooleanConstantExpression__ValueAssignment_0 ) ) )
-            // InternalTQL.g:997:1: ( ( rule__BooleanConstantExpression__ValueAssignment_0 ) )
+            // InternalTQL.g:960:1: ( ( ( rule__BooleanConstantExpression__ValueAssignment_0 ) ) )
+            // InternalTQL.g:961:1: ( ( rule__BooleanConstantExpression__ValueAssignment_0 ) )
             {
-            // InternalTQL.g:997:1: ( ( rule__BooleanConstantExpression__ValueAssignment_0 ) )
-            // InternalTQL.g:998:2: ( rule__BooleanConstantExpression__ValueAssignment_0 )
+            // InternalTQL.g:961:1: ( ( rule__BooleanConstantExpression__ValueAssignment_0 ) )
+            // InternalTQL.g:962:2: ( rule__BooleanConstantExpression__ValueAssignment_0 )
             {
              before(grammarAccess.getBooleanConstantExpressionAccess().getValueAssignment_0()); 
-            // InternalTQL.g:999:2: ( rule__BooleanConstantExpression__ValueAssignment_0 )
-            // InternalTQL.g:999:3: rule__BooleanConstantExpression__ValueAssignment_0
+            // InternalTQL.g:963:2: ( rule__BooleanConstantExpression__ValueAssignment_0 )
+            // InternalTQL.g:963:3: rule__BooleanConstantExpression__ValueAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__BooleanConstantExpression__ValueAssignment_0();
@@ -3107,14 +2945,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanConstantExpression__Group__1"
-    // InternalTQL.g:1007:1: rule__BooleanConstantExpression__Group__1 : rule__BooleanConstantExpression__Group__1__Impl ;
+    // InternalTQL.g:971:1: rule__BooleanConstantExpression__Group__1 : rule__BooleanConstantExpression__Group__1__Impl ;
     public final void rule__BooleanConstantExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1011:1: ( rule__BooleanConstantExpression__Group__1__Impl )
-            // InternalTQL.g:1012:2: rule__BooleanConstantExpression__Group__1__Impl
+            // InternalTQL.g:975:1: ( rule__BooleanConstantExpression__Group__1__Impl )
+            // InternalTQL.g:976:2: rule__BooleanConstantExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BooleanConstantExpression__Group__1__Impl();
@@ -3140,20 +2978,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanConstantExpression__Group__1__Impl"
-    // InternalTQL.g:1018:1: rule__BooleanConstantExpression__Group__1__Impl : ( 'BooleanConstantExpression' ) ;
+    // InternalTQL.g:982:1: rule__BooleanConstantExpression__Group__1__Impl : ( 'BooleanConstantExpression' ) ;
     public final void rule__BooleanConstantExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1022:1: ( ( 'BooleanConstantExpression' ) )
-            // InternalTQL.g:1023:1: ( 'BooleanConstantExpression' )
+            // InternalTQL.g:986:1: ( ( 'BooleanConstantExpression' ) )
+            // InternalTQL.g:987:1: ( 'BooleanConstantExpression' )
             {
-            // InternalTQL.g:1023:1: ( 'BooleanConstantExpression' )
-            // InternalTQL.g:1024:2: 'BooleanConstantExpression'
+            // InternalTQL.g:987:1: ( 'BooleanConstantExpression' )
+            // InternalTQL.g:988:2: 'BooleanConstantExpression'
             {
              before(grammarAccess.getBooleanConstantExpressionAccess().getBooleanConstantExpressionKeyword_1()); 
-            match(input,39,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getBooleanConstantExpressionAccess().getBooleanConstantExpressionKeyword_1()); 
 
             }
@@ -3177,14 +3015,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerConstantExpression__Group__0"
-    // InternalTQL.g:1034:1: rule__IntegerConstantExpression__Group__0 : rule__IntegerConstantExpression__Group__0__Impl rule__IntegerConstantExpression__Group__1 ;
+    // InternalTQL.g:998:1: rule__IntegerConstantExpression__Group__0 : rule__IntegerConstantExpression__Group__0__Impl rule__IntegerConstantExpression__Group__1 ;
     public final void rule__IntegerConstantExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1038:1: ( rule__IntegerConstantExpression__Group__0__Impl rule__IntegerConstantExpression__Group__1 )
-            // InternalTQL.g:1039:2: rule__IntegerConstantExpression__Group__0__Impl rule__IntegerConstantExpression__Group__1
+            // InternalTQL.g:1002:1: ( rule__IntegerConstantExpression__Group__0__Impl rule__IntegerConstantExpression__Group__1 )
+            // InternalTQL.g:1003:2: rule__IntegerConstantExpression__Group__0__Impl rule__IntegerConstantExpression__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__IntegerConstantExpression__Group__0__Impl();
@@ -3215,20 +3053,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerConstantExpression__Group__0__Impl"
-    // InternalTQL.g:1046:1: rule__IntegerConstantExpression__Group__0__Impl : ( 'IntegerConstantExpression' ) ;
+    // InternalTQL.g:1010:1: rule__IntegerConstantExpression__Group__0__Impl : ( 'IntegerConstantExpression' ) ;
     public final void rule__IntegerConstantExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1050:1: ( ( 'IntegerConstantExpression' ) )
-            // InternalTQL.g:1051:1: ( 'IntegerConstantExpression' )
+            // InternalTQL.g:1014:1: ( ( 'IntegerConstantExpression' ) )
+            // InternalTQL.g:1015:1: ( 'IntegerConstantExpression' )
             {
-            // InternalTQL.g:1051:1: ( 'IntegerConstantExpression' )
-            // InternalTQL.g:1052:2: 'IntegerConstantExpression'
+            // InternalTQL.g:1015:1: ( 'IntegerConstantExpression' )
+            // InternalTQL.g:1016:2: 'IntegerConstantExpression'
             {
              before(grammarAccess.getIntegerConstantExpressionAccess().getIntegerConstantExpressionKeyword_0()); 
-            match(input,40,FOLLOW_2); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getIntegerConstantExpressionAccess().getIntegerConstantExpressionKeyword_0()); 
 
             }
@@ -3252,14 +3090,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerConstantExpression__Group__1"
-    // InternalTQL.g:1061:1: rule__IntegerConstantExpression__Group__1 : rule__IntegerConstantExpression__Group__1__Impl rule__IntegerConstantExpression__Group__2 ;
+    // InternalTQL.g:1025:1: rule__IntegerConstantExpression__Group__1 : rule__IntegerConstantExpression__Group__1__Impl rule__IntegerConstantExpression__Group__2 ;
     public final void rule__IntegerConstantExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1065:1: ( rule__IntegerConstantExpression__Group__1__Impl rule__IntegerConstantExpression__Group__2 )
-            // InternalTQL.g:1066:2: rule__IntegerConstantExpression__Group__1__Impl rule__IntegerConstantExpression__Group__2
+            // InternalTQL.g:1029:1: ( rule__IntegerConstantExpression__Group__1__Impl rule__IntegerConstantExpression__Group__2 )
+            // InternalTQL.g:1030:2: rule__IntegerConstantExpression__Group__1__Impl rule__IntegerConstantExpression__Group__2
             {
             pushFollow(FOLLOW_10);
             rule__IntegerConstantExpression__Group__1__Impl();
@@ -3290,20 +3128,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerConstantExpression__Group__1__Impl"
-    // InternalTQL.g:1073:1: rule__IntegerConstantExpression__Group__1__Impl : ( '{' ) ;
+    // InternalTQL.g:1037:1: rule__IntegerConstantExpression__Group__1__Impl : ( '{' ) ;
     public final void rule__IntegerConstantExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1077:1: ( ( '{' ) )
-            // InternalTQL.g:1078:1: ( '{' )
+            // InternalTQL.g:1041:1: ( ( '{' ) )
+            // InternalTQL.g:1042:1: ( '{' )
             {
-            // InternalTQL.g:1078:1: ( '{' )
-            // InternalTQL.g:1079:2: '{'
+            // InternalTQL.g:1042:1: ( '{' )
+            // InternalTQL.g:1043:2: '{'
             {
              before(grammarAccess.getIntegerConstantExpressionAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,31,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getIntegerConstantExpressionAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -3327,14 +3165,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerConstantExpression__Group__2"
-    // InternalTQL.g:1088:1: rule__IntegerConstantExpression__Group__2 : rule__IntegerConstantExpression__Group__2__Impl rule__IntegerConstantExpression__Group__3 ;
+    // InternalTQL.g:1052:1: rule__IntegerConstantExpression__Group__2 : rule__IntegerConstantExpression__Group__2__Impl rule__IntegerConstantExpression__Group__3 ;
     public final void rule__IntegerConstantExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1092:1: ( rule__IntegerConstantExpression__Group__2__Impl rule__IntegerConstantExpression__Group__3 )
-            // InternalTQL.g:1093:2: rule__IntegerConstantExpression__Group__2__Impl rule__IntegerConstantExpression__Group__3
+            // InternalTQL.g:1056:1: ( rule__IntegerConstantExpression__Group__2__Impl rule__IntegerConstantExpression__Group__3 )
+            // InternalTQL.g:1057:2: rule__IntegerConstantExpression__Group__2__Impl rule__IntegerConstantExpression__Group__3
             {
             pushFollow(FOLLOW_12);
             rule__IntegerConstantExpression__Group__2__Impl();
@@ -3365,20 +3203,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerConstantExpression__Group__2__Impl"
-    // InternalTQL.g:1100:1: rule__IntegerConstantExpression__Group__2__Impl : ( 'value' ) ;
+    // InternalTQL.g:1064:1: rule__IntegerConstantExpression__Group__2__Impl : ( 'value' ) ;
     public final void rule__IntegerConstantExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1104:1: ( ( 'value' ) )
-            // InternalTQL.g:1105:1: ( 'value' )
+            // InternalTQL.g:1068:1: ( ( 'value' ) )
+            // InternalTQL.g:1069:1: ( 'value' )
             {
-            // InternalTQL.g:1105:1: ( 'value' )
-            // InternalTQL.g:1106:2: 'value'
+            // InternalTQL.g:1069:1: ( 'value' )
+            // InternalTQL.g:1070:2: 'value'
             {
              before(grammarAccess.getIntegerConstantExpressionAccess().getValueKeyword_2()); 
-            match(input,38,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getIntegerConstantExpressionAccess().getValueKeyword_2()); 
 
             }
@@ -3402,14 +3240,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerConstantExpression__Group__3"
-    // InternalTQL.g:1115:1: rule__IntegerConstantExpression__Group__3 : rule__IntegerConstantExpression__Group__3__Impl rule__IntegerConstantExpression__Group__4 ;
+    // InternalTQL.g:1079:1: rule__IntegerConstantExpression__Group__3 : rule__IntegerConstantExpression__Group__3__Impl rule__IntegerConstantExpression__Group__4 ;
     public final void rule__IntegerConstantExpression__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1119:1: ( rule__IntegerConstantExpression__Group__3__Impl rule__IntegerConstantExpression__Group__4 )
-            // InternalTQL.g:1120:2: rule__IntegerConstantExpression__Group__3__Impl rule__IntegerConstantExpression__Group__4
+            // InternalTQL.g:1083:1: ( rule__IntegerConstantExpression__Group__3__Impl rule__IntegerConstantExpression__Group__4 )
+            // InternalTQL.g:1084:2: rule__IntegerConstantExpression__Group__3__Impl rule__IntegerConstantExpression__Group__4
             {
             pushFollow(FOLLOW_7);
             rule__IntegerConstantExpression__Group__3__Impl();
@@ -3440,21 +3278,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerConstantExpression__Group__3__Impl"
-    // InternalTQL.g:1127:1: rule__IntegerConstantExpression__Group__3__Impl : ( ( rule__IntegerConstantExpression__ValueAssignment_3 ) ) ;
+    // InternalTQL.g:1091:1: rule__IntegerConstantExpression__Group__3__Impl : ( ( rule__IntegerConstantExpression__ValueAssignment_3 ) ) ;
     public final void rule__IntegerConstantExpression__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1131:1: ( ( ( rule__IntegerConstantExpression__ValueAssignment_3 ) ) )
-            // InternalTQL.g:1132:1: ( ( rule__IntegerConstantExpression__ValueAssignment_3 ) )
+            // InternalTQL.g:1095:1: ( ( ( rule__IntegerConstantExpression__ValueAssignment_3 ) ) )
+            // InternalTQL.g:1096:1: ( ( rule__IntegerConstantExpression__ValueAssignment_3 ) )
             {
-            // InternalTQL.g:1132:1: ( ( rule__IntegerConstantExpression__ValueAssignment_3 ) )
-            // InternalTQL.g:1133:2: ( rule__IntegerConstantExpression__ValueAssignment_3 )
+            // InternalTQL.g:1096:1: ( ( rule__IntegerConstantExpression__ValueAssignment_3 ) )
+            // InternalTQL.g:1097:2: ( rule__IntegerConstantExpression__ValueAssignment_3 )
             {
              before(grammarAccess.getIntegerConstantExpressionAccess().getValueAssignment_3()); 
-            // InternalTQL.g:1134:2: ( rule__IntegerConstantExpression__ValueAssignment_3 )
-            // InternalTQL.g:1134:3: rule__IntegerConstantExpression__ValueAssignment_3
+            // InternalTQL.g:1098:2: ( rule__IntegerConstantExpression__ValueAssignment_3 )
+            // InternalTQL.g:1098:3: rule__IntegerConstantExpression__ValueAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__IntegerConstantExpression__ValueAssignment_3();
@@ -3487,14 +3325,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerConstantExpression__Group__4"
-    // InternalTQL.g:1142:1: rule__IntegerConstantExpression__Group__4 : rule__IntegerConstantExpression__Group__4__Impl ;
+    // InternalTQL.g:1106:1: rule__IntegerConstantExpression__Group__4 : rule__IntegerConstantExpression__Group__4__Impl ;
     public final void rule__IntegerConstantExpression__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1146:1: ( rule__IntegerConstantExpression__Group__4__Impl )
-            // InternalTQL.g:1147:2: rule__IntegerConstantExpression__Group__4__Impl
+            // InternalTQL.g:1110:1: ( rule__IntegerConstantExpression__Group__4__Impl )
+            // InternalTQL.g:1111:2: rule__IntegerConstantExpression__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__IntegerConstantExpression__Group__4__Impl();
@@ -3520,20 +3358,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerConstantExpression__Group__4__Impl"
-    // InternalTQL.g:1153:1: rule__IntegerConstantExpression__Group__4__Impl : ( '}' ) ;
+    // InternalTQL.g:1117:1: rule__IntegerConstantExpression__Group__4__Impl : ( '}' ) ;
     public final void rule__IntegerConstantExpression__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1157:1: ( ( '}' ) )
-            // InternalTQL.g:1158:1: ( '}' )
+            // InternalTQL.g:1121:1: ( ( '}' ) )
+            // InternalTQL.g:1122:1: ( '}' )
             {
-            // InternalTQL.g:1158:1: ( '}' )
-            // InternalTQL.g:1159:2: '}'
+            // InternalTQL.g:1122:1: ( '}' )
+            // InternalTQL.g:1123:2: '}'
             {
              before(grammarAccess.getIntegerConstantExpressionAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,34,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getIntegerConstantExpressionAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -3557,14 +3395,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__0"
-    // InternalTQL.g:1169:1: rule__InExpression__Group__0 : rule__InExpression__Group__0__Impl rule__InExpression__Group__1 ;
+    // InternalTQL.g:1133:1: rule__InExpression__Group__0 : rule__InExpression__Group__0__Impl rule__InExpression__Group__1 ;
     public final void rule__InExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1173:1: ( rule__InExpression__Group__0__Impl rule__InExpression__Group__1 )
-            // InternalTQL.g:1174:2: rule__InExpression__Group__0__Impl rule__InExpression__Group__1
+            // InternalTQL.g:1137:1: ( rule__InExpression__Group__0__Impl rule__InExpression__Group__1 )
+            // InternalTQL.g:1138:2: rule__InExpression__Group__0__Impl rule__InExpression__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__InExpression__Group__0__Impl();
@@ -3595,20 +3433,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__0__Impl"
-    // InternalTQL.g:1181:1: rule__InExpression__Group__0__Impl : ( 'InExpression' ) ;
+    // InternalTQL.g:1145:1: rule__InExpression__Group__0__Impl : ( 'InExpression' ) ;
     public final void rule__InExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1185:1: ( ( 'InExpression' ) )
-            // InternalTQL.g:1186:1: ( 'InExpression' )
+            // InternalTQL.g:1149:1: ( ( 'InExpression' ) )
+            // InternalTQL.g:1150:1: ( 'InExpression' )
             {
-            // InternalTQL.g:1186:1: ( 'InExpression' )
-            // InternalTQL.g:1187:2: 'InExpression'
+            // InternalTQL.g:1150:1: ( 'InExpression' )
+            // InternalTQL.g:1151:2: 'InExpression'
             {
              before(grammarAccess.getInExpressionAccess().getInExpressionKeyword_0()); 
-            match(input,41,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getInExpressionAccess().getInExpressionKeyword_0()); 
 
             }
@@ -3632,14 +3470,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__1"
-    // InternalTQL.g:1196:1: rule__InExpression__Group__1 : rule__InExpression__Group__1__Impl rule__InExpression__Group__2 ;
+    // InternalTQL.g:1160:1: rule__InExpression__Group__1 : rule__InExpression__Group__1__Impl rule__InExpression__Group__2 ;
     public final void rule__InExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1200:1: ( rule__InExpression__Group__1__Impl rule__InExpression__Group__2 )
-            // InternalTQL.g:1201:2: rule__InExpression__Group__1__Impl rule__InExpression__Group__2
+            // InternalTQL.g:1164:1: ( rule__InExpression__Group__1__Impl rule__InExpression__Group__2 )
+            // InternalTQL.g:1165:2: rule__InExpression__Group__1__Impl rule__InExpression__Group__2
             {
             pushFollow(FOLLOW_13);
             rule__InExpression__Group__1__Impl();
@@ -3670,20 +3508,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__1__Impl"
-    // InternalTQL.g:1208:1: rule__InExpression__Group__1__Impl : ( '{' ) ;
+    // InternalTQL.g:1172:1: rule__InExpression__Group__1__Impl : ( '{' ) ;
     public final void rule__InExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1212:1: ( ( '{' ) )
-            // InternalTQL.g:1213:1: ( '{' )
+            // InternalTQL.g:1176:1: ( ( '{' ) )
+            // InternalTQL.g:1177:1: ( '{' )
             {
-            // InternalTQL.g:1213:1: ( '{' )
-            // InternalTQL.g:1214:2: '{'
+            // InternalTQL.g:1177:1: ( '{' )
+            // InternalTQL.g:1178:2: '{'
             {
              before(grammarAccess.getInExpressionAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,31,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getInExpressionAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -3707,14 +3545,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__2"
-    // InternalTQL.g:1223:1: rule__InExpression__Group__2 : rule__InExpression__Group__2__Impl rule__InExpression__Group__3 ;
+    // InternalTQL.g:1187:1: rule__InExpression__Group__2 : rule__InExpression__Group__2__Impl rule__InExpression__Group__3 ;
     public final void rule__InExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1227:1: ( rule__InExpression__Group__2__Impl rule__InExpression__Group__3 )
-            // InternalTQL.g:1228:2: rule__InExpression__Group__2__Impl rule__InExpression__Group__3
+            // InternalTQL.g:1191:1: ( rule__InExpression__Group__2__Impl rule__InExpression__Group__3 )
+            // InternalTQL.g:1192:2: rule__InExpression__Group__2__Impl rule__InExpression__Group__3
             {
             pushFollow(FOLLOW_13);
             rule__InExpression__Group__2__Impl();
@@ -3745,29 +3583,29 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__2__Impl"
-    // InternalTQL.g:1235:1: rule__InExpression__Group__2__Impl : ( ( rule__InExpression__Group_2__0 )? ) ;
+    // InternalTQL.g:1199:1: rule__InExpression__Group__2__Impl : ( ( rule__InExpression__Group_2__0 )? ) ;
     public final void rule__InExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1239:1: ( ( ( rule__InExpression__Group_2__0 )? ) )
-            // InternalTQL.g:1240:1: ( ( rule__InExpression__Group_2__0 )? )
+            // InternalTQL.g:1203:1: ( ( ( rule__InExpression__Group_2__0 )? ) )
+            // InternalTQL.g:1204:1: ( ( rule__InExpression__Group_2__0 )? )
             {
-            // InternalTQL.g:1240:1: ( ( rule__InExpression__Group_2__0 )? )
-            // InternalTQL.g:1241:2: ( rule__InExpression__Group_2__0 )?
+            // InternalTQL.g:1204:1: ( ( rule__InExpression__Group_2__0 )? )
+            // InternalTQL.g:1205:2: ( rule__InExpression__Group_2__0 )?
             {
              before(grammarAccess.getInExpressionAccess().getGroup_2()); 
-            // InternalTQL.g:1242:2: ( rule__InExpression__Group_2__0 )?
+            // InternalTQL.g:1206:2: ( rule__InExpression__Group_2__0 )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
-            if ( (LA6_0==45) ) {
+            if ( (LA6_0==39) ) {
                 alt6=1;
             }
             switch (alt6) {
                 case 1 :
-                    // InternalTQL.g:1242:3: rule__InExpression__Group_2__0
+                    // InternalTQL.g:1206:3: rule__InExpression__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__InExpression__Group_2__0();
@@ -3803,14 +3641,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__3"
-    // InternalTQL.g:1250:1: rule__InExpression__Group__3 : rule__InExpression__Group__3__Impl rule__InExpression__Group__4 ;
+    // InternalTQL.g:1214:1: rule__InExpression__Group__3 : rule__InExpression__Group__3__Impl rule__InExpression__Group__4 ;
     public final void rule__InExpression__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1254:1: ( rule__InExpression__Group__3__Impl rule__InExpression__Group__4 )
-            // InternalTQL.g:1255:2: rule__InExpression__Group__3__Impl rule__InExpression__Group__4
+            // InternalTQL.g:1218:1: ( rule__InExpression__Group__3__Impl rule__InExpression__Group__4 )
+            // InternalTQL.g:1219:2: rule__InExpression__Group__3__Impl rule__InExpression__Group__4
             {
             pushFollow(FOLLOW_14);
             rule__InExpression__Group__3__Impl();
@@ -3841,20 +3679,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__3__Impl"
-    // InternalTQL.g:1262:1: rule__InExpression__Group__3__Impl : ( 'constantSet' ) ;
+    // InternalTQL.g:1226:1: rule__InExpression__Group__3__Impl : ( 'constantSet' ) ;
     public final void rule__InExpression__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1266:1: ( ( 'constantSet' ) )
-            // InternalTQL.g:1267:1: ( 'constantSet' )
+            // InternalTQL.g:1230:1: ( ( 'constantSet' ) )
+            // InternalTQL.g:1231:1: ( 'constantSet' )
             {
-            // InternalTQL.g:1267:1: ( 'constantSet' )
-            // InternalTQL.g:1268:2: 'constantSet'
+            // InternalTQL.g:1231:1: ( 'constantSet' )
+            // InternalTQL.g:1232:2: 'constantSet'
             {
              before(grammarAccess.getInExpressionAccess().getConstantSetKeyword_3()); 
-            match(input,42,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getInExpressionAccess().getConstantSetKeyword_3()); 
 
             }
@@ -3878,14 +3716,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__4"
-    // InternalTQL.g:1277:1: rule__InExpression__Group__4 : rule__InExpression__Group__4__Impl rule__InExpression__Group__5 ;
+    // InternalTQL.g:1241:1: rule__InExpression__Group__4 : rule__InExpression__Group__4__Impl rule__InExpression__Group__5 ;
     public final void rule__InExpression__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1281:1: ( rule__InExpression__Group__4__Impl rule__InExpression__Group__5 )
-            // InternalTQL.g:1282:2: rule__InExpression__Group__4__Impl rule__InExpression__Group__5
+            // InternalTQL.g:1245:1: ( rule__InExpression__Group__4__Impl rule__InExpression__Group__5 )
+            // InternalTQL.g:1246:2: rule__InExpression__Group__4__Impl rule__InExpression__Group__5
             {
             pushFollow(FOLLOW_5);
             rule__InExpression__Group__4__Impl();
@@ -3916,20 +3754,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__4__Impl"
-    // InternalTQL.g:1289:1: rule__InExpression__Group__4__Impl : ( '(' ) ;
+    // InternalTQL.g:1253:1: rule__InExpression__Group__4__Impl : ( '(' ) ;
     public final void rule__InExpression__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1293:1: ( ( '(' ) )
-            // InternalTQL.g:1294:1: ( '(' )
+            // InternalTQL.g:1257:1: ( ( '(' ) )
+            // InternalTQL.g:1258:1: ( '(' )
             {
-            // InternalTQL.g:1294:1: ( '(' )
-            // InternalTQL.g:1295:2: '('
+            // InternalTQL.g:1258:1: ( '(' )
+            // InternalTQL.g:1259:2: '('
             {
              before(grammarAccess.getInExpressionAccess().getLeftParenthesisKeyword_4()); 
-            match(input,43,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getInExpressionAccess().getLeftParenthesisKeyword_4()); 
 
             }
@@ -3953,14 +3791,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__5"
-    // InternalTQL.g:1304:1: rule__InExpression__Group__5 : rule__InExpression__Group__5__Impl rule__InExpression__Group__6 ;
+    // InternalTQL.g:1268:1: rule__InExpression__Group__5 : rule__InExpression__Group__5__Impl rule__InExpression__Group__6 ;
     public final void rule__InExpression__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1308:1: ( rule__InExpression__Group__5__Impl rule__InExpression__Group__6 )
-            // InternalTQL.g:1309:2: rule__InExpression__Group__5__Impl rule__InExpression__Group__6
+            // InternalTQL.g:1272:1: ( rule__InExpression__Group__5__Impl rule__InExpression__Group__6 )
+            // InternalTQL.g:1273:2: rule__InExpression__Group__5__Impl rule__InExpression__Group__6
             {
             pushFollow(FOLLOW_15);
             rule__InExpression__Group__5__Impl();
@@ -3991,21 +3829,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__5__Impl"
-    // InternalTQL.g:1316:1: rule__InExpression__Group__5__Impl : ( ( rule__InExpression__ConstantSetAssignment_5 ) ) ;
+    // InternalTQL.g:1280:1: rule__InExpression__Group__5__Impl : ( ( rule__InExpression__ConstantSetAssignment_5 ) ) ;
     public final void rule__InExpression__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1320:1: ( ( ( rule__InExpression__ConstantSetAssignment_5 ) ) )
-            // InternalTQL.g:1321:1: ( ( rule__InExpression__ConstantSetAssignment_5 ) )
+            // InternalTQL.g:1284:1: ( ( ( rule__InExpression__ConstantSetAssignment_5 ) ) )
+            // InternalTQL.g:1285:1: ( ( rule__InExpression__ConstantSetAssignment_5 ) )
             {
-            // InternalTQL.g:1321:1: ( ( rule__InExpression__ConstantSetAssignment_5 ) )
-            // InternalTQL.g:1322:2: ( rule__InExpression__ConstantSetAssignment_5 )
+            // InternalTQL.g:1285:1: ( ( rule__InExpression__ConstantSetAssignment_5 ) )
+            // InternalTQL.g:1286:2: ( rule__InExpression__ConstantSetAssignment_5 )
             {
              before(grammarAccess.getInExpressionAccess().getConstantSetAssignment_5()); 
-            // InternalTQL.g:1323:2: ( rule__InExpression__ConstantSetAssignment_5 )
-            // InternalTQL.g:1323:3: rule__InExpression__ConstantSetAssignment_5
+            // InternalTQL.g:1287:2: ( rule__InExpression__ConstantSetAssignment_5 )
+            // InternalTQL.g:1287:3: rule__InExpression__ConstantSetAssignment_5
             {
             pushFollow(FOLLOW_2);
             rule__InExpression__ConstantSetAssignment_5();
@@ -4038,14 +3876,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__6"
-    // InternalTQL.g:1331:1: rule__InExpression__Group__6 : rule__InExpression__Group__6__Impl rule__InExpression__Group__7 ;
+    // InternalTQL.g:1295:1: rule__InExpression__Group__6 : rule__InExpression__Group__6__Impl rule__InExpression__Group__7 ;
     public final void rule__InExpression__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1335:1: ( rule__InExpression__Group__6__Impl rule__InExpression__Group__7 )
-            // InternalTQL.g:1336:2: rule__InExpression__Group__6__Impl rule__InExpression__Group__7
+            // InternalTQL.g:1299:1: ( rule__InExpression__Group__6__Impl rule__InExpression__Group__7 )
+            // InternalTQL.g:1300:2: rule__InExpression__Group__6__Impl rule__InExpression__Group__7
             {
             pushFollow(FOLLOW_15);
             rule__InExpression__Group__6__Impl();
@@ -4076,33 +3914,33 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__6__Impl"
-    // InternalTQL.g:1343:1: rule__InExpression__Group__6__Impl : ( ( rule__InExpression__Group_6__0 )* ) ;
+    // InternalTQL.g:1307:1: rule__InExpression__Group__6__Impl : ( ( rule__InExpression__Group_6__0 )* ) ;
     public final void rule__InExpression__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1347:1: ( ( ( rule__InExpression__Group_6__0 )* ) )
-            // InternalTQL.g:1348:1: ( ( rule__InExpression__Group_6__0 )* )
+            // InternalTQL.g:1311:1: ( ( ( rule__InExpression__Group_6__0 )* ) )
+            // InternalTQL.g:1312:1: ( ( rule__InExpression__Group_6__0 )* )
             {
-            // InternalTQL.g:1348:1: ( ( rule__InExpression__Group_6__0 )* )
-            // InternalTQL.g:1349:2: ( rule__InExpression__Group_6__0 )*
+            // InternalTQL.g:1312:1: ( ( rule__InExpression__Group_6__0 )* )
+            // InternalTQL.g:1313:2: ( rule__InExpression__Group_6__0 )*
             {
              before(grammarAccess.getInExpressionAccess().getGroup_6()); 
-            // InternalTQL.g:1350:2: ( rule__InExpression__Group_6__0 )*
+            // InternalTQL.g:1314:2: ( rule__InExpression__Group_6__0 )*
             loop7:
             do {
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( (LA7_0==46) ) {
+                if ( (LA7_0==40) ) {
                     alt7=1;
                 }
 
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalTQL.g:1350:3: rule__InExpression__Group_6__0
+            	    // InternalTQL.g:1314:3: rule__InExpression__Group_6__0
             	    {
             	    pushFollow(FOLLOW_16);
             	    rule__InExpression__Group_6__0();
@@ -4141,14 +3979,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__7"
-    // InternalTQL.g:1358:1: rule__InExpression__Group__7 : rule__InExpression__Group__7__Impl rule__InExpression__Group__8 ;
+    // InternalTQL.g:1322:1: rule__InExpression__Group__7 : rule__InExpression__Group__7__Impl rule__InExpression__Group__8 ;
     public final void rule__InExpression__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1362:1: ( rule__InExpression__Group__7__Impl rule__InExpression__Group__8 )
-            // InternalTQL.g:1363:2: rule__InExpression__Group__7__Impl rule__InExpression__Group__8
+            // InternalTQL.g:1326:1: ( rule__InExpression__Group__7__Impl rule__InExpression__Group__8 )
+            // InternalTQL.g:1327:2: rule__InExpression__Group__7__Impl rule__InExpression__Group__8
             {
             pushFollow(FOLLOW_7);
             rule__InExpression__Group__7__Impl();
@@ -4179,20 +4017,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__7__Impl"
-    // InternalTQL.g:1370:1: rule__InExpression__Group__7__Impl : ( ')' ) ;
+    // InternalTQL.g:1334:1: rule__InExpression__Group__7__Impl : ( ')' ) ;
     public final void rule__InExpression__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1374:1: ( ( ')' ) )
-            // InternalTQL.g:1375:1: ( ')' )
+            // InternalTQL.g:1338:1: ( ( ')' ) )
+            // InternalTQL.g:1339:1: ( ')' )
             {
-            // InternalTQL.g:1375:1: ( ')' )
-            // InternalTQL.g:1376:2: ')'
+            // InternalTQL.g:1339:1: ( ')' )
+            // InternalTQL.g:1340:2: ')'
             {
              before(grammarAccess.getInExpressionAccess().getRightParenthesisKeyword_7()); 
-            match(input,44,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getInExpressionAccess().getRightParenthesisKeyword_7()); 
 
             }
@@ -4216,14 +4054,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__8"
-    // InternalTQL.g:1385:1: rule__InExpression__Group__8 : rule__InExpression__Group__8__Impl ;
+    // InternalTQL.g:1349:1: rule__InExpression__Group__8 : rule__InExpression__Group__8__Impl ;
     public final void rule__InExpression__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1389:1: ( rule__InExpression__Group__8__Impl )
-            // InternalTQL.g:1390:2: rule__InExpression__Group__8__Impl
+            // InternalTQL.g:1353:1: ( rule__InExpression__Group__8__Impl )
+            // InternalTQL.g:1354:2: rule__InExpression__Group__8__Impl
             {
             pushFollow(FOLLOW_2);
             rule__InExpression__Group__8__Impl();
@@ -4249,20 +4087,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group__8__Impl"
-    // InternalTQL.g:1396:1: rule__InExpression__Group__8__Impl : ( '}' ) ;
+    // InternalTQL.g:1360:1: rule__InExpression__Group__8__Impl : ( '}' ) ;
     public final void rule__InExpression__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1400:1: ( ( '}' ) )
-            // InternalTQL.g:1401:1: ( '}' )
+            // InternalTQL.g:1364:1: ( ( '}' ) )
+            // InternalTQL.g:1365:1: ( '}' )
             {
-            // InternalTQL.g:1401:1: ( '}' )
-            // InternalTQL.g:1402:2: '}'
+            // InternalTQL.g:1365:1: ( '}' )
+            // InternalTQL.g:1366:2: '}'
             {
              before(grammarAccess.getInExpressionAccess().getRightCurlyBracketKeyword_8()); 
-            match(input,34,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getInExpressionAccess().getRightCurlyBracketKeyword_8()); 
 
             }
@@ -4286,14 +4124,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group_2__0"
-    // InternalTQL.g:1412:1: rule__InExpression__Group_2__0 : rule__InExpression__Group_2__0__Impl rule__InExpression__Group_2__1 ;
+    // InternalTQL.g:1376:1: rule__InExpression__Group_2__0 : rule__InExpression__Group_2__0__Impl rule__InExpression__Group_2__1 ;
     public final void rule__InExpression__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1416:1: ( rule__InExpression__Group_2__0__Impl rule__InExpression__Group_2__1 )
-            // InternalTQL.g:1417:2: rule__InExpression__Group_2__0__Impl rule__InExpression__Group_2__1
+            // InternalTQL.g:1380:1: ( rule__InExpression__Group_2__0__Impl rule__InExpression__Group_2__1 )
+            // InternalTQL.g:1381:2: rule__InExpression__Group_2__0__Impl rule__InExpression__Group_2__1
             {
             pushFollow(FOLLOW_5);
             rule__InExpression__Group_2__0__Impl();
@@ -4324,20 +4162,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group_2__0__Impl"
-    // InternalTQL.g:1424:1: rule__InExpression__Group_2__0__Impl : ( 'statement' ) ;
+    // InternalTQL.g:1388:1: rule__InExpression__Group_2__0__Impl : ( 'statement' ) ;
     public final void rule__InExpression__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1428:1: ( ( 'statement' ) )
-            // InternalTQL.g:1429:1: ( 'statement' )
+            // InternalTQL.g:1392:1: ( ( 'statement' ) )
+            // InternalTQL.g:1393:1: ( 'statement' )
             {
-            // InternalTQL.g:1429:1: ( 'statement' )
-            // InternalTQL.g:1430:2: 'statement'
+            // InternalTQL.g:1393:1: ( 'statement' )
+            // InternalTQL.g:1394:2: 'statement'
             {
              before(grammarAccess.getInExpressionAccess().getStatementKeyword_2_0()); 
-            match(input,45,FOLLOW_2); 
+            match(input,39,FOLLOW_2); 
              after(grammarAccess.getInExpressionAccess().getStatementKeyword_2_0()); 
 
             }
@@ -4361,14 +4199,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group_2__1"
-    // InternalTQL.g:1439:1: rule__InExpression__Group_2__1 : rule__InExpression__Group_2__1__Impl ;
+    // InternalTQL.g:1403:1: rule__InExpression__Group_2__1 : rule__InExpression__Group_2__1__Impl ;
     public final void rule__InExpression__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1443:1: ( rule__InExpression__Group_2__1__Impl )
-            // InternalTQL.g:1444:2: rule__InExpression__Group_2__1__Impl
+            // InternalTQL.g:1407:1: ( rule__InExpression__Group_2__1__Impl )
+            // InternalTQL.g:1408:2: rule__InExpression__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__InExpression__Group_2__1__Impl();
@@ -4394,21 +4232,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group_2__1__Impl"
-    // InternalTQL.g:1450:1: rule__InExpression__Group_2__1__Impl : ( ( rule__InExpression__StatementAssignment_2_1 ) ) ;
+    // InternalTQL.g:1414:1: rule__InExpression__Group_2__1__Impl : ( ( rule__InExpression__StatementAssignment_2_1 ) ) ;
     public final void rule__InExpression__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1454:1: ( ( ( rule__InExpression__StatementAssignment_2_1 ) ) )
-            // InternalTQL.g:1455:1: ( ( rule__InExpression__StatementAssignment_2_1 ) )
+            // InternalTQL.g:1418:1: ( ( ( rule__InExpression__StatementAssignment_2_1 ) ) )
+            // InternalTQL.g:1419:1: ( ( rule__InExpression__StatementAssignment_2_1 ) )
             {
-            // InternalTQL.g:1455:1: ( ( rule__InExpression__StatementAssignment_2_1 ) )
-            // InternalTQL.g:1456:2: ( rule__InExpression__StatementAssignment_2_1 )
+            // InternalTQL.g:1419:1: ( ( rule__InExpression__StatementAssignment_2_1 ) )
+            // InternalTQL.g:1420:2: ( rule__InExpression__StatementAssignment_2_1 )
             {
              before(grammarAccess.getInExpressionAccess().getStatementAssignment_2_1()); 
-            // InternalTQL.g:1457:2: ( rule__InExpression__StatementAssignment_2_1 )
-            // InternalTQL.g:1457:3: rule__InExpression__StatementAssignment_2_1
+            // InternalTQL.g:1421:2: ( rule__InExpression__StatementAssignment_2_1 )
+            // InternalTQL.g:1421:3: rule__InExpression__StatementAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__InExpression__StatementAssignment_2_1();
@@ -4441,14 +4279,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group_6__0"
-    // InternalTQL.g:1466:1: rule__InExpression__Group_6__0 : rule__InExpression__Group_6__0__Impl rule__InExpression__Group_6__1 ;
+    // InternalTQL.g:1430:1: rule__InExpression__Group_6__0 : rule__InExpression__Group_6__0__Impl rule__InExpression__Group_6__1 ;
     public final void rule__InExpression__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1470:1: ( rule__InExpression__Group_6__0__Impl rule__InExpression__Group_6__1 )
-            // InternalTQL.g:1471:2: rule__InExpression__Group_6__0__Impl rule__InExpression__Group_6__1
+            // InternalTQL.g:1434:1: ( rule__InExpression__Group_6__0__Impl rule__InExpression__Group_6__1 )
+            // InternalTQL.g:1435:2: rule__InExpression__Group_6__0__Impl rule__InExpression__Group_6__1
             {
             pushFollow(FOLLOW_5);
             rule__InExpression__Group_6__0__Impl();
@@ -4479,20 +4317,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group_6__0__Impl"
-    // InternalTQL.g:1478:1: rule__InExpression__Group_6__0__Impl : ( ',' ) ;
+    // InternalTQL.g:1442:1: rule__InExpression__Group_6__0__Impl : ( ',' ) ;
     public final void rule__InExpression__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1482:1: ( ( ',' ) )
-            // InternalTQL.g:1483:1: ( ',' )
+            // InternalTQL.g:1446:1: ( ( ',' ) )
+            // InternalTQL.g:1447:1: ( ',' )
             {
-            // InternalTQL.g:1483:1: ( ',' )
-            // InternalTQL.g:1484:2: ','
+            // InternalTQL.g:1447:1: ( ',' )
+            // InternalTQL.g:1448:2: ','
             {
              before(grammarAccess.getInExpressionAccess().getCommaKeyword_6_0()); 
-            match(input,46,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getInExpressionAccess().getCommaKeyword_6_0()); 
 
             }
@@ -4516,14 +4354,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group_6__1"
-    // InternalTQL.g:1493:1: rule__InExpression__Group_6__1 : rule__InExpression__Group_6__1__Impl ;
+    // InternalTQL.g:1457:1: rule__InExpression__Group_6__1 : rule__InExpression__Group_6__1__Impl ;
     public final void rule__InExpression__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1497:1: ( rule__InExpression__Group_6__1__Impl )
-            // InternalTQL.g:1498:2: rule__InExpression__Group_6__1__Impl
+            // InternalTQL.g:1461:1: ( rule__InExpression__Group_6__1__Impl )
+            // InternalTQL.g:1462:2: rule__InExpression__Group_6__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__InExpression__Group_6__1__Impl();
@@ -4549,21 +4387,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__Group_6__1__Impl"
-    // InternalTQL.g:1504:1: rule__InExpression__Group_6__1__Impl : ( ( rule__InExpression__ConstantSetAssignment_6_1 ) ) ;
+    // InternalTQL.g:1468:1: rule__InExpression__Group_6__1__Impl : ( ( rule__InExpression__ConstantSetAssignment_6_1 ) ) ;
     public final void rule__InExpression__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1508:1: ( ( ( rule__InExpression__ConstantSetAssignment_6_1 ) ) )
-            // InternalTQL.g:1509:1: ( ( rule__InExpression__ConstantSetAssignment_6_1 ) )
+            // InternalTQL.g:1472:1: ( ( ( rule__InExpression__ConstantSetAssignment_6_1 ) ) )
+            // InternalTQL.g:1473:1: ( ( rule__InExpression__ConstantSetAssignment_6_1 ) )
             {
-            // InternalTQL.g:1509:1: ( ( rule__InExpression__ConstantSetAssignment_6_1 ) )
-            // InternalTQL.g:1510:2: ( rule__InExpression__ConstantSetAssignment_6_1 )
+            // InternalTQL.g:1473:1: ( ( rule__InExpression__ConstantSetAssignment_6_1 ) )
+            // InternalTQL.g:1474:2: ( rule__InExpression__ConstantSetAssignment_6_1 )
             {
              before(grammarAccess.getInExpressionAccess().getConstantSetAssignment_6_1()); 
-            // InternalTQL.g:1511:2: ( rule__InExpression__ConstantSetAssignment_6_1 )
-            // InternalTQL.g:1511:3: rule__InExpression__ConstantSetAssignment_6_1
+            // InternalTQL.g:1475:2: ( rule__InExpression__ConstantSetAssignment_6_1 )
+            // InternalTQL.g:1475:3: rule__InExpression__ConstantSetAssignment_6_1
             {
             pushFollow(FOLLOW_2);
             rule__InExpression__ConstantSetAssignment_6_1();
@@ -4596,14 +4434,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__Group__0"
-    // InternalTQL.g:1520:1: rule__ParseExpression__Group__0 : rule__ParseExpression__Group__0__Impl rule__ParseExpression__Group__1 ;
+    // InternalTQL.g:1484:1: rule__ParseExpression__Group__0 : rule__ParseExpression__Group__0__Impl rule__ParseExpression__Group__1 ;
     public final void rule__ParseExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1524:1: ( rule__ParseExpression__Group__0__Impl rule__ParseExpression__Group__1 )
-            // InternalTQL.g:1525:2: rule__ParseExpression__Group__0__Impl rule__ParseExpression__Group__1
+            // InternalTQL.g:1488:1: ( rule__ParseExpression__Group__0__Impl rule__ParseExpression__Group__1 )
+            // InternalTQL.g:1489:2: rule__ParseExpression__Group__0__Impl rule__ParseExpression__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__ParseExpression__Group__0__Impl();
@@ -4634,20 +4472,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__Group__0__Impl"
-    // InternalTQL.g:1532:1: rule__ParseExpression__Group__0__Impl : ( 'ParseExpression' ) ;
+    // InternalTQL.g:1496:1: rule__ParseExpression__Group__0__Impl : ( 'ParseExpression' ) ;
     public final void rule__ParseExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1536:1: ( ( 'ParseExpression' ) )
-            // InternalTQL.g:1537:1: ( 'ParseExpression' )
+            // InternalTQL.g:1500:1: ( ( 'ParseExpression' ) )
+            // InternalTQL.g:1501:1: ( 'ParseExpression' )
             {
-            // InternalTQL.g:1537:1: ( 'ParseExpression' )
-            // InternalTQL.g:1538:2: 'ParseExpression'
+            // InternalTQL.g:1501:1: ( 'ParseExpression' )
+            // InternalTQL.g:1502:2: 'ParseExpression'
             {
              before(grammarAccess.getParseExpressionAccess().getParseExpressionKeyword_0()); 
-            match(input,47,FOLLOW_2); 
+            match(input,41,FOLLOW_2); 
              after(grammarAccess.getParseExpressionAccess().getParseExpressionKeyword_0()); 
 
             }
@@ -4671,14 +4509,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__Group__1"
-    // InternalTQL.g:1547:1: rule__ParseExpression__Group__1 : rule__ParseExpression__Group__1__Impl rule__ParseExpression__Group__2 ;
+    // InternalTQL.g:1511:1: rule__ParseExpression__Group__1 : rule__ParseExpression__Group__1__Impl rule__ParseExpression__Group__2 ;
     public final void rule__ParseExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1551:1: ( rule__ParseExpression__Group__1__Impl rule__ParseExpression__Group__2 )
-            // InternalTQL.g:1552:2: rule__ParseExpression__Group__1__Impl rule__ParseExpression__Group__2
+            // InternalTQL.g:1515:1: ( rule__ParseExpression__Group__1__Impl rule__ParseExpression__Group__2 )
+            // InternalTQL.g:1516:2: rule__ParseExpression__Group__1__Impl rule__ParseExpression__Group__2
             {
             pushFollow(FOLLOW_17);
             rule__ParseExpression__Group__1__Impl();
@@ -4709,20 +4547,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__Group__1__Impl"
-    // InternalTQL.g:1559:1: rule__ParseExpression__Group__1__Impl : ( '{' ) ;
+    // InternalTQL.g:1523:1: rule__ParseExpression__Group__1__Impl : ( '{' ) ;
     public final void rule__ParseExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1563:1: ( ( '{' ) )
-            // InternalTQL.g:1564:1: ( '{' )
+            // InternalTQL.g:1527:1: ( ( '{' ) )
+            // InternalTQL.g:1528:1: ( '{' )
             {
-            // InternalTQL.g:1564:1: ( '{' )
-            // InternalTQL.g:1565:2: '{'
+            // InternalTQL.g:1528:1: ( '{' )
+            // InternalTQL.g:1529:2: '{'
             {
              before(grammarAccess.getParseExpressionAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,31,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getParseExpressionAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -4746,14 +4584,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__Group__2"
-    // InternalTQL.g:1574:1: rule__ParseExpression__Group__2 : rule__ParseExpression__Group__2__Impl rule__ParseExpression__Group__3 ;
+    // InternalTQL.g:1538:1: rule__ParseExpression__Group__2 : rule__ParseExpression__Group__2__Impl rule__ParseExpression__Group__3 ;
     public final void rule__ParseExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1578:1: ( rule__ParseExpression__Group__2__Impl rule__ParseExpression__Group__3 )
-            // InternalTQL.g:1579:2: rule__ParseExpression__Group__2__Impl rule__ParseExpression__Group__3
+            // InternalTQL.g:1542:1: ( rule__ParseExpression__Group__2__Impl rule__ParseExpression__Group__3 )
+            // InternalTQL.g:1543:2: rule__ParseExpression__Group__2__Impl rule__ParseExpression__Group__3
             {
             pushFollow(FOLLOW_17);
             rule__ParseExpression__Group__2__Impl();
@@ -4784,29 +4622,29 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__Group__2__Impl"
-    // InternalTQL.g:1586:1: rule__ParseExpression__Group__2__Impl : ( ( rule__ParseExpression__Group_2__0 )? ) ;
+    // InternalTQL.g:1550:1: rule__ParseExpression__Group__2__Impl : ( ( rule__ParseExpression__Group_2__0 )? ) ;
     public final void rule__ParseExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1590:1: ( ( ( rule__ParseExpression__Group_2__0 )? ) )
-            // InternalTQL.g:1591:1: ( ( rule__ParseExpression__Group_2__0 )? )
+            // InternalTQL.g:1554:1: ( ( ( rule__ParseExpression__Group_2__0 )? ) )
+            // InternalTQL.g:1555:1: ( ( rule__ParseExpression__Group_2__0 )? )
             {
-            // InternalTQL.g:1591:1: ( ( rule__ParseExpression__Group_2__0 )? )
-            // InternalTQL.g:1592:2: ( rule__ParseExpression__Group_2__0 )?
+            // InternalTQL.g:1555:1: ( ( rule__ParseExpression__Group_2__0 )? )
+            // InternalTQL.g:1556:2: ( rule__ParseExpression__Group_2__0 )?
             {
              before(grammarAccess.getParseExpressionAccess().getGroup_2()); 
-            // InternalTQL.g:1593:2: ( rule__ParseExpression__Group_2__0 )?
+            // InternalTQL.g:1557:2: ( rule__ParseExpression__Group_2__0 )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==49) ) {
+            if ( (LA8_0==43) ) {
                 alt8=1;
             }
             switch (alt8) {
                 case 1 :
-                    // InternalTQL.g:1593:3: rule__ParseExpression__Group_2__0
+                    // InternalTQL.g:1557:3: rule__ParseExpression__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ParseExpression__Group_2__0();
@@ -4842,14 +4680,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__Group__3"
-    // InternalTQL.g:1601:1: rule__ParseExpression__Group__3 : rule__ParseExpression__Group__3__Impl rule__ParseExpression__Group__4 ;
+    // InternalTQL.g:1565:1: rule__ParseExpression__Group__3 : rule__ParseExpression__Group__3__Impl rule__ParseExpression__Group__4 ;
     public final void rule__ParseExpression__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1605:1: ( rule__ParseExpression__Group__3__Impl rule__ParseExpression__Group__4 )
-            // InternalTQL.g:1606:2: rule__ParseExpression__Group__3__Impl rule__ParseExpression__Group__4
+            // InternalTQL.g:1569:1: ( rule__ParseExpression__Group__3__Impl rule__ParseExpression__Group__4 )
+            // InternalTQL.g:1570:2: rule__ParseExpression__Group__3__Impl rule__ParseExpression__Group__4
             {
             pushFollow(FOLLOW_5);
             rule__ParseExpression__Group__3__Impl();
@@ -4880,20 +4718,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__Group__3__Impl"
-    // InternalTQL.g:1613:1: rule__ParseExpression__Group__3__Impl : ( 'expression' ) ;
+    // InternalTQL.g:1577:1: rule__ParseExpression__Group__3__Impl : ( 'expression' ) ;
     public final void rule__ParseExpression__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1617:1: ( ( 'expression' ) )
-            // InternalTQL.g:1618:1: ( 'expression' )
+            // InternalTQL.g:1581:1: ( ( 'expression' ) )
+            // InternalTQL.g:1582:1: ( 'expression' )
             {
-            // InternalTQL.g:1618:1: ( 'expression' )
-            // InternalTQL.g:1619:2: 'expression'
+            // InternalTQL.g:1582:1: ( 'expression' )
+            // InternalTQL.g:1583:2: 'expression'
             {
              before(grammarAccess.getParseExpressionAccess().getExpressionKeyword_3()); 
-            match(input,48,FOLLOW_2); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getParseExpressionAccess().getExpressionKeyword_3()); 
 
             }
@@ -4917,14 +4755,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__Group__4"
-    // InternalTQL.g:1628:1: rule__ParseExpression__Group__4 : rule__ParseExpression__Group__4__Impl rule__ParseExpression__Group__5 ;
+    // InternalTQL.g:1592:1: rule__ParseExpression__Group__4 : rule__ParseExpression__Group__4__Impl rule__ParseExpression__Group__5 ;
     public final void rule__ParseExpression__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1632:1: ( rule__ParseExpression__Group__4__Impl rule__ParseExpression__Group__5 )
-            // InternalTQL.g:1633:2: rule__ParseExpression__Group__4__Impl rule__ParseExpression__Group__5
+            // InternalTQL.g:1596:1: ( rule__ParseExpression__Group__4__Impl rule__ParseExpression__Group__5 )
+            // InternalTQL.g:1597:2: rule__ParseExpression__Group__4__Impl rule__ParseExpression__Group__5
             {
             pushFollow(FOLLOW_7);
             rule__ParseExpression__Group__4__Impl();
@@ -4955,21 +4793,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__Group__4__Impl"
-    // InternalTQL.g:1640:1: rule__ParseExpression__Group__4__Impl : ( ( rule__ParseExpression__ExpressionAssignment_4 ) ) ;
+    // InternalTQL.g:1604:1: rule__ParseExpression__Group__4__Impl : ( ( rule__ParseExpression__ExpressionAssignment_4 ) ) ;
     public final void rule__ParseExpression__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1644:1: ( ( ( rule__ParseExpression__ExpressionAssignment_4 ) ) )
-            // InternalTQL.g:1645:1: ( ( rule__ParseExpression__ExpressionAssignment_4 ) )
+            // InternalTQL.g:1608:1: ( ( ( rule__ParseExpression__ExpressionAssignment_4 ) ) )
+            // InternalTQL.g:1609:1: ( ( rule__ParseExpression__ExpressionAssignment_4 ) )
             {
-            // InternalTQL.g:1645:1: ( ( rule__ParseExpression__ExpressionAssignment_4 ) )
-            // InternalTQL.g:1646:2: ( rule__ParseExpression__ExpressionAssignment_4 )
+            // InternalTQL.g:1609:1: ( ( rule__ParseExpression__ExpressionAssignment_4 ) )
+            // InternalTQL.g:1610:2: ( rule__ParseExpression__ExpressionAssignment_4 )
             {
              before(grammarAccess.getParseExpressionAccess().getExpressionAssignment_4()); 
-            // InternalTQL.g:1647:2: ( rule__ParseExpression__ExpressionAssignment_4 )
-            // InternalTQL.g:1647:3: rule__ParseExpression__ExpressionAssignment_4
+            // InternalTQL.g:1611:2: ( rule__ParseExpression__ExpressionAssignment_4 )
+            // InternalTQL.g:1611:3: rule__ParseExpression__ExpressionAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__ParseExpression__ExpressionAssignment_4();
@@ -5002,14 +4840,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__Group__5"
-    // InternalTQL.g:1655:1: rule__ParseExpression__Group__5 : rule__ParseExpression__Group__5__Impl ;
+    // InternalTQL.g:1619:1: rule__ParseExpression__Group__5 : rule__ParseExpression__Group__5__Impl ;
     public final void rule__ParseExpression__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1659:1: ( rule__ParseExpression__Group__5__Impl )
-            // InternalTQL.g:1660:2: rule__ParseExpression__Group__5__Impl
+            // InternalTQL.g:1623:1: ( rule__ParseExpression__Group__5__Impl )
+            // InternalTQL.g:1624:2: rule__ParseExpression__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ParseExpression__Group__5__Impl();
@@ -5035,20 +4873,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__Group__5__Impl"
-    // InternalTQL.g:1666:1: rule__ParseExpression__Group__5__Impl : ( '}' ) ;
+    // InternalTQL.g:1630:1: rule__ParseExpression__Group__5__Impl : ( '}' ) ;
     public final void rule__ParseExpression__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1670:1: ( ( '}' ) )
-            // InternalTQL.g:1671:1: ( '}' )
+            // InternalTQL.g:1634:1: ( ( '}' ) )
+            // InternalTQL.g:1635:1: ( '}' )
             {
-            // InternalTQL.g:1671:1: ( '}' )
-            // InternalTQL.g:1672:2: '}'
+            // InternalTQL.g:1635:1: ( '}' )
+            // InternalTQL.g:1636:2: '}'
             {
              before(grammarAccess.getParseExpressionAccess().getRightCurlyBracketKeyword_5()); 
-            match(input,34,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getParseExpressionAccess().getRightCurlyBracketKeyword_5()); 
 
             }
@@ -5072,14 +4910,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__Group_2__0"
-    // InternalTQL.g:1682:1: rule__ParseExpression__Group_2__0 : rule__ParseExpression__Group_2__0__Impl rule__ParseExpression__Group_2__1 ;
+    // InternalTQL.g:1646:1: rule__ParseExpression__Group_2__0 : rule__ParseExpression__Group_2__0__Impl rule__ParseExpression__Group_2__1 ;
     public final void rule__ParseExpression__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1686:1: ( rule__ParseExpression__Group_2__0__Impl rule__ParseExpression__Group_2__1 )
-            // InternalTQL.g:1687:2: rule__ParseExpression__Group_2__0__Impl rule__ParseExpression__Group_2__1
+            // InternalTQL.g:1650:1: ( rule__ParseExpression__Group_2__0__Impl rule__ParseExpression__Group_2__1 )
+            // InternalTQL.g:1651:2: rule__ParseExpression__Group_2__0__Impl rule__ParseExpression__Group_2__1
             {
             pushFollow(FOLLOW_18);
             rule__ParseExpression__Group_2__0__Impl();
@@ -5110,20 +4948,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__Group_2__0__Impl"
-    // InternalTQL.g:1694:1: rule__ParseExpression__Group_2__0__Impl : ( 'outputType' ) ;
+    // InternalTQL.g:1658:1: rule__ParseExpression__Group_2__0__Impl : ( 'outputType' ) ;
     public final void rule__ParseExpression__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1698:1: ( ( 'outputType' ) )
-            // InternalTQL.g:1699:1: ( 'outputType' )
+            // InternalTQL.g:1662:1: ( ( 'outputType' ) )
+            // InternalTQL.g:1663:1: ( 'outputType' )
             {
-            // InternalTQL.g:1699:1: ( 'outputType' )
-            // InternalTQL.g:1700:2: 'outputType'
+            // InternalTQL.g:1663:1: ( 'outputType' )
+            // InternalTQL.g:1664:2: 'outputType'
             {
              before(grammarAccess.getParseExpressionAccess().getOutputTypeKeyword_2_0()); 
-            match(input,49,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getParseExpressionAccess().getOutputTypeKeyword_2_0()); 
 
             }
@@ -5147,14 +4985,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__Group_2__1"
-    // InternalTQL.g:1709:1: rule__ParseExpression__Group_2__1 : rule__ParseExpression__Group_2__1__Impl ;
+    // InternalTQL.g:1673:1: rule__ParseExpression__Group_2__1 : rule__ParseExpression__Group_2__1__Impl ;
     public final void rule__ParseExpression__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1713:1: ( rule__ParseExpression__Group_2__1__Impl )
-            // InternalTQL.g:1714:2: rule__ParseExpression__Group_2__1__Impl
+            // InternalTQL.g:1677:1: ( rule__ParseExpression__Group_2__1__Impl )
+            // InternalTQL.g:1678:2: rule__ParseExpression__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ParseExpression__Group_2__1__Impl();
@@ -5180,21 +5018,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__Group_2__1__Impl"
-    // InternalTQL.g:1720:1: rule__ParseExpression__Group_2__1__Impl : ( ( rule__ParseExpression__OutputTypeAssignment_2_1 ) ) ;
+    // InternalTQL.g:1684:1: rule__ParseExpression__Group_2__1__Impl : ( ( rule__ParseExpression__OutputTypeAssignment_2_1 ) ) ;
     public final void rule__ParseExpression__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1724:1: ( ( ( rule__ParseExpression__OutputTypeAssignment_2_1 ) ) )
-            // InternalTQL.g:1725:1: ( ( rule__ParseExpression__OutputTypeAssignment_2_1 ) )
+            // InternalTQL.g:1688:1: ( ( ( rule__ParseExpression__OutputTypeAssignment_2_1 ) ) )
+            // InternalTQL.g:1689:1: ( ( rule__ParseExpression__OutputTypeAssignment_2_1 ) )
             {
-            // InternalTQL.g:1725:1: ( ( rule__ParseExpression__OutputTypeAssignment_2_1 ) )
-            // InternalTQL.g:1726:2: ( rule__ParseExpression__OutputTypeAssignment_2_1 )
+            // InternalTQL.g:1689:1: ( ( rule__ParseExpression__OutputTypeAssignment_2_1 ) )
+            // InternalTQL.g:1690:2: ( rule__ParseExpression__OutputTypeAssignment_2_1 )
             {
              before(grammarAccess.getParseExpressionAccess().getOutputTypeAssignment_2_1()); 
-            // InternalTQL.g:1727:2: ( rule__ParseExpression__OutputTypeAssignment_2_1 )
-            // InternalTQL.g:1727:3: rule__ParseExpression__OutputTypeAssignment_2_1
+            // InternalTQL.g:1691:2: ( rule__ParseExpression__OutputTypeAssignment_2_1 )
+            // InternalTQL.g:1691:3: rule__ParseExpression__OutputTypeAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__ParseExpression__OutputTypeAssignment_2_1();
@@ -5227,14 +5065,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FloatConstantExpression__Group__0"
-    // InternalTQL.g:1736:1: rule__FloatConstantExpression__Group__0 : rule__FloatConstantExpression__Group__0__Impl rule__FloatConstantExpression__Group__1 ;
+    // InternalTQL.g:1700:1: rule__FloatConstantExpression__Group__0 : rule__FloatConstantExpression__Group__0__Impl rule__FloatConstantExpression__Group__1 ;
     public final void rule__FloatConstantExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1740:1: ( rule__FloatConstantExpression__Group__0__Impl rule__FloatConstantExpression__Group__1 )
-            // InternalTQL.g:1741:2: rule__FloatConstantExpression__Group__0__Impl rule__FloatConstantExpression__Group__1
+            // InternalTQL.g:1704:1: ( rule__FloatConstantExpression__Group__0__Impl rule__FloatConstantExpression__Group__1 )
+            // InternalTQL.g:1705:2: rule__FloatConstantExpression__Group__0__Impl rule__FloatConstantExpression__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__FloatConstantExpression__Group__0__Impl();
@@ -5265,20 +5103,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FloatConstantExpression__Group__0__Impl"
-    // InternalTQL.g:1748:1: rule__FloatConstantExpression__Group__0__Impl : ( 'FloatConstantExpression' ) ;
+    // InternalTQL.g:1712:1: rule__FloatConstantExpression__Group__0__Impl : ( 'FloatConstantExpression' ) ;
     public final void rule__FloatConstantExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1752:1: ( ( 'FloatConstantExpression' ) )
-            // InternalTQL.g:1753:1: ( 'FloatConstantExpression' )
+            // InternalTQL.g:1716:1: ( ( 'FloatConstantExpression' ) )
+            // InternalTQL.g:1717:1: ( 'FloatConstantExpression' )
             {
-            // InternalTQL.g:1753:1: ( 'FloatConstantExpression' )
-            // InternalTQL.g:1754:2: 'FloatConstantExpression'
+            // InternalTQL.g:1717:1: ( 'FloatConstantExpression' )
+            // InternalTQL.g:1718:2: 'FloatConstantExpression'
             {
              before(grammarAccess.getFloatConstantExpressionAccess().getFloatConstantExpressionKeyword_0()); 
-            match(input,50,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getFloatConstantExpressionAccess().getFloatConstantExpressionKeyword_0()); 
 
             }
@@ -5302,14 +5140,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FloatConstantExpression__Group__1"
-    // InternalTQL.g:1763:1: rule__FloatConstantExpression__Group__1 : rule__FloatConstantExpression__Group__1__Impl rule__FloatConstantExpression__Group__2 ;
+    // InternalTQL.g:1727:1: rule__FloatConstantExpression__Group__1 : rule__FloatConstantExpression__Group__1__Impl rule__FloatConstantExpression__Group__2 ;
     public final void rule__FloatConstantExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1767:1: ( rule__FloatConstantExpression__Group__1__Impl rule__FloatConstantExpression__Group__2 )
-            // InternalTQL.g:1768:2: rule__FloatConstantExpression__Group__1__Impl rule__FloatConstantExpression__Group__2
+            // InternalTQL.g:1731:1: ( rule__FloatConstantExpression__Group__1__Impl rule__FloatConstantExpression__Group__2 )
+            // InternalTQL.g:1732:2: rule__FloatConstantExpression__Group__1__Impl rule__FloatConstantExpression__Group__2
             {
             pushFollow(FOLLOW_10);
             rule__FloatConstantExpression__Group__1__Impl();
@@ -5340,20 +5178,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FloatConstantExpression__Group__1__Impl"
-    // InternalTQL.g:1775:1: rule__FloatConstantExpression__Group__1__Impl : ( '{' ) ;
+    // InternalTQL.g:1739:1: rule__FloatConstantExpression__Group__1__Impl : ( '{' ) ;
     public final void rule__FloatConstantExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1779:1: ( ( '{' ) )
-            // InternalTQL.g:1780:1: ( '{' )
+            // InternalTQL.g:1743:1: ( ( '{' ) )
+            // InternalTQL.g:1744:1: ( '{' )
             {
-            // InternalTQL.g:1780:1: ( '{' )
-            // InternalTQL.g:1781:2: '{'
+            // InternalTQL.g:1744:1: ( '{' )
+            // InternalTQL.g:1745:2: '{'
             {
              before(grammarAccess.getFloatConstantExpressionAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,31,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getFloatConstantExpressionAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -5377,14 +5215,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FloatConstantExpression__Group__2"
-    // InternalTQL.g:1790:1: rule__FloatConstantExpression__Group__2 : rule__FloatConstantExpression__Group__2__Impl rule__FloatConstantExpression__Group__3 ;
+    // InternalTQL.g:1754:1: rule__FloatConstantExpression__Group__2 : rule__FloatConstantExpression__Group__2__Impl rule__FloatConstantExpression__Group__3 ;
     public final void rule__FloatConstantExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1794:1: ( rule__FloatConstantExpression__Group__2__Impl rule__FloatConstantExpression__Group__3 )
-            // InternalTQL.g:1795:2: rule__FloatConstantExpression__Group__2__Impl rule__FloatConstantExpression__Group__3
+            // InternalTQL.g:1758:1: ( rule__FloatConstantExpression__Group__2__Impl rule__FloatConstantExpression__Group__3 )
+            // InternalTQL.g:1759:2: rule__FloatConstantExpression__Group__2__Impl rule__FloatConstantExpression__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__FloatConstantExpression__Group__2__Impl();
@@ -5415,20 +5253,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FloatConstantExpression__Group__2__Impl"
-    // InternalTQL.g:1802:1: rule__FloatConstantExpression__Group__2__Impl : ( 'value' ) ;
+    // InternalTQL.g:1766:1: rule__FloatConstantExpression__Group__2__Impl : ( 'value' ) ;
     public final void rule__FloatConstantExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1806:1: ( ( 'value' ) )
-            // InternalTQL.g:1807:1: ( 'value' )
+            // InternalTQL.g:1770:1: ( ( 'value' ) )
+            // InternalTQL.g:1771:1: ( 'value' )
             {
-            // InternalTQL.g:1807:1: ( 'value' )
-            // InternalTQL.g:1808:2: 'value'
+            // InternalTQL.g:1771:1: ( 'value' )
+            // InternalTQL.g:1772:2: 'value'
             {
              before(grammarAccess.getFloatConstantExpressionAccess().getValueKeyword_2()); 
-            match(input,38,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getFloatConstantExpressionAccess().getValueKeyword_2()); 
 
             }
@@ -5452,14 +5290,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FloatConstantExpression__Group__3"
-    // InternalTQL.g:1817:1: rule__FloatConstantExpression__Group__3 : rule__FloatConstantExpression__Group__3__Impl rule__FloatConstantExpression__Group__4 ;
+    // InternalTQL.g:1781:1: rule__FloatConstantExpression__Group__3 : rule__FloatConstantExpression__Group__3__Impl rule__FloatConstantExpression__Group__4 ;
     public final void rule__FloatConstantExpression__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1821:1: ( rule__FloatConstantExpression__Group__3__Impl rule__FloatConstantExpression__Group__4 )
-            // InternalTQL.g:1822:2: rule__FloatConstantExpression__Group__3__Impl rule__FloatConstantExpression__Group__4
+            // InternalTQL.g:1785:1: ( rule__FloatConstantExpression__Group__3__Impl rule__FloatConstantExpression__Group__4 )
+            // InternalTQL.g:1786:2: rule__FloatConstantExpression__Group__3__Impl rule__FloatConstantExpression__Group__4
             {
             pushFollow(FOLLOW_7);
             rule__FloatConstantExpression__Group__3__Impl();
@@ -5490,21 +5328,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FloatConstantExpression__Group__3__Impl"
-    // InternalTQL.g:1829:1: rule__FloatConstantExpression__Group__3__Impl : ( ( rule__FloatConstantExpression__ValueAssignment_3 ) ) ;
+    // InternalTQL.g:1793:1: rule__FloatConstantExpression__Group__3__Impl : ( ( rule__FloatConstantExpression__ValueAssignment_3 ) ) ;
     public final void rule__FloatConstantExpression__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1833:1: ( ( ( rule__FloatConstantExpression__ValueAssignment_3 ) ) )
-            // InternalTQL.g:1834:1: ( ( rule__FloatConstantExpression__ValueAssignment_3 ) )
+            // InternalTQL.g:1797:1: ( ( ( rule__FloatConstantExpression__ValueAssignment_3 ) ) )
+            // InternalTQL.g:1798:1: ( ( rule__FloatConstantExpression__ValueAssignment_3 ) )
             {
-            // InternalTQL.g:1834:1: ( ( rule__FloatConstantExpression__ValueAssignment_3 ) )
-            // InternalTQL.g:1835:2: ( rule__FloatConstantExpression__ValueAssignment_3 )
+            // InternalTQL.g:1798:1: ( ( rule__FloatConstantExpression__ValueAssignment_3 ) )
+            // InternalTQL.g:1799:2: ( rule__FloatConstantExpression__ValueAssignment_3 )
             {
              before(grammarAccess.getFloatConstantExpressionAccess().getValueAssignment_3()); 
-            // InternalTQL.g:1836:2: ( rule__FloatConstantExpression__ValueAssignment_3 )
-            // InternalTQL.g:1836:3: rule__FloatConstantExpression__ValueAssignment_3
+            // InternalTQL.g:1800:2: ( rule__FloatConstantExpression__ValueAssignment_3 )
+            // InternalTQL.g:1800:3: rule__FloatConstantExpression__ValueAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__FloatConstantExpression__ValueAssignment_3();
@@ -5537,14 +5375,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FloatConstantExpression__Group__4"
-    // InternalTQL.g:1844:1: rule__FloatConstantExpression__Group__4 : rule__FloatConstantExpression__Group__4__Impl ;
+    // InternalTQL.g:1808:1: rule__FloatConstantExpression__Group__4 : rule__FloatConstantExpression__Group__4__Impl ;
     public final void rule__FloatConstantExpression__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1848:1: ( rule__FloatConstantExpression__Group__4__Impl )
-            // InternalTQL.g:1849:2: rule__FloatConstantExpression__Group__4__Impl
+            // InternalTQL.g:1812:1: ( rule__FloatConstantExpression__Group__4__Impl )
+            // InternalTQL.g:1813:2: rule__FloatConstantExpression__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__FloatConstantExpression__Group__4__Impl();
@@ -5570,20 +5408,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FloatConstantExpression__Group__4__Impl"
-    // InternalTQL.g:1855:1: rule__FloatConstantExpression__Group__4__Impl : ( '}' ) ;
+    // InternalTQL.g:1819:1: rule__FloatConstantExpression__Group__4__Impl : ( '}' ) ;
     public final void rule__FloatConstantExpression__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1859:1: ( ( '}' ) )
-            // InternalTQL.g:1860:1: ( '}' )
+            // InternalTQL.g:1823:1: ( ( '}' ) )
+            // InternalTQL.g:1824:1: ( '}' )
             {
-            // InternalTQL.g:1860:1: ( '}' )
-            // InternalTQL.g:1861:2: '}'
+            // InternalTQL.g:1824:1: ( '}' )
+            // InternalTQL.g:1825:2: '}'
             {
              before(grammarAccess.getFloatConstantExpressionAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,34,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getFloatConstantExpressionAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -5607,14 +5445,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EInt__Group__0"
-    // InternalTQL.g:1871:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
+    // InternalTQL.g:1835:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
     public final void rule__EInt__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1875:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
-            // InternalTQL.g:1876:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
+            // InternalTQL.g:1839:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
+            // InternalTQL.g:1840:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
             {
             pushFollow(FOLLOW_12);
             rule__EInt__Group__0__Impl();
@@ -5645,31 +5483,31 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EInt__Group__0__Impl"
-    // InternalTQL.g:1883:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
+    // InternalTQL.g:1847:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
     public final void rule__EInt__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1887:1: ( ( ( '-' )? ) )
-            // InternalTQL.g:1888:1: ( ( '-' )? )
+            // InternalTQL.g:1851:1: ( ( ( '-' )? ) )
+            // InternalTQL.g:1852:1: ( ( '-' )? )
             {
-            // InternalTQL.g:1888:1: ( ( '-' )? )
-            // InternalTQL.g:1889:2: ( '-' )?
+            // InternalTQL.g:1852:1: ( ( '-' )? )
+            // InternalTQL.g:1853:2: ( '-' )?
             {
              before(grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); 
-            // InternalTQL.g:1890:2: ( '-' )?
+            // InternalTQL.g:1854:2: ( '-' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==51) ) {
+            if ( (LA9_0==45) ) {
                 alt9=1;
             }
             switch (alt9) {
                 case 1 :
-                    // InternalTQL.g:1890:3: '-'
+                    // InternalTQL.g:1854:3: '-'
                     {
-                    match(input,51,FOLLOW_2); 
+                    match(input,45,FOLLOW_2); 
 
                     }
                     break;
@@ -5699,14 +5537,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EInt__Group__1"
-    // InternalTQL.g:1898:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
+    // InternalTQL.g:1862:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
     public final void rule__EInt__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1902:1: ( rule__EInt__Group__1__Impl )
-            // InternalTQL.g:1903:2: rule__EInt__Group__1__Impl
+            // InternalTQL.g:1866:1: ( rule__EInt__Group__1__Impl )
+            // InternalTQL.g:1867:2: rule__EInt__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EInt__Group__1__Impl();
@@ -5732,17 +5570,17 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EInt__Group__1__Impl"
-    // InternalTQL.g:1909:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
+    // InternalTQL.g:1873:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
     public final void rule__EInt__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1913:1: ( ( RULE_INT ) )
-            // InternalTQL.g:1914:1: ( RULE_INT )
+            // InternalTQL.g:1877:1: ( ( RULE_INT ) )
+            // InternalTQL.g:1878:1: ( RULE_INT )
             {
-            // InternalTQL.g:1914:1: ( RULE_INT )
-            // InternalTQL.g:1915:2: RULE_INT
+            // InternalTQL.g:1878:1: ( RULE_INT )
+            // InternalTQL.g:1879:2: RULE_INT
             {
              before(grammarAccess.getEIntAccess().getINTTerminalRuleCall_1()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -5769,14 +5607,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__0"
-    // InternalTQL.g:1925:1: rule__EFloat__Group__0 : rule__EFloat__Group__0__Impl rule__EFloat__Group__1 ;
+    // InternalTQL.g:1889:1: rule__EFloat__Group__0 : rule__EFloat__Group__0__Impl rule__EFloat__Group__1 ;
     public final void rule__EFloat__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1929:1: ( rule__EFloat__Group__0__Impl rule__EFloat__Group__1 )
-            // InternalTQL.g:1930:2: rule__EFloat__Group__0__Impl rule__EFloat__Group__1
+            // InternalTQL.g:1893:1: ( rule__EFloat__Group__0__Impl rule__EFloat__Group__1 )
+            // InternalTQL.g:1894:2: rule__EFloat__Group__0__Impl rule__EFloat__Group__1
             {
             pushFollow(FOLLOW_19);
             rule__EFloat__Group__0__Impl();
@@ -5807,31 +5645,31 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__0__Impl"
-    // InternalTQL.g:1937:1: rule__EFloat__Group__0__Impl : ( ( '-' )? ) ;
+    // InternalTQL.g:1901:1: rule__EFloat__Group__0__Impl : ( ( '-' )? ) ;
     public final void rule__EFloat__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1941:1: ( ( ( '-' )? ) )
-            // InternalTQL.g:1942:1: ( ( '-' )? )
+            // InternalTQL.g:1905:1: ( ( ( '-' )? ) )
+            // InternalTQL.g:1906:1: ( ( '-' )? )
             {
-            // InternalTQL.g:1942:1: ( ( '-' )? )
-            // InternalTQL.g:1943:2: ( '-' )?
+            // InternalTQL.g:1906:1: ( ( '-' )? )
+            // InternalTQL.g:1907:2: ( '-' )?
             {
              before(grammarAccess.getEFloatAccess().getHyphenMinusKeyword_0()); 
-            // InternalTQL.g:1944:2: ( '-' )?
+            // InternalTQL.g:1908:2: ( '-' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( (LA10_0==51) ) {
+            if ( (LA10_0==45) ) {
                 alt10=1;
             }
             switch (alt10) {
                 case 1 :
-                    // InternalTQL.g:1944:3: '-'
+                    // InternalTQL.g:1908:3: '-'
                     {
-                    match(input,51,FOLLOW_2); 
+                    match(input,45,FOLLOW_2); 
 
                     }
                     break;
@@ -5861,14 +5699,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__1"
-    // InternalTQL.g:1952:1: rule__EFloat__Group__1 : rule__EFloat__Group__1__Impl rule__EFloat__Group__2 ;
+    // InternalTQL.g:1916:1: rule__EFloat__Group__1 : rule__EFloat__Group__1__Impl rule__EFloat__Group__2 ;
     public final void rule__EFloat__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1956:1: ( rule__EFloat__Group__1__Impl rule__EFloat__Group__2 )
-            // InternalTQL.g:1957:2: rule__EFloat__Group__1__Impl rule__EFloat__Group__2
+            // InternalTQL.g:1920:1: ( rule__EFloat__Group__1__Impl rule__EFloat__Group__2 )
+            // InternalTQL.g:1921:2: rule__EFloat__Group__1__Impl rule__EFloat__Group__2
             {
             pushFollow(FOLLOW_19);
             rule__EFloat__Group__1__Impl();
@@ -5899,20 +5737,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__1__Impl"
-    // InternalTQL.g:1964:1: rule__EFloat__Group__1__Impl : ( ( RULE_INT )? ) ;
+    // InternalTQL.g:1928:1: rule__EFloat__Group__1__Impl : ( ( RULE_INT )? ) ;
     public final void rule__EFloat__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1968:1: ( ( ( RULE_INT )? ) )
-            // InternalTQL.g:1969:1: ( ( RULE_INT )? )
+            // InternalTQL.g:1932:1: ( ( ( RULE_INT )? ) )
+            // InternalTQL.g:1933:1: ( ( RULE_INT )? )
             {
-            // InternalTQL.g:1969:1: ( ( RULE_INT )? )
-            // InternalTQL.g:1970:2: ( RULE_INT )?
+            // InternalTQL.g:1933:1: ( ( RULE_INT )? )
+            // InternalTQL.g:1934:2: ( RULE_INT )?
             {
              before(grammarAccess.getEFloatAccess().getINTTerminalRuleCall_1()); 
-            // InternalTQL.g:1971:2: ( RULE_INT )?
+            // InternalTQL.g:1935:2: ( RULE_INT )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -5921,7 +5759,7 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
             }
             switch (alt11) {
                 case 1 :
-                    // InternalTQL.g:1971:3: RULE_INT
+                    // InternalTQL.g:1935:3: RULE_INT
                     {
                     match(input,RULE_INT,FOLLOW_2); 
 
@@ -5953,14 +5791,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__2"
-    // InternalTQL.g:1979:1: rule__EFloat__Group__2 : rule__EFloat__Group__2__Impl rule__EFloat__Group__3 ;
+    // InternalTQL.g:1943:1: rule__EFloat__Group__2 : rule__EFloat__Group__2__Impl rule__EFloat__Group__3 ;
     public final void rule__EFloat__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1983:1: ( rule__EFloat__Group__2__Impl rule__EFloat__Group__3 )
-            // InternalTQL.g:1984:2: rule__EFloat__Group__2__Impl rule__EFloat__Group__3
+            // InternalTQL.g:1947:1: ( rule__EFloat__Group__2__Impl rule__EFloat__Group__3 )
+            // InternalTQL.g:1948:2: rule__EFloat__Group__2__Impl rule__EFloat__Group__3
             {
             pushFollow(FOLLOW_20);
             rule__EFloat__Group__2__Impl();
@@ -5991,20 +5829,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__2__Impl"
-    // InternalTQL.g:1991:1: rule__EFloat__Group__2__Impl : ( '.' ) ;
+    // InternalTQL.g:1955:1: rule__EFloat__Group__2__Impl : ( '.' ) ;
     public final void rule__EFloat__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:1995:1: ( ( '.' ) )
-            // InternalTQL.g:1996:1: ( '.' )
+            // InternalTQL.g:1959:1: ( ( '.' ) )
+            // InternalTQL.g:1960:1: ( '.' )
             {
-            // InternalTQL.g:1996:1: ( '.' )
-            // InternalTQL.g:1997:2: '.'
+            // InternalTQL.g:1960:1: ( '.' )
+            // InternalTQL.g:1961:2: '.'
             {
              before(grammarAccess.getEFloatAccess().getFullStopKeyword_2()); 
-            match(input,52,FOLLOW_2); 
+            match(input,46,FOLLOW_2); 
              after(grammarAccess.getEFloatAccess().getFullStopKeyword_2()); 
 
             }
@@ -6028,14 +5866,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__3"
-    // InternalTQL.g:2006:1: rule__EFloat__Group__3 : rule__EFloat__Group__3__Impl rule__EFloat__Group__4 ;
+    // InternalTQL.g:1970:1: rule__EFloat__Group__3 : rule__EFloat__Group__3__Impl rule__EFloat__Group__4 ;
     public final void rule__EFloat__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2010:1: ( rule__EFloat__Group__3__Impl rule__EFloat__Group__4 )
-            // InternalTQL.g:2011:2: rule__EFloat__Group__3__Impl rule__EFloat__Group__4
+            // InternalTQL.g:1974:1: ( rule__EFloat__Group__3__Impl rule__EFloat__Group__4 )
+            // InternalTQL.g:1975:2: rule__EFloat__Group__3__Impl rule__EFloat__Group__4
             {
             pushFollow(FOLLOW_21);
             rule__EFloat__Group__3__Impl();
@@ -6066,17 +5904,17 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__3__Impl"
-    // InternalTQL.g:2018:1: rule__EFloat__Group__3__Impl : ( RULE_INT ) ;
+    // InternalTQL.g:1982:1: rule__EFloat__Group__3__Impl : ( RULE_INT ) ;
     public final void rule__EFloat__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2022:1: ( ( RULE_INT ) )
-            // InternalTQL.g:2023:1: ( RULE_INT )
+            // InternalTQL.g:1986:1: ( ( RULE_INT ) )
+            // InternalTQL.g:1987:1: ( RULE_INT )
             {
-            // InternalTQL.g:2023:1: ( RULE_INT )
-            // InternalTQL.g:2024:2: RULE_INT
+            // InternalTQL.g:1987:1: ( RULE_INT )
+            // InternalTQL.g:1988:2: RULE_INT
             {
              before(grammarAccess.getEFloatAccess().getINTTerminalRuleCall_3()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -6103,14 +5941,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__4"
-    // InternalTQL.g:2033:1: rule__EFloat__Group__4 : rule__EFloat__Group__4__Impl ;
+    // InternalTQL.g:1997:1: rule__EFloat__Group__4 : rule__EFloat__Group__4__Impl ;
     public final void rule__EFloat__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2037:1: ( rule__EFloat__Group__4__Impl )
-            // InternalTQL.g:2038:2: rule__EFloat__Group__4__Impl
+            // InternalTQL.g:2001:1: ( rule__EFloat__Group__4__Impl )
+            // InternalTQL.g:2002:2: rule__EFloat__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EFloat__Group__4__Impl();
@@ -6136,20 +5974,20 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__4__Impl"
-    // InternalTQL.g:2044:1: rule__EFloat__Group__4__Impl : ( ( rule__EFloat__Group_4__0 )? ) ;
+    // InternalTQL.g:2008:1: rule__EFloat__Group__4__Impl : ( ( rule__EFloat__Group_4__0 )? ) ;
     public final void rule__EFloat__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2048:1: ( ( ( rule__EFloat__Group_4__0 )? ) )
-            // InternalTQL.g:2049:1: ( ( rule__EFloat__Group_4__0 )? )
+            // InternalTQL.g:2012:1: ( ( ( rule__EFloat__Group_4__0 )? ) )
+            // InternalTQL.g:2013:1: ( ( rule__EFloat__Group_4__0 )? )
             {
-            // InternalTQL.g:2049:1: ( ( rule__EFloat__Group_4__0 )? )
-            // InternalTQL.g:2050:2: ( rule__EFloat__Group_4__0 )?
+            // InternalTQL.g:2013:1: ( ( rule__EFloat__Group_4__0 )? )
+            // InternalTQL.g:2014:2: ( rule__EFloat__Group_4__0 )?
             {
              before(grammarAccess.getEFloatAccess().getGroup_4()); 
-            // InternalTQL.g:2051:2: ( rule__EFloat__Group_4__0 )?
+            // InternalTQL.g:2015:2: ( rule__EFloat__Group_4__0 )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -6158,7 +5996,7 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalTQL.g:2051:3: rule__EFloat__Group_4__0
+                    // InternalTQL.g:2015:3: rule__EFloat__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__EFloat__Group_4__0();
@@ -6194,14 +6032,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group_4__0"
-    // InternalTQL.g:2060:1: rule__EFloat__Group_4__0 : rule__EFloat__Group_4__0__Impl rule__EFloat__Group_4__1 ;
+    // InternalTQL.g:2024:1: rule__EFloat__Group_4__0 : rule__EFloat__Group_4__0__Impl rule__EFloat__Group_4__1 ;
     public final void rule__EFloat__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2064:1: ( rule__EFloat__Group_4__0__Impl rule__EFloat__Group_4__1 )
-            // InternalTQL.g:2065:2: rule__EFloat__Group_4__0__Impl rule__EFloat__Group_4__1
+            // InternalTQL.g:2028:1: ( rule__EFloat__Group_4__0__Impl rule__EFloat__Group_4__1 )
+            // InternalTQL.g:2029:2: rule__EFloat__Group_4__0__Impl rule__EFloat__Group_4__1
             {
             pushFollow(FOLLOW_12);
             rule__EFloat__Group_4__0__Impl();
@@ -6232,21 +6070,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group_4__0__Impl"
-    // InternalTQL.g:2072:1: rule__EFloat__Group_4__0__Impl : ( ( rule__EFloat__Alternatives_4_0 ) ) ;
+    // InternalTQL.g:2036:1: rule__EFloat__Group_4__0__Impl : ( ( rule__EFloat__Alternatives_4_0 ) ) ;
     public final void rule__EFloat__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2076:1: ( ( ( rule__EFloat__Alternatives_4_0 ) ) )
-            // InternalTQL.g:2077:1: ( ( rule__EFloat__Alternatives_4_0 ) )
+            // InternalTQL.g:2040:1: ( ( ( rule__EFloat__Alternatives_4_0 ) ) )
+            // InternalTQL.g:2041:1: ( ( rule__EFloat__Alternatives_4_0 ) )
             {
-            // InternalTQL.g:2077:1: ( ( rule__EFloat__Alternatives_4_0 ) )
-            // InternalTQL.g:2078:2: ( rule__EFloat__Alternatives_4_0 )
+            // InternalTQL.g:2041:1: ( ( rule__EFloat__Alternatives_4_0 ) )
+            // InternalTQL.g:2042:2: ( rule__EFloat__Alternatives_4_0 )
             {
              before(grammarAccess.getEFloatAccess().getAlternatives_4_0()); 
-            // InternalTQL.g:2079:2: ( rule__EFloat__Alternatives_4_0 )
-            // InternalTQL.g:2079:3: rule__EFloat__Alternatives_4_0
+            // InternalTQL.g:2043:2: ( rule__EFloat__Alternatives_4_0 )
+            // InternalTQL.g:2043:3: rule__EFloat__Alternatives_4_0
             {
             pushFollow(FOLLOW_2);
             rule__EFloat__Alternatives_4_0();
@@ -6279,14 +6117,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group_4__1"
-    // InternalTQL.g:2087:1: rule__EFloat__Group_4__1 : rule__EFloat__Group_4__1__Impl rule__EFloat__Group_4__2 ;
+    // InternalTQL.g:2051:1: rule__EFloat__Group_4__1 : rule__EFloat__Group_4__1__Impl rule__EFloat__Group_4__2 ;
     public final void rule__EFloat__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2091:1: ( rule__EFloat__Group_4__1__Impl rule__EFloat__Group_4__2 )
-            // InternalTQL.g:2092:2: rule__EFloat__Group_4__1__Impl rule__EFloat__Group_4__2
+            // InternalTQL.g:2055:1: ( rule__EFloat__Group_4__1__Impl rule__EFloat__Group_4__2 )
+            // InternalTQL.g:2056:2: rule__EFloat__Group_4__1__Impl rule__EFloat__Group_4__2
             {
             pushFollow(FOLLOW_12);
             rule__EFloat__Group_4__1__Impl();
@@ -6317,31 +6155,31 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group_4__1__Impl"
-    // InternalTQL.g:2099:1: rule__EFloat__Group_4__1__Impl : ( ( '-' )? ) ;
+    // InternalTQL.g:2063:1: rule__EFloat__Group_4__1__Impl : ( ( '-' )? ) ;
     public final void rule__EFloat__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2103:1: ( ( ( '-' )? ) )
-            // InternalTQL.g:2104:1: ( ( '-' )? )
+            // InternalTQL.g:2067:1: ( ( ( '-' )? ) )
+            // InternalTQL.g:2068:1: ( ( '-' )? )
             {
-            // InternalTQL.g:2104:1: ( ( '-' )? )
-            // InternalTQL.g:2105:2: ( '-' )?
+            // InternalTQL.g:2068:1: ( ( '-' )? )
+            // InternalTQL.g:2069:2: ( '-' )?
             {
              before(grammarAccess.getEFloatAccess().getHyphenMinusKeyword_4_1()); 
-            // InternalTQL.g:2106:2: ( '-' )?
+            // InternalTQL.g:2070:2: ( '-' )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( (LA13_0==51) ) {
+            if ( (LA13_0==45) ) {
                 alt13=1;
             }
             switch (alt13) {
                 case 1 :
-                    // InternalTQL.g:2106:3: '-'
+                    // InternalTQL.g:2070:3: '-'
                     {
-                    match(input,51,FOLLOW_2); 
+                    match(input,45,FOLLOW_2); 
 
                     }
                     break;
@@ -6371,14 +6209,14 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group_4__2"
-    // InternalTQL.g:2114:1: rule__EFloat__Group_4__2 : rule__EFloat__Group_4__2__Impl ;
+    // InternalTQL.g:2078:1: rule__EFloat__Group_4__2 : rule__EFloat__Group_4__2__Impl ;
     public final void rule__EFloat__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2118:1: ( rule__EFloat__Group_4__2__Impl )
-            // InternalTQL.g:2119:2: rule__EFloat__Group_4__2__Impl
+            // InternalTQL.g:2082:1: ( rule__EFloat__Group_4__2__Impl )
+            // InternalTQL.g:2083:2: rule__EFloat__Group_4__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EFloat__Group_4__2__Impl();
@@ -6404,17 +6242,17 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group_4__2__Impl"
-    // InternalTQL.g:2125:1: rule__EFloat__Group_4__2__Impl : ( RULE_INT ) ;
+    // InternalTQL.g:2089:1: rule__EFloat__Group_4__2__Impl : ( RULE_INT ) ;
     public final void rule__EFloat__Group_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2129:1: ( ( RULE_INT ) )
-            // InternalTQL.g:2130:1: ( RULE_INT )
+            // InternalTQL.g:2093:1: ( ( RULE_INT ) )
+            // InternalTQL.g:2094:1: ( RULE_INT )
             {
-            // InternalTQL.g:2130:1: ( RULE_INT )
-            // InternalTQL.g:2131:2: RULE_INT
+            // InternalTQL.g:2094:1: ( RULE_INT )
+            // InternalTQL.g:2095:2: RULE_INT
             {
              before(grammarAccess.getEFloatAccess().getINTTerminalRuleCall_4_2()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -6441,17 +6279,17 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__OperationAssignment_2_1"
-    // InternalTQL.g:2141:1: rule__BinaryOperationExpression__OperationAssignment_2_1 : ( ruleBinaryFunction ) ;
+    // InternalTQL.g:2105:1: rule__BinaryOperationExpression__OperationAssignment_2_1 : ( ruleBinaryFunction ) ;
     public final void rule__BinaryOperationExpression__OperationAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2145:1: ( ( ruleBinaryFunction ) )
-            // InternalTQL.g:2146:2: ( ruleBinaryFunction )
+            // InternalTQL.g:2109:1: ( ( ruleBinaryFunction ) )
+            // InternalTQL.g:2110:2: ( ruleBinaryFunction )
             {
-            // InternalTQL.g:2146:2: ( ruleBinaryFunction )
-            // InternalTQL.g:2147:3: ruleBinaryFunction
+            // InternalTQL.g:2110:2: ( ruleBinaryFunction )
+            // InternalTQL.g:2111:3: ruleBinaryFunction
             {
              before(grammarAccess.getBinaryOperationExpressionAccess().getOperationBinaryFunctionEnumRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6482,21 +6320,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__LeftAssignment_4"
-    // InternalTQL.g:2156:1: rule__BinaryOperationExpression__LeftAssignment_4 : ( ( ruleEString ) ) ;
+    // InternalTQL.g:2120:1: rule__BinaryOperationExpression__LeftAssignment_4 : ( ( ruleEString ) ) ;
     public final void rule__BinaryOperationExpression__LeftAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2160:1: ( ( ( ruleEString ) ) )
-            // InternalTQL.g:2161:2: ( ( ruleEString ) )
+            // InternalTQL.g:2124:1: ( ( ( ruleEString ) ) )
+            // InternalTQL.g:2125:2: ( ( ruleEString ) )
             {
-            // InternalTQL.g:2161:2: ( ( ruleEString ) )
-            // InternalTQL.g:2162:3: ( ruleEString )
+            // InternalTQL.g:2125:2: ( ( ruleEString ) )
+            // InternalTQL.g:2126:3: ( ruleEString )
             {
              before(grammarAccess.getBinaryOperationExpressionAccess().getLeftExpressionCrossReference_4_0()); 
-            // InternalTQL.g:2163:3: ( ruleEString )
-            // InternalTQL.g:2164:4: ruleEString
+            // InternalTQL.g:2127:3: ( ruleEString )
+            // InternalTQL.g:2128:4: ruleEString
             {
              before(grammarAccess.getBinaryOperationExpressionAccess().getLeftExpressionEStringParserRuleCall_4_0_1()); 
             pushFollow(FOLLOW_2);
@@ -6531,21 +6369,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BinaryOperationExpression__RightAssignment_6"
-    // InternalTQL.g:2175:1: rule__BinaryOperationExpression__RightAssignment_6 : ( ( ruleEString ) ) ;
+    // InternalTQL.g:2139:1: rule__BinaryOperationExpression__RightAssignment_6 : ( ( ruleEString ) ) ;
     public final void rule__BinaryOperationExpression__RightAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2179:1: ( ( ( ruleEString ) ) )
-            // InternalTQL.g:2180:2: ( ( ruleEString ) )
+            // InternalTQL.g:2143:1: ( ( ( ruleEString ) ) )
+            // InternalTQL.g:2144:2: ( ( ruleEString ) )
             {
-            // InternalTQL.g:2180:2: ( ( ruleEString ) )
-            // InternalTQL.g:2181:3: ( ruleEString )
+            // InternalTQL.g:2144:2: ( ( ruleEString ) )
+            // InternalTQL.g:2145:3: ( ruleEString )
             {
              before(grammarAccess.getBinaryOperationExpressionAccess().getRightExpressionCrossReference_6_0()); 
-            // InternalTQL.g:2182:3: ( ruleEString )
-            // InternalTQL.g:2183:4: ruleEString
+            // InternalTQL.g:2146:3: ( ruleEString )
+            // InternalTQL.g:2147:4: ruleEString
             {
              before(grammarAccess.getBinaryOperationExpressionAccess().getRightExpressionEStringParserRuleCall_6_0_1()); 
             pushFollow(FOLLOW_2);
@@ -6580,17 +6418,17 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringConstantExpression__ValueAssignment_3"
-    // InternalTQL.g:2194:1: rule__StringConstantExpression__ValueAssignment_3 : ( ruleEString ) ;
+    // InternalTQL.g:2158:1: rule__StringConstantExpression__ValueAssignment_3 : ( ruleEString ) ;
     public final void rule__StringConstantExpression__ValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2198:1: ( ( ruleEString ) )
-            // InternalTQL.g:2199:2: ( ruleEString )
+            // InternalTQL.g:2162:1: ( ( ruleEString ) )
+            // InternalTQL.g:2163:2: ( ruleEString )
             {
-            // InternalTQL.g:2199:2: ( ruleEString )
-            // InternalTQL.g:2200:3: ruleEString
+            // InternalTQL.g:2163:2: ( ruleEString )
+            // InternalTQL.g:2164:3: ruleEString
             {
              before(grammarAccess.getStringConstantExpressionAccess().getValueEStringParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -6621,24 +6459,24 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanConstantExpression__ValueAssignment_0"
-    // InternalTQL.g:2209:1: rule__BooleanConstantExpression__ValueAssignment_0 : ( ( 'value' ) ) ;
+    // InternalTQL.g:2173:1: rule__BooleanConstantExpression__ValueAssignment_0 : ( ( 'value' ) ) ;
     public final void rule__BooleanConstantExpression__ValueAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2213:1: ( ( ( 'value' ) ) )
-            // InternalTQL.g:2214:2: ( ( 'value' ) )
+            // InternalTQL.g:2177:1: ( ( ( 'value' ) ) )
+            // InternalTQL.g:2178:2: ( ( 'value' ) )
             {
-            // InternalTQL.g:2214:2: ( ( 'value' ) )
-            // InternalTQL.g:2215:3: ( 'value' )
-            {
-             before(grammarAccess.getBooleanConstantExpressionAccess().getValueValueKeyword_0_0()); 
-            // InternalTQL.g:2216:3: ( 'value' )
-            // InternalTQL.g:2217:4: 'value'
+            // InternalTQL.g:2178:2: ( ( 'value' ) )
+            // InternalTQL.g:2179:3: ( 'value' )
             {
              before(grammarAccess.getBooleanConstantExpressionAccess().getValueValueKeyword_0_0()); 
-            match(input,38,FOLLOW_2); 
+            // InternalTQL.g:2180:3: ( 'value' )
+            // InternalTQL.g:2181:4: 'value'
+            {
+             before(grammarAccess.getBooleanConstantExpressionAccess().getValueValueKeyword_0_0()); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getBooleanConstantExpressionAccess().getValueValueKeyword_0_0()); 
 
             }
@@ -6666,17 +6504,17 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerConstantExpression__ValueAssignment_3"
-    // InternalTQL.g:2228:1: rule__IntegerConstantExpression__ValueAssignment_3 : ( ruleEInt ) ;
+    // InternalTQL.g:2192:1: rule__IntegerConstantExpression__ValueAssignment_3 : ( ruleEInt ) ;
     public final void rule__IntegerConstantExpression__ValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2232:1: ( ( ruleEInt ) )
-            // InternalTQL.g:2233:2: ( ruleEInt )
+            // InternalTQL.g:2196:1: ( ( ruleEInt ) )
+            // InternalTQL.g:2197:2: ( ruleEInt )
             {
-            // InternalTQL.g:2233:2: ( ruleEInt )
-            // InternalTQL.g:2234:3: ruleEInt
+            // InternalTQL.g:2197:2: ( ruleEInt )
+            // InternalTQL.g:2198:3: ruleEInt
             {
              before(grammarAccess.getIntegerConstantExpressionAccess().getValueEIntParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -6707,21 +6545,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__StatementAssignment_2_1"
-    // InternalTQL.g:2243:1: rule__InExpression__StatementAssignment_2_1 : ( ( ruleEString ) ) ;
+    // InternalTQL.g:2207:1: rule__InExpression__StatementAssignment_2_1 : ( ( ruleEString ) ) ;
     public final void rule__InExpression__StatementAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2247:1: ( ( ( ruleEString ) ) )
-            // InternalTQL.g:2248:2: ( ( ruleEString ) )
+            // InternalTQL.g:2211:1: ( ( ( ruleEString ) ) )
+            // InternalTQL.g:2212:2: ( ( ruleEString ) )
             {
-            // InternalTQL.g:2248:2: ( ( ruleEString ) )
-            // InternalTQL.g:2249:3: ( ruleEString )
+            // InternalTQL.g:2212:2: ( ( ruleEString ) )
+            // InternalTQL.g:2213:3: ( ruleEString )
             {
              before(grammarAccess.getInExpressionAccess().getStatementExpressionCrossReference_2_1_0()); 
-            // InternalTQL.g:2250:3: ( ruleEString )
-            // InternalTQL.g:2251:4: ruleEString
+            // InternalTQL.g:2214:3: ( ruleEString )
+            // InternalTQL.g:2215:4: ruleEString
             {
              before(grammarAccess.getInExpressionAccess().getStatementExpressionEStringParserRuleCall_2_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -6756,21 +6594,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__ConstantSetAssignment_5"
-    // InternalTQL.g:2262:1: rule__InExpression__ConstantSetAssignment_5 : ( ( ruleEString ) ) ;
+    // InternalTQL.g:2226:1: rule__InExpression__ConstantSetAssignment_5 : ( ( ruleEString ) ) ;
     public final void rule__InExpression__ConstantSetAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2266:1: ( ( ( ruleEString ) ) )
-            // InternalTQL.g:2267:2: ( ( ruleEString ) )
+            // InternalTQL.g:2230:1: ( ( ( ruleEString ) ) )
+            // InternalTQL.g:2231:2: ( ( ruleEString ) )
             {
-            // InternalTQL.g:2267:2: ( ( ruleEString ) )
-            // InternalTQL.g:2268:3: ( ruleEString )
+            // InternalTQL.g:2231:2: ( ( ruleEString ) )
+            // InternalTQL.g:2232:3: ( ruleEString )
             {
              before(grammarAccess.getInExpressionAccess().getConstantSetConstantExpressionCrossReference_5_0()); 
-            // InternalTQL.g:2269:3: ( ruleEString )
-            // InternalTQL.g:2270:4: ruleEString
+            // InternalTQL.g:2233:3: ( ruleEString )
+            // InternalTQL.g:2234:4: ruleEString
             {
              before(grammarAccess.getInExpressionAccess().getConstantSetConstantExpressionEStringParserRuleCall_5_0_1()); 
             pushFollow(FOLLOW_2);
@@ -6805,21 +6643,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InExpression__ConstantSetAssignment_6_1"
-    // InternalTQL.g:2281:1: rule__InExpression__ConstantSetAssignment_6_1 : ( ( ruleEString ) ) ;
+    // InternalTQL.g:2245:1: rule__InExpression__ConstantSetAssignment_6_1 : ( ( ruleEString ) ) ;
     public final void rule__InExpression__ConstantSetAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2285:1: ( ( ( ruleEString ) ) )
-            // InternalTQL.g:2286:2: ( ( ruleEString ) )
+            // InternalTQL.g:2249:1: ( ( ( ruleEString ) ) )
+            // InternalTQL.g:2250:2: ( ( ruleEString ) )
             {
-            // InternalTQL.g:2286:2: ( ( ruleEString ) )
-            // InternalTQL.g:2287:3: ( ruleEString )
+            // InternalTQL.g:2250:2: ( ( ruleEString ) )
+            // InternalTQL.g:2251:3: ( ruleEString )
             {
              before(grammarAccess.getInExpressionAccess().getConstantSetConstantExpressionCrossReference_6_1_0()); 
-            // InternalTQL.g:2288:3: ( ruleEString )
-            // InternalTQL.g:2289:4: ruleEString
+            // InternalTQL.g:2252:3: ( ruleEString )
+            // InternalTQL.g:2253:4: ruleEString
             {
              before(grammarAccess.getInExpressionAccess().getConstantSetConstantExpressionEStringParserRuleCall_6_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -6854,17 +6692,17 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__OutputTypeAssignment_2_1"
-    // InternalTQL.g:2300:1: rule__ParseExpression__OutputTypeAssignment_2_1 : ( ruleType ) ;
+    // InternalTQL.g:2264:1: rule__ParseExpression__OutputTypeAssignment_2_1 : ( ruleType ) ;
     public final void rule__ParseExpression__OutputTypeAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2304:1: ( ( ruleType ) )
-            // InternalTQL.g:2305:2: ( ruleType )
+            // InternalTQL.g:2268:1: ( ( ruleType ) )
+            // InternalTQL.g:2269:2: ( ruleType )
             {
-            // InternalTQL.g:2305:2: ( ruleType )
-            // InternalTQL.g:2306:3: ruleType
+            // InternalTQL.g:2269:2: ( ruleType )
+            // InternalTQL.g:2270:3: ruleType
             {
              before(grammarAccess.getParseExpressionAccess().getOutputTypeTypeEnumRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6895,21 +6733,21 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ParseExpression__ExpressionAssignment_4"
-    // InternalTQL.g:2315:1: rule__ParseExpression__ExpressionAssignment_4 : ( ( ruleEString ) ) ;
+    // InternalTQL.g:2279:1: rule__ParseExpression__ExpressionAssignment_4 : ( ( ruleEString ) ) ;
     public final void rule__ParseExpression__ExpressionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2319:1: ( ( ( ruleEString ) ) )
-            // InternalTQL.g:2320:2: ( ( ruleEString ) )
+            // InternalTQL.g:2283:1: ( ( ( ruleEString ) ) )
+            // InternalTQL.g:2284:2: ( ( ruleEString ) )
             {
-            // InternalTQL.g:2320:2: ( ( ruleEString ) )
-            // InternalTQL.g:2321:3: ( ruleEString )
+            // InternalTQL.g:2284:2: ( ( ruleEString ) )
+            // InternalTQL.g:2285:3: ( ruleEString )
             {
              before(grammarAccess.getParseExpressionAccess().getExpressionExpressionCrossReference_4_0()); 
-            // InternalTQL.g:2322:3: ( ruleEString )
-            // InternalTQL.g:2323:4: ruleEString
+            // InternalTQL.g:2286:3: ( ruleEString )
+            // InternalTQL.g:2287:4: ruleEString
             {
              before(grammarAccess.getParseExpressionAccess().getExpressionExpressionEStringParserRuleCall_4_0_1()); 
             pushFollow(FOLLOW_2);
@@ -6944,17 +6782,17 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FloatConstantExpression__ValueAssignment_3"
-    // InternalTQL.g:2334:1: rule__FloatConstantExpression__ValueAssignment_3 : ( ruleEFloat ) ;
+    // InternalTQL.g:2298:1: rule__FloatConstantExpression__ValueAssignment_3 : ( ruleEFloat ) ;
     public final void rule__FloatConstantExpression__ValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTQL.g:2338:1: ( ( ruleEFloat ) )
-            // InternalTQL.g:2339:2: ( ruleEFloat )
+            // InternalTQL.g:2302:1: ( ( ruleEFloat ) )
+            // InternalTQL.g:2303:2: ( ruleEFloat )
             {
-            // InternalTQL.g:2339:2: ( ruleEFloat )
-            // InternalTQL.g:2340:3: ruleEFloat
+            // InternalTQL.g:2303:2: ( ruleEFloat )
+            // InternalTQL.g:2304:3: ruleEFloat
             {
              before(grammarAccess.getFloatConstantExpressionAccess().getValueEFloatParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -6990,23 +6828,23 @@ public class InternalTQLParser extends AbstractInternalContentAssistParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000900000000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000024000000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000000007FE000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0008000000000040L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000240000000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000500000000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000400000000002L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0003000000000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x000000003F800000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0018000000000040L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x000000000001E000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000200000000040L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000009000000000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000014000000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000010000000002L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x00000C0000000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000FE0000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000600000000040L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000001800L});
 

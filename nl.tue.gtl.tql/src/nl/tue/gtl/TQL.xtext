@@ -19,7 +19,7 @@ ConstantExpression returns ConstantExpression:
 	StringConstantExpression | BooleanConstantExpression | IntegerConstantExpression | FloatConstantExpression;
 
 enum BinaryFunction returns BinaryFunction:
-				mult = 'mult' | sum = 'sum' | divide = 'divide' | concat = 'concat' | equal = 'equal' | notequal = 'notequal' | smaller = 'smaller' | greater = 'greater' | or = 'or' | and = 'and';
+				mult = 'mult' | sum = 'sum' | divide = 'divide' | concat = 'concat'; //| equal = 'equal' | notequal = 'notequal' | smaller = 'smaller' | greater = 'greater' | or = 'or' | and = 'and';
 
 parameterExpression returns parameterExpression:
 	{parameterExpression}

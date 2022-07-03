@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import tqlModel.Expression;
+import tqlModel.BooleanOperationExpression;
 import tqlModel.Mapping;
 import tqlModel.MappingField;
-import tqlModel.Source;
-import tqlModel.Target;
+import tqlModel.MappingSourceTable;
+import tqlModel.MappingTargetTable;
 import tqlModel.TqlModelPackage;
 
 /**
@@ -37,7 +37,7 @@ import tqlModel.TqlModelPackage;
  *   <li>{@link tqlModel.impl.MappingImpl#getSource <em>Source</em>}</li>
  *   <li>{@link tqlModel.impl.MappingImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link tqlModel.impl.MappingImpl#getFields <em>Fields</em>}</li>
- *   <li>{@link tqlModel.impl.MappingImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link tqlModel.impl.MappingImpl#getWhen <em>When</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,7 +51,7 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Source> source;
+	protected EList<MappingSourceTable> source;
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference list.
@@ -61,7 +61,7 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Target> target;
+	protected EList<MappingTargetTable> target;
 
 	/**
 	 * The cached value of the '{@link #getFields() <em>Fields</em>}' reference list.
@@ -74,14 +74,14 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	protected EList<MappingField> fields;
 
 	/**
-	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' reference.
+	 * The cached value of the '{@link #getWhen() <em>When</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCondition()
+	 * @see #getWhen()
 	 * @generated
 	 * @ordered
 	 */
-	protected Expression condition;
+	protected BooleanOperationExpression when;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,9 +107,10 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Source> getSource() {
+	public EList<MappingSourceTable> getSource() {
 		if (source == null) {
-			source = new EObjectContainmentEList<Source>(Source.class, this, TqlModelPackage.MAPPING__SOURCE);
+			source = new EObjectContainmentEList<MappingSourceTable>(MappingSourceTable.class, this,
+					TqlModelPackage.MAPPING__SOURCE);
 		}
 		return source;
 	}
@@ -119,9 +120,10 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Target> getTarget() {
+	public EList<MappingTargetTable> getTarget() {
 		if (target == null) {
-			target = new EObjectContainmentEList<Target>(Target.class, this, TqlModelPackage.MAPPING__TARGET);
+			target = new EObjectContainmentEList<MappingTargetTable>(MappingTargetTable.class, this,
+					TqlModelPackage.MAPPING__TARGET);
 		}
 		return target;
 	}
@@ -143,17 +145,17 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Expression getCondition() {
-		if (condition != null && condition.eIsProxy()) {
-			InternalEObject oldCondition = (InternalEObject) condition;
-			condition = (Expression) eResolveProxy(oldCondition);
-			if (condition != oldCondition) {
+	public BooleanOperationExpression getWhen() {
+		if (when != null && when.eIsProxy()) {
+			InternalEObject oldWhen = (InternalEObject) when;
+			when = (BooleanOperationExpression) eResolveProxy(oldWhen);
+			if (when != oldWhen) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TqlModelPackage.MAPPING__CONDITION,
-							oldCondition, condition));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TqlModelPackage.MAPPING__WHEN, oldWhen,
+							when));
 			}
 		}
-		return condition;
+		return when;
 	}
 
 	/**
@@ -161,8 +163,8 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Expression basicGetCondition() {
-		return condition;
+	public BooleanOperationExpression basicGetWhen() {
+		return when;
 	}
 
 	/**
@@ -170,12 +172,11 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCondition(Expression newCondition) {
-		Expression oldCondition = condition;
-		condition = newCondition;
+	public void setWhen(BooleanOperationExpression newWhen) {
+		BooleanOperationExpression oldWhen = when;
+		when = newWhen;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TqlModelPackage.MAPPING__CONDITION, oldCondition,
-					condition));
+			eNotify(new ENotificationImpl(this, Notification.SET, TqlModelPackage.MAPPING__WHEN, oldWhen, when));
 	}
 
 	/**
@@ -208,10 +209,10 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 			return getTarget();
 		case TqlModelPackage.MAPPING__FIELDS:
 			return getFields();
-		case TqlModelPackage.MAPPING__CONDITION:
+		case TqlModelPackage.MAPPING__WHEN:
 			if (resolve)
-				return getCondition();
-			return basicGetCondition();
+				return getWhen();
+			return basicGetWhen();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -227,18 +228,18 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 		switch (featureID) {
 		case TqlModelPackage.MAPPING__SOURCE:
 			getSource().clear();
-			getSource().addAll((Collection<? extends Source>) newValue);
+			getSource().addAll((Collection<? extends MappingSourceTable>) newValue);
 			return;
 		case TqlModelPackage.MAPPING__TARGET:
 			getTarget().clear();
-			getTarget().addAll((Collection<? extends Target>) newValue);
+			getTarget().addAll((Collection<? extends MappingTargetTable>) newValue);
 			return;
 		case TqlModelPackage.MAPPING__FIELDS:
 			getFields().clear();
 			getFields().addAll((Collection<? extends MappingField>) newValue);
 			return;
-		case TqlModelPackage.MAPPING__CONDITION:
-			setCondition((Expression) newValue);
+		case TqlModelPackage.MAPPING__WHEN:
+			setWhen((BooleanOperationExpression) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -261,8 +262,8 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 		case TqlModelPackage.MAPPING__FIELDS:
 			getFields().clear();
 			return;
-		case TqlModelPackage.MAPPING__CONDITION:
-			setCondition((Expression) null);
+		case TqlModelPackage.MAPPING__WHEN:
+			setWhen((BooleanOperationExpression) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -282,8 +283,8 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 			return target != null && !target.isEmpty();
 		case TqlModelPackage.MAPPING__FIELDS:
 			return fields != null && !fields.isEmpty();
-		case TqlModelPackage.MAPPING__CONDITION:
-			return condition != null;
+		case TqlModelPackage.MAPPING__WHEN:
+			return when != null;
 		}
 		return super.eIsSet(featureID);
 	}

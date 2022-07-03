@@ -4,8 +4,6 @@ package tqlModel;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Mapping</b></em>'.
@@ -18,17 +16,17 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link tqlModel.Mapping#getSource <em>Source</em>}</li>
  *   <li>{@link tqlModel.Mapping#getTarget <em>Target</em>}</li>
  *   <li>{@link tqlModel.Mapping#getFields <em>Fields</em>}</li>
- *   <li>{@link tqlModel.Mapping#getCondition <em>Condition</em>}</li>
+ *   <li>{@link tqlModel.Mapping#getWhen <em>When</em>}</li>
  * </ul>
  *
  * @see tqlModel.TqlModelPackage#getMapping()
  * @model
  * @generated
  */
-public interface Mapping extends EObject {
+public interface Mapping extends Block {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' containment reference list.
-	 * The list contents are of type {@link tqlModel.Source}.
+	 * The list contents are of type {@link tqlModel.MappingSourceTable}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' containment reference list.
@@ -36,11 +34,11 @@ public interface Mapping extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Source> getSource();
+	EList<MappingSourceTable> getSource();
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' containment reference list.
-	 * The list contents are of type {@link tqlModel.Target}.
+	 * The list contents are of type {@link tqlModel.MappingTargetTable}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' containment reference list.
@@ -48,7 +46,7 @@ public interface Mapping extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Target> getTarget();
+	EList<MappingTargetTable> getTarget();
 
 	/**
 	 * Returns the value of the '<em><b>Fields</b></em>' reference list.
@@ -63,25 +61,25 @@ public interface Mapping extends EObject {
 	EList<MappingField> getFields();
 
 	/**
-	 * Returns the value of the '<em><b>Condition</b></em>' reference.
+	 * Returns the value of the '<em><b>When</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Condition</em>' reference.
-	 * @see #setCondition(Expression)
-	 * @see tqlModel.TqlModelPackage#getMapping_Condition()
+	 * @return the value of the '<em>When</em>' reference.
+	 * @see #setWhen(BooleanOperationExpression)
+	 * @see tqlModel.TqlModelPackage#getMapping_When()
 	 * @model
 	 * @generated
 	 */
-	Expression getCondition();
+	BooleanOperationExpression getWhen();
 
 	/**
-	 * Sets the value of the '{@link tqlModel.Mapping#getCondition <em>Condition</em>}' reference.
+	 * Sets the value of the '{@link tqlModel.Mapping#getWhen <em>When</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Condition</em>' reference.
-	 * @see #getCondition()
+	 * @param value the new value of the '<em>When</em>' reference.
+	 * @see #getWhen()
 	 * @generated
 	 */
-	void setCondition(Expression value);
+	void setWhen(BooleanOperationExpression value);
 
 } // Mapping

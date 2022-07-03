@@ -4,23 +4,23 @@ package tqlModel.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import tqlModel.Source;
+import tqlModel.MappingSourceTable;
 import tqlModel.TqlModelPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Source</b></em>'.
+ * An implementation of the model object '<em><b>Mapping Source Table</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class SourceImpl extends TableImpl implements Source {
+public class MappingSourceTableImpl extends TableImpl implements MappingSourceTable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SourceImpl() {
+	protected MappingSourceTableImpl() {
 		super();
 	}
 
@@ -31,7 +31,7 @@ public class SourceImpl extends TableImpl implements Source {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return TqlModelPackage.Literals.SOURCE;
+		return TqlModelPackage.Literals.MAPPING_SOURCE_TABLE;
 	}
 
-} //SourceImpl
+} //MappingSourceTableImpl

@@ -77,16 +77,6 @@ public class TqlModelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseParameterStatement(ParameterStatement object) {
-			return createParameterStatementAdapter();
-		}
-
-		@Override
-		public Adapter caseReferenceStatement(ReferenceStatement object) {
-			return createReferenceStatementAdapter();
-		}
-
-		@Override
 		public Adapter caseBooleanConstantExpression(BooleanConstantExpression object) {
 			return createBooleanConstantExpressionAdapter();
 		}
@@ -102,8 +92,8 @@ public class TqlModelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseSource(Source object) {
-			return createSourceAdapter();
+		public Adapter caseMappingSourceTable(MappingSourceTable object) {
+			return createMappingSourceTableAdapter();
 		}
 
 		@Override
@@ -137,18 +127,13 @@ public class TqlModelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseParameter(Parameter object) {
-			return createParameterAdapter();
-		}
-
-		@Override
 		public Adapter caseConstantExpression(ConstantExpression object) {
 			return createConstantExpressionAdapter();
 		}
 
 		@Override
-		public Adapter caseTarget(Target object) {
-			return createTargetAdapter();
+		public Adapter caseMappingTargetTable(MappingTargetTable object) {
+			return createMappingTargetTableAdapter();
 		}
 
 		@Override
@@ -167,13 +152,38 @@ public class TqlModelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseColumns(Columns object) {
-			return createColumnsAdapter();
+		public Adapter caseTableField(TableField object) {
+			return createTableFieldAdapter();
 		}
 
 		@Override
 		public Adapter caseTransformation(Transformation object) {
 			return createTransformationAdapter();
+		}
+
+		@Override
+		public Adapter caseBlock(Block object) {
+			return createBlockAdapter();
+		}
+
+		@Override
+		public Adapter caseBooleanOperationExpression(BooleanOperationExpression object) {
+			return createBooleanOperationExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseParameter(Parameter object) {
+			return createParameterAdapter();
+		}
+
+		@Override
+		public Adapter caseTransformationCall(TransformationCall object) {
+			return createTransformationCallAdapter();
+		}
+
+		@Override
+		public Adapter caseOperationExpression(OperationExpression object) {
+			return createOperationExpressionAdapter();
 		}
 
 		@Override
@@ -224,34 +234,6 @@ public class TqlModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tqlModel.ParameterStatement <em>Parameter Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see tqlModel.ParameterStatement
-	 * @generated
-	 */
-	public Adapter createParameterStatementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link tqlModel.ReferenceStatement <em>Reference Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see tqlModel.ReferenceStatement
-	 * @generated
-	 */
-	public Adapter createReferenceStatementAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link tqlModel.BooleanConstantExpression <em>Boolean Constant Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -294,16 +276,16 @@ public class TqlModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tqlModel.Source <em>Source</em>}'.
+	 * Creates a new adapter for an object of class '{@link tqlModel.MappingSourceTable <em>Mapping Source Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see tqlModel.Source
+	 * @see tqlModel.MappingSourceTable
 	 * @generated
 	 */
-	public Adapter createSourceAdapter() {
+	public Adapter createMappingSourceTableAdapter() {
 		return null;
 	}
 
@@ -392,20 +374,6 @@ public class TqlModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tqlModel.Parameter <em>Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see tqlModel.Parameter
-	 * @generated
-	 */
-	public Adapter createParameterAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link tqlModel.ConstantExpression <em>Constant Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -420,16 +388,16 @@ public class TqlModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tqlModel.Target <em>Target</em>}'.
+	 * Creates a new adapter for an object of class '{@link tqlModel.MappingTargetTable <em>Mapping Target Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see tqlModel.Target
+	 * @see tqlModel.MappingTargetTable
 	 * @generated
 	 */
-	public Adapter createTargetAdapter() {
+	public Adapter createMappingTargetTableAdapter() {
 		return null;
 	}
 
@@ -476,16 +444,16 @@ public class TqlModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tqlModel.Columns <em>Columns</em>}'.
+	 * Creates a new adapter for an object of class '{@link tqlModel.TableField <em>Table Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see tqlModel.Columns
+	 * @see tqlModel.TableField
 	 * @generated
 	 */
-	public Adapter createColumnsAdapter() {
+	public Adapter createTableFieldAdapter() {
 		return null;
 	}
 
@@ -500,6 +468,76 @@ public class TqlModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTransformationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tqlModel.Block <em>Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tqlModel.Block
+	 * @generated
+	 */
+	public Adapter createBlockAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tqlModel.BooleanOperationExpression <em>Boolean Operation Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tqlModel.BooleanOperationExpression
+	 * @generated
+	 */
+	public Adapter createBooleanOperationExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tqlModel.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tqlModel.Parameter
+	 * @generated
+	 */
+	public Adapter createParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tqlModel.TransformationCall <em>Transformation Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tqlModel.TransformationCall
+	 * @generated
+	 */
+	public Adapter createTransformationCallAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tqlModel.OperationExpression <em>Operation Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tqlModel.OperationExpression
+	 * @generated
+	 */
+	public Adapter createOperationExpressionAdapter() {
 		return null;
 	}
 

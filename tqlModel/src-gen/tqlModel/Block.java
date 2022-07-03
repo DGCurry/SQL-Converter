@@ -6,13 +6,13 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Expression</b></em>'.
+ * A representation of the model object '<em><b>Block</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see tqlModel.TqlModelPackage#getExpression()
+ * @see tqlModel.TqlModelPackage#getBlock()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface Expression extends EObject {
-} // Expression
+public interface Block extends EObject {
+} // Block

@@ -426,42 +426,6 @@ rule__BinaryFunction__Alternatives
 		('concat')
 		{ after(grammarAccess.getBinaryFunctionAccess().getConcatEnumLiteralDeclaration_3()); }
 	)
-	|
-	(
-		{ before(grammarAccess.getBinaryFunctionAccess().getEqualEnumLiteralDeclaration_4()); }
-		('equal')
-		{ after(grammarAccess.getBinaryFunctionAccess().getEqualEnumLiteralDeclaration_4()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getBinaryFunctionAccess().getNotequalEnumLiteralDeclaration_5()); }
-		('notequal')
-		{ after(grammarAccess.getBinaryFunctionAccess().getNotequalEnumLiteralDeclaration_5()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getBinaryFunctionAccess().getSmallerEnumLiteralDeclaration_6()); }
-		('smaller')
-		{ after(grammarAccess.getBinaryFunctionAccess().getSmallerEnumLiteralDeclaration_6()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getBinaryFunctionAccess().getGreaterEnumLiteralDeclaration_7()); }
-		('greater')
-		{ after(grammarAccess.getBinaryFunctionAccess().getGreaterEnumLiteralDeclaration_7()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getBinaryFunctionAccess().getOrEnumLiteralDeclaration_8()); }
-		('or')
-		{ after(grammarAccess.getBinaryFunctionAccess().getOrEnumLiteralDeclaration_8()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getBinaryFunctionAccess().getAndEnumLiteralDeclaration_9()); }
-		('and')
-		{ after(grammarAccess.getBinaryFunctionAccess().getAndEnumLiteralDeclaration_9()); }
-	)
 ;
 finally {
 	restoreStackSize(stackSize);

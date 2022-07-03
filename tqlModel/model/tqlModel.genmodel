@@ -24,37 +24,19 @@
       <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BinaryFunction/divide"/>
       <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BinaryFunction/concat"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="tqlModel.ecore#//BinaryFunction.1">
-      <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BinaryFunction.1/mult"/>
-      <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BinaryFunction.1/sum"/>
-      <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BinaryFunction.1/divide"/>
-      <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BinaryFunction.1/concat"/>
-      <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BinaryFunction.1/equal"/>
-      <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BinaryFunction.1/notequal"/>
-      <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BinaryFunction.1/smaller"/>
-      <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BinaryFunction.1/greater"/>
-      <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BinaryFunction.1/or"/>
-      <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BinaryFunction.1/and"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="tqlModel.ecore#//BooleanFunction">
       <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BooleanFunction/equal"/>
       <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BooleanFunction/notequal"/>
       <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BooleanFunction/smaller"/>
       <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BooleanFunction/greater"/>
-      <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BooleanFunction/smaller.1"/>
-      <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BooleanFunction/greater.1"/>
       <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BooleanFunction/or"/>
       <genEnumLiterals ecoreEnumLiteral="tqlModel.ecore#//BooleanFunction/and"/>
     </genEnums>
-    <genClasses ecoreClass="tqlModel.ecore#//parameterExpression"/>
+    <genClasses ecoreClass="tqlModel.ecore#//parameterExpression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//parameterExpression/parameter"/>
+    </genClasses>
     <genClasses ecoreClass="tqlModel.ecore#//StringConstantExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tqlModel.ecore#//StringConstantExpression/value"/>
-    </genClasses>
-    <genClasses ecoreClass="tqlModel.ecore#//ExpressionParameter">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//ExpressionParameter/Expression"/>
-    </genClasses>
-    <genClasses ecoreClass="tqlModel.ecore#//ReferenceParameter">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//ReferenceParameter/references"/>
     </genClasses>
     <genClasses ecoreClass="tqlModel.ecore#//BooleanConstantExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tqlModel.ecore#//BooleanConstantExpression/value"/>
@@ -68,6 +50,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tqlModel.ecore#//Mapping/source"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tqlModel.ecore#//Mapping/target"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//Mapping/fields"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//Mapping/when"/>
     </genClasses>
     <genClasses ecoreClass="tqlModel.ecore#//InExpression">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//InExpression/statement"/>
@@ -79,9 +62,9 @@
     </genClasses>
     <genClasses ecoreClass="tqlModel.ecore#//ConditionalStatement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//ConditionalStatement/condition"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tqlModel.ecore#//ConditionalStatement/booleanExression"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tqlModel.ecore#//ConditionalStatement/ifBody"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tqlModel.ecore#//ConditionalStatement/elseBody"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//ConditionalStatement/booleanoperationexpression"/>
     </genClasses>
     <genClasses ecoreClass="tqlModel.ecore#//ParseExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tqlModel.ecore#//ParseExpression/outputType"/>
@@ -90,18 +73,15 @@
     <genClasses ecoreClass="tqlModel.ecore#//FloatConstantExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tqlModel.ecore#//FloatConstantExpression/value"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="tqlModel.ecore#//Parameter"/>
     <genClasses image="false" ecoreClass="tqlModel.ecore#//ConstantExpression"/>
     <genClasses ecoreClass="tqlModel.ecore#//MappingTargetTable"/>
     <genClasses ecoreClass="tqlModel.ecore#//MappingField">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//MappingField/souceField"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//MappingField/targetField"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//MappingField/transformation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tqlModel.ecore#//MappingField/calls"/>
     </genClasses>
     <genClasses image="false" ecoreClass="tqlModel.ecore#//Statement"/>
     <genClasses ecoreClass="tqlModel.ecore#//BinaryOperationExpression">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//BinaryOperationExpression/left"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//BinaryOperationExpression/right"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tqlModel.ecore#//BinaryOperationExpression/operation"/>
     </genClasses>
     <genClasses ecoreClass="tqlModel.ecore#//TableField">
@@ -110,15 +90,26 @@
     </genClasses>
     <genClasses ecoreClass="tqlModel.ecore#//Transformation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tqlModel.ecore#//Transformation/returnType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tqlModel.ecore#//Transformation/parameter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tqlModel.ecore#//Transformation/selfType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tqlModel.ecore#//Transformation/label"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//Transformation/when"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tqlModel.ecore#//Transformation/returnStatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tqlModel.ecore#//Transformation/parameter"/>
     </genClasses>
     <genClasses ecoreClass="tqlModel.ecore#//Block"/>
     <genClasses ecoreClass="tqlModel.ecore#//BooleanOperationExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tqlModel.ecore#//BooleanOperationExpression/operation"/>
+    </genClasses>
+    <genClasses ecoreClass="tqlModel.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tqlModel.ecore#//Parameter/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tqlModel.ecore#//Parameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="tqlModel.ecore#//TransformationCall">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//TransformationCall/transformation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//TransformationCall/parameters"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="tqlModel.ecore#//OperationExpression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//OperationExpression/right"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//OperationExpression/left"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

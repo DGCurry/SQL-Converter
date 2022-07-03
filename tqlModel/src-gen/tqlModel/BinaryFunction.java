@@ -56,67 +56,7 @@ public enum BinaryFunction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONCAT(3, "concat", "concat"),
-
-	/**
-	 * The '<em><b>Equal</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #EQUAL_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	EQUAL(4, "equal", "equal"),
-
-	/**
-	 * The '<em><b>Notequal</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #NOTEQUAL_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	NOTEQUAL(6, "notequal", "notequal"),
-
-	/**
-	 * The '<em><b>Smaller</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #SMALLER_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	SMALLER(7, "smaller", "smaller"),
-
-	/**
-	 * The '<em><b>Greater</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #GREATER_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	GREATER(7, "greater", "greater"),
-
-	/**
-	 * The '<em><b>Or</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #OR_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	OR(8, "or", "or"),
-
-	/**
-	 * The '<em><b>And</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #AND_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	AND(9, "and", "and");
+	CONCAT(3, "concat", "concat");
 
 	/**
 	 * The '<em><b>Mult</b></em>' literal value.
@@ -163,79 +103,12 @@ public enum BinaryFunction implements Enumerator {
 	public static final int CONCAT_VALUE = 3;
 
 	/**
-	 * The '<em><b>Equal</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #EQUAL
-	 * @model name="equal"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int EQUAL_VALUE = 4;
-
-	/**
-	 * The '<em><b>Notequal</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #NOTEQUAL
-	 * @model name="notequal"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int NOTEQUAL_VALUE = 6;
-
-	/**
-	 * The '<em><b>Smaller</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #SMALLER
-	 * @model name="smaller"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int SMALLER_VALUE = 7;
-
-	/**
-	 * The '<em><b>Greater</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #GREATER
-	 * @model name="greater"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int GREATER_VALUE = 7;
-
-	/**
-	 * The '<em><b>Or</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #OR
-	 * @model name="or"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int OR_VALUE = 8;
-
-	/**
-	 * The '<em><b>And</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #AND
-	 * @model name="and"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int AND_VALUE = 9;
-
-	/**
 	 * An array of all the '<em><b>Binary Function</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final BinaryFunction[] VALUES_ARRAY = new BinaryFunction[] { MULT, SUM, DIVIDE, CONCAT, EQUAL,
-			NOTEQUAL, SMALLER, GREATER, OR, AND, };
+	private static final BinaryFunction[] VALUES_ARRAY = new BinaryFunction[] { MULT, SUM, DIVIDE, CONCAT, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Binary Function</b></em>' enumerators.
@@ -299,16 +172,6 @@ public enum BinaryFunction implements Enumerator {
 			return DIVIDE;
 		case CONCAT_VALUE:
 			return CONCAT;
-		case EQUAL_VALUE:
-			return EQUAL;
-		case NOTEQUAL_VALUE:
-			return NOTEQUAL;
-		case SMALLER_VALUE:
-			return SMALLER;
-		case OR_VALUE:
-			return OR;
-		case AND_VALUE:
-			return AND;
 		}
 		return null;
 	}

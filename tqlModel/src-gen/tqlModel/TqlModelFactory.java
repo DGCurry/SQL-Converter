@@ -40,24 +40,6 @@ public interface TqlModelFactory extends EFactory {
 	StringConstantExpression createStringConstantExpression();
 
 	/**
-	 * Returns a new object of class '<em>Parameter Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter Statement</em>'.
-	 * @generated
-	 */
-	ParameterStatement createParameterStatement();
-
-	/**
-	 * Returns a new object of class '<em>Reference Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Reference Statement</em>'.
-	 * @generated
-	 */
-	ReferenceStatement createReferenceStatement();
-
-	/**
 	 * Returns a new object of class '<em>Boolean Constant Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,13 +58,13 @@ public interface TqlModelFactory extends EFactory {
 	IntegerConstantExpression createIntegerConstantExpression();
 
 	/**
-	 * Returns a new object of class '<em>Source</em>'.
+	 * Returns a new object of class '<em>Mapping Source Table</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Source</em>'.
+	 * @return a new object of class '<em>Mapping Source Table</em>'.
 	 * @generated
 	 */
-	Source createSource();
+	MappingSourceTable createMappingSourceTable();
 
 	/**
 	 * Returns a new object of class '<em>Mapping</em>'.
@@ -139,13 +121,13 @@ public interface TqlModelFactory extends EFactory {
 	FloatConstantExpression createFloatConstantExpression();
 
 	/**
-	 * Returns a new object of class '<em>Target</em>'.
+	 * Returns a new object of class '<em>Mapping Target Table</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Target</em>'.
+	 * @return a new object of class '<em>Mapping Target Table</em>'.
 	 * @generated
 	 */
-	Target createTarget();
+	MappingTargetTable createMappingTargetTable();
 
 	/**
 	 * Returns a new object of class '<em>Mapping Field</em>'.
@@ -166,13 +148,13 @@ public interface TqlModelFactory extends EFactory {
 	BinaryOperationExpression createBinaryOperationExpression();
 
 	/**
-	 * Returns a new object of class '<em>Columns</em>'.
+	 * Returns a new object of class '<em>Table Field</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Columns</em>'.
+	 * @return a new object of class '<em>Table Field</em>'.
 	 * @generated
 	 */
-	Columns createColumns();
+	TableField createTableField();
 
 	/**
 	 * Returns a new object of class '<em>Transformation</em>'.
@@ -182,6 +164,33 @@ public interface TqlModelFactory extends EFactory {
 	 * @generated
 	 */
 	Transformation createTransformation();
+
+	/**
+	 * Returns a new object of class '<em>Boolean Operation Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Boolean Operation Expression</em>'.
+	 * @generated
+	 */
+	BooleanOperationExpression createBooleanOperationExpression();
+
+	/**
+	 * Returns a new object of class '<em>Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter</em>'.
+	 * @generated
+	 */
+	Parameter createParameter();
+
+	/**
+	 * Returns a new object of class '<em>Transformation Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Transformation Call</em>'.
+	 * @generated
+	 */
+	TransformationCall createTransformationCall();
 
 	/**
 	 * Returns the package supported by this factory.

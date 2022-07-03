@@ -72,8 +72,6 @@ public class TqlModelSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseExpression(parameterExpression);
 			if (result == null)
-				result = caseStatement(parameterExpression);
-			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -84,26 +82,6 @@ public class TqlModelSwitch<T> extends Switch<T> {
 				result = caseConstantExpression(stringConstantExpression);
 			if (result == null)
 				result = caseExpression(stringConstantExpression);
-			if (result == null)
-				result = caseStatement(stringConstantExpression);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TqlModelPackage.PARAMETER_STATEMENT: {
-			ParameterStatement parameterStatement = (ParameterStatement) theEObject;
-			T result = caseParameterStatement(parameterStatement);
-			if (result == null)
-				result = caseParameter(parameterStatement);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TqlModelPackage.REFERENCE_STATEMENT: {
-			ReferenceStatement referenceStatement = (ReferenceStatement) theEObject;
-			T result = caseReferenceStatement(referenceStatement);
-			if (result == null)
-				result = caseParameter(referenceStatement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -116,16 +94,12 @@ public class TqlModelSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseExpression(booleanConstantExpression);
 			if (result == null)
-				result = caseStatement(booleanConstantExpression);
-			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case TqlModelPackage.EXPRESSION: {
 			Expression expression = (Expression) theEObject;
 			T result = caseExpression(expression);
-			if (result == null)
-				result = caseStatement(expression);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -138,16 +112,16 @@ public class TqlModelSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseExpression(integerConstantExpression);
 			if (result == null)
-				result = caseStatement(integerConstantExpression);
-			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case TqlModelPackage.SOURCE: {
-			Source source = (Source) theEObject;
-			T result = caseSource(source);
+		case TqlModelPackage.MAPPING_SOURCE_TABLE: {
+			MappingSourceTable mappingSourceTable = (MappingSourceTable) theEObject;
+			T result = caseMappingSourceTable(mappingSourceTable);
 			if (result == null)
-				result = caseTable(source);
+				result = caseTable(mappingSourceTable);
+			if (result == null)
+				result = caseBlock(mappingSourceTable);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -155,6 +129,8 @@ public class TqlModelSwitch<T> extends Switch<T> {
 		case TqlModelPackage.MAPPING: {
 			Mapping mapping = (Mapping) theEObject;
 			T result = caseMapping(mapping);
+			if (result == null)
+				result = caseBlock(mapping);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -165,14 +141,14 @@ public class TqlModelSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseExpression(inExpression);
 			if (result == null)
-				result = caseStatement(inExpression);
-			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case TqlModelPackage.TABLE: {
 			Table table = (Table) theEObject;
 			T result = caseTable(table);
+			if (result == null)
+				result = caseBlock(table);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -183,6 +159,8 @@ public class TqlModelSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseStatement(conditionalStatement);
 			if (result == null)
+				result = caseExpression(conditionalStatement);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -191,8 +169,6 @@ public class TqlModelSwitch<T> extends Switch<T> {
 			T result = caseParseExpression(parseExpression);
 			if (result == null)
 				result = caseExpression(parseExpression);
-			if (result == null)
-				result = caseStatement(parseExpression);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -205,15 +181,6 @@ public class TqlModelSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseExpression(floatConstantExpression);
 			if (result == null)
-				result = caseStatement(floatConstantExpression);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TqlModelPackage.PARAMETER: {
-			Parameter parameter = (Parameter) theEObject;
-			T result = caseParameter(parameter);
-			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -223,16 +190,16 @@ public class TqlModelSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseExpression(constantExpression);
 			if (result == null)
-				result = caseStatement(constantExpression);
-			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case TqlModelPackage.TARGET: {
-			Target target = (Target) theEObject;
-			T result = caseTarget(target);
+		case TqlModelPackage.MAPPING_TARGET_TABLE: {
+			MappingTargetTable mappingTargetTable = (MappingTargetTable) theEObject;
+			T result = caseMappingTargetTable(mappingTargetTable);
 			if (result == null)
-				result = caseTable(target);
+				result = caseTable(mappingTargetTable);
+			if (result == null)
+				result = caseBlock(mappingTargetTable);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -248,6 +215,8 @@ public class TqlModelSwitch<T> extends Switch<T> {
 			Statement statement = (Statement) theEObject;
 			T result = caseStatement(statement);
 			if (result == null)
+				result = caseExpression(statement);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -255,16 +224,16 @@ public class TqlModelSwitch<T> extends Switch<T> {
 			BinaryOperationExpression binaryOperationExpression = (BinaryOperationExpression) theEObject;
 			T result = caseBinaryOperationExpression(binaryOperationExpression);
 			if (result == null)
-				result = caseExpression(binaryOperationExpression);
+				result = caseOperationExpression(binaryOperationExpression);
 			if (result == null)
-				result = caseStatement(binaryOperationExpression);
+				result = caseExpression(binaryOperationExpression);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case TqlModelPackage.COLUMNS: {
-			Columns columns = (Columns) theEObject;
-			T result = caseColumns(columns);
+		case TqlModelPackage.TABLE_FIELD: {
+			TableField tableField = (TableField) theEObject;
+			T result = caseTableField(tableField);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -272,6 +241,49 @@ public class TqlModelSwitch<T> extends Switch<T> {
 		case TqlModelPackage.TRANSFORMATION: {
 			Transformation transformation = (Transformation) theEObject;
 			T result = caseTransformation(transformation);
+			if (result == null)
+				result = caseBlock(transformation);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TqlModelPackage.BLOCK: {
+			Block block = (Block) theEObject;
+			T result = caseBlock(block);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TqlModelPackage.BOOLEAN_OPERATION_EXPRESSION: {
+			BooleanOperationExpression booleanOperationExpression = (BooleanOperationExpression) theEObject;
+			T result = caseBooleanOperationExpression(booleanOperationExpression);
+			if (result == null)
+				result = caseOperationExpression(booleanOperationExpression);
+			if (result == null)
+				result = caseExpression(booleanOperationExpression);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TqlModelPackage.PARAMETER: {
+			Parameter parameter = (Parameter) theEObject;
+			T result = caseParameter(parameter);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TqlModelPackage.TRANSFORMATION_CALL: {
+			TransformationCall transformationCall = (TransformationCall) theEObject;
+			T result = caseTransformationCall(transformationCall);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TqlModelPackage.OPERATION_EXPRESSION: {
+			OperationExpression operationExpression = (OperationExpression) theEObject;
+			T result = caseOperationExpression(operationExpression);
+			if (result == null)
+				result = caseExpression(operationExpression);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -308,36 +320,6 @@ public class TqlModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseStringConstantExpression(StringConstantExpression object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter Statement</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseParameterStatement(ParameterStatement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Reference Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Reference Statement</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseReferenceStatement(ReferenceStatement object) {
 		return null;
 	}
 
@@ -387,17 +369,17 @@ public class TqlModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Source</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Mapping Source Table</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Source</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Mapping Source Table</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSource(Source object) {
+	public T caseMappingSourceTable(MappingSourceTable object) {
 		return null;
 	}
 
@@ -492,21 +474,6 @@ public class TqlModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseParameter(Parameter object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Constant Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -522,17 +489,17 @@ public class TqlModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Target</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Mapping Target Table</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Target</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Mapping Target Table</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTarget(Target object) {
+	public T caseMappingTargetTable(MappingTargetTable object) {
 		return null;
 	}
 
@@ -582,17 +549,17 @@ public class TqlModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Columns</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Table Field</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Columns</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Table Field</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseColumns(Columns object) {
+	public T caseTableField(TableField object) {
 		return null;
 	}
 
@@ -608,6 +575,81 @@ public class TqlModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTransformation(Transformation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Block</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBlock(Block object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Boolean Operation Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Boolean Operation Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBooleanOperationExpression(BooleanOperationExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameter(Parameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Transformation Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Transformation Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTransformationCall(TransformationCall object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Operation Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Operation Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOperationExpression(OperationExpression object) {
 		return null;
 	}
 

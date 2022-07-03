@@ -12,8 +12,10 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import tqlModel.BinaryFunction;
 import tqlModel.BinaryOperationExpression;
+import tqlModel.Block;
 import tqlModel.BooleanConstantExpression;
-import tqlModel.Columns;
+import tqlModel.BooleanFunction;
+import tqlModel.BooleanOperationExpression;
 import tqlModel.ConditionalStatement;
 import tqlModel.ConstantExpression;
 import tqlModel.Expression;
@@ -22,18 +24,19 @@ import tqlModel.InExpression;
 import tqlModel.IntegerConstantExpression;
 import tqlModel.Mapping;
 import tqlModel.MappingField;
+import tqlModel.MappingSourceTable;
+import tqlModel.MappingTargetTable;
+import tqlModel.OperationExpression;
 import tqlModel.Parameter;
-import tqlModel.ParameterStatement;
 import tqlModel.ParseExpression;
-import tqlModel.ReferenceStatement;
-import tqlModel.Source;
 import tqlModel.Statement;
 import tqlModel.StringConstantExpression;
 import tqlModel.Table;
-import tqlModel.Target;
+import tqlModel.TableField;
 import tqlModel.TqlModelFactory;
 import tqlModel.TqlModelPackage;
 import tqlModel.Transformation;
+import tqlModel.TransformationCall;
 import tqlModel.Type;
 import tqlModel.parameterExpression;
 
@@ -63,20 +66,6 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass parameterStatementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass referenceStatementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass booleanConstantExpressionEClass = null;
 
 	/**
@@ -98,7 +87,7 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sourceEClass = null;
+	private EClass mappingSourceTableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,13 +136,6 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass parameterEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass constantExpressionEClass = null;
 
 	/**
@@ -161,7 +143,7 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass targetEClass = null;
+	private EClass mappingTargetTableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,7 +171,7 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass columnsEClass = null;
+	private EClass tableFieldEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -197,6 +179,41 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * @generated
 	 */
 	private EClass transformationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass blockEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass booleanOperationExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass transformationCallEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass operationExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -211,6 +228,13 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * @generated
 	 */
 	private EEnum binaryFunctionEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum booleanFunctionEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -290,6 +314,15 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getparameterExpression_Parameter() {
+		return (EReference) parameterExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStringConstantExpression() {
 		return stringConstantExpressionEClass;
 	}
@@ -301,42 +334,6 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 */
 	public EAttribute getStringConstantExpression_Value() {
 		return (EAttribute) stringConstantExpressionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getParameterStatement() {
-		return parameterStatementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getParameterStatement_Statement() {
-		return (EReference) parameterStatementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getReferenceStatement() {
-		return referenceStatementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getReferenceStatement_Columns() {
-		return (EReference) referenceStatementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -389,8 +386,8 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSource() {
-		return sourceEClass;
+	public EClass getMappingSourceTable() {
+		return mappingSourceTableEClass;
 	}
 
 	/**
@@ -434,7 +431,7 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMapping_Condition() {
+	public EReference getMapping_When() {
 		return (EReference) mappingEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -533,6 +530,15 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getConditionalStatement_Booleanoperationexpression() {
+		return (EReference) conditionalStatementEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getParseExpression() {
 		return parseExpressionEClass;
 	}
@@ -578,15 +584,6 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getParameter() {
-		return parameterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getConstantExpression() {
 		return constantExpressionEClass;
 	}
@@ -596,8 +593,8 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTarget() {
-		return targetEClass;
+	public EClass getMappingTargetTable() {
+		return mappingTargetTableEClass;
 	}
 
 	/**
@@ -632,7 +629,7 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMappingField_Transformations() {
+	public EReference getMappingField_Calls() {
 		return (EReference) mappingFieldEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -659,26 +656,8 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBinaryOperationExpression_Left() {
-		return (EReference) binaryOperationExpressionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBinaryOperationExpression_Right() {
-		return (EReference) binaryOperationExpressionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getBinaryOperationExpression_Operation() {
-		return (EAttribute) binaryOperationExpressionEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) binaryOperationExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -686,8 +665,8 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getColumns() {
-		return columnsEClass;
+	public EClass getTableField() {
+		return tableFieldEClass;
 	}
 
 	/**
@@ -695,8 +674,8 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getColumns_Type() {
-		return (EAttribute) columnsEClass.getEStructuralFeatures().get(0);
+	public EAttribute getTableField_Type() {
+		return (EAttribute) tableFieldEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -704,8 +683,8 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getColumns_Name() {
-		return (EAttribute) columnsEClass.getEStructuralFeatures().get(1);
+	public EAttribute getTableField_Name() {
+		return (EAttribute) tableFieldEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -722,8 +701,8 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTransformation_Parameters() {
-		return (EReference) transformationEClass.getEStructuralFeatures().get(0);
+	public EAttribute getTransformation_ReturnType() {
+		return (EAttribute) transformationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -731,7 +710,7 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTransformation_ReturnType() {
+	public EAttribute getTransformation_SelfType() {
 		return (EAttribute) transformationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -740,8 +719,134 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTransformation_Label() {
+		return (EAttribute) transformationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getTransformation_ReturnStatement() {
-		return (EReference) transformationEClass.getEStructuralFeatures().get(2);
+		return (EReference) transformationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTransformation_Parameter() {
+		return (EReference) transformationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBlock() {
+		return blockEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBooleanOperationExpression() {
+		return booleanOperationExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBooleanOperationExpression_Operation() {
+		return (EAttribute) booleanOperationExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParameter() {
+		return parameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParameter_Label() {
+		return (EAttribute) parameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParameter_Type() {
+		return (EAttribute) parameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTransformationCall() {
+		return transformationCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTransformationCall_Transformation() {
+		return (EReference) transformationCallEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTransformationCall_Parameters() {
+		return (EReference) transformationCallEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOperationExpression() {
+		return operationExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperationExpression_Right() {
+		return (EReference) operationExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperationExpression_Left() {
+		return (EReference) operationExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -760,6 +865,15 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 	 */
 	public EEnum getBinaryFunction() {
 		return binaryFunctionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getBooleanFunction() {
+		return booleanFunctionEEnum;
 	}
 
 	/**
@@ -792,15 +906,10 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 
 		// Create classes and their features
 		parameterExpressionEClass = createEClass(PARAMETER_EXPRESSION);
+		createEReference(parameterExpressionEClass, PARAMETER_EXPRESSION__PARAMETER);
 
 		stringConstantExpressionEClass = createEClass(STRING_CONSTANT_EXPRESSION);
 		createEAttribute(stringConstantExpressionEClass, STRING_CONSTANT_EXPRESSION__VALUE);
-
-		parameterStatementEClass = createEClass(PARAMETER_STATEMENT);
-		createEReference(parameterStatementEClass, PARAMETER_STATEMENT__STATEMENT);
-
-		referenceStatementEClass = createEClass(REFERENCE_STATEMENT);
-		createEReference(referenceStatementEClass, REFERENCE_STATEMENT__COLUMNS);
 
 		booleanConstantExpressionEClass = createEClass(BOOLEAN_CONSTANT_EXPRESSION);
 		createEAttribute(booleanConstantExpressionEClass, BOOLEAN_CONSTANT_EXPRESSION__VALUE);
@@ -810,13 +919,13 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 		integerConstantExpressionEClass = createEClass(INTEGER_CONSTANT_EXPRESSION);
 		createEAttribute(integerConstantExpressionEClass, INTEGER_CONSTANT_EXPRESSION__VALUE);
 
-		sourceEClass = createEClass(SOURCE);
+		mappingSourceTableEClass = createEClass(MAPPING_SOURCE_TABLE);
 
 		mappingEClass = createEClass(MAPPING);
 		createEReference(mappingEClass, MAPPING__SOURCE);
 		createEReference(mappingEClass, MAPPING__TARGET);
 		createEReference(mappingEClass, MAPPING__FIELDS);
-		createEReference(mappingEClass, MAPPING__CONDITION);
+		createEReference(mappingEClass, MAPPING__WHEN);
 
 		inExpressionEClass = createEClass(IN_EXPRESSION);
 		createEReference(inExpressionEClass, IN_EXPRESSION__STATEMENT);
@@ -830,6 +939,7 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 		createEReference(conditionalStatementEClass, CONDITIONAL_STATEMENT__CONDITION);
 		createEReference(conditionalStatementEClass, CONDITIONAL_STATEMENT__IF_BODY);
 		createEReference(conditionalStatementEClass, CONDITIONAL_STATEMENT__ELSE_BODY);
+		createEReference(conditionalStatementEClass, CONDITIONAL_STATEMENT__BOOLEANOPERATIONEXPRESSION);
 
 		parseExpressionEClass = createEClass(PARSE_EXPRESSION);
 		createEAttribute(parseExpressionEClass, PARSE_EXPRESSION__OUTPUT_TYPE);
@@ -838,36 +948,52 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 		floatConstantExpressionEClass = createEClass(FLOAT_CONSTANT_EXPRESSION);
 		createEAttribute(floatConstantExpressionEClass, FLOAT_CONSTANT_EXPRESSION__VALUE);
 
-		parameterEClass = createEClass(PARAMETER);
-
 		constantExpressionEClass = createEClass(CONSTANT_EXPRESSION);
 
-		targetEClass = createEClass(TARGET);
+		mappingTargetTableEClass = createEClass(MAPPING_TARGET_TABLE);
 
 		mappingFieldEClass = createEClass(MAPPING_FIELD);
 		createEReference(mappingFieldEClass, MAPPING_FIELD__SOUCE_FIELD);
 		createEReference(mappingFieldEClass, MAPPING_FIELD__TARGET_FIELD);
-		createEReference(mappingFieldEClass, MAPPING_FIELD__TRANSFORMATIONS);
+		createEReference(mappingFieldEClass, MAPPING_FIELD__CALLS);
 
 		statementEClass = createEClass(STATEMENT);
 
 		binaryOperationExpressionEClass = createEClass(BINARY_OPERATION_EXPRESSION);
-		createEReference(binaryOperationExpressionEClass, BINARY_OPERATION_EXPRESSION__LEFT);
-		createEReference(binaryOperationExpressionEClass, BINARY_OPERATION_EXPRESSION__RIGHT);
 		createEAttribute(binaryOperationExpressionEClass, BINARY_OPERATION_EXPRESSION__OPERATION);
 
-		columnsEClass = createEClass(COLUMNS);
-		createEAttribute(columnsEClass, COLUMNS__TYPE);
-		createEAttribute(columnsEClass, COLUMNS__NAME);
+		tableFieldEClass = createEClass(TABLE_FIELD);
+		createEAttribute(tableFieldEClass, TABLE_FIELD__TYPE);
+		createEAttribute(tableFieldEClass, TABLE_FIELD__NAME);
 
 		transformationEClass = createEClass(TRANSFORMATION);
-		createEReference(transformationEClass, TRANSFORMATION__PARAMETERS);
 		createEAttribute(transformationEClass, TRANSFORMATION__RETURN_TYPE);
+		createEAttribute(transformationEClass, TRANSFORMATION__SELF_TYPE);
+		createEAttribute(transformationEClass, TRANSFORMATION__LABEL);
 		createEReference(transformationEClass, TRANSFORMATION__RETURN_STATEMENT);
+		createEReference(transformationEClass, TRANSFORMATION__PARAMETER);
+
+		blockEClass = createEClass(BLOCK);
+
+		booleanOperationExpressionEClass = createEClass(BOOLEAN_OPERATION_EXPRESSION);
+		createEAttribute(booleanOperationExpressionEClass, BOOLEAN_OPERATION_EXPRESSION__OPERATION);
+
+		parameterEClass = createEClass(PARAMETER);
+		createEAttribute(parameterEClass, PARAMETER__LABEL);
+		createEAttribute(parameterEClass, PARAMETER__TYPE);
+
+		transformationCallEClass = createEClass(TRANSFORMATION_CALL);
+		createEReference(transformationCallEClass, TRANSFORMATION_CALL__TRANSFORMATION);
+		createEReference(transformationCallEClass, TRANSFORMATION_CALL__PARAMETERS);
+
+		operationExpressionEClass = createEClass(OPERATION_EXPRESSION);
+		createEReference(operationExpressionEClass, OPERATION_EXPRESSION__RIGHT);
+		createEReference(operationExpressionEClass, OPERATION_EXPRESSION__LEFT);
 
 		// Create enums
 		typeEEnum = createEEnum(TYPE);
 		binaryFunctionEEnum = createEEnum(BINARY_FUNCTION);
+		booleanFunctionEEnum = createEEnum(BOOLEAN_FUNCTION);
 	}
 
 	/**
@@ -901,41 +1027,35 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 		// Add supertypes to classes
 		parameterExpressionEClass.getESuperTypes().add(this.getExpression());
 		stringConstantExpressionEClass.getESuperTypes().add(this.getConstantExpression());
-		parameterStatementEClass.getESuperTypes().add(this.getParameter());
-		referenceStatementEClass.getESuperTypes().add(this.getParameter());
 		booleanConstantExpressionEClass.getESuperTypes().add(this.getConstantExpression());
-		expressionEClass.getESuperTypes().add(this.getStatement());
 		integerConstantExpressionEClass.getESuperTypes().add(this.getConstantExpression());
-		sourceEClass.getESuperTypes().add(this.getTable());
+		mappingSourceTableEClass.getESuperTypes().add(this.getTable());
+		mappingEClass.getESuperTypes().add(this.getBlock());
 		inExpressionEClass.getESuperTypes().add(this.getExpression());
+		tableEClass.getESuperTypes().add(this.getBlock());
 		conditionalStatementEClass.getESuperTypes().add(this.getStatement());
 		parseExpressionEClass.getESuperTypes().add(this.getExpression());
 		floatConstantExpressionEClass.getESuperTypes().add(this.getConstantExpression());
 		constantExpressionEClass.getESuperTypes().add(this.getExpression());
-		targetEClass.getESuperTypes().add(this.getTable());
-		binaryOperationExpressionEClass.getESuperTypes().add(this.getExpression());
+		mappingTargetTableEClass.getESuperTypes().add(this.getTable());
+		statementEClass.getESuperTypes().add(this.getExpression());
+		binaryOperationExpressionEClass.getESuperTypes().add(this.getOperationExpression());
+		transformationEClass.getESuperTypes().add(this.getBlock());
+		booleanOperationExpressionEClass.getESuperTypes().add(this.getOperationExpression());
+		operationExpressionEClass.getESuperTypes().add(this.getExpression());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(parameterExpressionEClass, parameterExpression.class, "parameterExpression", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getparameterExpression_Parameter(), this.getParameter(), null, "parameter", null, 1, 1,
+				parameterExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringConstantExpressionEClass, StringConstantExpression.class, "StringConstantExpression",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringConstantExpression_Value(), ecorePackage.getEString(), "value", null, 1, 1,
 				StringConstantExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(parameterStatementEClass, ParameterStatement.class, "ParameterStatement", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParameterStatement_Statement(), this.getExpression(), null, "statement", null, 0, 1,
-				ParameterStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(referenceStatementEClass, ReferenceStatement.class, "ReferenceStatement", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReferenceStatement_Columns(), this.getColumns(), null, "columns", null, 0, 1,
-				ReferenceStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(booleanConstantExpressionEClass, BooleanConstantExpression.class, "BooleanConstantExpression",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -952,19 +1072,20 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 				IntegerConstantExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(mappingSourceTableEClass, MappingSourceTable.class, "MappingSourceTable", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(mappingEClass, Mapping.class, "Mapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMapping_Source(), this.getSource(), null, "source", null, 0, -1, Mapping.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getMapping_Target(), this.getTarget(), null, "target", null, 0, -1, Mapping.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getMapping_Source(), this.getMappingSourceTable(), null, "source", null, 0, -1, Mapping.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMapping_Target(), this.getMappingTargetTable(), null, "target", null, 0, -1, Mapping.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMapping_Fields(), this.getMappingField(), null, "fields", null, 1, -1, Mapping.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMapping_Condition(), this.getExpression(), null, "condition", null, 0, 1, Mapping.class,
+		initEReference(getMapping_When(), this.getBooleanOperationExpression(), null, "when", null, 0, 1, Mapping.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -980,21 +1101,24 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTable_Name(), ecorePackage.getEString(), "name", null, 1, 1, Table.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTable_Columns(), this.getColumns(), null, "columns", null, 1, -1, Table.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getTable_Columns(), this.getTableField(), null, "columns", null, 1, -1, Table.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conditionalStatementEClass, ConditionalStatement.class, "ConditionalStatement", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConditionalStatement_Condition(), this.getExpression(), null, "condition", null, 1, 1,
 				ConditionalStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConditionalStatement_IfBody(), this.getStatement(), null, "ifBody", null, 1, 1,
-				ConditionalStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConditionalStatement_ElseBody(), this.getStatement(), null, "elseBody", null, 1, 1,
-				ConditionalStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConditionalStatement_IfBody(), this.getStatement(), null, "ifBody", null, 1, -1,
+				ConditionalStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConditionalStatement_ElseBody(), this.getStatement(), null, "elseBody", null, 1, -1,
+				ConditionalStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConditionalStatement_Booleanoperationexpression(), this.getBooleanOperationExpression(), null,
+				"booleanoperationexpression", null, 1, 1, ConditionalStatement.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parseExpressionEClass, ParseExpression.class, "ParseExpression", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1010,24 +1134,22 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 				FloatConstantExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(parameterEClass, Parameter.class, "Parameter", IS_ABSTRACT, IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(constantExpressionEClass, ConstantExpression.class, "ConstantExpression", IS_ABSTRACT, IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(targetEClass, Target.class, "Target", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(mappingTargetTableEClass, MappingTargetTable.class, "MappingTargetTable", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(mappingFieldEClass, MappingField.class, "MappingField", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMappingField_SouceField(), this.getColumns(), null, "souceField", null, 1, 1,
+		initEReference(getMappingField_SouceField(), this.getTableField(), null, "souceField", null, 1, 1,
 				MappingField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMappingField_TargetField(), this.getColumns(), null, "targetField", null, 1, 1,
+		initEReference(getMappingField_TargetField(), this.getTableField(), null, "targetField", null, 1, 1,
 				MappingField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMappingField_Transformations(), this.getTransformation(), null, "transformations", null, 0,
-				-1, MappingField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getMappingField_Calls(), this.getTransformationCall(), null, "calls", null, 0, -1,
+				MappingField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(statementEClass, Statement.class, "Statement", IS_ABSTRACT, IS_INTERFACE,
@@ -1035,32 +1157,64 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 
 		initEClass(binaryOperationExpressionEClass, BinaryOperationExpression.class, "BinaryOperationExpression",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBinaryOperationExpression_Left(), this.getExpression(), null, "left", null, 1, 1,
-				BinaryOperationExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBinaryOperationExpression_Right(), this.getExpression(), null, "right", null, 1, 1,
-				BinaryOperationExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBinaryOperationExpression_Operation(), this.getBinaryFunction(), "operation", null, 0, 1,
 				BinaryOperationExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(columnsEClass, Columns.class, "Columns", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getColumns_Type(), this.getType(), "type", null, 1, 1, Columns.class, !IS_TRANSIENT,
+		initEClass(tableFieldEClass, TableField.class, "TableField", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTableField_Type(), this.getType(), "type", null, 1, 1, TableField.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getColumns_Name(), ecorePackage.getEString(), "name", null, 1, 1, Columns.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableField_Name(), ecorePackage.getEString(), "name", null, 1, 1, TableField.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transformationEClass, Transformation.class, "Transformation", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTransformation_Parameters(), this.getParameter(), null, "parameters", null, 0, -1,
-				Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTransformation_ReturnType(), this.getType(), "returnType", null, 0, 1, Transformation.class,
+		initEAttribute(getTransformation_ReturnType(), this.getType(), "returnType", null, 1, 1, Transformation.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTransformation_ReturnStatement(), this.getStatement(), null, "returnStatement", null, 1, 1,
-				Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEAttribute(getTransformation_SelfType(), this.getType(), "selfType", null, 1, 1, Transformation.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransformation_Label(), ecorePackage.getEString(), "label", null, 1, 1, Transformation.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransformation_ReturnStatement(), this.getExpression(), null, "returnStatement", null, 1, -1,
+				Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransformation_Parameter(), this.getParameter(), null, "parameter", null, 0, -1,
+				Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(blockEClass, Block.class, "Block", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(booleanOperationExpressionEClass, BooleanOperationExpression.class, "BooleanOperationExpression",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBooleanOperationExpression_Operation(), this.getBooleanFunction(), "operation", null, 0, 1,
+				BooleanOperationExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameter_Label(), ecorePackage.getEString(), "label", null, 0, 1, Parameter.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_Type(), this.getType(), "type", null, 0, 1, Parameter.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(transformationCallEClass, TransformationCall.class, "TransformationCall", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTransformationCall_Transformation(), this.getTransformation(), null, "transformation", null,
+				1, 1, TransformationCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransformationCall_Parameters(), this.getTableField(), null, "parameters", null, 0, -1,
+				TransformationCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(operationExpressionEClass, OperationExpression.class, "OperationExpression", IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOperationExpression_Right(), this.getExpression(), null, "right", null, 1, 1,
+				OperationExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperationExpression_Left(), this.getExpression(), null, "left", null, 1, 1,
+				OperationExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(typeEEnum, Type.class, "Type");
@@ -1077,12 +1231,14 @@ public class TqlModelPackageImpl extends EPackageImpl implements TqlModelPackage
 		addEEnumLiteral(binaryFunctionEEnum, BinaryFunction.SUM);
 		addEEnumLiteral(binaryFunctionEEnum, BinaryFunction.DIVIDE);
 		addEEnumLiteral(binaryFunctionEEnum, BinaryFunction.CONCAT);
-		addEEnumLiteral(binaryFunctionEEnum, BinaryFunction.EQUAL);
-		addEEnumLiteral(binaryFunctionEEnum, BinaryFunction.NOTEQUAL);
-		addEEnumLiteral(binaryFunctionEEnum, BinaryFunction.SMALLER);
-		addEEnumLiteral(binaryFunctionEEnum, BinaryFunction.GREATER);
-		addEEnumLiteral(binaryFunctionEEnum, BinaryFunction.OR);
-		addEEnumLiteral(binaryFunctionEEnum, BinaryFunction.AND);
+
+		initEEnum(booleanFunctionEEnum, BooleanFunction.class, "BooleanFunction");
+		addEEnumLiteral(booleanFunctionEEnum, BooleanFunction.EQUAL);
+		addEEnumLiteral(booleanFunctionEEnum, BooleanFunction.NOTEQUAL);
+		addEEnumLiteral(booleanFunctionEEnum, BooleanFunction.SMALLER);
+		addEEnumLiteral(booleanFunctionEEnum, BooleanFunction.GREATER);
+		addEEnumLiteral(booleanFunctionEEnum, BooleanFunction.OR);
+		addEEnumLiteral(booleanFunctionEEnum, BooleanFunction.AND);
 
 		// Create resource
 		createResource(eNS_URI);

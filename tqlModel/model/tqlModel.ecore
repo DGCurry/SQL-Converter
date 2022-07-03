@@ -101,8 +101,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selfType" lowerBound="1"
         eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="booleanoperationexpression"
-        eType="#//BooleanOperationExpression"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="when" eType="#//BooleanOperationExpression"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnStatement" lowerBound="1"
         upperBound="-1" eType="#//Expression" containment="true"/>
   </eClassifiers>

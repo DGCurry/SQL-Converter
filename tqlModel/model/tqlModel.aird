@@ -5,7 +5,7 @@
     <semanticResources>tqlModel.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_KRxoYPoJEeyx9osMYn3vAw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_KSxt8PoJEeyx9osMYn3vAw" name="tqlModel" repPath="#_KSTz4PoJEeyx9osMYn3vAw" changeId="be6b94a7-5f4d-46c4-81ed-0d947881022c">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_KSxt8PoJEeyx9osMYn3vAw" name="tqlModel" repPath="#_KSTz4PoJEeyx9osMYn3vAw" changeId="5b09494a-b086-46b8-803b-3f1a5a917e59">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="tqlModel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -984,17 +984,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_XStMAPqhEey1ubLg9U9vDg" type="4001" element="_XSBPhvqhEey1ubLg9U9vDg" source="_NzrB3voJEeyx9osMYn3vAw" target="_vXhh0PqfEey1ubLg9U9vDg">
           <children xmi:type="notation:Node" xmi:id="_XStzEPqhEey1ubLg9U9vDg" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XStzEfqhEey1ubLg9U9vDg" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XStzEfqhEey1ubLg9U9vDg" x="39" y="135"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_XStzEvqhEey1ubLg9U9vDg" type="6002">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XStzE_qhEey1ubLg9U9vDg" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_XSuaIPqhEey1ubLg9U9vDg" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XSuaIfqhEey1ubLg9U9vDg" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XSuaIfqhEey1ubLg9U9vDg" x="86" y="10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_XStMAfqhEey1ubLg9U9vDg" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_XStMAvqhEey1ubLg9U9vDg" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XStMA_qhEey1ubLg9U9vDg" points="[0, 0, -66, -938]$[0, 469, -66, -469]$[66, 469, 0, -469]$[66, 938, 0, 0]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XStMA_qhEey1ubLg9U9vDg" points="[16, -48, -50, -986]$[336, -48, 270, -986]$[336, 469, 270, -469]$[66, 469, 0, -469]$[66, 938, 0, 0]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XSuaIvqhEey1ubLg9U9vDg" id="(0.9157894736842105,1.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XSuaI_qhEey1ubLg9U9vDg" id="(0.864406779661017,0.0)"/>
         </edges>
@@ -2105,9 +2105,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_XSBPhvqhEey1ubLg9U9vDg" name="[0..1] booleanoperationexpression" sourceNode="_NzDWwvoJEeyx9osMYn3vAw" targetNode="_vXSRQPqfEey1ubLg9U9vDg">
-      <target xmi:type="ecore:EReference" href="tqlModel.ecore#//Transformation/booleanoperationexpression"/>
-      <semanticElements xmi:type="ecore:EReference" href="tqlModel.ecore#//Transformation/booleanoperationexpression"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_XSBPhvqhEey1ubLg9U9vDg" name="[0..1] when" sourceNode="_NzDWwvoJEeyx9osMYn3vAw" targetNode="_vXSRQPqfEey1ubLg9U9vDg">
+      <target xmi:type="ecore:EReference" href="tqlModel.ecore#//Transformation/when"/>
+      <semanticElements xmi:type="ecore:EReference" href="tqlModel.ecore#//Transformation/when"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_XSB2kPqhEey1ubLg9U9vDg" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_XSB2kvqhEey1ubLg9U9vDg" showIcon="false">

@@ -5,15 +5,19 @@ package nl.tue.gtl.formatting2
 
 import com.google.inject.Inject
 import nl.tue.gtl.services.TQLGrammarAccess
+import nl.tue.gtl.tql.model.Table
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 
 class TQLFormatter extends AbstractFormatter2 {
 	
 	@Inject extension TQLGrammarAccess
-	
-	override format(Object obj, IFormattableDocument document) {
-		
+
+	def dispatch void format(Table table, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		for (column : table.columns) {
+			column.format
+		}
 	}
 	
 }

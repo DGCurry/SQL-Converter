@@ -4,9 +4,15 @@
 package nl.tue.gtl.formatting2;
 
 import com.google.inject.Inject;
+import java.util.Arrays;
 import nl.tue.gtl.services.TQLGrammarAccess;
+import nl.tue.gtl.tql.model.Column;
+import nl.tue.gtl.tql.model.Table;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
+import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
 
 @SuppressWarnings("all")
@@ -15,7 +21,32 @@ public class TQLFormatter extends AbstractFormatter2 {
   @Extension
   private TQLGrammarAccess _tQLGrammarAccess;
 
-  @Override
-  public void format(final Object obj, final IFormattableDocument document) {
+  protected void _format(final Table table, @Extension final IFormattableDocument document) {
+    EList<Column> _columns = table.getColumns();
+    for (final Column column : _columns) {
+      document.<Column>format(column);
+    }
+  }
+
+  public void format(final Object table, final IFormattableDocument document) {
+    if (table instanceof XtextResource) {
+      _format((XtextResource)table, document);
+      return;
+    } else if (table instanceof Table) {
+      _format((Table)table, document);
+      return;
+    } else if (table instanceof EObject) {
+      _format((EObject)table, document);
+      return;
+    } else if (table == null) {
+      _format((Void)null, document);
+      return;
+    } else if (table != null) {
+      _format(table, document);
+      return;
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(table, document).toString());
+    }
   }
 }

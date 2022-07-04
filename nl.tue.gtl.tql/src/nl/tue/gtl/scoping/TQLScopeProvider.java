@@ -6,9 +6,12 @@ package nl.tue.gtl.scoping;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
 
-import tqlModel.TargetTable;
-import tqlModel.TqlModelPackage;
+import nl.tue.gtl.tql.model.MappedColumn;
+import nl.tue.gtl.tql.model.Mapping;
+import nl.tue.gtl.tql.model.ModelPackage;
+import nl.tue.gtl.tql.model.ReferenceCallParameter;
 
 /**
  * This class contains custom scoping description.
@@ -17,12 +20,34 @@ import tqlModel.TqlModelPackage;
  * on how and when to use it.
  */
 public class TQLScopeProvider extends AbstractTQLScopeProvider {
-	
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
-		if ((context instanceof TargetTable) && reference == TqlModelPackage.Literals.MAPPING__SOURCETABLE) {
-			
-		}
-		return null;
+	    if (context instanceof MappedColumn && reference == ModelPackage.Literals.MAPPED_COLUMN__SOURCE) {
+	        EObject container = context.eContainer();
+	        
+	        if (container instanceof Mapping) {
+	        	Mapping mapping = (Mapping)container;
+	        	
+	        	return Scopes.scopeFor(mapping.getSource().getColumns());
+	        }
+	    } else if (context instanceof MappedColumn && reference == ModelPackage.Literals.MAPPED_COLUMN__TARGET) {
+	        EObject container = context.eContainer();
+	        
+	        if (container instanceof Mapping) {
+	        	Mapping mapping = (Mapping)container;
+	        	
+	        	return Scopes.scopeFor(mapping.getTarget().getColumns());
+	        }
+	    } else if (context instanceof ReferenceCallParameter && reference == ModelPackage.Literals.REFERENCE_CALL_PARAMETER__REFERENCE) {
+	    	// containers: TransformationCall -> MappedColumn -> Mapping
+	    	EObject container = context.eContainer().eContainer().eContainer();
+	    	
+	    	if (container instanceof Mapping) {
+    			Mapping mapping = (Mapping)container;
+	        	
+	        	return Scopes.scopeFor(mapping.getSource().getColumns());
+	    	}
+	    }
+	    return super.getScope(context, reference);
 	}
 }

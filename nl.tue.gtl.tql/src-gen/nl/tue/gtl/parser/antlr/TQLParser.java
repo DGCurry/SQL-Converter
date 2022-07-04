@@ -27,7 +27,7 @@ public class TQLParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Block";
+		return "TQL";
 	}
 
 	public TQLGrammarAccess getGrammarAccess() {

@@ -4,19 +4,19 @@
 package nl.tue.gtl.tests
 
 import com.google.inject.Inject
+import nl.tue.gtl.tql.model.Table
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
-import tqlModel.BinaryOperationExpression
 
 @ExtendWith(InjectionExtension)
 @InjectWith(TQLInjectorProvider)
 class TQLParsingTest {
 	@Inject
-	ParseHelper<BinaryOperationExpression> parseHelper
+	ParseHelper<Table> parseHelper
 	
 	@Test
 	def void loadModel() {

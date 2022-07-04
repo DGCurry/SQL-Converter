@@ -5,7 +5,37 @@ package nl.tue.gtl.serializer;
 
 import com.google.inject.Inject;
 import java.util.Set;
+import nl.tue.gtl.domainmodel.Add;
+import nl.tue.gtl.domainmodel.And;
+import nl.tue.gtl.domainmodel.Divide;
+import nl.tue.gtl.domainmodel.DomainmodelPackage;
+import nl.tue.gtl.domainmodel.Equals;
+import nl.tue.gtl.domainmodel.Greater;
+import nl.tue.gtl.domainmodel.Less;
+import nl.tue.gtl.domainmodel.Multiply;
+import nl.tue.gtl.domainmodel.NotEquals;
+import nl.tue.gtl.domainmodel.Or;
+import nl.tue.gtl.domainmodel.Subtract;
+import nl.tue.gtl.domainmodel.TQL;
 import nl.tue.gtl.services.TQLGrammarAccess;
+import nl.tue.gtl.tql.model.BooleanConstant;
+import nl.tue.gtl.tql.model.Column;
+import nl.tue.gtl.tql.model.ColumnExpression;
+import nl.tue.gtl.tql.model.ConstantCallParameter;
+import nl.tue.gtl.tql.model.FloatConstant;
+import nl.tue.gtl.tql.model.IntegerConstant;
+import nl.tue.gtl.tql.model.MappedColumn;
+import nl.tue.gtl.tql.model.Mapping;
+import nl.tue.gtl.tql.model.ModelPackage;
+import nl.tue.gtl.tql.model.NullConstant;
+import nl.tue.gtl.tql.model.ParameterExpression;
+import nl.tue.gtl.tql.model.ReferenceCallParameter;
+import nl.tue.gtl.tql.model.SetConstant;
+import nl.tue.gtl.tql.model.SourceTable;
+import nl.tue.gtl.tql.model.StringConstant;
+import nl.tue.gtl.tql.model.TargetTable;
+import nl.tue.gtl.tql.model.Transformation;
+import nl.tue.gtl.tql.model.TransformationCall;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.Action;
@@ -15,13 +45,6 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import tqlModel.Mapping;
-import tqlModel.MappingField;
-import tqlModel.SourceTable;
-import tqlModel.TableField;
-import tqlModel.TargetTable;
-import tqlModel.TqlModelPackage;
-import tqlModel.TransformationCall;
 
 @SuppressWarnings("all")
 public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -35,25 +58,97 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		ParserRule rule = context.getParserRule();
 		Action action = context.getAssignedAction();
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
-		if (epackage == TqlModelPackage.eINSTANCE)
+		if (epackage == DomainmodelPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case TqlModelPackage.MAPPING:
+			case DomainmodelPackage.ADD:
+				sequence_Add(context, (Add) semanticObject); 
+				return; 
+			case DomainmodelPackage.AND:
+				sequence_And(context, (And) semanticObject); 
+				return; 
+			case DomainmodelPackage.DIVIDE:
+				sequence_Divide(context, (Divide) semanticObject); 
+				return; 
+			case DomainmodelPackage.EQUALS:
+				sequence_Equals(context, (Equals) semanticObject); 
+				return; 
+			case DomainmodelPackage.GREATER:
+				sequence_Greater(context, (Greater) semanticObject); 
+				return; 
+			case DomainmodelPackage.LESS:
+				sequence_Less(context, (Less) semanticObject); 
+				return; 
+			case DomainmodelPackage.MULTIPLY:
+				sequence_Multiply(context, (Multiply) semanticObject); 
+				return; 
+			case DomainmodelPackage.NOT_EQUALS:
+				sequence_NotEquals(context, (NotEquals) semanticObject); 
+				return; 
+			case DomainmodelPackage.OR:
+				sequence_Or(context, (Or) semanticObject); 
+				return; 
+			case DomainmodelPackage.SUBTRACT:
+				sequence_Subtract(context, (Subtract) semanticObject); 
+				return; 
+			case DomainmodelPackage.TQL:
+				sequence_TQL(context, (TQL) semanticObject); 
+				return; 
+			}
+		else if (epackage == ModelPackage.eINSTANCE)
+			switch (semanticObject.eClass().getClassifierID()) {
+			case ModelPackage.BOOLEAN_CONSTANT:
+				sequence_Boolean_Constant(context, (BooleanConstant) semanticObject); 
+				return; 
+			case ModelPackage.COLUMN:
+				sequence_Column(context, (Column) semanticObject); 
+				return; 
+			case ModelPackage.COLUMN_EXPRESSION:
+				sequence_Column_Expression(context, (ColumnExpression) semanticObject); 
+				return; 
+			case ModelPackage.CONSTANT_CALL_PARAMETER:
+				sequence_Constant_Call_Parameter(context, (ConstantCallParameter) semanticObject); 
+				return; 
+			case ModelPackage.FLOAT_CONSTANT:
+				sequence_Float_Constant(context, (FloatConstant) semanticObject); 
+				return; 
+			case ModelPackage.INTEGER_CONSTANT:
+				sequence_Integer_Constant(context, (IntegerConstant) semanticObject); 
+				return; 
+			case ModelPackage.MAPPED_COLUMN:
+				sequence_Mapped_Column(context, (MappedColumn) semanticObject); 
+				return; 
+			case ModelPackage.MAPPING:
 				sequence_Mapping(context, (Mapping) semanticObject); 
 				return; 
-			case TqlModelPackage.MAPPING_FIELD:
-				sequence_MappingField(context, (MappingField) semanticObject); 
+			case ModelPackage.NULL_CONSTANT:
+				sequence_Null_Constant(context, (NullConstant) semanticObject); 
 				return; 
-			case TqlModelPackage.SOURCE_TABLE:
+			case ModelPackage.PARAMETER:
+				sequence_Parameter(context, (nl.tue.gtl.tql.model.Parameter) semanticObject); 
+				return; 
+			case ModelPackage.PARAMETER_EXPRESSION:
+				sequence_Parameter_Expression(context, (ParameterExpression) semanticObject); 
+				return; 
+			case ModelPackage.REFERENCE_CALL_PARAMETER:
+				sequence_Reference_Call_Parameter(context, (ReferenceCallParameter) semanticObject); 
+				return; 
+			case ModelPackage.SET_CONSTANT:
+				sequence_Set_Constant(context, (SetConstant) semanticObject); 
+				return; 
+			case ModelPackage.SOURCE_TABLE:
 				sequence_Source_Table(context, (SourceTable) semanticObject); 
 				return; 
-			case TqlModelPackage.TABLE_FIELD:
-				sequence_TableField(context, (TableField) semanticObject); 
+			case ModelPackage.STRING_CONSTANT:
+				sequence_String_Constant(context, (StringConstant) semanticObject); 
 				return; 
-			case TqlModelPackage.TARGET_TABLE:
+			case ModelPackage.TARGET_TABLE:
 				sequence_Target_Table(context, (TargetTable) semanticObject); 
 				return; 
-			case TqlModelPackage.TRANSFORMATION_CALL:
-				sequence_TransformationCall(context, (TransformationCall) semanticObject); 
+			case ModelPackage.TRANSFORMATION:
+				sequence_Transformation(context, (Transformation) semanticObject); 
+				return; 
+			case ModelPackage.TRANSFORMATION_CALL:
+				sequence_Transformation_Call(context, (TransformationCall) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -63,13 +158,429 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     MappingField returns MappingField
+	 *     Expression returns Add
+	 *     And returns Add
+	 *     And.And_1_0 returns Add
+	 *     Or returns Add
+	 *     Or.Or_1_0 returns Add
+	 *     Equals returns Add
+	 *     Equals.Equals_1_0 returns Add
+	 *     NotEquals returns Add
+	 *     NotEquals.NotEquals_1_0 returns Add
+	 *     Less returns Add
+	 *     Less.Less_1_0 returns Add
+	 *     Greater returns Add
+	 *     Greater.Greater_1_0 returns Add
+	 *     Multiply returns Add
+	 *     Multiply.Multiply_1_0 returns Add
+	 *     Divide returns Add
+	 *     Divide.Divide_1_0 returns Add
+	 *     Add returns Add
+	 *     Add.Add_1_0 returns Add
 	 *
 	 * Constraint:
-	 *     (souceField=[TableField|EString] targetField=[TableField|EString] (calls+=TransformationCall calls+=TransformationCall*)?)
+	 *     (left=Add_Add_1_0 operator=AddOperator right=Subtract)
 	 * </pre>
 	 */
-	protected void sequence_MappingField(ISerializationContext context, MappingField semanticObject) {
+	protected void sequence_Add(ISerializationContext context, Add semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.ADD__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.ADD__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.ADD__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.ADD__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.ADD__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.ADD__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAddAccess().getAddLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getAddAccess().getOperatorAddOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getAddAccess().getRightSubtractParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns And
+	 *     And returns And
+	 *     And.And_1_0 returns And
+	 *
+	 * Constraint:
+	 *     (left=And_And_1_0 operator=AndOperator right=Or)
+	 * </pre>
+	 */
+	protected void sequence_And(ISerializationContext context, And semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.AND__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.AND__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.AND__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.AND__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.AND__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.AND__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAndAccess().getAndLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getAndAccess().getOperatorAndOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getAndAccess().getRightOrParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns BooleanConstant
+	 *     And returns BooleanConstant
+	 *     And.And_1_0 returns BooleanConstant
+	 *     Or returns BooleanConstant
+	 *     Or.Or_1_0 returns BooleanConstant
+	 *     Equals returns BooleanConstant
+	 *     Equals.Equals_1_0 returns BooleanConstant
+	 *     NotEquals returns BooleanConstant
+	 *     NotEquals.NotEquals_1_0 returns BooleanConstant
+	 *     Less returns BooleanConstant
+	 *     Less.Less_1_0 returns BooleanConstant
+	 *     Greater returns BooleanConstant
+	 *     Greater.Greater_1_0 returns BooleanConstant
+	 *     Multiply returns BooleanConstant
+	 *     Multiply.Multiply_1_0 returns BooleanConstant
+	 *     Divide returns BooleanConstant
+	 *     Divide.Divide_1_0 returns BooleanConstant
+	 *     Add returns BooleanConstant
+	 *     Add.Add_1_0 returns BooleanConstant
+	 *     Subtract returns BooleanConstant
+	 *     Subtract.Subtract_1_0 returns BooleanConstant
+	 *     Literals returns BooleanConstant
+	 *     Constant returns BooleanConstant
+	 *     Single_Constant returns BooleanConstant
+	 *     Boolean_Constant returns BooleanConstant
+	 *
+	 * Constraint:
+	 *     value=EBoolean
+	 * </pre>
+	 */
+	protected void sequence_Boolean_Constant(ISerializationContext context, BooleanConstant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ModelPackage.Literals.BOOLEAN_CONSTANT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.BOOLEAN_CONSTANT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBoolean_ConstantAccess().getValueEBooleanParserRuleCall_0(), semanticObject.isValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Column returns Column
+	 *
+	 * Constraint:
+	 *     (name=EString type=Type)
+	 * </pre>
+	 */
+	protected void sequence_Column(ISerializationContext context, Column semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ModelPackage.Literals.COLUMN__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.COLUMN__NAME));
+			if (transientValues.isValueTransient(semanticObject, ModelPackage.Literals.COLUMN__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.COLUMN__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getColumnAccess().getNameEStringParserRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getColumnAccess().getTypeTypeEnumRuleCall_2_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Column_Expression returns ColumnExpression
+	 *
+	 * Constraint:
+	 *     column=[Column|EString]
+	 * </pre>
+	 */
+	protected void sequence_Column_Expression(ISerializationContext context, ColumnExpression semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ModelPackage.Literals.COLUMN_EXPRESSION__COLUMN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.COLUMN_EXPRESSION__COLUMN));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getColumn_ExpressionAccess().getColumnColumnEStringParserRuleCall_0_1(), semanticObject.eGet(ModelPackage.Literals.COLUMN_EXPRESSION__COLUMN, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Call_Parameter returns ConstantCallParameter
+	 *     Constant_Call_Parameter returns ConstantCallParameter
+	 *
+	 * Constraint:
+	 *     parameter=Constant
+	 * </pre>
+	 */
+	protected void sequence_Constant_Call_Parameter(ISerializationContext context, ConstantCallParameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ModelPackage.Literals.CONSTANT_CALL_PARAMETER__PARAMETER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.CONSTANT_CALL_PARAMETER__PARAMETER));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getConstant_Call_ParameterAccess().getParameterConstantParserRuleCall_0(), semanticObject.getParameter());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns Divide
+	 *     And returns Divide
+	 *     And.And_1_0 returns Divide
+	 *     Or returns Divide
+	 *     Or.Or_1_0 returns Divide
+	 *     Equals returns Divide
+	 *     Equals.Equals_1_0 returns Divide
+	 *     NotEquals returns Divide
+	 *     NotEquals.NotEquals_1_0 returns Divide
+	 *     Less returns Divide
+	 *     Less.Less_1_0 returns Divide
+	 *     Greater returns Divide
+	 *     Greater.Greater_1_0 returns Divide
+	 *     Multiply returns Divide
+	 *     Multiply.Multiply_1_0 returns Divide
+	 *     Divide returns Divide
+	 *     Divide.Divide_1_0 returns Divide
+	 *
+	 * Constraint:
+	 *     (left=Divide_Divide_1_0 operator=DivideOperator right=Add)
+	 * </pre>
+	 */
+	protected void sequence_Divide(ISerializationContext context, Divide semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.DIVIDE__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.DIVIDE__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.DIVIDE__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.DIVIDE__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.DIVIDE__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.DIVIDE__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDivideAccess().getDivideLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getDivideAccess().getOperatorDivideOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getDivideAccess().getRightAddParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns Equals
+	 *     And returns Equals
+	 *     And.And_1_0 returns Equals
+	 *     Or returns Equals
+	 *     Or.Or_1_0 returns Equals
+	 *     Equals returns Equals
+	 *     Equals.Equals_1_0 returns Equals
+	 *
+	 * Constraint:
+	 *     (left=Equals_Equals_1_0 operator=EqualsOperator right=NotEquals)
+	 * </pre>
+	 */
+	protected void sequence_Equals(ISerializationContext context, Equals semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.EQUALS__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.EQUALS__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.EQUALS__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.EQUALS__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.EQUALS__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.EQUALS__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEqualsAccess().getEqualsLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getEqualsAccess().getOperatorEqualsOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getEqualsAccess().getRightNotEqualsParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns FloatConstant
+	 *     And returns FloatConstant
+	 *     And.And_1_0 returns FloatConstant
+	 *     Or returns FloatConstant
+	 *     Or.Or_1_0 returns FloatConstant
+	 *     Equals returns FloatConstant
+	 *     Equals.Equals_1_0 returns FloatConstant
+	 *     NotEquals returns FloatConstant
+	 *     NotEquals.NotEquals_1_0 returns FloatConstant
+	 *     Less returns FloatConstant
+	 *     Less.Less_1_0 returns FloatConstant
+	 *     Greater returns FloatConstant
+	 *     Greater.Greater_1_0 returns FloatConstant
+	 *     Multiply returns FloatConstant
+	 *     Multiply.Multiply_1_0 returns FloatConstant
+	 *     Divide returns FloatConstant
+	 *     Divide.Divide_1_0 returns FloatConstant
+	 *     Add returns FloatConstant
+	 *     Add.Add_1_0 returns FloatConstant
+	 *     Subtract returns FloatConstant
+	 *     Subtract.Subtract_1_0 returns FloatConstant
+	 *     Literals returns FloatConstant
+	 *     Constant returns FloatConstant
+	 *     Single_Constant returns FloatConstant
+	 *     Float_Constant returns FloatConstant
+	 *
+	 * Constraint:
+	 *     value=EFloat
+	 * </pre>
+	 */
+	protected void sequence_Float_Constant(ISerializationContext context, FloatConstant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ModelPackage.Literals.FLOAT_CONSTANT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.FLOAT_CONSTANT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFloat_ConstantAccess().getValueEFloatParserRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns Greater
+	 *     And returns Greater
+	 *     And.And_1_0 returns Greater
+	 *     Or returns Greater
+	 *     Or.Or_1_0 returns Greater
+	 *     Equals returns Greater
+	 *     Equals.Equals_1_0 returns Greater
+	 *     NotEquals returns Greater
+	 *     NotEquals.NotEquals_1_0 returns Greater
+	 *     Less returns Greater
+	 *     Less.Less_1_0 returns Greater
+	 *     Greater returns Greater
+	 *     Greater.Greater_1_0 returns Greater
+	 *
+	 * Constraint:
+	 *     (left=Greater_Greater_1_0 operator=GreaterOperator right=Multiply)
+	 * </pre>
+	 */
+	protected void sequence_Greater(ISerializationContext context, Greater semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.GREATER__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.GREATER__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.GREATER__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.GREATER__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.GREATER__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.GREATER__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGreaterAccess().getGreaterLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getGreaterAccess().getOperatorGreaterOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getGreaterAccess().getRightMultiplyParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns IntegerConstant
+	 *     And returns IntegerConstant
+	 *     And.And_1_0 returns IntegerConstant
+	 *     Or returns IntegerConstant
+	 *     Or.Or_1_0 returns IntegerConstant
+	 *     Equals returns IntegerConstant
+	 *     Equals.Equals_1_0 returns IntegerConstant
+	 *     NotEquals returns IntegerConstant
+	 *     NotEquals.NotEquals_1_0 returns IntegerConstant
+	 *     Less returns IntegerConstant
+	 *     Less.Less_1_0 returns IntegerConstant
+	 *     Greater returns IntegerConstant
+	 *     Greater.Greater_1_0 returns IntegerConstant
+	 *     Multiply returns IntegerConstant
+	 *     Multiply.Multiply_1_0 returns IntegerConstant
+	 *     Divide returns IntegerConstant
+	 *     Divide.Divide_1_0 returns IntegerConstant
+	 *     Add returns IntegerConstant
+	 *     Add.Add_1_0 returns IntegerConstant
+	 *     Subtract returns IntegerConstant
+	 *     Subtract.Subtract_1_0 returns IntegerConstant
+	 *     Literals returns IntegerConstant
+	 *     Constant returns IntegerConstant
+	 *     Single_Constant returns IntegerConstant
+	 *     Integer_Constant returns IntegerConstant
+	 *
+	 * Constraint:
+	 *     value=EInt
+	 * </pre>
+	 */
+	protected void sequence_Integer_Constant(ISerializationContext context, IntegerConstant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ModelPackage.Literals.INTEGER_CONSTANT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.INTEGER_CONSTANT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getInteger_ConstantAccess().getValueEIntParserRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns Less
+	 *     And returns Less
+	 *     And.And_1_0 returns Less
+	 *     Or returns Less
+	 *     Or.Or_1_0 returns Less
+	 *     Equals returns Less
+	 *     Equals.Equals_1_0 returns Less
+	 *     NotEquals returns Less
+	 *     NotEquals.NotEquals_1_0 returns Less
+	 *     Less returns Less
+	 *     Less.Less_1_0 returns Less
+	 *
+	 * Constraint:
+	 *     (left=Less_Less_1_0 operator=LessOperator right=Greater)
+	 * </pre>
+	 */
+	protected void sequence_Less(ISerializationContext context, Less semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.LESS__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.LESS__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.LESS__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.LESS__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.LESS__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.LESS__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLessAccess().getLessLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getLessAccess().getOperatorLessOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getLessAccess().getRightGreaterParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Mapped_Column returns MappedColumn
+	 *
+	 * Constraint:
+	 *     (source=[Column|EString] target=[Column|EString] transformationCalls+=Transformation_Call*)
+	 * </pre>
+	 */
+	protected void sequence_Mapped_Column(ISerializationContext context, MappedColumn semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -81,10 +592,275 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Mapping returns Mapping
 	 *
 	 * Constraint:
-	 *     (sourcetable=[SourceTable|EString] targettable=[TargetTable|EString] fields+=MappingField)
+	 *     (source=[SourceTable|EString] target=[TargetTable|EString] mappedColumns+=Mapped_Column mappedColumns+=Mapped_Column*)
 	 * </pre>
 	 */
 	protected void sequence_Mapping(ISerializationContext context, Mapping semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns Multiply
+	 *     And returns Multiply
+	 *     And.And_1_0 returns Multiply
+	 *     Or returns Multiply
+	 *     Or.Or_1_0 returns Multiply
+	 *     Equals returns Multiply
+	 *     Equals.Equals_1_0 returns Multiply
+	 *     NotEquals returns Multiply
+	 *     NotEquals.NotEquals_1_0 returns Multiply
+	 *     Less returns Multiply
+	 *     Less.Less_1_0 returns Multiply
+	 *     Greater returns Multiply
+	 *     Greater.Greater_1_0 returns Multiply
+	 *     Multiply returns Multiply
+	 *     Multiply.Multiply_1_0 returns Multiply
+	 *
+	 * Constraint:
+	 *     (left=Multiply_Multiply_1_0 operator=MultiplyOperator right=Divide)
+	 * </pre>
+	 */
+	protected void sequence_Multiply(ISerializationContext context, Multiply semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.MULTIPLY__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.MULTIPLY__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.MULTIPLY__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.MULTIPLY__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.MULTIPLY__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.MULTIPLY__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMultiplyAccess().getMultiplyLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getMultiplyAccess().getOperatorMultiplyOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getMultiplyAccess().getRightDivideParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns NotEquals
+	 *     And returns NotEquals
+	 *     And.And_1_0 returns NotEquals
+	 *     Or returns NotEquals
+	 *     Or.Or_1_0 returns NotEquals
+	 *     Equals returns NotEquals
+	 *     Equals.Equals_1_0 returns NotEquals
+	 *     NotEquals returns NotEquals
+	 *     NotEquals.NotEquals_1_0 returns NotEquals
+	 *
+	 * Constraint:
+	 *     (left=NotEquals_NotEquals_1_0 operator=NotEqualsOperator right=Less)
+	 * </pre>
+	 */
+	protected void sequence_NotEquals(ISerializationContext context, NotEquals semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNotEqualsAccess().getNotEqualsLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getNotEqualsAccess().getOperatorNotEqualsOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getNotEqualsAccess().getRightLessParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns NullConstant
+	 *     And returns NullConstant
+	 *     And.And_1_0 returns NullConstant
+	 *     Or returns NullConstant
+	 *     Or.Or_1_0 returns NullConstant
+	 *     Equals returns NullConstant
+	 *     Equals.Equals_1_0 returns NullConstant
+	 *     NotEquals returns NullConstant
+	 *     NotEquals.NotEquals_1_0 returns NullConstant
+	 *     Less returns NullConstant
+	 *     Less.Less_1_0 returns NullConstant
+	 *     Greater returns NullConstant
+	 *     Greater.Greater_1_0 returns NullConstant
+	 *     Multiply returns NullConstant
+	 *     Multiply.Multiply_1_0 returns NullConstant
+	 *     Divide returns NullConstant
+	 *     Divide.Divide_1_0 returns NullConstant
+	 *     Add returns NullConstant
+	 *     Add.Add_1_0 returns NullConstant
+	 *     Subtract returns NullConstant
+	 *     Subtract.Subtract_1_0 returns NullConstant
+	 *     Literals returns NullConstant
+	 *     Constant returns NullConstant
+	 *     Single_Constant returns NullConstant
+	 *     Null_Constant returns NullConstant
+	 *
+	 * Constraint:
+	 *     {NullConstant}
+	 * </pre>
+	 */
+	protected void sequence_Null_Constant(ISerializationContext context, NullConstant semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns Or
+	 *     And returns Or
+	 *     And.And_1_0 returns Or
+	 *     Or returns Or
+	 *     Or.Or_1_0 returns Or
+	 *
+	 * Constraint:
+	 *     (left=Or_Or_1_0 operator=OrOperator right=Equals)
+	 * </pre>
+	 */
+	protected void sequence_Or(ISerializationContext context, Or semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.OR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.OR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.OR__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.OR__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.OR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.OR__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getOrAccess().getOrLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getOrAccess().getOperatorOrOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getOrAccess().getRightEqualsParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns ParameterExpression
+	 *     And returns ParameterExpression
+	 *     And.And_1_0 returns ParameterExpression
+	 *     Or returns ParameterExpression
+	 *     Or.Or_1_0 returns ParameterExpression
+	 *     Equals returns ParameterExpression
+	 *     Equals.Equals_1_0 returns ParameterExpression
+	 *     NotEquals returns ParameterExpression
+	 *     NotEquals.NotEquals_1_0 returns ParameterExpression
+	 *     Less returns ParameterExpression
+	 *     Less.Less_1_0 returns ParameterExpression
+	 *     Greater returns ParameterExpression
+	 *     Greater.Greater_1_0 returns ParameterExpression
+	 *     Multiply returns ParameterExpression
+	 *     Multiply.Multiply_1_0 returns ParameterExpression
+	 *     Divide returns ParameterExpression
+	 *     Divide.Divide_1_0 returns ParameterExpression
+	 *     Add returns ParameterExpression
+	 *     Add.Add_1_0 returns ParameterExpression
+	 *     Subtract returns ParameterExpression
+	 *     Subtract.Subtract_1_0 returns ParameterExpression
+	 *     Literals returns ParameterExpression
+	 *     Parameter_Expression returns ParameterExpression
+	 *
+	 * Constraint:
+	 *     parameter=[Parameter|EString]
+	 * </pre>
+	 */
+	protected void sequence_Parameter_Expression(ISerializationContext context, ParameterExpression semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ModelPackage.Literals.PARAMETER_EXPRESSION__PARAMETER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.PARAMETER_EXPRESSION__PARAMETER));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParameter_ExpressionAccess().getParameterParameterEStringParserRuleCall_0_1(), semanticObject.eGet(ModelPackage.Literals.PARAMETER_EXPRESSION__PARAMETER, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Parameter returns Parameter
+	 *
+	 * Constraint:
+	 *     (name=EString type=Type)
+	 * </pre>
+	 */
+	protected void sequence_Parameter(ISerializationContext context, nl.tue.gtl.tql.model.Parameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ModelPackage.Literals.PARAMETER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.PARAMETER__NAME));
+			if (transientValues.isValueTransient(semanticObject, ModelPackage.Literals.PARAMETER__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.PARAMETER__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParameterAccess().getNameEStringParserRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getParameterAccess().getTypeTypeEnumRuleCall_2_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Call_Parameter returns ReferenceCallParameter
+	 *     Reference_Call_Parameter returns ReferenceCallParameter
+	 *
+	 * Constraint:
+	 *     reference=[Column|EString]
+	 * </pre>
+	 */
+	protected void sequence_Reference_Call_Parameter(ISerializationContext context, ReferenceCallParameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ModelPackage.Literals.REFERENCE_CALL_PARAMETER__REFERENCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.REFERENCE_CALL_PARAMETER__REFERENCE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getReference_Call_ParameterAccess().getReferenceColumnEStringParserRuleCall_0_1(), semanticObject.eGet(ModelPackage.Literals.REFERENCE_CALL_PARAMETER__REFERENCE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns SetConstant
+	 *     And returns SetConstant
+	 *     And.And_1_0 returns SetConstant
+	 *     Or returns SetConstant
+	 *     Or.Or_1_0 returns SetConstant
+	 *     Equals returns SetConstant
+	 *     Equals.Equals_1_0 returns SetConstant
+	 *     NotEquals returns SetConstant
+	 *     NotEquals.NotEquals_1_0 returns SetConstant
+	 *     Less returns SetConstant
+	 *     Less.Less_1_0 returns SetConstant
+	 *     Greater returns SetConstant
+	 *     Greater.Greater_1_0 returns SetConstant
+	 *     Multiply returns SetConstant
+	 *     Multiply.Multiply_1_0 returns SetConstant
+	 *     Divide returns SetConstant
+	 *     Divide.Divide_1_0 returns SetConstant
+	 *     Add returns SetConstant
+	 *     Add.Add_1_0 returns SetConstant
+	 *     Subtract returns SetConstant
+	 *     Subtract.Subtract_1_0 returns SetConstant
+	 *     Literals returns SetConstant
+	 *     Constant returns SetConstant
+	 *     Set_Constant returns SetConstant
+	 *
+	 * Constraint:
+	 *     (values+=Single_Constant values+=Single_Constant*)?
+	 * </pre>
+	 */
+	protected void sequence_Set_Constant(ISerializationContext context, SetConstant semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -97,7 +873,7 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Source_Table returns SourceTable
 	 *
 	 * Constraint:
-	 *     (name=EString columns+=TableField columns+=TableField*)
+	 *     (name=EString columns+=Column columns+=Column*)
 	 * </pre>
 	 */
 	protected void sequence_Source_Table(ISerializationContext context, SourceTable semanticObject) {
@@ -108,23 +884,104 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     TableField returns TableField
+	 *     Expression returns StringConstant
+	 *     And returns StringConstant
+	 *     And.And_1_0 returns StringConstant
+	 *     Or returns StringConstant
+	 *     Or.Or_1_0 returns StringConstant
+	 *     Equals returns StringConstant
+	 *     Equals.Equals_1_0 returns StringConstant
+	 *     NotEquals returns StringConstant
+	 *     NotEquals.NotEquals_1_0 returns StringConstant
+	 *     Less returns StringConstant
+	 *     Less.Less_1_0 returns StringConstant
+	 *     Greater returns StringConstant
+	 *     Greater.Greater_1_0 returns StringConstant
+	 *     Multiply returns StringConstant
+	 *     Multiply.Multiply_1_0 returns StringConstant
+	 *     Divide returns StringConstant
+	 *     Divide.Divide_1_0 returns StringConstant
+	 *     Add returns StringConstant
+	 *     Add.Add_1_0 returns StringConstant
+	 *     Subtract returns StringConstant
+	 *     Subtract.Subtract_1_0 returns StringConstant
+	 *     Literals returns StringConstant
+	 *     Constant returns StringConstant
+	 *     Single_Constant returns StringConstant
+	 *     String_Constant returns StringConstant
 	 *
 	 * Constraint:
-	 *     (name=EString type=Type)
+	 *     value=EString
 	 * </pre>
 	 */
-	protected void sequence_TableField(ISerializationContext context, TableField semanticObject) {
+	protected void sequence_String_Constant(ISerializationContext context, StringConstant semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, TqlModelPackage.Literals.TABLE_FIELD__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TqlModelPackage.Literals.TABLE_FIELD__NAME));
-			if (transientValues.isValueTransient(semanticObject, TqlModelPackage.Literals.TABLE_FIELD__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TqlModelPackage.Literals.TABLE_FIELD__TYPE));
+			if (transientValues.isValueTransient(semanticObject, ModelPackage.Literals.STRING_CONSTANT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.STRING_CONSTANT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTableFieldAccess().getNameEStringParserRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getTableFieldAccess().getTypeTypeEnumRuleCall_2_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getString_ConstantAccess().getValueEStringParserRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns Subtract
+	 *     And returns Subtract
+	 *     And.And_1_0 returns Subtract
+	 *     Or returns Subtract
+	 *     Or.Or_1_0 returns Subtract
+	 *     Equals returns Subtract
+	 *     Equals.Equals_1_0 returns Subtract
+	 *     NotEquals returns Subtract
+	 *     NotEquals.NotEquals_1_0 returns Subtract
+	 *     Less returns Subtract
+	 *     Less.Less_1_0 returns Subtract
+	 *     Greater returns Subtract
+	 *     Greater.Greater_1_0 returns Subtract
+	 *     Multiply returns Subtract
+	 *     Multiply.Multiply_1_0 returns Subtract
+	 *     Divide returns Subtract
+	 *     Divide.Divide_1_0 returns Subtract
+	 *     Add returns Subtract
+	 *     Add.Add_1_0 returns Subtract
+	 *     Subtract returns Subtract
+	 *     Subtract.Subtract_1_0 returns Subtract
+	 *
+	 * Constraint:
+	 *     (left=Subtract_Subtract_1_0 operator=SubtractOperator right=Literals)
+	 * </pre>
+	 */
+	protected void sequence_Subtract(ISerializationContext context, Subtract semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.SUBTRACT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.SUBTRACT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.SUBTRACT__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.SUBTRACT__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.SUBTRACT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.SUBTRACT__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSubtractAccess().getSubtractLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getSubtractAccess().getOperatorSubtractOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getSubtractAccess().getRightLiteralsParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     TQL returns TQL
+	 *
+	 * Constraint:
+	 *     blocks+=Block+
+	 * </pre>
+	 */
+	protected void sequence_TQL(ISerializationContext context, TQL semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -136,7 +993,7 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Target_Table returns TargetTable
 	 *
 	 * Constraint:
-	 *     (name=EString columns+=TableField columns+=TableField*)
+	 *     (name=EString columns+=Column columns+=Column*)
 	 * </pre>
 	 */
 	protected void sequence_Target_Table(ISerializationContext context, TargetTable semanticObject) {
@@ -147,13 +1004,28 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     TransformationCall returns TransformationCall
+	 *     Transformation_Call returns TransformationCall
 	 *
 	 * Constraint:
-	 *     (parameters+=[TableField|EString] parameters+=[TableField|EString]*)
+	 *     (transformation=[Transformation|EString] (callParameters+=Call_Parameter callParameters+=Call_Parameter*)?)
 	 * </pre>
 	 */
-	protected void sequence_TransformationCall(ISerializationContext context, TransformationCall semanticObject) {
+	protected void sequence_Transformation_Call(ISerializationContext context, TransformationCall semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Block returns Transformation
+	 *     Transformation returns Transformation
+	 *
+	 * Constraint:
+	 *     (inType=Type name=EString (parameters+=Parameter parameters+=Parameter*)? outType=Type body=Expression)
+	 * </pre>
+	 */
+	protected void sequence_Transformation(ISerializationContext context, Transformation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

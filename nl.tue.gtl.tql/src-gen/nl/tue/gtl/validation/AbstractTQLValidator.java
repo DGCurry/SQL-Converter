@@ -13,7 +13,8 @@ public abstract class AbstractTQLValidator extends AbstractDeclarativeValidator 
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
-		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.example.org/tqlModel"));
+		result.add(nl.tue.gtl.domainmodel.DomainmodelPackage.eINSTANCE);
+		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.example.org/model"));
 		return result;
 	}
 }

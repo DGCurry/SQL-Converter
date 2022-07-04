@@ -8,7 +8,7 @@ Bundle-SymbolicName: nl.tue.gtl.tql.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: nl.tue.gtl.tql,
  nl.tue.gtl.tql.ide,
- tqlModel,
+ nl.tue.gtl.tql.model,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,

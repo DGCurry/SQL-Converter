@@ -33,7 +33,7 @@ Workflow {
 		language = StandardLanguage {
 			name = "nl.tue.gtl.TQL"
 			fileExtensions = "tql"
-			referencedResource = "platform:/resource/tqlModel/model/tqlModel.genmodel"
+			referencedResource = "platform:/resource/nl.tue.gtl.tql.model/model/model.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 

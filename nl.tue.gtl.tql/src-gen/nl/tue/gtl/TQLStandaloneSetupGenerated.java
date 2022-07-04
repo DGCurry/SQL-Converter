@@ -5,6 +5,8 @@ package nl.tue.gtl;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import nl.tue.gtl.domainmodel.DomainmodelPackage;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.ISetup;
 import org.eclipse.xtext.common.TerminalsStandaloneSetup;
@@ -28,6 +30,9 @@ public class TQLStandaloneSetupGenerated implements ISetup {
 	}
 	
 	public void register(Injector injector) {
+		if (!EPackage.Registry.INSTANCE.containsKey("http://www.example.org/domainmodel/TQL")) {
+			EPackage.Registry.INSTANCE.put("http://www.example.org/domainmodel/TQL", DomainmodelPackage.eINSTANCE);
+		}
 		IResourceFactory resourceFactory = injector.getInstance(IResourceFactory.class);
 		IResourceServiceProvider serviceProvider = injector.getInstance(IResourceServiceProvider.class);
 		

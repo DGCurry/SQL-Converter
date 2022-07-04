@@ -30,16 +30,17 @@
         eType="#//MappingSourceTable" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" upperBound="-1"
         eType="#//MappingTargetTable" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" lowerBound="1"
-        upperBound="-1" eType="#//MappingField"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="when" eType="#//BooleanOperationExpression"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="where" eType="#//BooleanOperationExpression"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+        eType="#//MappingField" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="statement" eType="#//Expression"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constantSet" lowerBound="1"
         upperBound="-1" eType="#//ConstantExpression"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//Block">
+  <eClassifiers xsi:type="ecore:EClass" name="Table" abstract="true" interface="true"
+      eSuperTypes="#//Block">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" lowerBound="1"
         upperBound="-1" eType="#//TableField" containment="true"/>
@@ -126,4 +127,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" lowerBound="1" eType="#//Expression"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" lowerBound="1" eType="#//Expression"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceTable" eSuperTypes="#//Table"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TargetTable" eSuperTypes="#//Table"/>
 </ecore:EPackage>

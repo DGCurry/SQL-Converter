@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
-Automatic-Module-Name: nl.tue.glt.tql.ui
+Automatic-Module-Name: org.xtext.example.tql.ui
 Bundle-ManifestVersion: 2
-Bundle-Name: nl.tue.glt.tql.ui
+Bundle-Name: org.xtext.example.tql.ui
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: nl.tue.glt.tql.ui; singleton:=true
+Bundle-SymbolicName: org.xtext.example.tql.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: nl.tue.glt.tql,
- nl.tue.glt.tql.ide,
+Require-Bundle: org.xtext.example.tql,
+ org.xtext.example.tql.ide,
  tqlModel,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,

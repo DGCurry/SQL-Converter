@@ -10,7 +10,7 @@ Workflow {
 	component = XtextGenerator {
 		configuration = {
 			project = StandardProjectConfig {
-				baseName = "nl.tue.glt.tql"
+				baseName = "org.xtext.example.tql"
 				rootPath = rootPath
 				runtimeTest = {
 					enabled = true
@@ -32,7 +32,7 @@ Workflow {
 		}
 		language = StandardLanguage {
 			name = "org.xtext.example.tql.TQL"
-			fileExtensions = "TQL"
+			fileExtensions = "tql"
 			referencedResource = "platform:/resource/tqlModel/model/tqlModel.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}

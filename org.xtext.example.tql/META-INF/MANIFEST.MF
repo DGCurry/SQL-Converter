@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
-Automatic-Module-Name: nl.tue.glt.tql
+Automatic-Module-Name: org.xtext.example.tql
 Bundle-ManifestVersion: 2
-Bundle-Name: nl.tue.glt.tql
+Bundle-Name: org.xtext.example.tql
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: nl.tue.glt.tql; singleton:=true
+Bundle-SymbolicName: org.xtext.example.tql; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: tqlModel,
  org.eclipse.xtext,

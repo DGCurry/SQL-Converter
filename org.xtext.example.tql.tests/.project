@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>nl.tue.glt.tql.ui.tests</name>
+	<name>org.xtext.example.tql.tests</name>
 	<comment></comment>
 	<projects>
 	</projects>

@@ -49,8 +49,8 @@
     <genClasses ecoreClass="tqlModel.ecore#//Mapping">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tqlModel.ecore#//Mapping/source"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tqlModel.ecore#//Mapping/target"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//Mapping/fields"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//Mapping/when"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//Mapping/where"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tqlModel.ecore#//Mapping/fields"/>
     </genClasses>
     <genClasses ecoreClass="tqlModel.ecore#//InExpression">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//InExpression/statement"/>
@@ -111,5 +111,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//OperationExpression/right"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tqlModel.ecore#//OperationExpression/left"/>
     </genClasses>
+    <genClasses ecoreClass="tqlModel.ecore#//SourceTable"/>
+    <genClasses ecoreClass="tqlModel.ecore#//TargetTable"/>
   </genPackages>
 </genmodel:GenModel>

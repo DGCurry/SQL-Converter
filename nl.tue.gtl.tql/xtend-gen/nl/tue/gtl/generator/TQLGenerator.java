@@ -3,10 +3,20 @@
  */
 package nl.tue.gtl.generator;
 
+import com.google.common.collect.Iterators;
+import nl.tue.gtl.tql.model.Column;
+import nl.tue.gtl.tql.model.TargetTable;
+import nl.tue.gtl.tql.model.Type;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +27,83 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class TQLGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    fsa.generateFile("Create_Target.sql", this.getTargetTables(resource));
+  }
+
+  public String getTargetTables(final Resource resource) {
+    final Function1<TargetTable, CharSequence> _function = (TargetTable it) -> {
+      return this.mapTargetTableToTable(it);
+    };
+    return IteratorExtensions.join(IteratorExtensions.<TargetTable, CharSequence>map(Iterators.<TargetTable>filter(resource.getAllContents(), TargetTable.class), _function), "\n\n");
+  }
+
+  public CharSequence mapTargetTableToTable(final TargetTable targetTable) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("CREATE TABLE ");
+    String _name = targetTable.getName();
+    _builder.append(_name);
+    _builder.newLineIfNotEmpty();
+    _builder.append("(");
+    _builder.newLine();
+    _builder.append("\t");
+    final Function1<Column, String> _function = (Column it) -> {
+      return this.mapTargetColumnToColumn(it);
+    };
+    String _join = IterableExtensions.join(ListExtensions.<Column, String>map(targetTable.getColumns(), _function), ",\n");
+    _builder.append(_join, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append(");");
+    _builder.newLine();
+    return _builder;
+  }
+
+  public String mapTargetColumnToColumn(final Column column) {
+    InputOutput.<Type>println(column.getType());
+    CharSequence parsedType = this.typeToSQLType(column.getType());
+    InputOutput.<CharSequence>println(parsedType);
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = column.getName();
+    _builder.append(_name);
+    _builder.append(" ");
+    _builder.append(parsedType);
+    return _builder.toString();
+  }
+
+  public CharSequence typeToSQLType(final Type type) {
+    CharSequence _switchResult = null;
+    if (type != null) {
+      switch (type) {
+        case BOOLEAN:
+          StringConcatenation _builder = new StringConcatenation();
+          _builder.append("bit");
+          _switchResult = _builder;
+          break;
+        case DATE:
+          StringConcatenation _builder_1 = new StringConcatenation();
+          _builder_1.append("Date");
+          _switchResult = _builder_1;
+          break;
+        case FLOAT:
+          StringConcatenation _builder_2 = new StringConcatenation();
+          _builder_2.append("Float");
+          _switchResult = _builder_2;
+          break;
+        case INTEGER:
+          StringConcatenation _builder_3 = new StringConcatenation();
+          _builder_3.append("int");
+          _switchResult = _builder_3;
+          break;
+        default:
+          StringConcatenation _builder_4 = new StringConcatenation();
+          _builder_4.append("VARCHAR(max)");
+          _switchResult = _builder_4;
+          break;
+      }
+    } else {
+      StringConcatenation _builder_4 = new StringConcatenation();
+      _builder_4.append("VARCHAR(max)");
+      _switchResult = _builder_4;
+    }
+    return _switchResult;
   }
 }

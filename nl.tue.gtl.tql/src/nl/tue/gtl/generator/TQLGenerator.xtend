@@ -7,6 +7,9 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import nl.tue.gtl.tql.model.TargetTable
+import nl.tue.gtl.tql.model.Column
+import nl.tue.gtl.tql.model.Type
 
 /**
  * Generates code from your model files on save.
@@ -16,10 +19,37 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class TQLGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		fsa.generateFile('Create_Target.sql', getTargetTables(resource))
+	}
+	
+	def getTargetTables(Resource resource)
+	{
+		resource.allContents.filter(TargetTable).map[mapTargetTableToTable].join('\n\n')
+	}
+	
+	def mapTargetTableToTable(TargetTable targetTable) {
+		'''
+		CREATE TABLE «targetTable.name»
+		(
+			«targetTable.columns.map[mapTargetColumnToColumn].join(',\n')»
+		);
+		'''
+	}
+	
+	def mapTargetColumnToColumn(Column column) {
+		println(column.type)
+		var parsedType = typeToSQLType(column.type)
+		println(parsedType)
+		return '''«column.name» «parsedType»'''
+	}
+	
+	def typeToSQLType(Type type) {
+		switch (type) {
+			case BOOLEAN : '''bit'''
+			case DATE : '''Date'''
+			case FLOAT : '''Float'''
+			case INTEGER : '''int'''
+			default : '''VARCHAR(max)'''
+		}
 	}
 }

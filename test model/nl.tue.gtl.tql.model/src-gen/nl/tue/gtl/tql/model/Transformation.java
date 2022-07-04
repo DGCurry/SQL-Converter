@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link nl.tue.gtl.tql.model.Transformation#getParameters <em>Parameters</em>}</li>
  *   <li>{@link nl.tue.gtl.tql.model.Transformation#getInType <em>In Type</em>}</li>
  *   <li>{@link nl.tue.gtl.tql.model.Transformation#getOutType <em>Out Type</em>}</li>
+ *   <li>{@link nl.tue.gtl.tql.model.Transformation#getBody <em>Body</em>}</li>
  * </ul>
  *
  * @see nl.tue.gtl.tql.model.ModelPackage#getTransformation()
@@ -107,5 +108,27 @@ public interface Transformation extends Block {
 	 * @generated
 	 */
 	void setOutType(Type value);
+
+	/**
+	 * Returns the value of the '<em><b>Body</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Body</em>' containment reference.
+	 * @see #setBody(Expression)
+	 * @see nl.tue.gtl.tql.model.ModelPackage#getTransformation_Body()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	Expression getBody();
+
+	/**
+	 * Sets the value of the '{@link nl.tue.gtl.tql.model.Transformation#getBody <em>Body</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Body</em>' containment reference.
+	 * @see #getBody()
+	 * @generated
+	 */
+	void setBody(Expression value);
 
 } // Transformation

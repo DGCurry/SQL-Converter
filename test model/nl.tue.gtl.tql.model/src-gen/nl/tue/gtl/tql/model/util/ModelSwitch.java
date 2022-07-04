@@ -161,6 +161,8 @@ public class ModelSwitch<T> extends Switch<T> {
 			Constant constant = (Constant) theEObject;
 			T result = caseConstant(constant);
 			if (result == null)
+				result = caseExpression(constant);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -169,6 +171,8 @@ public class ModelSwitch<T> extends Switch<T> {
 			T result = caseStringConstant(stringConstant);
 			if (result == null)
 				result = caseConstant(stringConstant);
+			if (result == null)
+				result = caseExpression(stringConstant);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -179,6 +183,8 @@ public class ModelSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseConstant(integerConstant);
 			if (result == null)
+				result = caseExpression(integerConstant);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -187,6 +193,8 @@ public class ModelSwitch<T> extends Switch<T> {
 			T result = caseFloatConstant(floatConstant);
 			if (result == null)
 				result = caseConstant(floatConstant);
+			if (result == null)
+				result = caseExpression(floatConstant);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -197,6 +205,8 @@ public class ModelSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseConstant(dateConstant);
 			if (result == null)
+				result = caseExpression(dateConstant);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -206,6 +216,8 @@ public class ModelSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseConstant(nullConstant);
 			if (result == null)
+				result = caseExpression(nullConstant);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -214,6 +226,8 @@ public class ModelSwitch<T> extends Switch<T> {
 			T result = caseSetConstant(setConstant);
 			if (result == null)
 				result = caseConstant(setConstant);
+			if (result == null)
+				result = caseExpression(setConstant);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -241,6 +255,42 @@ public class ModelSwitch<T> extends Switch<T> {
 			T result = caseBooleanConstant(booleanConstant);
 			if (result == null)
 				result = caseConstant(booleanConstant);
+			if (result == null)
+				result = caseExpression(booleanConstant);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModelPackage.EXPRESSION: {
+			Expression expression = (Expression) theEObject;
+			T result = caseExpression(expression);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModelPackage.PARAMETER_EXPRESSION: {
+			ParameterExpression parameterExpression = (ParameterExpression) theEObject;
+			T result = caseParameterExpression(parameterExpression);
+			if (result == null)
+				result = caseExpression(parameterExpression);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModelPackage.COLUMN_EXPRESSION: {
+			ColumnExpression columnExpression = (ColumnExpression) theEObject;
+			T result = caseColumnExpression(columnExpression);
+			if (result == null)
+				result = caseExpression(columnExpression);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModelPackage.BINARY_OPERATOR_EXPRESSION: {
+			BinaryOperatorExpression binaryOperatorExpression = (BinaryOperatorExpression) theEObject;
+			T result = caseBinaryOperatorExpression(binaryOperatorExpression);
+			if (result == null)
+				result = caseExpression(binaryOperatorExpression);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -562,6 +612,66 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBooleanConstant(BooleanConstant object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExpression(Expression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterExpression(ParameterExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Column Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Column Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseColumnExpression(ColumnExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Binary Operator Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Binary Operator Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBinaryOperatorExpression(BinaryOperatorExpression object) {
 		return null;
 	}
 

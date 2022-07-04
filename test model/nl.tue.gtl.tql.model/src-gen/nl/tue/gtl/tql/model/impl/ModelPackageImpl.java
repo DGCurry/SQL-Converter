@@ -2,13 +2,16 @@
  */
 package nl.tue.gtl.tql.model.impl;
 
+import nl.tue.gtl.tql.model.BinaryOperatorExpression;
 import nl.tue.gtl.tql.model.Block;
 import nl.tue.gtl.tql.model.BooleanConstant;
 import nl.tue.gtl.tql.model.CallParameter;
 import nl.tue.gtl.tql.model.Column;
+import nl.tue.gtl.tql.model.ColumnExpression;
 import nl.tue.gtl.tql.model.Constant;
 import nl.tue.gtl.tql.model.ConstantCallParameter;
 import nl.tue.gtl.tql.model.DateConstant;
+import nl.tue.gtl.tql.model.Expression;
 import nl.tue.gtl.tql.model.FloatConstant;
 import nl.tue.gtl.tql.model.IntegerConstant;
 import nl.tue.gtl.tql.model.MappedColumn;
@@ -16,7 +19,9 @@ import nl.tue.gtl.tql.model.Mapping;
 import nl.tue.gtl.tql.model.ModelFactory;
 import nl.tue.gtl.tql.model.ModelPackage;
 import nl.tue.gtl.tql.model.NullConstant;
+import nl.tue.gtl.tql.model.Operator;
 import nl.tue.gtl.tql.model.Parameter;
+import nl.tue.gtl.tql.model.ParameterExpression;
 import nl.tue.gtl.tql.model.ReferenceCallParameter;
 import nl.tue.gtl.tql.model.SetConstant;
 import nl.tue.gtl.tql.model.SourceTable;
@@ -194,7 +199,42 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass expressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass columnExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass binaryOperatorExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum typeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum operatorEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -463,6 +503,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTransformation_Body() {
+		return (EReference) transformationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getParameter() {
 		return parameterEClass;
 	}
@@ -688,8 +737,98 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getExpression() {
+		return expressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParameterExpression() {
+		return parameterExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParameterExpression_Parameter() {
+		return (EReference) parameterExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getColumnExpression() {
+		return columnExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getColumnExpression_Column() {
+		return (EReference) columnExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBinaryOperatorExpression() {
+		return binaryOperatorExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBinaryOperatorExpression_Operator() {
+		return (EAttribute) binaryOperatorExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBinaryOperatorExpression_Left() {
+		return (EReference) binaryOperatorExpressionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBinaryOperatorExpression_Right() {
+		return (EReference) binaryOperatorExpressionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getType() {
 		return typeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getOperator() {
+		return operatorEEnum;
 	}
 
 	/**
@@ -750,6 +889,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(transformationEClass, TRANSFORMATION__PARAMETERS);
 		createEAttribute(transformationEClass, TRANSFORMATION__IN_TYPE);
 		createEAttribute(transformationEClass, TRANSFORMATION__OUT_TYPE);
+		createEReference(transformationEClass, TRANSFORMATION__BODY);
 
 		parameterEClass = createEClass(PARAMETER);
 		createEAttribute(parameterEClass, PARAMETER__NAME);
@@ -789,8 +929,22 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		booleanConstantEClass = createEClass(BOOLEAN_CONSTANT);
 		createEAttribute(booleanConstantEClass, BOOLEAN_CONSTANT__VALUE);
 
+		expressionEClass = createEClass(EXPRESSION);
+
+		parameterExpressionEClass = createEClass(PARAMETER_EXPRESSION);
+		createEReference(parameterExpressionEClass, PARAMETER_EXPRESSION__PARAMETER);
+
+		columnExpressionEClass = createEClass(COLUMN_EXPRESSION);
+		createEReference(columnExpressionEClass, COLUMN_EXPRESSION__COLUMN);
+
+		binaryOperatorExpressionEClass = createEClass(BINARY_OPERATOR_EXPRESSION);
+		createEAttribute(binaryOperatorExpressionEClass, BINARY_OPERATOR_EXPRESSION__OPERATOR);
+		createEReference(binaryOperatorExpressionEClass, BINARY_OPERATOR_EXPRESSION__LEFT);
+		createEReference(binaryOperatorExpressionEClass, BINARY_OPERATOR_EXPRESSION__RIGHT);
+
 		// Create enums
 		typeEEnum = createEEnum(TYPE);
+		operatorEEnum = createEEnum(OPERATOR);
 	}
 
 	/**
@@ -827,6 +981,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		targetTableEClass.getESuperTypes().add(this.getTable());
 		mappingEClass.getESuperTypes().add(this.getBlock());
 		transformationEClass.getESuperTypes().add(this.getBlock());
+		constantEClass.getESuperTypes().add(this.getExpression());
 		stringConstantEClass.getESuperTypes().add(this.getConstant());
 		integerConstantEClass.getESuperTypes().add(this.getConstant());
 		floatConstantEClass.getESuperTypes().add(this.getConstant());
@@ -836,6 +991,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		constantCallParameterEClass.getESuperTypes().add(this.getCallParameter());
 		referenceCallParameterEClass.getESuperTypes().add(this.getCallParameter());
 		booleanConstantEClass.getESuperTypes().add(this.getConstant());
+		parameterExpressionEClass.getESuperTypes().add(this.getExpression());
+		columnExpressionEClass.getESuperTypes().add(this.getExpression());
+		binaryOperatorExpressionEClass.getESuperTypes().add(this.getExpression());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(tableEClass, Table.class, "Table", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -893,6 +1051,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTransformation_OutType(), this.getType(), "outType", null, 0, 1, Transformation.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransformation_Body(), this.getExpression(), null, "body", null, 1, 1, Transformation.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -962,6 +1123,33 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 				BooleanConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
+		initEClass(expressionEClass, Expression.class, "Expression", IS_ABSTRACT, IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(parameterExpressionEClass, ParameterExpression.class, "ParameterExpression", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterExpression_Parameter(), this.getParameter(), null, "parameter", null, 1, 1,
+				ParameterExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(columnExpressionEClass, ColumnExpression.class, "ColumnExpression", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getColumnExpression_Column(), this.getColumn(), null, "column", null, 1, 1,
+				ColumnExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(binaryOperatorExpressionEClass, BinaryOperatorExpression.class, "BinaryOperatorExpression",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBinaryOperatorExpression_Operator(), this.getOperator(), "operator", null, 0, 1,
+				BinaryOperatorExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBinaryOperatorExpression_Left(), this.getExpression(), null, "left", null, 1, 1,
+				BinaryOperatorExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBinaryOperatorExpression_Right(), this.getExpression(), null, "right", null, 1, 1,
+				BinaryOperatorExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(typeEEnum, Type.class, "Type");
 		addEEnumLiteral(typeEEnum, Type.STRING);
@@ -970,6 +1158,18 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEEnumLiteral(typeEEnum, Type.DATE);
 		addEEnumLiteral(typeEEnum, Type.BOOLEAN);
 		addEEnumLiteral(typeEEnum, Type.NULL);
+
+		initEEnum(operatorEEnum, Operator.class, "Operator");
+		addEEnumLiteral(operatorEEnum, Operator.ADD);
+		addEEnumLiteral(operatorEEnum, Operator.SUBTRACT);
+		addEEnumLiteral(operatorEEnum, Operator.DIVIDE);
+		addEEnumLiteral(operatorEEnum, Operator.MULTIPLY);
+		addEEnumLiteral(operatorEEnum, Operator.AND);
+		addEEnumLiteral(operatorEEnum, Operator.OR);
+		addEEnumLiteral(operatorEEnum, Operator.EQUALS);
+		addEEnumLiteral(operatorEEnum, Operator.NOT_EQUALS);
+		addEEnumLiteral(operatorEEnum, Operator.LESS);
+		addEEnumLiteral(operatorEEnum, Operator.GREATER);
 
 		// Create resource
 		createResource(eNS_URI);

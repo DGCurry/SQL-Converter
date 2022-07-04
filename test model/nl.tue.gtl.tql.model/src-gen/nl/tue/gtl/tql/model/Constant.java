@@ -2,8 +2,6 @@
  */
 package nl.tue.gtl.tql.model;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Constant</b></em>'.
@@ -14,5 +12,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface Constant extends EObject {
+public interface Constant extends Expression {
 } // Constant

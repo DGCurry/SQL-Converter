@@ -18,6 +18,18 @@
       <genEnumLiterals ecoreEnumLiteral="model.ecore#//Type/boolean"/>
       <genEnumLiterals ecoreEnumLiteral="model.ecore#//Type/null"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//Operator">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Operator/add"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Operator/subtract"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Operator/divide"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Operator/multiply"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Operator/and"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Operator/or"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Operator/equals"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Operator/notEquals"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Operator/less"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Operator/greater"/>
+    </genEnums>
     <genClasses ecoreClass="model.ecore#//Table">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Table/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Table/columns"/>
@@ -44,6 +56,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Transformation/parameters"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Transformation/inType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Transformation/outType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Transformation/body"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Parameter/name"/>
@@ -79,6 +92,18 @@
     </genClasses>
     <genClasses ecoreClass="model.ecore#//BooleanConstant">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//BooleanConstant/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Expression"/>
+    <genClasses ecoreClass="model.ecore#//ParameterExpression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ParameterExpression/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//ColumnExpression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ColumnExpression/column"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//BinaryOperatorExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//BinaryOperatorExpression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//BinaryOperatorExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//BinaryOperatorExpression/right"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -4,6 +4,7 @@ package nl.tue.gtl.tql.model.impl;
 
 import java.util.Collection;
 
+import nl.tue.gtl.tql.model.Expression;
 import nl.tue.gtl.tql.model.ModelPackage;
 import nl.tue.gtl.tql.model.Parameter;
 import nl.tue.gtl.tql.model.Transformation;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link nl.tue.gtl.tql.model.impl.TransformationImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link nl.tue.gtl.tql.model.impl.TransformationImpl#getInType <em>In Type</em>}</li>
  *   <li>{@link nl.tue.gtl.tql.model.impl.TransformationImpl#getOutType <em>Out Type</em>}</li>
+ *   <li>{@link nl.tue.gtl.tql.model.impl.TransformationImpl#getBody <em>Body</em>}</li>
  * </ul>
  *
  * @generated
@@ -109,6 +111,16 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected Type outType = OUT_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBody()
+	 * @generated
+	 * @ordered
+	 */
+	protected Expression body;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -212,11 +224,62 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Expression getBody() {
+		return body;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBody(Expression newBody, NotificationChain msgs) {
+		Expression oldBody = body;
+		body = newBody;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ModelPackage.TRANSFORMATION__BODY, oldBody, newBody);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBody(Expression newBody) {
+		if (newBody != body) {
+			NotificationChain msgs = null;
+			if (body != null)
+				msgs = ((InternalEObject) body).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - ModelPackage.TRANSFORMATION__BODY, null, msgs);
+			if (newBody != null)
+				msgs = ((InternalEObject) newBody).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - ModelPackage.TRANSFORMATION__BODY, null, msgs);
+			msgs = basicSetBody(newBody, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TRANSFORMATION__BODY, newBody, newBody));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ModelPackage.TRANSFORMATION__PARAMETERS:
 			return ((InternalEList<?>) getParameters()).basicRemove(otherEnd, msgs);
+		case ModelPackage.TRANSFORMATION__BODY:
+			return basicSetBody(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -237,6 +300,8 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
 			return getInType();
 		case ModelPackage.TRANSFORMATION__OUT_TYPE:
 			return getOutType();
+		case ModelPackage.TRANSFORMATION__BODY:
+			return getBody();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -263,6 +328,9 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
 		case ModelPackage.TRANSFORMATION__OUT_TYPE:
 			setOutType((Type) newValue);
 			return;
+		case ModelPackage.TRANSFORMATION__BODY:
+			setBody((Expression) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -287,6 +355,9 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
 		case ModelPackage.TRANSFORMATION__OUT_TYPE:
 			setOutType(OUT_TYPE_EDEFAULT);
 			return;
+		case ModelPackage.TRANSFORMATION__BODY:
+			setBody((Expression) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -307,6 +378,8 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
 			return inType != IN_TYPE_EDEFAULT;
 		case ModelPackage.TRANSFORMATION__OUT_TYPE:
 			return outType != OUT_TYPE_EDEFAULT;
+		case ModelPackage.TRANSFORMATION__BODY:
+			return body != null;
 		}
 		return super.eIsSet(featureID);
 	}

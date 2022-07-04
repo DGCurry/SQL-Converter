@@ -175,6 +175,33 @@ public interface ModelFactory extends EFactory {
 	BooleanConstant createBooleanConstant();
 
 	/**
+	 * Returns a new object of class '<em>Parameter Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter Expression</em>'.
+	 * @generated
+	 */
+	ParameterExpression createParameterExpression();
+
+	/**
+	 * Returns a new object of class '<em>Column Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Column Expression</em>'.
+	 * @generated
+	 */
+	ColumnExpression createColumnExpression();
+
+	/**
+	 * Returns a new object of class '<em>Binary Operator Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Binary Operator Expression</em>'.
+	 * @generated
+	 */
+	BinaryOperatorExpression createBinaryOperatorExpression();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

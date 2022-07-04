@@ -426,13 +426,22 @@ public interface ModelPackage extends EPackage {
 	int TRANSFORMATION__OUT_TYPE = BLOCK_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Body</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION__BODY = BLOCK_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Transformation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORMATION_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 4;
+	int TRANSFORMATION_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Transformation</em>' class.
@@ -564,6 +573,34 @@ public interface ModelPackage extends EPackage {
 	int CALL_PARAMETER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link nl.tue.gtl.tql.model.Expression <em>Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nl.tue.gtl.tql.model.Expression
+	 * @see nl.tue.gtl.tql.model.impl.ModelPackageImpl#getExpression()
+	 * @generated
+	 */
+	int EXPRESSION = 21;
+
+	/**
+	 * The number of structural features of the '<em>Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link nl.tue.gtl.tql.model.Constant <em>Constant</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -580,7 +617,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANT_FEATURE_COUNT = 0;
+	int CONSTANT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Constant</em>' class.
@@ -589,7 +626,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANT_OPERATION_COUNT = 0;
+	int CONSTANT_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link nl.tue.gtl.tql.model.impl.StringConstantImpl <em>String Constant</em>}' class.
@@ -916,6 +953,135 @@ public interface ModelPackage extends EPackage {
 	int BOOLEAN_CONSTANT_OPERATION_COUNT = CONSTANT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link nl.tue.gtl.tql.model.impl.ParameterExpressionImpl <em>Parameter Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nl.tue.gtl.tql.model.impl.ParameterExpressionImpl
+	 * @see nl.tue.gtl.tql.model.impl.ModelPackageImpl#getParameterExpression()
+	 * @generated
+	 */
+	int PARAMETER_EXPRESSION = 22;
+
+	/**
+	 * The feature id for the '<em><b>Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_EXPRESSION__PARAMETER = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Parameter Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_EXPRESSION_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link nl.tue.gtl.tql.model.impl.ColumnExpressionImpl <em>Column Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nl.tue.gtl.tql.model.impl.ColumnExpressionImpl
+	 * @see nl.tue.gtl.tql.model.impl.ModelPackageImpl#getColumnExpression()
+	 * @generated
+	 */
+	int COLUMN_EXPRESSION = 23;
+
+	/**
+	 * The feature id for the '<em><b>Column</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_EXPRESSION__COLUMN = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Column Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Column Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_EXPRESSION_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link nl.tue.gtl.tql.model.impl.BinaryOperatorExpressionImpl <em>Binary Operator Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nl.tue.gtl.tql.model.impl.BinaryOperatorExpressionImpl
+	 * @see nl.tue.gtl.tql.model.impl.ModelPackageImpl#getBinaryOperatorExpression()
+	 * @generated
+	 */
+	int BINARY_OPERATOR_EXPRESSION = 24;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_OPERATOR_EXPRESSION__OPERATOR = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_OPERATOR_EXPRESSION__LEFT = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_OPERATOR_EXPRESSION__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Binary Operator Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_OPERATOR_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Binary Operator Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_OPERATOR_EXPRESSION_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link nl.tue.gtl.tql.model.Type <em>Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -923,7 +1089,17 @@ public interface ModelPackage extends EPackage {
 	 * @see nl.tue.gtl.tql.model.impl.ModelPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 21;
+	int TYPE = 25;
+
+	/**
+	 * The meta object id for the '{@link nl.tue.gtl.tql.model.Operator <em>Operator</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nl.tue.gtl.tql.model.Operator
+	 * @see nl.tue.gtl.tql.model.impl.ModelPackageImpl#getOperator()
+	 * @generated
+	 */
+	int OPERATOR = 26;
 
 	/**
 	 * Returns the meta object for class '{@link nl.tue.gtl.tql.model.Table <em>Table</em>}'.
@@ -1158,6 +1334,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTransformation_OutType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link nl.tue.gtl.tql.model.Transformation#getBody <em>Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Body</em>'.
+	 * @see nl.tue.gtl.tql.model.Transformation#getBody()
+	 * @see #getTransformation()
+	 * @generated
+	 */
+	EReference getTransformation_Body();
 
 	/**
 	 * Returns the meta object for class '{@link nl.tue.gtl.tql.model.Parameter <em>Parameter</em>}'.
@@ -1422,6 +1609,101 @@ public interface ModelPackage extends EPackage {
 	EAttribute getBooleanConstant_Value();
 
 	/**
+	 * Returns the meta object for class '{@link nl.tue.gtl.tql.model.Expression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Expression</em>'.
+	 * @see nl.tue.gtl.tql.model.Expression
+	 * @generated
+	 */
+	EClass getExpression();
+
+	/**
+	 * Returns the meta object for class '{@link nl.tue.gtl.tql.model.ParameterExpression <em>Parameter Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Expression</em>'.
+	 * @see nl.tue.gtl.tql.model.ParameterExpression
+	 * @generated
+	 */
+	EClass getParameterExpression();
+
+	/**
+	 * Returns the meta object for the reference '{@link nl.tue.gtl.tql.model.ParameterExpression#getParameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parameter</em>'.
+	 * @see nl.tue.gtl.tql.model.ParameterExpression#getParameter()
+	 * @see #getParameterExpression()
+	 * @generated
+	 */
+	EReference getParameterExpression_Parameter();
+
+	/**
+	 * Returns the meta object for class '{@link nl.tue.gtl.tql.model.ColumnExpression <em>Column Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Column Expression</em>'.
+	 * @see nl.tue.gtl.tql.model.ColumnExpression
+	 * @generated
+	 */
+	EClass getColumnExpression();
+
+	/**
+	 * Returns the meta object for the reference '{@link nl.tue.gtl.tql.model.ColumnExpression#getColumn <em>Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Column</em>'.
+	 * @see nl.tue.gtl.tql.model.ColumnExpression#getColumn()
+	 * @see #getColumnExpression()
+	 * @generated
+	 */
+	EReference getColumnExpression_Column();
+
+	/**
+	 * Returns the meta object for class '{@link nl.tue.gtl.tql.model.BinaryOperatorExpression <em>Binary Operator Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Binary Operator Expression</em>'.
+	 * @see nl.tue.gtl.tql.model.BinaryOperatorExpression
+	 * @generated
+	 */
+	EClass getBinaryOperatorExpression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nl.tue.gtl.tql.model.BinaryOperatorExpression#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator</em>'.
+	 * @see nl.tue.gtl.tql.model.BinaryOperatorExpression#getOperator()
+	 * @see #getBinaryOperatorExpression()
+	 * @generated
+	 */
+	EAttribute getBinaryOperatorExpression_Operator();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link nl.tue.gtl.tql.model.BinaryOperatorExpression#getLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see nl.tue.gtl.tql.model.BinaryOperatorExpression#getLeft()
+	 * @see #getBinaryOperatorExpression()
+	 * @generated
+	 */
+	EReference getBinaryOperatorExpression_Left();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link nl.tue.gtl.tql.model.BinaryOperatorExpression#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see nl.tue.gtl.tql.model.BinaryOperatorExpression#getRight()
+	 * @see #getBinaryOperatorExpression()
+	 * @generated
+	 */
+	EReference getBinaryOperatorExpression_Right();
+
+	/**
 	 * Returns the meta object for enum '{@link nl.tue.gtl.tql.model.Type <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1430,6 +1712,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getType();
+
+	/**
+	 * Returns the meta object for enum '{@link nl.tue.gtl.tql.model.Operator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Operator</em>'.
+	 * @see nl.tue.gtl.tql.model.Operator
+	 * @generated
+	 */
+	EEnum getOperator();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1645,6 +1937,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TRANSFORMATION__OUT_TYPE = eINSTANCE.getTransformation_OutType();
+
+		/**
+		 * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRANSFORMATION__BODY = eINSTANCE.getTransformation_Body();
 
 		/**
 		 * The meta object literal for the '{@link nl.tue.gtl.tql.model.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -1873,6 +2173,86 @@ public interface ModelPackage extends EPackage {
 		EAttribute BOOLEAN_CONSTANT__VALUE = eINSTANCE.getBooleanConstant_Value();
 
 		/**
+		 * The meta object literal for the '{@link nl.tue.gtl.tql.model.Expression <em>Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nl.tue.gtl.tql.model.Expression
+		 * @see nl.tue.gtl.tql.model.impl.ModelPackageImpl#getExpression()
+		 * @generated
+		 */
+		EClass EXPRESSION = eINSTANCE.getExpression();
+
+		/**
+		 * The meta object literal for the '{@link nl.tue.gtl.tql.model.impl.ParameterExpressionImpl <em>Parameter Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nl.tue.gtl.tql.model.impl.ParameterExpressionImpl
+		 * @see nl.tue.gtl.tql.model.impl.ModelPackageImpl#getParameterExpression()
+		 * @generated
+		 */
+		EClass PARAMETER_EXPRESSION = eINSTANCE.getParameterExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_EXPRESSION__PARAMETER = eINSTANCE.getParameterExpression_Parameter();
+
+		/**
+		 * The meta object literal for the '{@link nl.tue.gtl.tql.model.impl.ColumnExpressionImpl <em>Column Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nl.tue.gtl.tql.model.impl.ColumnExpressionImpl
+		 * @see nl.tue.gtl.tql.model.impl.ModelPackageImpl#getColumnExpression()
+		 * @generated
+		 */
+		EClass COLUMN_EXPRESSION = eINSTANCE.getColumnExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Column</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLUMN_EXPRESSION__COLUMN = eINSTANCE.getColumnExpression_Column();
+
+		/**
+		 * The meta object literal for the '{@link nl.tue.gtl.tql.model.impl.BinaryOperatorExpressionImpl <em>Binary Operator Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nl.tue.gtl.tql.model.impl.BinaryOperatorExpressionImpl
+		 * @see nl.tue.gtl.tql.model.impl.ModelPackageImpl#getBinaryOperatorExpression()
+		 * @generated
+		 */
+		EClass BINARY_OPERATOR_EXPRESSION = eINSTANCE.getBinaryOperatorExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BINARY_OPERATOR_EXPRESSION__OPERATOR = eINSTANCE.getBinaryOperatorExpression_Operator();
+
+		/**
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BINARY_OPERATOR_EXPRESSION__LEFT = eINSTANCE.getBinaryOperatorExpression_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BINARY_OPERATOR_EXPRESSION__RIGHT = eINSTANCE.getBinaryOperatorExpression_Right();
+
+		/**
 		 * The meta object literal for the '{@link nl.tue.gtl.tql.model.Type <em>Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1881,6 +2261,16 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum TYPE = eINSTANCE.getType();
+
+		/**
+		 * The meta object literal for the '{@link nl.tue.gtl.tql.model.Operator <em>Operator</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nl.tue.gtl.tql.model.Operator
+		 * @see nl.tue.gtl.tql.model.impl.ModelPackageImpl#getOperator()
+		 * @generated
+		 */
+		EEnum OPERATOR = eINSTANCE.getOperator();
 
 	}
 

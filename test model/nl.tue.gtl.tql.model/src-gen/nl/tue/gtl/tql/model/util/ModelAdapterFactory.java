@@ -172,6 +172,26 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseExpression(Expression object) {
+			return createExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseParameterExpression(ParameterExpression object) {
+			return createParameterExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseColumnExpression(ColumnExpression object) {
+			return createColumnExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBinaryOperatorExpression(BinaryOperatorExpression object) {
+			return createBinaryOperatorExpressionAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -481,6 +501,62 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBooleanConstantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link nl.tue.gtl.tql.model.Expression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see nl.tue.gtl.tql.model.Expression
+	 * @generated
+	 */
+	public Adapter createExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link nl.tue.gtl.tql.model.ParameterExpression <em>Parameter Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see nl.tue.gtl.tql.model.ParameterExpression
+	 * @generated
+	 */
+	public Adapter createParameterExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link nl.tue.gtl.tql.model.ColumnExpression <em>Column Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see nl.tue.gtl.tql.model.ColumnExpression
+	 * @generated
+	 */
+	public Adapter createColumnExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link nl.tue.gtl.tql.model.BinaryOperatorExpression <em>Binary Operator Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see nl.tue.gtl.tql.model.BinaryOperatorExpression
+	 * @generated
+	 */
+	public Adapter createBinaryOperatorExpressionAdapter() {
 		return null;
 	}
 

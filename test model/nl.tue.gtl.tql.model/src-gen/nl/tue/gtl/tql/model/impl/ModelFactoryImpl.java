@@ -90,6 +90,12 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			return createReferenceCallParameter();
 		case ModelPackage.BOOLEAN_CONSTANT:
 			return createBooleanConstant();
+		case ModelPackage.PARAMETER_EXPRESSION:
+			return createParameterExpression();
+		case ModelPackage.COLUMN_EXPRESSION:
+			return createColumnExpression();
+		case ModelPackage.BINARY_OPERATOR_EXPRESSION:
+			return createBinaryOperatorExpression();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -105,6 +111,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 		switch (eDataType.getClassifierID()) {
 		case ModelPackage.TYPE:
 			return createTypeFromString(eDataType, initialValue);
+		case ModelPackage.OPERATOR:
+			return createOperatorFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -120,6 +128,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 		switch (eDataType.getClassifierID()) {
 		case ModelPackage.TYPE:
 			return convertTypeToString(eDataType, instanceValue);
+		case ModelPackage.OPERATOR:
+			return convertOperatorToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -300,6 +310,36 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ParameterExpression createParameterExpression() {
+		ParameterExpressionImpl parameterExpression = new ParameterExpressionImpl();
+		return parameterExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ColumnExpression createColumnExpression() {
+		ColumnExpressionImpl columnExpression = new ColumnExpressionImpl();
+		return columnExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BinaryOperatorExpression createBinaryOperatorExpression() {
+		BinaryOperatorExpressionImpl binaryOperatorExpression = new BinaryOperatorExpressionImpl();
+		return binaryOperatorExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Type createTypeFromString(EDataType eDataType, String initialValue) {
 		Type result = Type.get(initialValue);
 		if (result == null)
@@ -314,6 +354,28 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * @generated
 	 */
 	public String convertTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operator createOperatorFromString(EDataType eDataType, String initialValue) {
+		Operator result = Operator.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertOperatorToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

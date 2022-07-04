@@ -27,7 +27,7 @@ public class TQLParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "BinaryOperationExpression";
+		return "Block";
 	}
 
 	public TQLGrammarAccess getGrammarAccess() {

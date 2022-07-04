@@ -16,14 +16,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import tqlModel.Expression;
 import tqlModel.Mapping;
 import tqlModel.MappingField;
-import tqlModel.Source;
-import tqlModel.Target;
+import tqlModel.SourceTable;
+import tqlModel.TargetTable;
 import tqlModel.TqlModelPackage;
 
 /**
@@ -34,37 +32,16 @@ import tqlModel.TqlModelPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link tqlModel.impl.MappingImpl#getSource <em>Source</em>}</li>
- *   <li>{@link tqlModel.impl.MappingImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link tqlModel.impl.MappingImpl#getFields <em>Fields</em>}</li>
- *   <li>{@link tqlModel.impl.MappingImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link tqlModel.impl.MappingImpl#getSourcetable <em>Sourcetable</em>}</li>
+ *   <li>{@link tqlModel.impl.MappingImpl#getTargettable <em>Targettable</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping {
 	/**
-	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSource()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Source> source;
-
-	/**
-	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTarget()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Target> target;
-
-	/**
-	 * The cached value of the '{@link #getFields() <em>Fields</em>}' reference list.
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFields()
@@ -74,14 +51,24 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	protected EList<MappingField> fields;
 
 	/**
-	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' reference.
+	 * The cached value of the '{@link #getSourcetable() <em>Sourcetable</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCondition()
+	 * @see #getSourcetable()
 	 * @generated
 	 * @ordered
 	 */
-	protected Expression condition;
+	protected SourceTable sourcetable;
+
+	/**
+	 * The cached value of the '{@link #getTargettable() <em>Targettable</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargettable()
+	 * @generated
+	 * @ordered
+	 */
+	protected TargetTable targettable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,33 +94,10 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Source> getSource() {
-		if (source == null) {
-			source = new EObjectContainmentEList<Source>(Source.class, this, TqlModelPackage.MAPPING__SOURCE);
-		}
-		return source;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Target> getTarget() {
-		if (target == null) {
-			target = new EObjectContainmentEList<Target>(Target.class, this, TqlModelPackage.MAPPING__TARGET);
-		}
-		return target;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<MappingField> getFields() {
 		if (fields == null) {
-			fields = new EObjectResolvingEList<MappingField>(MappingField.class, this, TqlModelPackage.MAPPING__FIELDS);
+			fields = new EObjectContainmentEList<MappingField>(MappingField.class, this,
+					TqlModelPackage.MAPPING__FIELDS);
 		}
 		return fields;
 	}
@@ -143,17 +107,17 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Expression getCondition() {
-		if (condition != null && condition.eIsProxy()) {
-			InternalEObject oldCondition = (InternalEObject) condition;
-			condition = (Expression) eResolveProxy(oldCondition);
-			if (condition != oldCondition) {
+	public SourceTable getSourcetable() {
+		if (sourcetable != null && sourcetable.eIsProxy()) {
+			InternalEObject oldSourcetable = (InternalEObject) sourcetable;
+			sourcetable = (SourceTable) eResolveProxy(oldSourcetable);
+			if (sourcetable != oldSourcetable) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TqlModelPackage.MAPPING__CONDITION,
-							oldCondition, condition));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TqlModelPackage.MAPPING__SOURCETABLE,
+							oldSourcetable, sourcetable));
 			}
 		}
-		return condition;
+		return sourcetable;
 	}
 
 	/**
@@ -161,8 +125,8 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Expression basicGetCondition() {
-		return condition;
+	public SourceTable basicGetSourcetable() {
+		return sourcetable;
 	}
 
 	/**
@@ -170,12 +134,52 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCondition(Expression newCondition) {
-		Expression oldCondition = condition;
-		condition = newCondition;
+	public void setSourcetable(SourceTable newSourcetable) {
+		SourceTable oldSourcetable = sourcetable;
+		sourcetable = newSourcetable;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TqlModelPackage.MAPPING__CONDITION, oldCondition,
-					condition));
+			eNotify(new ENotificationImpl(this, Notification.SET, TqlModelPackage.MAPPING__SOURCETABLE, oldSourcetable,
+					sourcetable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TargetTable getTargettable() {
+		if (targettable != null && targettable.eIsProxy()) {
+			InternalEObject oldTargettable = (InternalEObject) targettable;
+			targettable = (TargetTable) eResolveProxy(oldTargettable);
+			if (targettable != oldTargettable) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TqlModelPackage.MAPPING__TARGETTABLE,
+							oldTargettable, targettable));
+			}
+		}
+		return targettable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TargetTable basicGetTargettable() {
+		return targettable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargettable(TargetTable newTargettable) {
+		TargetTable oldTargettable = targettable;
+		targettable = newTargettable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TqlModelPackage.MAPPING__TARGETTABLE, oldTargettable,
+					targettable));
 	}
 
 	/**
@@ -186,10 +190,8 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case TqlModelPackage.MAPPING__SOURCE:
-			return ((InternalEList<?>) getSource()).basicRemove(otherEnd, msgs);
-		case TqlModelPackage.MAPPING__TARGET:
-			return ((InternalEList<?>) getTarget()).basicRemove(otherEnd, msgs);
+		case TqlModelPackage.MAPPING__FIELDS:
+			return ((InternalEList<?>) getFields()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -202,16 +204,16 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TqlModelPackage.MAPPING__SOURCE:
-			return getSource();
-		case TqlModelPackage.MAPPING__TARGET:
-			return getTarget();
 		case TqlModelPackage.MAPPING__FIELDS:
 			return getFields();
-		case TqlModelPackage.MAPPING__CONDITION:
+		case TqlModelPackage.MAPPING__SOURCETABLE:
 			if (resolve)
-				return getCondition();
-			return basicGetCondition();
+				return getSourcetable();
+			return basicGetSourcetable();
+		case TqlModelPackage.MAPPING__TARGETTABLE:
+			if (resolve)
+				return getTargettable();
+			return basicGetTargettable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -225,20 +227,15 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TqlModelPackage.MAPPING__SOURCE:
-			getSource().clear();
-			getSource().addAll((Collection<? extends Source>) newValue);
-			return;
-		case TqlModelPackage.MAPPING__TARGET:
-			getTarget().clear();
-			getTarget().addAll((Collection<? extends Target>) newValue);
-			return;
 		case TqlModelPackage.MAPPING__FIELDS:
 			getFields().clear();
 			getFields().addAll((Collection<? extends MappingField>) newValue);
 			return;
-		case TqlModelPackage.MAPPING__CONDITION:
-			setCondition((Expression) newValue);
+		case TqlModelPackage.MAPPING__SOURCETABLE:
+			setSourcetable((SourceTable) newValue);
+			return;
+		case TqlModelPackage.MAPPING__TARGETTABLE:
+			setTargettable((TargetTable) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -252,17 +249,14 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TqlModelPackage.MAPPING__SOURCE:
-			getSource().clear();
-			return;
-		case TqlModelPackage.MAPPING__TARGET:
-			getTarget().clear();
-			return;
 		case TqlModelPackage.MAPPING__FIELDS:
 			getFields().clear();
 			return;
-		case TqlModelPackage.MAPPING__CONDITION:
-			setCondition((Expression) null);
+		case TqlModelPackage.MAPPING__SOURCETABLE:
+			setSourcetable((SourceTable) null);
+			return;
+		case TqlModelPackage.MAPPING__TARGETTABLE:
+			setTargettable((TargetTable) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -276,14 +270,12 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TqlModelPackage.MAPPING__SOURCE:
-			return source != null && !source.isEmpty();
-		case TqlModelPackage.MAPPING__TARGET:
-			return target != null && !target.isEmpty();
 		case TqlModelPackage.MAPPING__FIELDS:
 			return fields != null && !fields.isEmpty();
-		case TqlModelPackage.MAPPING__CONDITION:
-			return condition != null;
+		case TqlModelPackage.MAPPING__SOURCETABLE:
+			return sourcetable != null;
+		case TqlModelPackage.MAPPING__TARGETTABLE:
+			return targettable != null;
 		}
 		return super.eIsSet(featureID);
 	}

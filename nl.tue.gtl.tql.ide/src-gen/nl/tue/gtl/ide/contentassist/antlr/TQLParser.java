@@ -31,40 +31,48 @@ public class TQLParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, TQLGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getExpressionAccess().getAlternatives(), "rule__Expression__Alternatives");
-			builder.put(grammarAccess.getConstantExpressionAccess().getAlternatives(), "rule__ConstantExpression__Alternatives");
-			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
+			builder.put(grammarAccess.getBlockAccess().getAlternatives(), "rule__Block__Alternatives");
+			builder.put(grammarAccess.getTable_ImplAccess().getAlternatives(), "rule__Table_Impl__Alternatives");
 			builder.put(grammarAccess.getEBooleanAccess().getAlternatives(), "rule__EBoolean__Alternatives");
+			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 			builder.put(grammarAccess.getEFloatAccess().getAlternatives_4_0(), "rule__EFloat__Alternatives_4_0");
-			builder.put(grammarAccess.getBinaryFunctionAccess().getAlternatives(), "rule__BinaryFunction__Alternatives");
 			builder.put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
-			builder.put(grammarAccess.getBinaryOperationExpressionAccess().getGroup(), "rule__BinaryOperationExpression__Group__0");
-			builder.put(grammarAccess.getBinaryOperationExpressionAccess().getGroup_2(), "rule__BinaryOperationExpression__Group_2__0");
-			builder.put(grammarAccess.getParameterExpressionAccess().getGroup(), "rule__ParameterExpression__Group__0");
-			builder.put(grammarAccess.getStringConstantExpressionAccess().getGroup(), "rule__StringConstantExpression__Group__0");
-			builder.put(grammarAccess.getBooleanConstantExpressionAccess().getGroup(), "rule__BooleanConstantExpression__Group__0");
-			builder.put(grammarAccess.getIntegerConstantExpressionAccess().getGroup(), "rule__IntegerConstantExpression__Group__0");
-			builder.put(grammarAccess.getInExpressionAccess().getGroup(), "rule__InExpression__Group__0");
-			builder.put(grammarAccess.getInExpressionAccess().getGroup_2(), "rule__InExpression__Group_2__0");
-			builder.put(grammarAccess.getInExpressionAccess().getGroup_6(), "rule__InExpression__Group_6__0");
-			builder.put(grammarAccess.getParseExpressionAccess().getGroup(), "rule__ParseExpression__Group__0");
-			builder.put(grammarAccess.getParseExpressionAccess().getGroup_2(), "rule__ParseExpression__Group_2__0");
-			builder.put(grammarAccess.getFloatConstantExpressionAccess().getGroup(), "rule__FloatConstantExpression__Group__0");
+			builder.put(grammarAccess.getBooleanFunctionAccess().getAlternatives(), "rule__BooleanFunction__Alternatives");
+			builder.put(grammarAccess.getBinaryFunctionAccess().getAlternatives(), "rule__BinaryFunction__Alternatives");
+			builder.put(grammarAccess.getTable_ImplAccess().getGroup_0(), "rule__Table_Impl__Group_0__0");
+			builder.put(grammarAccess.getTable_ImplAccess().getGroup_1(), "rule__Table_Impl__Group_1__0");
+			builder.put(grammarAccess.getSource_TableAccess().getGroup(), "rule__Source_Table__Group__0");
+			builder.put(grammarAccess.getSource_TableAccess().getGroup_3(), "rule__Source_Table__Group_3__0");
+			builder.put(grammarAccess.getTarget_TableAccess().getGroup(), "rule__Target_Table__Group__0");
+			builder.put(grammarAccess.getTarget_TableAccess().getGroup_3(), "rule__Target_Table__Group_3__0");
+			builder.put(grammarAccess.getTableFieldAccess().getGroup(), "rule__TableField__Group__0");
+			builder.put(grammarAccess.getMappingAccess().getGroup(), "rule__Mapping__Group__0");
+			builder.put(grammarAccess.getMappingFieldAccess().getGroup(), "rule__MappingField__Group__0");
+			builder.put(grammarAccess.getMappingFieldAccess().getGroup_6(), "rule__MappingField__Group_6__0");
+			builder.put(grammarAccess.getMappingFieldAccess().getGroup_6_3(), "rule__MappingField__Group_6_3__0");
+			builder.put(grammarAccess.getTransformationCallAccess().getGroup(), "rule__TransformationCall__Group__0");
+			builder.put(grammarAccess.getTransformationCallAccess().getGroup_2(), "rule__TransformationCall__Group_2__0");
+			builder.put(grammarAccess.getTransformationCallAccess().getGroup_2_3(), "rule__TransformationCall__Group_2_3__0");
 			builder.put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 			builder.put(grammarAccess.getEFloatAccess().getGroup(), "rule__EFloat__Group__0");
 			builder.put(grammarAccess.getEFloatAccess().getGroup_4(), "rule__EFloat__Group_4__0");
-			builder.put(grammarAccess.getBinaryOperationExpressionAccess().getOperationAssignment_2_1(), "rule__BinaryOperationExpression__OperationAssignment_2_1");
-			builder.put(grammarAccess.getBinaryOperationExpressionAccess().getLeftAssignment_4(), "rule__BinaryOperationExpression__LeftAssignment_4");
-			builder.put(grammarAccess.getBinaryOperationExpressionAccess().getRightAssignment_6(), "rule__BinaryOperationExpression__RightAssignment_6");
-			builder.put(grammarAccess.getStringConstantExpressionAccess().getValueAssignment_3(), "rule__StringConstantExpression__ValueAssignment_3");
-			builder.put(grammarAccess.getBooleanConstantExpressionAccess().getValueAssignment_0(), "rule__BooleanConstantExpression__ValueAssignment_0");
-			builder.put(grammarAccess.getIntegerConstantExpressionAccess().getValueAssignment_3(), "rule__IntegerConstantExpression__ValueAssignment_3");
-			builder.put(grammarAccess.getInExpressionAccess().getStatementAssignment_2_1(), "rule__InExpression__StatementAssignment_2_1");
-			builder.put(grammarAccess.getInExpressionAccess().getConstantSetAssignment_5(), "rule__InExpression__ConstantSetAssignment_5");
-			builder.put(grammarAccess.getInExpressionAccess().getConstantSetAssignment_6_1(), "rule__InExpression__ConstantSetAssignment_6_1");
-			builder.put(grammarAccess.getParseExpressionAccess().getOutputTypeAssignment_2_1(), "rule__ParseExpression__OutputTypeAssignment_2_1");
-			builder.put(grammarAccess.getParseExpressionAccess().getExpressionAssignment_4(), "rule__ParseExpression__ExpressionAssignment_4");
-			builder.put(grammarAccess.getFloatConstantExpressionAccess().getValueAssignment_3(), "rule__FloatConstantExpression__ValueAssignment_3");
+			builder.put(grammarAccess.getSource_TableAccess().getNameAssignment_0(), "rule__Source_Table__NameAssignment_0");
+			builder.put(grammarAccess.getSource_TableAccess().getColumnsAssignment_2(), "rule__Source_Table__ColumnsAssignment_2");
+			builder.put(grammarAccess.getSource_TableAccess().getColumnsAssignment_3_1(), "rule__Source_Table__ColumnsAssignment_3_1");
+			builder.put(grammarAccess.getTarget_TableAccess().getNameAssignment_0(), "rule__Target_Table__NameAssignment_0");
+			builder.put(grammarAccess.getTarget_TableAccess().getColumnsAssignment_2(), "rule__Target_Table__ColumnsAssignment_2");
+			builder.put(grammarAccess.getTarget_TableAccess().getColumnsAssignment_3_1(), "rule__Target_Table__ColumnsAssignment_3_1");
+			builder.put(grammarAccess.getTableFieldAccess().getNameAssignment_0(), "rule__TableField__NameAssignment_0");
+			builder.put(grammarAccess.getTableFieldAccess().getTypeAssignment_2(), "rule__TableField__TypeAssignment_2");
+			builder.put(grammarAccess.getMappingAccess().getSourcetableAssignment_1(), "rule__Mapping__SourcetableAssignment_1");
+			builder.put(grammarAccess.getMappingAccess().getTargettableAssignment_3(), "rule__Mapping__TargettableAssignment_3");
+			builder.put(grammarAccess.getMappingAccess().getFieldsAssignment_5(), "rule__Mapping__FieldsAssignment_5");
+			builder.put(grammarAccess.getMappingFieldAccess().getSouceFieldAssignment_3(), "rule__MappingField__SouceFieldAssignment_3");
+			builder.put(grammarAccess.getMappingFieldAccess().getTargetFieldAssignment_5(), "rule__MappingField__TargetFieldAssignment_5");
+			builder.put(grammarAccess.getMappingFieldAccess().getCallsAssignment_6_2(), "rule__MappingField__CallsAssignment_6_2");
+			builder.put(grammarAccess.getMappingFieldAccess().getCallsAssignment_6_3_1(), "rule__MappingField__CallsAssignment_6_3_1");
+			builder.put(grammarAccess.getTransformationCallAccess().getParametersAssignment_2_2(), "rule__TransformationCall__ParametersAssignment_2_2");
+			builder.put(grammarAccess.getTransformationCallAccess().getParametersAssignment_2_3_1(), "rule__TransformationCall__ParametersAssignment_2_3_1");
 		}
 	}
 	

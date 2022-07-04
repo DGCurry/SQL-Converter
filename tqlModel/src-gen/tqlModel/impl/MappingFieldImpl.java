@@ -5,6 +5,7 @@ package tqlModel.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -14,12 +15,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
-import tqlModel.Columns;
 import tqlModel.MappingField;
+import tqlModel.TableField;
 import tqlModel.TqlModelPackage;
-import tqlModel.Transformation;
+import tqlModel.TransformationCall;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +33,7 @@ import tqlModel.Transformation;
  * <ul>
  *   <li>{@link tqlModel.impl.MappingFieldImpl#getSouceField <em>Souce Field</em>}</li>
  *   <li>{@link tqlModel.impl.MappingFieldImpl#getTargetField <em>Target Field</em>}</li>
- *   <li>{@link tqlModel.impl.MappingFieldImpl#getTransformations <em>Transformations</em>}</li>
+ *   <li>{@link tqlModel.impl.MappingFieldImpl#getCalls <em>Calls</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,7 +47,7 @@ public class MappingFieldImpl extends MinimalEObjectImpl.Container implements Ma
 	 * @generated
 	 * @ordered
 	 */
-	protected Columns souceField;
+	protected TableField souceField;
 
 	/**
 	 * The cached value of the '{@link #getTargetField() <em>Target Field</em>}' reference.
@@ -55,17 +57,17 @@ public class MappingFieldImpl extends MinimalEObjectImpl.Container implements Ma
 	 * @generated
 	 * @ordered
 	 */
-	protected Columns targetField;
+	protected TableField targetField;
 
 	/**
-	 * The cached value of the '{@link #getTransformations() <em>Transformations</em>}' reference list.
+	 * The cached value of the '{@link #getCalls() <em>Calls</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTransformations()
+	 * @see #getCalls()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Transformation> transformations;
+	protected EList<TransformationCall> calls;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,10 +93,10 @@ public class MappingFieldImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Columns getSouceField() {
+	public TableField getSouceField() {
 		if (souceField != null && souceField.eIsProxy()) {
 			InternalEObject oldSouceField = (InternalEObject) souceField;
-			souceField = (Columns) eResolveProxy(oldSouceField);
+			souceField = (TableField) eResolveProxy(oldSouceField);
 			if (souceField != oldSouceField) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -109,7 +111,7 @@ public class MappingFieldImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Columns basicGetSouceField() {
+	public TableField basicGetSouceField() {
 		return souceField;
 	}
 
@@ -118,8 +120,8 @@ public class MappingFieldImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSouceField(Columns newSouceField) {
-		Columns oldSouceField = souceField;
+	public void setSouceField(TableField newSouceField) {
+		TableField oldSouceField = souceField;
 		souceField = newSouceField;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TqlModelPackage.MAPPING_FIELD__SOUCE_FIELD,
@@ -131,10 +133,10 @@ public class MappingFieldImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Columns getTargetField() {
+	public TableField getTargetField() {
 		if (targetField != null && targetField.eIsProxy()) {
 			InternalEObject oldTargetField = (InternalEObject) targetField;
-			targetField = (Columns) eResolveProxy(oldTargetField);
+			targetField = (TableField) eResolveProxy(oldTargetField);
 			if (targetField != oldTargetField) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -149,7 +151,7 @@ public class MappingFieldImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Columns basicGetTargetField() {
+	public TableField basicGetTargetField() {
 		return targetField;
 	}
 
@@ -158,8 +160,8 @@ public class MappingFieldImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTargetField(Columns newTargetField) {
-		Columns oldTargetField = targetField;
+	public void setTargetField(TableField newTargetField) {
+		TableField oldTargetField = targetField;
 		targetField = newTargetField;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TqlModelPackage.MAPPING_FIELD__TARGET_FIELD,
@@ -171,12 +173,26 @@ public class MappingFieldImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Transformation> getTransformations() {
-		if (transformations == null) {
-			transformations = new EObjectResolvingEList<Transformation>(Transformation.class, this,
-					TqlModelPackage.MAPPING_FIELD__TRANSFORMATIONS);
+	public EList<TransformationCall> getCalls() {
+		if (calls == null) {
+			calls = new EObjectContainmentEList<TransformationCall>(TransformationCall.class, this,
+					TqlModelPackage.MAPPING_FIELD__CALLS);
 		}
-		return transformations;
+		return calls;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case TqlModelPackage.MAPPING_FIELD__CALLS:
+			return ((InternalEList<?>) getCalls()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -195,8 +211,8 @@ public class MappingFieldImpl extends MinimalEObjectImpl.Container implements Ma
 			if (resolve)
 				return getTargetField();
 			return basicGetTargetField();
-		case TqlModelPackage.MAPPING_FIELD__TRANSFORMATIONS:
-			return getTransformations();
+		case TqlModelPackage.MAPPING_FIELD__CALLS:
+			return getCalls();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,14 +227,14 @@ public class MappingFieldImpl extends MinimalEObjectImpl.Container implements Ma
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case TqlModelPackage.MAPPING_FIELD__SOUCE_FIELD:
-			setSouceField((Columns) newValue);
+			setSouceField((TableField) newValue);
 			return;
 		case TqlModelPackage.MAPPING_FIELD__TARGET_FIELD:
-			setTargetField((Columns) newValue);
+			setTargetField((TableField) newValue);
 			return;
-		case TqlModelPackage.MAPPING_FIELD__TRANSFORMATIONS:
-			getTransformations().clear();
-			getTransformations().addAll((Collection<? extends Transformation>) newValue);
+		case TqlModelPackage.MAPPING_FIELD__CALLS:
+			getCalls().clear();
+			getCalls().addAll((Collection<? extends TransformationCall>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -233,13 +249,13 @@ public class MappingFieldImpl extends MinimalEObjectImpl.Container implements Ma
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case TqlModelPackage.MAPPING_FIELD__SOUCE_FIELD:
-			setSouceField((Columns) null);
+			setSouceField((TableField) null);
 			return;
 		case TqlModelPackage.MAPPING_FIELD__TARGET_FIELD:
-			setTargetField((Columns) null);
+			setTargetField((TableField) null);
 			return;
-		case TqlModelPackage.MAPPING_FIELD__TRANSFORMATIONS:
-			getTransformations().clear();
+		case TqlModelPackage.MAPPING_FIELD__CALLS:
+			getCalls().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -257,8 +273,8 @@ public class MappingFieldImpl extends MinimalEObjectImpl.Container implements Ma
 			return souceField != null;
 		case TqlModelPackage.MAPPING_FIELD__TARGET_FIELD:
 			return targetField != null;
-		case TqlModelPackage.MAPPING_FIELD__TRANSFORMATIONS:
-			return transformations != null && !transformations.isEmpty();
+		case TqlModelPackage.MAPPING_FIELD__CALLS:
+			return calls != null && !calls.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

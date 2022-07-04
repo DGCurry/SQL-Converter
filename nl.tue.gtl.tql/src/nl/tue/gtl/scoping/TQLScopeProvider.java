@@ -3,6 +3,12 @@
  */
 package nl.tue.gtl.scoping;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.scoping.IScope;
+
+import tqlModel.TargetTable;
+import tqlModel.TqlModelPackage;
 
 /**
  * This class contains custom scoping description.
@@ -11,5 +17,12 @@ package nl.tue.gtl.scoping;
  * on how and when to use it.
  */
 public class TQLScopeProvider extends AbstractTQLScopeProvider {
-
+	
+	@Override
+	public IScope getScope(EObject context, EReference reference) {
+		if ((context instanceof TargetTable) && reference == TqlModelPackage.Literals.MAPPING__SOURCETABLE) {
+			
+		}
+		return null;
+	}
 }

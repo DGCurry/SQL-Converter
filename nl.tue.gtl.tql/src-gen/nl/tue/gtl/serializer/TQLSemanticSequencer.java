@@ -15,15 +15,13 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import tqlModel.BinaryOperationExpression;
-import tqlModel.BooleanConstantExpression;
-import tqlModel.FloatConstantExpression;
-import tqlModel.InExpression;
-import tqlModel.IntegerConstantExpression;
-import tqlModel.ParseExpression;
-import tqlModel.StringConstantExpression;
+import tqlModel.Mapping;
+import tqlModel.MappingField;
+import tqlModel.SourceTable;
+import tqlModel.TableField;
+import tqlModel.TargetTable;
 import tqlModel.TqlModelPackage;
-import tqlModel.parameterExpression;
+import tqlModel.TransformationCall;
 
 @SuppressWarnings("all")
 public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -39,29 +37,23 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == TqlModelPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case TqlModelPackage.BINARY_OPERATION_EXPRESSION:
-				sequence_BinaryOperationExpression(context, (BinaryOperationExpression) semanticObject); 
+			case TqlModelPackage.MAPPING:
+				sequence_Mapping(context, (Mapping) semanticObject); 
 				return; 
-			case TqlModelPackage.BOOLEAN_CONSTANT_EXPRESSION:
-				sequence_BooleanConstantExpression(context, (BooleanConstantExpression) semanticObject); 
+			case TqlModelPackage.MAPPING_FIELD:
+				sequence_MappingField(context, (MappingField) semanticObject); 
 				return; 
-			case TqlModelPackage.FLOAT_CONSTANT_EXPRESSION:
-				sequence_FloatConstantExpression(context, (FloatConstantExpression) semanticObject); 
+			case TqlModelPackage.SOURCE_TABLE:
+				sequence_Source_Table(context, (SourceTable) semanticObject); 
 				return; 
-			case TqlModelPackage.IN_EXPRESSION:
-				sequence_InExpression(context, (InExpression) semanticObject); 
+			case TqlModelPackage.TABLE_FIELD:
+				sequence_TableField(context, (TableField) semanticObject); 
 				return; 
-			case TqlModelPackage.INTEGER_CONSTANT_EXPRESSION:
-				sequence_IntegerConstantExpression(context, (IntegerConstantExpression) semanticObject); 
+			case TqlModelPackage.TARGET_TABLE:
+				sequence_Target_Table(context, (TargetTable) semanticObject); 
 				return; 
-			case TqlModelPackage.PARSE_EXPRESSION:
-				sequence_ParseExpression(context, (ParseExpression) semanticObject); 
-				return; 
-			case TqlModelPackage.STRING_CONSTANT_EXPRESSION:
-				sequence_StringConstantExpression(context, (StringConstantExpression) semanticObject); 
-				return; 
-			case TqlModelPackage.PARAMETER_EXPRESSION:
-				sequence_parameterExpression(context, (parameterExpression) semanticObject); 
+			case TqlModelPackage.TRANSFORMATION_CALL:
+				sequence_TransformationCall(context, (TransformationCall) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -71,14 +63,13 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     BinaryOperationExpression returns BinaryOperationExpression
-	 *     Expression returns BinaryOperationExpression
+	 *     MappingField returns MappingField
 	 *
 	 * Constraint:
-	 *     (operation=BinaryFunction? left=[Expression|EString] right=[Expression|EString])
+	 *     (souceField=[TableField|EString] targetField=[TableField|EString] (calls+=TransformationCall calls+=TransformationCall*)?)
 	 * </pre>
 	 */
-	protected void sequence_BinaryOperationExpression(ISerializationContext context, BinaryOperationExpression semanticObject) {
+	protected void sequence_MappingField(ISerializationContext context, MappingField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -86,58 +77,14 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Expression returns BooleanConstantExpression
-	 *     ConstantExpression returns BooleanConstantExpression
-	 *     BooleanConstantExpression returns BooleanConstantExpression
+	 *     Block returns Mapping
+	 *     Mapping returns Mapping
 	 *
 	 * Constraint:
-	 *     value?='value'
+	 *     (sourcetable=[SourceTable|EString] targettable=[TargetTable|EString] fields+=MappingField)
 	 * </pre>
 	 */
-	protected void sequence_BooleanConstantExpression(ISerializationContext context, BooleanConstantExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, TqlModelPackage.Literals.BOOLEAN_CONSTANT_EXPRESSION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TqlModelPackage.Literals.BOOLEAN_CONSTANT_EXPRESSION__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBooleanConstantExpressionAccess().getValueValueKeyword_0_0(), semanticObject.isValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Expression returns FloatConstantExpression
-	 *     ConstantExpression returns FloatConstantExpression
-	 *     FloatConstantExpression returns FloatConstantExpression
-	 *
-	 * Constraint:
-	 *     value=EFloat
-	 * </pre>
-	 */
-	protected void sequence_FloatConstantExpression(ISerializationContext context, FloatConstantExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, TqlModelPackage.Literals.FLOAT_CONSTANT_EXPRESSION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TqlModelPackage.Literals.FLOAT_CONSTANT_EXPRESSION__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getFloatConstantExpressionAccess().getValueEFloatParserRuleCall_3_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Expression returns InExpression
-	 *     InExpression returns InExpression
-	 *
-	 * Constraint:
-	 *     (statement=[Expression|EString]? constantSet+=[ConstantExpression|EString] constantSet+=[ConstantExpression|EString]*)
-	 * </pre>
-	 */
-	protected void sequence_InExpression(ISerializationContext context, InExpression semanticObject) {
+	protected void sequence_Mapping(ISerializationContext context, Mapping semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -145,36 +92,15 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Expression returns IntegerConstantExpression
-	 *     ConstantExpression returns IntegerConstantExpression
-	 *     IntegerConstantExpression returns IntegerConstantExpression
+	 *     Block returns SourceTable
+	 *     Table_Impl returns SourceTable
+	 *     Source_Table returns SourceTable
 	 *
 	 * Constraint:
-	 *     value=EInt
+	 *     (name=EString columns+=TableField columns+=TableField*)
 	 * </pre>
 	 */
-	protected void sequence_IntegerConstantExpression(ISerializationContext context, IntegerConstantExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, TqlModelPackage.Literals.INTEGER_CONSTANT_EXPRESSION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TqlModelPackage.Literals.INTEGER_CONSTANT_EXPRESSION__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntegerConstantExpressionAccess().getValueEIntParserRuleCall_3_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Expression returns ParseExpression
-	 *     ParseExpression returns ParseExpression
-	 *
-	 * Constraint:
-	 *     (outputType=Type? expression=[Expression|EString])
-	 * </pre>
-	 */
-	protected void sequence_ParseExpression(ISerializationContext context, ParseExpression semanticObject) {
+	protected void sequence_Source_Table(ISerializationContext context, SourceTable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -182,21 +108,22 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Expression returns StringConstantExpression
-	 *     ConstantExpression returns StringConstantExpression
-	 *     StringConstantExpression returns StringConstantExpression
+	 *     TableField returns TableField
 	 *
 	 * Constraint:
-	 *     value=EString
+	 *     (name=EString type=Type)
 	 * </pre>
 	 */
-	protected void sequence_StringConstantExpression(ISerializationContext context, StringConstantExpression semanticObject) {
+	protected void sequence_TableField(ISerializationContext context, TableField semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, TqlModelPackage.Literals.STRING_CONSTANT_EXPRESSION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TqlModelPackage.Literals.STRING_CONSTANT_EXPRESSION__VALUE));
+			if (transientValues.isValueTransient(semanticObject, TqlModelPackage.Literals.TABLE_FIELD__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TqlModelPackage.Literals.TABLE_FIELD__NAME));
+			if (transientValues.isValueTransient(semanticObject, TqlModelPackage.Literals.TABLE_FIELD__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TqlModelPackage.Literals.TABLE_FIELD__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getStringConstantExpressionAccess().getValueEStringParserRuleCall_3_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getTableFieldAccess().getNameEStringParserRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getTableFieldAccess().getTypeTypeEnumRuleCall_2_0(), semanticObject.getType());
 		feeder.finish();
 	}
 	
@@ -204,14 +131,29 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Expression returns parameterExpression
-	 *     parameterExpression returns parameterExpression
+	 *     Block returns TargetTable
+	 *     Table_Impl returns TargetTable
+	 *     Target_Table returns TargetTable
 	 *
 	 * Constraint:
-	 *     {parameterExpression}
+	 *     (name=EString columns+=TableField columns+=TableField*)
 	 * </pre>
 	 */
-	protected void sequence_parameterExpression(ISerializationContext context, parameterExpression semanticObject) {
+	protected void sequence_Target_Table(ISerializationContext context, TargetTable semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     TransformationCall returns TransformationCall
+	 *
+	 * Constraint:
+	 *     (parameters+=[TableField|EString] parameters+=[TableField|EString]*)
+	 * </pre>
+	 */
+	protected void sequence_TransformationCall(ISerializationContext context, TransformationCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

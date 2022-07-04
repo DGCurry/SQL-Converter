@@ -6,7 +6,6 @@ package nl.tue.gtl.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
-import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
@@ -26,504 +25,464 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarElementFinder {
 	
-	public class BinaryOperationExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.BinaryOperationExpression");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cBinaryOperationExpressionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cOperationKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cOperationAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cOperationBinaryFunctionEnumRuleCall_2_1_0 = (RuleCall)cOperationAssignment_2_1.eContents().get(0);
-		private final Keyword cLeftKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cLeftAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cLeftExpressionCrossReference_4_0 = (CrossReference)cLeftAssignment_4.eContents().get(0);
-		private final RuleCall cLeftExpressionEStringParserRuleCall_4_0_1 = (RuleCall)cLeftExpressionCrossReference_4_0.eContents().get(1);
-		private final Keyword cRightKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cRightAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final CrossReference cRightExpressionCrossReference_6_0 = (CrossReference)cRightAssignment_6.eContents().get(0);
-		private final RuleCall cRightExpressionEStringParserRuleCall_6_0_1 = (RuleCall)cRightExpressionCrossReference_6_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+	public class BlockElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Block");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cTable_ImplParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cMappingParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//BinaryOperationExpression returns BinaryOperationExpression:
-		//    'BinaryOperationExpression'
+		//Block:
+		//    Table_Impl|Mapping
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Table_Impl|Mapping
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Table_Impl
+		public RuleCall getTable_ImplParserRuleCall_0() { return cTable_ImplParserRuleCall_0; }
+		
+		//Mapping
+		public RuleCall getMappingParserRuleCall_1() { return cMappingParserRuleCall_1; }
+	}
+	public class Table_ImplElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Table_Impl");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cSourceKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final RuleCall cSource_TableParserRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cTargetKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cTarget_TableParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//Table_Impl returns Table:
+		//    ('source' Source_Table) |
+		//    ('target' Target_Table)
+		//    ;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('source' Source_Table) |
+		//('target' Target_Table)
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//('source' Source_Table)
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'source'
+		public Keyword getSourceKeyword_0_0() { return cSourceKeyword_0_0; }
+		
+		//Source_Table
+		public RuleCall getSource_TableParserRuleCall_0_1() { return cSource_TableParserRuleCall_0_1; }
+		
+		//('target' Target_Table)
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'target'
+		public Keyword getTargetKeyword_1_0() { return cTargetKeyword_1_0; }
+		
+		//Target_Table
+		public RuleCall getTarget_TableParserRuleCall_1_1() { return cTarget_TableParserRuleCall_1_1; }
+	}
+	public class Source_TableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Source_Table");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameEStringParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cColumnsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cColumnsTableFieldParserRuleCall_2_0 = (RuleCall)cColumnsAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cColumnsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cColumnsTableFieldParserRuleCall_3_1_0 = (RuleCall)cColumnsAssignment_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Source_Table returns SourceTable:
+		//    name=EString
 		//    '{'
-		//        ('operation' operation=BinaryFunction)?
-		//        'left' left=[Expression|EString]
-		//        'right' right=[Expression|EString]
+		//        columns+=TableField ( "," columns+=TableField)*
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'BinaryOperationExpression'
+		//name=EString
 		//'{'
-		//    ('operation' operation=BinaryFunction)?
-		//    'left' left=[Expression|EString]
-		//    'right' right=[Expression|EString]
+		//    columns+=TableField ( "," columns+=TableField)*
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
-		//'BinaryOperationExpression'
-		public Keyword getBinaryOperationExpressionKeyword_0() { return cBinaryOperationExpressionKeyword_0; }
+		//name=EString
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_0_0() { return cNameEStringParserRuleCall_0_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
-		//('operation' operation=BinaryFunction)?
-		public Group getGroup_2() { return cGroup_2; }
+		//columns+=TableField
+		public Assignment getColumnsAssignment_2() { return cColumnsAssignment_2; }
 		
-		//'operation'
-		public Keyword getOperationKeyword_2_0() { return cOperationKeyword_2_0; }
+		//TableField
+		public RuleCall getColumnsTableFieldParserRuleCall_2_0() { return cColumnsTableFieldParserRuleCall_2_0; }
 		
-		//operation=BinaryFunction
-		public Assignment getOperationAssignment_2_1() { return cOperationAssignment_2_1; }
+		//( "," columns+=TableField)*
+		public Group getGroup_3() { return cGroup_3; }
 		
-		//BinaryFunction
-		public RuleCall getOperationBinaryFunctionEnumRuleCall_2_1_0() { return cOperationBinaryFunctionEnumRuleCall_2_1_0; }
+		//","
+		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
 		
-		//'left'
-		public Keyword getLeftKeyword_3() { return cLeftKeyword_3; }
+		//columns+=TableField
+		public Assignment getColumnsAssignment_3_1() { return cColumnsAssignment_3_1; }
 		
-		//left=[Expression|EString]
-		public Assignment getLeftAssignment_4() { return cLeftAssignment_4; }
+		//TableField
+		public RuleCall getColumnsTableFieldParserRuleCall_3_1_0() { return cColumnsTableFieldParserRuleCall_3_1_0; }
 		
-		//[Expression|EString]
-		public CrossReference getLeftExpressionCrossReference_4_0() { return cLeftExpressionCrossReference_4_0; }
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class Target_TableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Target_Table");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameEStringParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cColumnsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cColumnsTableFieldParserRuleCall_2_0 = (RuleCall)cColumnsAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cColumnsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cColumnsTableFieldParserRuleCall_3_1_0 = (RuleCall)cColumnsAssignment_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Target_Table returns TargetTable:
+		//    name=EString
+		//    '{'
+		//        columns+=TableField ( "," columns+=TableField)*
+		//    '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=EString
+		//'{'
+		//    columns+=TableField ( "," columns+=TableField)*
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//name=EString
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 		
 		//EString
-		public RuleCall getLeftExpressionEStringParserRuleCall_4_0_1() { return cLeftExpressionEStringParserRuleCall_4_0_1; }
+		public RuleCall getNameEStringParserRuleCall_0_0() { return cNameEStringParserRuleCall_0_0; }
 		
-		//'right'
-		public Keyword getRightKeyword_5() { return cRightKeyword_5; }
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
-		//right=[Expression|EString]
-		public Assignment getRightAssignment_6() { return cRightAssignment_6; }
+		//columns+=TableField
+		public Assignment getColumnsAssignment_2() { return cColumnsAssignment_2; }
 		
-		//[Expression|EString]
-		public CrossReference getRightExpressionCrossReference_6_0() { return cRightExpressionCrossReference_6_0; }
+		//TableField
+		public RuleCall getColumnsTableFieldParserRuleCall_2_0() { return cColumnsTableFieldParserRuleCall_2_0; }
+		
+		//( "," columns+=TableField)*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//","
+		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
+		
+		//columns+=TableField
+		public Assignment getColumnsAssignment_3_1() { return cColumnsAssignment_3_1; }
+		
+		//TableField
+		public RuleCall getColumnsTableFieldParserRuleCall_3_1_0() { return cColumnsTableFieldParserRuleCall_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class TableFieldElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.TableField");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameEStringParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTypeTypeEnumRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
+		private final Keyword cCommaKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//TableField returns TableField:
+		//    name=EString
+		//    ':'
+		//        type=Type ( "," )
+		//    ;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=EString
+		//':'
+		//    type=Type ( "," )
+		public Group getGroup() { return cGroup; }
+		
+		//name=EString
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 		
 		//EString
-		public RuleCall getRightExpressionEStringParserRuleCall_6_0_1() { return cRightExpressionEStringParserRuleCall_6_0_1; }
+		public RuleCall getNameEStringParserRuleCall_0_0() { return cNameEStringParserRuleCall_0_0; }
+		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//type=Type
+		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
+		
+		//Type
+		public RuleCall getTypeTypeEnumRuleCall_2_0() { return cTypeTypeEnumRuleCall_2_0; }
+		
+		//( "," )
+		public Keyword getCommaKeyword_3() { return cCommaKeyword_3; }
+	}
+	public class MappingElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Mapping");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cMappingKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSourcetableAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cSourcetableSourceTableCrossReference_1_0 = (CrossReference)cSourcetableAssignment_1.eContents().get(0);
+		private final RuleCall cSourcetableSourceTableEStringParserRuleCall_1_0_1 = (RuleCall)cSourcetableSourceTableCrossReference_1_0.eContents().get(1);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTargettableAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cTargettableTargetTableCrossReference_3_0 = (CrossReference)cTargettableAssignment_3.eContents().get(0);
+		private final RuleCall cTargettableTargetTableEStringParserRuleCall_3_0_1 = (RuleCall)cTargettableTargetTableCrossReference_3_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cFieldsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cFieldsMappingFieldParserRuleCall_5_0 = (RuleCall)cFieldsAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//Mapping returns Mapping:
+		//    'mapping' sourcetable=[SourceTable|EString] '->' targettable=[TargetTable|EString]
+		//    '{'
+		//        fields+=MappingField
+		//    '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'mapping' sourcetable=[SourceTable|EString] '->' targettable=[TargetTable|EString]
+		//'{'
+		//    fields+=MappingField
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//'mapping'
+		public Keyword getMappingKeyword_0() { return cMappingKeyword_0; }
+		
+		//sourcetable=[SourceTable|EString]
+		public Assignment getSourcetableAssignment_1() { return cSourcetableAssignment_1; }
+		
+		//[SourceTable|EString]
+		public CrossReference getSourcetableSourceTableCrossReference_1_0() { return cSourcetableSourceTableCrossReference_1_0; }
+		
+		//EString
+		public RuleCall getSourcetableSourceTableEStringParserRuleCall_1_0_1() { return cSourcetableSourceTableEStringParserRuleCall_1_0_1; }
+		
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_2() { return cHyphenMinusGreaterThanSignKeyword_2; }
+		
+		//targettable=[TargetTable|EString]
+		public Assignment getTargettableAssignment_3() { return cTargettableAssignment_3; }
+		
+		//[TargetTable|EString]
+		public CrossReference getTargettableTargetTableCrossReference_3_0() { return cTargettableTargetTableCrossReference_3_0; }
+		
+		//EString
+		public RuleCall getTargettableTargetTableEStringParserRuleCall_3_0_1() { return cTargettableTargetTableEStringParserRuleCall_3_0_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+		
+		//fields+=MappingField
+		public Assignment getFieldsAssignment_5() { return cFieldsAssignment_5; }
+		
+		//MappingField
+		public RuleCall getFieldsMappingFieldParserRuleCall_5_0() { return cFieldsMappingFieldParserRuleCall_5_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class MappingFieldElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.MappingField");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cMappingFieldKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cSouceFieldKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cSouceFieldAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cSouceFieldTableFieldCrossReference_3_0 = (CrossReference)cSouceFieldAssignment_3.eContents().get(0);
+		private final RuleCall cSouceFieldTableFieldEStringParserRuleCall_3_0_1 = (RuleCall)cSouceFieldTableFieldCrossReference_3_0.eContents().get(1);
+		private final Keyword cTargetFieldKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cTargetFieldAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final CrossReference cTargetFieldTableFieldCrossReference_5_0 = (CrossReference)cTargetFieldAssignment_5.eContents().get(0);
+		private final RuleCall cTargetFieldTableFieldEStringParserRuleCall_5_0_1 = (RuleCall)cTargetFieldTableFieldCrossReference_5_0.eContents().get(1);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cCallsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cCallsAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cCallsTransformationCallParserRuleCall_6_2_0 = (RuleCall)cCallsAssignment_6_2.eContents().get(0);
+		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
+		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
+		private final Assignment cCallsAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
+		private final RuleCall cCallsTransformationCallParserRuleCall_6_3_1_0 = (RuleCall)cCallsAssignment_6_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		
+		//MappingField returns MappingField:
+		//    'MappingField'
+		//    '{'
+		//        'souceField' souceField=[TableField|EString]
+		//        'targetField' targetField=[TableField|EString]
+		//        ('calls' '{' calls+=TransformationCall ( "," calls+=TransformationCall)* '}' )?
+		//    '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'MappingField'
+		//'{'
+		//    'souceField' souceField=[TableField|EString]
+		//    'targetField' targetField=[TableField|EString]
+		//    ('calls' '{' calls+=TransformationCall ( "," calls+=TransformationCall)* '}' )?
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//'MappingField'
+		public Keyword getMappingFieldKeyword_0() { return cMappingFieldKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//'souceField'
+		public Keyword getSouceFieldKeyword_2() { return cSouceFieldKeyword_2; }
+		
+		//souceField=[TableField|EString]
+		public Assignment getSouceFieldAssignment_3() { return cSouceFieldAssignment_3; }
+		
+		//[TableField|EString]
+		public CrossReference getSouceFieldTableFieldCrossReference_3_0() { return cSouceFieldTableFieldCrossReference_3_0; }
+		
+		//EString
+		public RuleCall getSouceFieldTableFieldEStringParserRuleCall_3_0_1() { return cSouceFieldTableFieldEStringParserRuleCall_3_0_1; }
+		
+		//'targetField'
+		public Keyword getTargetFieldKeyword_4() { return cTargetFieldKeyword_4; }
+		
+		//targetField=[TableField|EString]
+		public Assignment getTargetFieldAssignment_5() { return cTargetFieldAssignment_5; }
+		
+		//[TableField|EString]
+		public CrossReference getTargetFieldTableFieldCrossReference_5_0() { return cTargetFieldTableFieldCrossReference_5_0; }
+		
+		//EString
+		public RuleCall getTargetFieldTableFieldEStringParserRuleCall_5_0_1() { return cTargetFieldTableFieldEStringParserRuleCall_5_0_1; }
+		
+		//('calls' '{' calls+=TransformationCall ( "," calls+=TransformationCall)* '}' )?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'calls'
+		public Keyword getCallsKeyword_6_0() { return cCallsKeyword_6_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_6_1() { return cLeftCurlyBracketKeyword_6_1; }
+		
+		//calls+=TransformationCall
+		public Assignment getCallsAssignment_6_2() { return cCallsAssignment_6_2; }
+		
+		//TransformationCall
+		public RuleCall getCallsTransformationCallParserRuleCall_6_2_0() { return cCallsTransformationCallParserRuleCall_6_2_0; }
+		
+		//( "," calls+=TransformationCall)*
+		public Group getGroup_6_3() { return cGroup_6_3; }
+		
+		//","
+		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
+		
+		//calls+=TransformationCall
+		public Assignment getCallsAssignment_6_3_1() { return cCallsAssignment_6_3_1; }
+		
+		//TransformationCall
+		public RuleCall getCallsTransformationCallParserRuleCall_6_3_1_0() { return cCallsTransformationCallParserRuleCall_6_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6_4() { return cRightCurlyBracketKeyword_6_4; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
-	public class ExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Expression");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cParameterExpressionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cStringConstantExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cBooleanConstantExpressionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cIntegerConstantExpressionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cInExpressionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cParseExpressionParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cFloatConstantExpressionParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cBinaryOperationExpressionParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
-		
-		//Expression returns Expression:
-		//    parameterExpression | StringConstantExpression | BooleanConstantExpression | IntegerConstantExpression | InExpression | ParseExpression | FloatConstantExpression | BinaryOperationExpression;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//parameterExpression | StringConstantExpression | BooleanConstantExpression | IntegerConstantExpression | InExpression | ParseExpression | FloatConstantExpression | BinaryOperationExpression
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//parameterExpression
-		public RuleCall getParameterExpressionParserRuleCall_0() { return cParameterExpressionParserRuleCall_0; }
-		
-		//StringConstantExpression
-		public RuleCall getStringConstantExpressionParserRuleCall_1() { return cStringConstantExpressionParserRuleCall_1; }
-		
-		//BooleanConstantExpression
-		public RuleCall getBooleanConstantExpressionParserRuleCall_2() { return cBooleanConstantExpressionParserRuleCall_2; }
-		
-		//IntegerConstantExpression
-		public RuleCall getIntegerConstantExpressionParserRuleCall_3() { return cIntegerConstantExpressionParserRuleCall_3; }
-		
-		//InExpression
-		public RuleCall getInExpressionParserRuleCall_4() { return cInExpressionParserRuleCall_4; }
-		
-		//ParseExpression
-		public RuleCall getParseExpressionParserRuleCall_5() { return cParseExpressionParserRuleCall_5; }
-		
-		//FloatConstantExpression
-		public RuleCall getFloatConstantExpressionParserRuleCall_6() { return cFloatConstantExpressionParserRuleCall_6; }
-		
-		//BinaryOperationExpression
-		public RuleCall getBinaryOperationExpressionParserRuleCall_7() { return cBinaryOperationExpressionParserRuleCall_7; }
-	}
-	public class ConstantExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.ConstantExpression");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cStringConstantExpressionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cBooleanConstantExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cIntegerConstantExpressionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cFloatConstantExpressionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		
-		//ConstantExpression returns ConstantExpression:
-		//    StringConstantExpression | BooleanConstantExpression | IntegerConstantExpression | FloatConstantExpression;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//StringConstantExpression | BooleanConstantExpression | IntegerConstantExpression | FloatConstantExpression
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//StringConstantExpression
-		public RuleCall getStringConstantExpressionParserRuleCall_0() { return cStringConstantExpressionParserRuleCall_0; }
-		
-		//BooleanConstantExpression
-		public RuleCall getBooleanConstantExpressionParserRuleCall_1() { return cBooleanConstantExpressionParserRuleCall_1; }
-		
-		//IntegerConstantExpression
-		public RuleCall getIntegerConstantExpressionParserRuleCall_2() { return cIntegerConstantExpressionParserRuleCall_2; }
-		
-		//FloatConstantExpression
-		public RuleCall getFloatConstantExpressionParserRuleCall_3() { return cFloatConstantExpressionParserRuleCall_3; }
-	}
-	public class ParameterExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.parameterExpression");
+	public class TransformationCallElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.TransformationCall");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cParameterExpressionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cParameterExpressionKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//parameterExpression returns parameterExpression:
-		//    {parameterExpression}
-		//    'parameterExpression'
-		//    ;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{parameterExpression}
-		//'parameterExpression'
-		public Group getGroup() { return cGroup; }
-		
-		//{parameterExpression}
-		public Action getParameterExpressionAction_0() { return cParameterExpressionAction_0; }
-		
-		//'parameterExpression'
-		public Keyword getParameterExpressionKeyword_1() { return cParameterExpressionKeyword_1; }
-	}
-	public class StringConstantExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.StringConstantExpression");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cStringConstantExpressionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cValueKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValueEStringParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//StringConstantExpression returns StringConstantExpression:
-		//    'StringConstantExpression'
-		//    '{'
-		//        'value' value=EString
-		//    '}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'StringConstantExpression'
-		//'{'
-		//    'value' value=EString
-		//'}'
-		public Group getGroup() { return cGroup; }
-		
-		//'StringConstantExpression'
-		public Keyword getStringConstantExpressionKeyword_0() { return cStringConstantExpressionKeyword_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'value'
-		public Keyword getValueKeyword_2() { return cValueKeyword_2; }
-		
-		//value=EString
-		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
-		
-		//EString
-		public RuleCall getValueEStringParserRuleCall_3_0() { return cValueEStringParserRuleCall_3_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
-	}
-	public class BooleanConstantExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.BooleanConstantExpression");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cValueAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cValueValueKeyword_0_0 = (Keyword)cValueAssignment_0.eContents().get(0);
-		private final Keyword cBooleanConstantExpressionKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//BooleanConstantExpression returns BooleanConstantExpression:
-		//    value?='value'
-		//    'BooleanConstantExpression'
-		//    ;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//value?='value'
-		//'BooleanConstantExpression'
-		public Group getGroup() { return cGroup; }
-		
-		//value?='value'
-		public Assignment getValueAssignment_0() { return cValueAssignment_0; }
-		
-		//'value'
-		public Keyword getValueValueKeyword_0_0() { return cValueValueKeyword_0_0; }
-		
-		//'BooleanConstantExpression'
-		public Keyword getBooleanConstantExpressionKeyword_1() { return cBooleanConstantExpressionKeyword_1; }
-	}
-	public class IntegerConstantExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.IntegerConstantExpression");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cIntegerConstantExpressionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cValueKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValueEIntParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//IntegerConstantExpression returns IntegerConstantExpression:
-		//    'IntegerConstantExpression'
-		//    '{'
-		//        'value' value=EInt
-		//    '}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'IntegerConstantExpression'
-		//'{'
-		//    'value' value=EInt
-		//'}'
-		public Group getGroup() { return cGroup; }
-		
-		//'IntegerConstantExpression'
-		public Keyword getIntegerConstantExpressionKeyword_0() { return cIntegerConstantExpressionKeyword_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'value'
-		public Keyword getValueKeyword_2() { return cValueKeyword_2; }
-		
-		//value=EInt
-		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
-		
-		//EInt
-		public RuleCall getValueEIntParserRuleCall_3_0() { return cValueEIntParserRuleCall_3_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
-	}
-	public class InExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.InExpression");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cInExpressionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cTransformationCallKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cStatementKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cStatementAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cStatementExpressionCrossReference_2_1_0 = (CrossReference)cStatementAssignment_2_1.eContents().get(0);
-		private final RuleCall cStatementExpressionEStringParserRuleCall_2_1_0_1 = (RuleCall)cStatementExpressionCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cConstantSetKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cLeftParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cConstantSetAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cConstantSetConstantExpressionCrossReference_5_0 = (CrossReference)cConstantSetAssignment_5.eContents().get(0);
-		private final RuleCall cConstantSetConstantExpressionEStringParserRuleCall_5_0_1 = (RuleCall)cConstantSetConstantExpressionCrossReference_5_0.eContents().get(1);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cCommaKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cConstantSetAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final CrossReference cConstantSetConstantExpressionCrossReference_6_1_0 = (CrossReference)cConstantSetAssignment_6_1.eContents().get(0);
-		private final RuleCall cConstantSetConstantExpressionEStringParserRuleCall_6_1_0_1 = (RuleCall)cConstantSetConstantExpressionCrossReference_6_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cParametersKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cParametersAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final CrossReference cParametersTableFieldCrossReference_2_2_0 = (CrossReference)cParametersAssignment_2_2.eContents().get(0);
+		private final RuleCall cParametersTableFieldEStringParserRuleCall_2_2_0_1 = (RuleCall)cParametersTableFieldCrossReference_2_2_0.eContents().get(1);
+		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
+		private final Keyword cCommaKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Assignment cParametersAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
+		private final CrossReference cParametersTableFieldCrossReference_2_3_1_0 = (CrossReference)cParametersAssignment_2_3_1.eContents().get(0);
+		private final RuleCall cParametersTableFieldEStringParserRuleCall_2_3_1_0_1 = (RuleCall)cParametersTableFieldCrossReference_2_3_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//InExpression returns InExpression:
-		//    'InExpression'
+		//TransformationCall returns TransformationCall:
+		//    'TransformationCall'
 		//    '{'
-		//        ('statement' statement=[Expression|EString])?
-		//        'constantSet' '(' constantSet+=[ConstantExpression|EString] ( "," constantSet+=[ConstantExpression|EString])* ')'
+		//        ('parameters' '(' parameters+=[TableField|EString] ( "," parameters+=[TableField|EString])* ')' )?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'InExpression'
+		//'TransformationCall'
 		//'{'
-		//    ('statement' statement=[Expression|EString])?
-		//    'constantSet' '(' constantSet+=[ConstantExpression|EString] ( "," constantSet+=[ConstantExpression|EString])* ')'
+		//    ('parameters' '(' parameters+=[TableField|EString] ( "," parameters+=[TableField|EString])* ')' )?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
-		//'InExpression'
-		public Keyword getInExpressionKeyword_0() { return cInExpressionKeyword_0; }
+		//'TransformationCall'
+		public Keyword getTransformationCallKeyword_0() { return cTransformationCallKeyword_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
-		//('statement' statement=[Expression|EString])?
+		//('parameters' '(' parameters+=[TableField|EString] ( "," parameters+=[TableField|EString])* ')' )?
 		public Group getGroup_2() { return cGroup_2; }
 		
-		//'statement'
-		public Keyword getStatementKeyword_2_0() { return cStatementKeyword_2_0; }
-		
-		//statement=[Expression|EString]
-		public Assignment getStatementAssignment_2_1() { return cStatementAssignment_2_1; }
-		
-		//[Expression|EString]
-		public CrossReference getStatementExpressionCrossReference_2_1_0() { return cStatementExpressionCrossReference_2_1_0; }
-		
-		//EString
-		public RuleCall getStatementExpressionEStringParserRuleCall_2_1_0_1() { return cStatementExpressionEStringParserRuleCall_2_1_0_1; }
-		
-		//'constantSet'
-		public Keyword getConstantSetKeyword_3() { return cConstantSetKeyword_3; }
+		//'parameters'
+		public Keyword getParametersKeyword_2_0() { return cParametersKeyword_2_0; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_4() { return cLeftParenthesisKeyword_4; }
+		public Keyword getLeftParenthesisKeyword_2_1() { return cLeftParenthesisKeyword_2_1; }
 		
-		//constantSet+=[ConstantExpression|EString]
-		public Assignment getConstantSetAssignment_5() { return cConstantSetAssignment_5; }
+		//parameters+=[TableField|EString]
+		public Assignment getParametersAssignment_2_2() { return cParametersAssignment_2_2; }
 		
-		//[ConstantExpression|EString]
-		public CrossReference getConstantSetConstantExpressionCrossReference_5_0() { return cConstantSetConstantExpressionCrossReference_5_0; }
+		//[TableField|EString]
+		public CrossReference getParametersTableFieldCrossReference_2_2_0() { return cParametersTableFieldCrossReference_2_2_0; }
 		
 		//EString
-		public RuleCall getConstantSetConstantExpressionEStringParserRuleCall_5_0_1() { return cConstantSetConstantExpressionEStringParserRuleCall_5_0_1; }
+		public RuleCall getParametersTableFieldEStringParserRuleCall_2_2_0_1() { return cParametersTableFieldEStringParserRuleCall_2_2_0_1; }
 		
-		//( "," constantSet+=[ConstantExpression|EString])*
-		public Group getGroup_6() { return cGroup_6; }
+		//( "," parameters+=[TableField|EString])*
+		public Group getGroup_2_3() { return cGroup_2_3; }
 		
 		//","
-		public Keyword getCommaKeyword_6_0() { return cCommaKeyword_6_0; }
+		public Keyword getCommaKeyword_2_3_0() { return cCommaKeyword_2_3_0; }
 		
-		//constantSet+=[ConstantExpression|EString]
-		public Assignment getConstantSetAssignment_6_1() { return cConstantSetAssignment_6_1; }
+		//parameters+=[TableField|EString]
+		public Assignment getParametersAssignment_2_3_1() { return cParametersAssignment_2_3_1; }
 		
-		//[ConstantExpression|EString]
-		public CrossReference getConstantSetConstantExpressionCrossReference_6_1_0() { return cConstantSetConstantExpressionCrossReference_6_1_0; }
+		//[TableField|EString]
+		public CrossReference getParametersTableFieldCrossReference_2_3_1_0() { return cParametersTableFieldCrossReference_2_3_1_0; }
 		
 		//EString
-		public RuleCall getConstantSetConstantExpressionEStringParserRuleCall_6_1_0_1() { return cConstantSetConstantExpressionEStringParserRuleCall_6_1_0_1; }
+		public RuleCall getParametersTableFieldEStringParserRuleCall_2_3_1_0_1() { return cParametersTableFieldEStringParserRuleCall_2_3_1_0_1; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+		public Keyword getRightParenthesisKeyword_2_4() { return cRightParenthesisKeyword_2_4; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
-	}
-	public class ParseExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.ParseExpression");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cParseExpressionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cOutputTypeKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cOutputTypeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cOutputTypeTypeEnumRuleCall_2_1_0 = (RuleCall)cOutputTypeAssignment_2_1.eContents().get(0);
-		private final Keyword cExpressionKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cExpressionAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cExpressionExpressionCrossReference_4_0 = (CrossReference)cExpressionAssignment_4.eContents().get(0);
-		private final RuleCall cExpressionExpressionEStringParserRuleCall_4_0_1 = (RuleCall)cExpressionExpressionCrossReference_4_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		
-		//ParseExpression returns ParseExpression:
-		//    'ParseExpression'
-		//    '{'
-		//        ('outputType' outputType=Type)?
-		//        'expression' expression=[Expression|EString]
-		//    '}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'ParseExpression'
-		//'{'
-		//    ('outputType' outputType=Type)?
-		//    'expression' expression=[Expression|EString]
-		//'}'
-		public Group getGroup() { return cGroup; }
-		
-		//'ParseExpression'
-		public Keyword getParseExpressionKeyword_0() { return cParseExpressionKeyword_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//('outputType' outputType=Type)?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'outputType'
-		public Keyword getOutputTypeKeyword_2_0() { return cOutputTypeKeyword_2_0; }
-		
-		//outputType=Type
-		public Assignment getOutputTypeAssignment_2_1() { return cOutputTypeAssignment_2_1; }
-		
-		//Type
-		public RuleCall getOutputTypeTypeEnumRuleCall_2_1_0() { return cOutputTypeTypeEnumRuleCall_2_1_0; }
-		
-		//'expression'
-		public Keyword getExpressionKeyword_3() { return cExpressionKeyword_3; }
-		
-		//expression=[Expression|EString]
-		public Assignment getExpressionAssignment_4() { return cExpressionAssignment_4; }
-		
-		//[Expression|EString]
-		public CrossReference getExpressionExpressionCrossReference_4_0() { return cExpressionExpressionCrossReference_4_0; }
-		
-		//EString
-		public RuleCall getExpressionExpressionEStringParserRuleCall_4_0_1() { return cExpressionExpressionEStringParserRuleCall_4_0_1; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
-	}
-	public class FloatConstantExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.FloatConstantExpression");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cFloatConstantExpressionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cValueKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValueEFloatParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//FloatConstantExpression returns FloatConstantExpression:
-		//    'FloatConstantExpression'
-		//    '{'
-		//        'value' value=EFloat
-		//    '}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'FloatConstantExpression'
-		//'{'
-		//    'value' value=EFloat
-		//'}'
-		public Group getGroup() { return cGroup; }
-		
-		//'FloatConstantExpression'
-		public Keyword getFloatConstantExpressionKeyword_0() { return cFloatConstantExpressionKeyword_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'value'
-		public Keyword getValueKeyword_2() { return cValueKeyword_2; }
-		
-		//value=EFloat
-		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
-		
-		//EFloat
-		public RuleCall getValueEFloatParserRuleCall_3_0() { return cValueEFloatParserRuleCall_3_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
-	}
-	public class EStringElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.EString");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSTRINGTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//EString returns ecore::EString:
-		//    STRING | ID;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//STRING | ID
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_0() { return cSTRINGTerminalRuleCall_0; }
-		
-		//ID
-		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
 	public class EBooleanElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.EBoolean");
@@ -543,6 +502,25 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//'false'
 		public Keyword getFalseKeyword_1() { return cFalseKeyword_1; }
+	}
+	public class EStringElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.EString");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cSTRINGTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//EString returns ecore::EString:
+		//    STRING | ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//STRING | ID
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_0() { return cSTRINGTerminalRuleCall_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
 	}
 	public class EIntElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.EInt");
@@ -615,97 +593,6 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		public RuleCall getINTTerminalRuleCall_4_2() { return cINTTerminalRuleCall_4_2; }
 	}
 	
-	public class BinaryFunctionElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.BinaryFunction");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cMultEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cMultMultKeyword_0_0 = (Keyword)cMultEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cSumEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cSumSumKeyword_1_0 = (Keyword)cSumEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cDivideEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cDivideDivideKeyword_2_0 = (Keyword)cDivideEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cConcatEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cConcatConcatKeyword_3_0 = (Keyword)cConcatEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cEqualEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cEqualEqualKeyword_4_0 = (Keyword)cEqualEnumLiteralDeclaration_4.eContents().get(0);
-		private final EnumLiteralDeclaration cNotequalEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
-		private final Keyword cNotequalNotequalKeyword_5_0 = (Keyword)cNotequalEnumLiteralDeclaration_5.eContents().get(0);
-		private final EnumLiteralDeclaration cSmallerEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
-		private final Keyword cSmallerSmallerKeyword_6_0 = (Keyword)cSmallerEnumLiteralDeclaration_6.eContents().get(0);
-		private final EnumLiteralDeclaration cGreaterEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
-		private final Keyword cGreaterGreaterKeyword_7_0 = (Keyword)cGreaterEnumLiteralDeclaration_7.eContents().get(0);
-		private final EnumLiteralDeclaration cOrEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
-		private final Keyword cOrOrKeyword_8_0 = (Keyword)cOrEnumLiteralDeclaration_8.eContents().get(0);
-		private final EnumLiteralDeclaration cAndEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
-		private final Keyword cAndAndKeyword_9_0 = (Keyword)cAndEnumLiteralDeclaration_9.eContents().get(0);
-		
-		//enum BinaryFunction returns BinaryFunction:
-		//                mult = 'mult' | sum = 'sum' | divide = 'divide' | concat = 'concat' | equal = 'equal' | notequal = 'notequal' | smaller = 'smaller' | greater = 'greater' | or = 'or' | and = 'and';
-		public EnumRule getRule() { return rule; }
-		
-		//mult = 'mult' | sum = 'sum' | divide = 'divide' | concat = 'concat' | equal = 'equal' | notequal = 'notequal' | smaller = 'smaller' | greater = 'greater' | or = 'or' | and = 'and'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//mult = 'mult'
-		public EnumLiteralDeclaration getMultEnumLiteralDeclaration_0() { return cMultEnumLiteralDeclaration_0; }
-		
-		//'mult'
-		public Keyword getMultMultKeyword_0_0() { return cMultMultKeyword_0_0; }
-		
-		//sum = 'sum'
-		public EnumLiteralDeclaration getSumEnumLiteralDeclaration_1() { return cSumEnumLiteralDeclaration_1; }
-		
-		//'sum'
-		public Keyword getSumSumKeyword_1_0() { return cSumSumKeyword_1_0; }
-		
-		//divide = 'divide'
-		public EnumLiteralDeclaration getDivideEnumLiteralDeclaration_2() { return cDivideEnumLiteralDeclaration_2; }
-		
-		//'divide'
-		public Keyword getDivideDivideKeyword_2_0() { return cDivideDivideKeyword_2_0; }
-		
-		//concat = 'concat'
-		public EnumLiteralDeclaration getConcatEnumLiteralDeclaration_3() { return cConcatEnumLiteralDeclaration_3; }
-		
-		//'concat'
-		public Keyword getConcatConcatKeyword_3_0() { return cConcatConcatKeyword_3_0; }
-		
-		//equal = 'equal'
-		public EnumLiteralDeclaration getEqualEnumLiteralDeclaration_4() { return cEqualEnumLiteralDeclaration_4; }
-		
-		//'equal'
-		public Keyword getEqualEqualKeyword_4_0() { return cEqualEqualKeyword_4_0; }
-		
-		//notequal = 'notequal'
-		public EnumLiteralDeclaration getNotequalEnumLiteralDeclaration_5() { return cNotequalEnumLiteralDeclaration_5; }
-		
-		//'notequal'
-		public Keyword getNotequalNotequalKeyword_5_0() { return cNotequalNotequalKeyword_5_0; }
-		
-		//smaller = 'smaller'
-		public EnumLiteralDeclaration getSmallerEnumLiteralDeclaration_6() { return cSmallerEnumLiteralDeclaration_6; }
-		
-		//'smaller'
-		public Keyword getSmallerSmallerKeyword_6_0() { return cSmallerSmallerKeyword_6_0; }
-		
-		//greater = 'greater'
-		public EnumLiteralDeclaration getGreaterEnumLiteralDeclaration_7() { return cGreaterEnumLiteralDeclaration_7; }
-		
-		//'greater'
-		public Keyword getGreaterGreaterKeyword_7_0() { return cGreaterGreaterKeyword_7_0; }
-		
-		//or = 'or'
-		public EnumLiteralDeclaration getOrEnumLiteralDeclaration_8() { return cOrEnumLiteralDeclaration_8; }
-		
-		//'or'
-		public Keyword getOrOrKeyword_8_0() { return cOrOrKeyword_8_0; }
-		
-		//and = 'and'
-		public EnumLiteralDeclaration getAndEnumLiteralDeclaration_9() { return cAndEnumLiteralDeclaration_9; }
-		
-		//'and'
-		public Keyword getAndAndKeyword_9_0() { return cAndAndKeyword_9_0; }
-	}
 	public class TypeElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Type");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -773,23 +660,124 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'bool'
 		public Keyword getBoolBoolKeyword_6_0() { return cBoolBoolKeyword_6_0; }
 	}
+	public class BooleanFunctionElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.BooleanFunction");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cEqualEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cEqualEqualKeyword_0_0 = (Keyword)cEqualEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cNotequalEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cNotequalNotequalKeyword_1_0 = (Keyword)cNotequalEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cSmallerEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cSmallerSmallerKeyword_2_0 = (Keyword)cSmallerEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cGreaterEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cGreaterGreaterKeyword_3_0 = (Keyword)cGreaterEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cOrEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cOrOrKeyword_4_0 = (Keyword)cOrEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cAndEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cAndAndKeyword_5_0 = (Keyword)cAndEnumLiteralDeclaration_5.eContents().get(0);
+		
+		//enum BooleanFunction returns BooleanFunction:
+		//                equal = 'equal' | notequal = 'notequal' | smaller = 'smaller' | greater = 'greater' | or = 'or' | and = 'and';
+		public EnumRule getRule() { return rule; }
+		
+		//equal = 'equal' | notequal = 'notequal' | smaller = 'smaller' | greater = 'greater' | or = 'or' | and = 'and'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//equal = 'equal'
+		public EnumLiteralDeclaration getEqualEnumLiteralDeclaration_0() { return cEqualEnumLiteralDeclaration_0; }
+		
+		//'equal'
+		public Keyword getEqualEqualKeyword_0_0() { return cEqualEqualKeyword_0_0; }
+		
+		//notequal = 'notequal'
+		public EnumLiteralDeclaration getNotequalEnumLiteralDeclaration_1() { return cNotequalEnumLiteralDeclaration_1; }
+		
+		//'notequal'
+		public Keyword getNotequalNotequalKeyword_1_0() { return cNotequalNotequalKeyword_1_0; }
+		
+		//smaller = 'smaller'
+		public EnumLiteralDeclaration getSmallerEnumLiteralDeclaration_2() { return cSmallerEnumLiteralDeclaration_2; }
+		
+		//'smaller'
+		public Keyword getSmallerSmallerKeyword_2_0() { return cSmallerSmallerKeyword_2_0; }
+		
+		//greater = 'greater'
+		public EnumLiteralDeclaration getGreaterEnumLiteralDeclaration_3() { return cGreaterEnumLiteralDeclaration_3; }
+		
+		//'greater'
+		public Keyword getGreaterGreaterKeyword_3_0() { return cGreaterGreaterKeyword_3_0; }
+		
+		//or = 'or'
+		public EnumLiteralDeclaration getOrEnumLiteralDeclaration_4() { return cOrEnumLiteralDeclaration_4; }
+		
+		//'or'
+		public Keyword getOrOrKeyword_4_0() { return cOrOrKeyword_4_0; }
+		
+		//and = 'and'
+		public EnumLiteralDeclaration getAndEnumLiteralDeclaration_5() { return cAndEnumLiteralDeclaration_5; }
+		
+		//'and'
+		public Keyword getAndAndKeyword_5_0() { return cAndAndKeyword_5_0; }
+	}
+	public class BinaryFunctionElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.BinaryFunction");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cMultEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cMultMultKeyword_0_0 = (Keyword)cMultEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cSumEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cSumSumKeyword_1_0 = (Keyword)cSumEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cDivideEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cDivideDivideKeyword_2_0 = (Keyword)cDivideEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cConcatEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cConcatConcatKeyword_3_0 = (Keyword)cConcatEnumLiteralDeclaration_3.eContents().get(0);
+		
+		//enum BinaryFunction returns BinaryFunction:
+		//                mult = 'mult' | sum = 'sum' | divide = 'divide' | concat = 'concat';
+		public EnumRule getRule() { return rule; }
+		
+		//mult = 'mult' | sum = 'sum' | divide = 'divide' | concat = 'concat'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//mult = 'mult'
+		public EnumLiteralDeclaration getMultEnumLiteralDeclaration_0() { return cMultEnumLiteralDeclaration_0; }
+		
+		//'mult'
+		public Keyword getMultMultKeyword_0_0() { return cMultMultKeyword_0_0; }
+		
+		//sum = 'sum'
+		public EnumLiteralDeclaration getSumEnumLiteralDeclaration_1() { return cSumEnumLiteralDeclaration_1; }
+		
+		//'sum'
+		public Keyword getSumSumKeyword_1_0() { return cSumSumKeyword_1_0; }
+		
+		//divide = 'divide'
+		public EnumLiteralDeclaration getDivideEnumLiteralDeclaration_2() { return cDivideEnumLiteralDeclaration_2; }
+		
+		//'divide'
+		public Keyword getDivideDivideKeyword_2_0() { return cDivideDivideKeyword_2_0; }
+		
+		//concat = 'concat'
+		public EnumLiteralDeclaration getConcatEnumLiteralDeclaration_3() { return cConcatEnumLiteralDeclaration_3; }
+		
+		//'concat'
+		public Keyword getConcatConcatKeyword_3_0() { return cConcatConcatKeyword_3_0; }
+	}
 	
-	private final BinaryOperationExpressionElements pBinaryOperationExpression;
-	private final ExpressionElements pExpression;
-	private final ConstantExpressionElements pConstantExpression;
-	private final BinaryFunctionElements eBinaryFunction;
-	private final ParameterExpressionElements pParameterExpression;
-	private final StringConstantExpressionElements pStringConstantExpression;
-	private final BooleanConstantExpressionElements pBooleanConstantExpression;
-	private final IntegerConstantExpressionElements pIntegerConstantExpression;
-	private final InExpressionElements pInExpression;
-	private final ParseExpressionElements pParseExpression;
-	private final FloatConstantExpressionElements pFloatConstantExpression;
-	private final EStringElements pEString;
-	private final EBooleanElements pEBoolean;
-	private final EIntElements pEInt;
+	private final BlockElements pBlock;
+	private final Table_ImplElements pTable_Impl;
+	private final Source_TableElements pSource_Table;
+	private final Target_TableElements pTarget_Table;
+	private final TableFieldElements pTableField;
+	private final MappingElements pMapping;
 	private final TypeElements eType;
+	private final MappingFieldElements pMappingField;
+	private final TransformationCallElements pTransformationCall;
+	private final BooleanFunctionElements eBooleanFunction;
+	private final EBooleanElements pEBoolean;
+	private final EStringElements pEString;
+	private final EIntElements pEInt;
 	private final EFloatElements pEFloat;
+	private final BinaryFunctionElements eBinaryFunction;
 	
 	private final Grammar grammar;
 	
@@ -800,22 +788,21 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pBinaryOperationExpression = new BinaryOperationExpressionElements();
-		this.pExpression = new ExpressionElements();
-		this.pConstantExpression = new ConstantExpressionElements();
-		this.eBinaryFunction = new BinaryFunctionElements();
-		this.pParameterExpression = new ParameterExpressionElements();
-		this.pStringConstantExpression = new StringConstantExpressionElements();
-		this.pBooleanConstantExpression = new BooleanConstantExpressionElements();
-		this.pIntegerConstantExpression = new IntegerConstantExpressionElements();
-		this.pInExpression = new InExpressionElements();
-		this.pParseExpression = new ParseExpressionElements();
-		this.pFloatConstantExpression = new FloatConstantExpressionElements();
-		this.pEString = new EStringElements();
-		this.pEBoolean = new EBooleanElements();
-		this.pEInt = new EIntElements();
+		this.pBlock = new BlockElements();
+		this.pTable_Impl = new Table_ImplElements();
+		this.pSource_Table = new Source_TableElements();
+		this.pTarget_Table = new Target_TableElements();
+		this.pTableField = new TableFieldElements();
+		this.pMapping = new MappingElements();
 		this.eType = new TypeElements();
+		this.pMappingField = new MappingFieldElements();
+		this.pTransformationCall = new TransformationCallElements();
+		this.eBooleanFunction = new BooleanFunctionElements();
+		this.pEBoolean = new EBooleanElements();
+		this.pEString = new EStringElements();
+		this.pEInt = new EIntElements();
 		this.pEFloat = new EFloatElements();
+		this.eBinaryFunction = new BinaryFunctionElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -845,170 +832,79 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 
 	
-	//BinaryOperationExpression returns BinaryOperationExpression:
-	//    'BinaryOperationExpression'
-	//    '{'
-	//        ('operation' operation=BinaryFunction)?
-	//        'left' left=[Expression|EString]
-	//        'right' right=[Expression|EString]
-	//    '}';
-	public BinaryOperationExpressionElements getBinaryOperationExpressionAccess() {
-		return pBinaryOperationExpression;
+	//Block:
+	//    Table_Impl|Mapping
+	//;
+	public BlockElements getBlockAccess() {
+		return pBlock;
 	}
 	
-	public ParserRule getBinaryOperationExpressionRule() {
-		return getBinaryOperationExpressionAccess().getRule();
+	public ParserRule getBlockRule() {
+		return getBlockAccess().getRule();
 	}
 	
-	//Expression returns Expression:
-	//    parameterExpression | StringConstantExpression | BooleanConstantExpression | IntegerConstantExpression | InExpression | ParseExpression | FloatConstantExpression | BinaryOperationExpression;
-	public ExpressionElements getExpressionAccess() {
-		return pExpression;
-	}
-	
-	public ParserRule getExpressionRule() {
-		return getExpressionAccess().getRule();
-	}
-	
-	//ConstantExpression returns ConstantExpression:
-	//    StringConstantExpression | BooleanConstantExpression | IntegerConstantExpression | FloatConstantExpression;
-	public ConstantExpressionElements getConstantExpressionAccess() {
-		return pConstantExpression;
-	}
-	
-	public ParserRule getConstantExpressionRule() {
-		return getConstantExpressionAccess().getRule();
-	}
-	
-	//enum BinaryFunction returns BinaryFunction:
-	//                mult = 'mult' | sum = 'sum' | divide = 'divide' | concat = 'concat' | equal = 'equal' | notequal = 'notequal' | smaller = 'smaller' | greater = 'greater' | or = 'or' | and = 'and';
-	public BinaryFunctionElements getBinaryFunctionAccess() {
-		return eBinaryFunction;
-	}
-	
-	public EnumRule getBinaryFunctionRule() {
-		return getBinaryFunctionAccess().getRule();
-	}
-	
-	//parameterExpression returns parameterExpression:
-	//    {parameterExpression}
-	//    'parameterExpression'
+	//Table_Impl returns Table:
+	//    ('source' Source_Table) |
+	//    ('target' Target_Table)
 	//    ;
-	public ParameterExpressionElements getParameterExpressionAccess() {
-		return pParameterExpression;
+	public Table_ImplElements getTable_ImplAccess() {
+		return pTable_Impl;
 	}
 	
-	public ParserRule getParameterExpressionRule() {
-		return getParameterExpressionAccess().getRule();
+	public ParserRule getTable_ImplRule() {
+		return getTable_ImplAccess().getRule();
 	}
 	
-	//StringConstantExpression returns StringConstantExpression:
-	//    'StringConstantExpression'
+	//Source_Table returns SourceTable:
+	//    name=EString
 	//    '{'
-	//        'value' value=EString
+	//        columns+=TableField ( "," columns+=TableField)*
 	//    '}';
-	public StringConstantExpressionElements getStringConstantExpressionAccess() {
-		return pStringConstantExpression;
+	public Source_TableElements getSource_TableAccess() {
+		return pSource_Table;
 	}
 	
-	public ParserRule getStringConstantExpressionRule() {
-		return getStringConstantExpressionAccess().getRule();
+	public ParserRule getSource_TableRule() {
+		return getSource_TableAccess().getRule();
 	}
 	
-	//BooleanConstantExpression returns BooleanConstantExpression:
-	//    value?='value'
-	//    'BooleanConstantExpression'
+	//Target_Table returns TargetTable:
+	//    name=EString
+	//    '{'
+	//        columns+=TableField ( "," columns+=TableField)*
+	//    '}';
+	public Target_TableElements getTarget_TableAccess() {
+		return pTarget_Table;
+	}
+	
+	public ParserRule getTarget_TableRule() {
+		return getTarget_TableAccess().getRule();
+	}
+	
+	//TableField returns TableField:
+	//    name=EString
+	//    ':'
+	//        type=Type ( "," )
 	//    ;
-	public BooleanConstantExpressionElements getBooleanConstantExpressionAccess() {
-		return pBooleanConstantExpression;
+	public TableFieldElements getTableFieldAccess() {
+		return pTableField;
 	}
 	
-	public ParserRule getBooleanConstantExpressionRule() {
-		return getBooleanConstantExpressionAccess().getRule();
+	public ParserRule getTableFieldRule() {
+		return getTableFieldAccess().getRule();
 	}
 	
-	//IntegerConstantExpression returns IntegerConstantExpression:
-	//    'IntegerConstantExpression'
+	//Mapping returns Mapping:
+	//    'mapping' sourcetable=[SourceTable|EString] '->' targettable=[TargetTable|EString]
 	//    '{'
-	//        'value' value=EInt
+	//        fields+=MappingField
 	//    '}';
-	public IntegerConstantExpressionElements getIntegerConstantExpressionAccess() {
-		return pIntegerConstantExpression;
+	public MappingElements getMappingAccess() {
+		return pMapping;
 	}
 	
-	public ParserRule getIntegerConstantExpressionRule() {
-		return getIntegerConstantExpressionAccess().getRule();
-	}
-	
-	//InExpression returns InExpression:
-	//    'InExpression'
-	//    '{'
-	//        ('statement' statement=[Expression|EString])?
-	//        'constantSet' '(' constantSet+=[ConstantExpression|EString] ( "," constantSet+=[ConstantExpression|EString])* ')'
-	//    '}';
-	public InExpressionElements getInExpressionAccess() {
-		return pInExpression;
-	}
-	
-	public ParserRule getInExpressionRule() {
-		return getInExpressionAccess().getRule();
-	}
-	
-	//ParseExpression returns ParseExpression:
-	//    'ParseExpression'
-	//    '{'
-	//        ('outputType' outputType=Type)?
-	//        'expression' expression=[Expression|EString]
-	//    '}';
-	public ParseExpressionElements getParseExpressionAccess() {
-		return pParseExpression;
-	}
-	
-	public ParserRule getParseExpressionRule() {
-		return getParseExpressionAccess().getRule();
-	}
-	
-	//FloatConstantExpression returns FloatConstantExpression:
-	//    'FloatConstantExpression'
-	//    '{'
-	//        'value' value=EFloat
-	//    '}';
-	public FloatConstantExpressionElements getFloatConstantExpressionAccess() {
-		return pFloatConstantExpression;
-	}
-	
-	public ParserRule getFloatConstantExpressionRule() {
-		return getFloatConstantExpressionAccess().getRule();
-	}
-	
-	//EString returns ecore::EString:
-	//    STRING | ID;
-	public EStringElements getEStringAccess() {
-		return pEString;
-	}
-	
-	public ParserRule getEStringRule() {
-		return getEStringAccess().getRule();
-	}
-	
-	//EBoolean returns ecore::EBoolean:
-	//    'true' | 'false';
-	public EBooleanElements getEBooleanAccess() {
-		return pEBoolean;
-	}
-	
-	public ParserRule getEBooleanRule() {
-		return getEBooleanAccess().getRule();
-	}
-	
-	//EInt returns ecore::EInt:
-	//    '-'? INT;
-	public EIntElements getEIntAccess() {
-		return pEInt;
-	}
-	
-	public ParserRule getEIntRule() {
-		return getEIntAccess().getRule();
+	public ParserRule getMappingRule() {
+		return getMappingAccess().getRule();
 	}
 	
 	//enum Type returns Type:
@@ -1021,6 +917,74 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getTypeAccess().getRule();
 	}
 	
+	//MappingField returns MappingField:
+	//    'MappingField'
+	//    '{'
+	//        'souceField' souceField=[TableField|EString]
+	//        'targetField' targetField=[TableField|EString]
+	//        ('calls' '{' calls+=TransformationCall ( "," calls+=TransformationCall)* '}' )?
+	//    '}';
+	public MappingFieldElements getMappingFieldAccess() {
+		return pMappingField;
+	}
+	
+	public ParserRule getMappingFieldRule() {
+		return getMappingFieldAccess().getRule();
+	}
+	
+	//TransformationCall returns TransformationCall:
+	//    'TransformationCall'
+	//    '{'
+	//        ('parameters' '(' parameters+=[TableField|EString] ( "," parameters+=[TableField|EString])* ')' )?
+	//    '}';
+	public TransformationCallElements getTransformationCallAccess() {
+		return pTransformationCall;
+	}
+	
+	public ParserRule getTransformationCallRule() {
+		return getTransformationCallAccess().getRule();
+	}
+	
+	//enum BooleanFunction returns BooleanFunction:
+	//                equal = 'equal' | notequal = 'notequal' | smaller = 'smaller' | greater = 'greater' | or = 'or' | and = 'and';
+	public BooleanFunctionElements getBooleanFunctionAccess() {
+		return eBooleanFunction;
+	}
+	
+	public EnumRule getBooleanFunctionRule() {
+		return getBooleanFunctionAccess().getRule();
+	}
+	
+	//EBoolean returns ecore::EBoolean:
+	//    'true' | 'false';
+	public EBooleanElements getEBooleanAccess() {
+		return pEBoolean;
+	}
+	
+	public ParserRule getEBooleanRule() {
+		return getEBooleanAccess().getRule();
+	}
+	
+	//EString returns ecore::EString:
+	//    STRING | ID;
+	public EStringElements getEStringAccess() {
+		return pEString;
+	}
+	
+	public ParserRule getEStringRule() {
+		return getEStringAccess().getRule();
+	}
+	
+	//EInt returns ecore::EInt:
+	//    '-'? INT;
+	public EIntElements getEIntAccess() {
+		return pEInt;
+	}
+	
+	public ParserRule getEIntRule() {
+		return getEIntAccess().getRule();
+	}
+	
 	//EFloat returns ecore::EFloat:
 	//    '-'? INT? '.' INT (('E'|'e') '-'? INT)?;
 	public EFloatElements getEFloatAccess() {
@@ -1029,6 +993,16 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	public ParserRule getEFloatRule() {
 		return getEFloatAccess().getRule();
+	}
+	
+	//enum BinaryFunction returns BinaryFunction:
+	//                mult = 'mult' | sum = 'sum' | divide = 'divide' | concat = 'concat';
+	public BinaryFunctionElements getBinaryFunctionAccess() {
+		return eBinaryFunction;
+	}
+	
+	public EnumRule getBinaryFunctionRule() {
+		return getBinaryFunctionAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

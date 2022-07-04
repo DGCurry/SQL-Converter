@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link tqlModel.MappingField#getSouceField <em>Souce Field</em>}</li>
  *   <li>{@link tqlModel.MappingField#getTargetField <em>Target Field</em>}</li>
- *   <li>{@link tqlModel.MappingField#getTransformations <em>Transformations</em>}</li>
+ *   <li>{@link tqlModel.MappingField#getCalls <em>Calls</em>}</li>
  * </ul>
  *
  * @see tqlModel.TqlModelPackage#getMappingField()
@@ -30,12 +30,12 @@ public interface MappingField extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Souce Field</em>' reference.
-	 * @see #setSouceField(Columns)
+	 * @see #setSouceField(TableField)
 	 * @see tqlModel.TqlModelPackage#getMappingField_SouceField()
 	 * @model required="true"
 	 * @generated
 	 */
-	Columns getSouceField();
+	TableField getSouceField();
 
 	/**
 	 * Sets the value of the '{@link tqlModel.MappingField#getSouceField <em>Souce Field</em>}' reference.
@@ -45,19 +45,19 @@ public interface MappingField extends EObject {
 	 * @see #getSouceField()
 	 * @generated
 	 */
-	void setSouceField(Columns value);
+	void setSouceField(TableField value);
 
 	/**
 	 * Returns the value of the '<em><b>Target Field</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target Field</em>' reference.
-	 * @see #setTargetField(Columns)
+	 * @see #setTargetField(TableField)
 	 * @see tqlModel.TqlModelPackage#getMappingField_TargetField()
 	 * @model required="true"
 	 * @generated
 	 */
-	Columns getTargetField();
+	TableField getTargetField();
 
 	/**
 	 * Sets the value of the '{@link tqlModel.MappingField#getTargetField <em>Target Field</em>}' reference.
@@ -67,18 +67,18 @@ public interface MappingField extends EObject {
 	 * @see #getTargetField()
 	 * @generated
 	 */
-	void setTargetField(Columns value);
+	void setTargetField(TableField value);
 
 	/**
-	 * Returns the value of the '<em><b>Transformations</b></em>' reference list.
-	 * The list contents are of type {@link tqlModel.Transformation}.
+	 * Returns the value of the '<em><b>Calls</b></em>' containment reference list.
+	 * The list contents are of type {@link tqlModel.TransformationCall}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transformations</em>' reference list.
-	 * @see tqlModel.TqlModelPackage#getMappingField_Transformations()
-	 * @model
+	 * @return the value of the '<em>Calls</em>' containment reference list.
+	 * @see tqlModel.TqlModelPackage#getMappingField_Calls()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Transformation> getTransformations();
+	EList<TransformationCall> getCalls();
 
 } // MappingField

@@ -22,69 +22,6 @@ public interface TqlModelFactory extends EFactory {
 	TqlModelFactory eINSTANCE = tqlModel.impl.TqlModelFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>parameter Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>parameter Expression</em>'.
-	 * @generated
-	 */
-	parameterExpression createparameterExpression();
-
-	/**
-	 * Returns a new object of class '<em>String Constant Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>String Constant Expression</em>'.
-	 * @generated
-	 */
-	StringConstantExpression createStringConstantExpression();
-
-	/**
-	 * Returns a new object of class '<em>Parameter Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter Statement</em>'.
-	 * @generated
-	 */
-	ParameterStatement createParameterStatement();
-
-	/**
-	 * Returns a new object of class '<em>Reference Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Reference Statement</em>'.
-	 * @generated
-	 */
-	ReferenceStatement createReferenceStatement();
-
-	/**
-	 * Returns a new object of class '<em>Boolean Constant Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Boolean Constant Expression</em>'.
-	 * @generated
-	 */
-	BooleanConstantExpression createBooleanConstantExpression();
-
-	/**
-	 * Returns a new object of class '<em>Integer Constant Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Integer Constant Expression</em>'.
-	 * @generated
-	 */
-	IntegerConstantExpression createIntegerConstantExpression();
-
-	/**
-	 * Returns a new object of class '<em>Source</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Source</em>'.
-	 * @generated
-	 */
-	Source createSource();
-
-	/**
 	 * Returns a new object of class '<em>Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,60 +29,6 @@ public interface TqlModelFactory extends EFactory {
 	 * @generated
 	 */
 	Mapping createMapping();
-
-	/**
-	 * Returns a new object of class '<em>In Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>In Expression</em>'.
-	 * @generated
-	 */
-	InExpression createInExpression();
-
-	/**
-	 * Returns a new object of class '<em>Table</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Table</em>'.
-	 * @generated
-	 */
-	Table createTable();
-
-	/**
-	 * Returns a new object of class '<em>Conditional Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Conditional Statement</em>'.
-	 * @generated
-	 */
-	ConditionalStatement createConditionalStatement();
-
-	/**
-	 * Returns a new object of class '<em>Parse Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parse Expression</em>'.
-	 * @generated
-	 */
-	ParseExpression createParseExpression();
-
-	/**
-	 * Returns a new object of class '<em>Float Constant Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Float Constant Expression</em>'.
-	 * @generated
-	 */
-	FloatConstantExpression createFloatConstantExpression();
-
-	/**
-	 * Returns a new object of class '<em>Target</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Target</em>'.
-	 * @generated
-	 */
-	Target createTarget();
 
 	/**
 	 * Returns a new object of class '<em>Mapping Field</em>'.
@@ -157,31 +40,40 @@ public interface TqlModelFactory extends EFactory {
 	MappingField createMappingField();
 
 	/**
-	 * Returns a new object of class '<em>Binary Operation Expression</em>'.
+	 * Returns a new object of class '<em>Table Field</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Binary Operation Expression</em>'.
+	 * @return a new object of class '<em>Table Field</em>'.
 	 * @generated
 	 */
-	BinaryOperationExpression createBinaryOperationExpression();
+	TableField createTableField();
 
 	/**
-	 * Returns a new object of class '<em>Columns</em>'.
+	 * Returns a new object of class '<em>Transformation Call</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Columns</em>'.
+	 * @return a new object of class '<em>Transformation Call</em>'.
 	 * @generated
 	 */
-	Columns createColumns();
+	TransformationCall createTransformationCall();
 
 	/**
-	 * Returns a new object of class '<em>Transformation</em>'.
+	 * Returns a new object of class '<em>Source Table</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Transformation</em>'.
+	 * @return a new object of class '<em>Source Table</em>'.
 	 * @generated
 	 */
-	Transformation createTransformation();
+	SourceTable createSourceTable();
+
+	/**
+	 * Returns a new object of class '<em>Target Table</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Target Table</em>'.
+	 * @generated
+	 */
+	TargetTable createTargetTable();
 
 	/**
 	 * Returns the package supported by this factory.

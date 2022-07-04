@@ -12,7 +12,7 @@ TQL:
 ;
 
 Block:
-	Table_Impl|Mapping
+	Table_Impl
 ;
 
 Table_Impl returns Table:
@@ -38,15 +38,15 @@ TableField returns TableField:
 	':'
 		type=Type ( "," )
 	;
-	
-	
-Mapping returns Mapping:
-	'mapping' source+=MappingSourceTable '->' target+=MappingTargetTable
-	('where' '(' where+=BooleanOperationExpression ')')?
-	'{'
-		fields+=MappingField ('|' Transformation)? (',' MappingField ('|' Transformation)?)*
-	'}';
-
+//	
+//	
+//Mapping returns Mapping:
+//	'mapping' source+=MappingSourceTable '->' target+=MappingTargetTable
+//	('where' '(' where+=BooleanOperationExpression ')')?
+//	'{'
+//		fields+=MappingField ('|' Transformation)? (',' MappingField ('|' Transformation)?)*
+//	'}';
+//
 
 Expression returns Expression:
 	parameterExpression | StringConstantExpression | BooleanConstantExpression | IntegerConstantExpression | InExpression | ConditionalStatement | ParseExpression | FloatConstantExpression | BinaryOperationExpression | BooleanOperationExpression;

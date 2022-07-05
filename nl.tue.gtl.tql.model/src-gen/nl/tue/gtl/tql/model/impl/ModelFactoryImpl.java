@@ -96,6 +96,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			return createColumnExpression();
 		case ModelPackage.BINARY_OPERATOR_EXPRESSION:
 			return createBinaryOperatorExpression();
+		case ModelPackage.SELF_EXPRESSION:
+			return createSelfExpression();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -333,6 +335,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public BinaryOperatorExpression createBinaryOperatorExpression() {
 		BinaryOperatorExpressionImpl binaryOperatorExpression = new BinaryOperatorExpressionImpl();
 		return binaryOperatorExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SelfExpression createSelfExpression() {
+		SelfExpressionImpl selfExpression = new SelfExpressionImpl();
+		return selfExpression;
 	}
 
 	/**

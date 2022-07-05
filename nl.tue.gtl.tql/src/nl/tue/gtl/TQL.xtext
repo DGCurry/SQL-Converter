@@ -41,7 +41,7 @@ Mapping returns Mapping:
 ;
 
 Mapped_Column returns MappedColumn: 
-	source=[Column|EString] ':' target=[Column|EString] ( '|' transformationCalls+=Transformation_Call)*
+	target=[Column|EString] ':' source=[Column|EString] ( '|' transformationCalls+=Transformation_Call)*
 ; 
 
 Transformation_Call returns TransformationCall: 
@@ -63,21 +63,22 @@ Constant_Call_Parameter returns ConstantCallParameter: parameter=Constant;
 Reference_Call_Parameter returns ReferenceCallParameter: reference=[Column|EString];
 
 // Expressions
-Expression returns Expression : And;
-And returns Expression: Or ({And.left = current} operator=AndOperator right = Or)*;
-Or returns Expression: Equals ({Or.left = current} operator=OrOperator right = Equals)*;
-Equals returns Expression: NotEquals ({Equals.left = current} operator=EqualsOperator right = NotEquals)*;
-NotEquals returns Expression: Less ({NotEquals.left = current} operator=NotEqualsOperator right = Less)*;
-Less returns Expression: Greater ({Less.left = current} operator=LessOperator right = Greater)*;
-Greater returns Expression: Multiply ({Greater.left = current} operator=GreaterOperator right = Multiply)*;
-Multiply returns Expression: Divide ({Multiply.left = current} operator=MultiplyOperator right = Divide)*;
-Divide returns Expression: Add ({Divide.left = current} operator=DivideOperator right = Add)*;
-Add returns Expression: Subtract ({Add.left = current} operator=AddOperator right = Subtract)*;
-Subtract returns Expression: Literals ({Subtract.left = current} operator=SubtractOperator right = Literals)*;
+Expression returns Expression : And_Expression;
+And_Expression returns Expression: Or_Expression ({And_Expression.left = current} operator=AndOperator right = Or_Expression)*;
+Or_Expression returns Expression: Equals_Expression ({Or_Expression.left = current} operator=OrOperator right = Equals_Expression)*;
+Equals_Expression returns Expression: NotEquals_Expression ({Equals_Expression.left = current} operator=EqualsOperator right = NotEquals_Expression)*;
+NotEquals_Expression returns Expression: Less_Expression ({NotEquals_Expression.left = current} operator=NotEqualsOperator right = Less_Expression)*;
+Less_Expression returns Expression: Greater_Expression ({Less_Expression.left = current} operator=LessOperator right = Greater_Expression)*;
+Greater_Expression returns Expression: Multiply_Expression ({Greater_Expression.left = current} operator=GreaterOperator right = Multiply_Expression)*;
+Multiply_Expression returns Expression: Divide_Expression ({Multiply_Expression.left = current} operator=MultiplyOperator right = Divide_Expression)*;
+Divide_Expression returns Expression: Add_Expression ({Divide_Expression.left = current} operator=DivideOperator right = Add_Expression)*;
+Add_Expression returns Expression: Subtract_Expression ({Add_Expression.left = current} operator=AddOperator right = Subtract_Expression)*;
+Subtract_Expression returns Expression: Literal_Expression ({Subtract_Expression.left = current} operator=SubtractOperator right = Literal_Expression)*;
 
-Literals returns Expression: Constant | Parameter_Expression; //| Column_Expression TODO for when statement
+Literal_Expression returns Expression: Constant | Parameter_Expression | Self_Expression; //| Column_Expression TODO for when statement
 Column_Expression returns ColumnExpression: column=[Column|EString];
 Parameter_Expression returns ParameterExpression: parameter=[Parameter|EString];
+Self_Expression returns SelfExpression: {SelfExpression} 'self';
 
 // Constants
 Constant returns Constant: Single_Constant | Set_Constant;

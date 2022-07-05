@@ -1082,6 +1082,34 @@ public interface ModelPackage extends EPackage {
 	int BINARY_OPERATOR_EXPRESSION_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link nl.tue.gtl.tql.model.impl.SelfExpressionImpl <em>Self Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nl.tue.gtl.tql.model.impl.SelfExpressionImpl
+	 * @see nl.tue.gtl.tql.model.impl.ModelPackageImpl#getSelfExpression()
+	 * @generated
+	 */
+	int SELF_EXPRESSION = 25;
+
+	/**
+	 * The number of structural features of the '<em>Self Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELF_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Self Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELF_EXPRESSION_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link nl.tue.gtl.tql.model.Type <em>Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1089,7 +1117,7 @@ public interface ModelPackage extends EPackage {
 	 * @see nl.tue.gtl.tql.model.impl.ModelPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 25;
+	int TYPE = 26;
 
 	/**
 	 * The meta object id for the '{@link nl.tue.gtl.tql.model.Operator <em>Operator</em>}' enum.
@@ -1099,7 +1127,7 @@ public interface ModelPackage extends EPackage {
 	 * @see nl.tue.gtl.tql.model.impl.ModelPackageImpl#getOperator()
 	 * @generated
 	 */
-	int OPERATOR = 26;
+	int OPERATOR = 27;
 
 	/**
 	 * Returns the meta object for class '{@link nl.tue.gtl.tql.model.Table <em>Table</em>}'.
@@ -1704,6 +1732,16 @@ public interface ModelPackage extends EPackage {
 	EReference getBinaryOperatorExpression_Right();
 
 	/**
+	 * Returns the meta object for class '{@link nl.tue.gtl.tql.model.SelfExpression <em>Self Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Self Expression</em>'.
+	 * @see nl.tue.gtl.tql.model.SelfExpression
+	 * @generated
+	 */
+	EClass getSelfExpression();
+
+	/**
 	 * Returns the meta object for enum '{@link nl.tue.gtl.tql.model.Type <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2251,6 +2289,16 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BINARY_OPERATOR_EXPRESSION__RIGHT = eINSTANCE.getBinaryOperatorExpression_Right();
+
+		/**
+		 * The meta object literal for the '{@link nl.tue.gtl.tql.model.impl.SelfExpressionImpl <em>Self Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nl.tue.gtl.tql.model.impl.SelfExpressionImpl
+		 * @see nl.tue.gtl.tql.model.impl.ModelPackageImpl#getSelfExpression()
+		 * @generated
+		 */
+		EClass SELF_EXPRESSION = eINSTANCE.getSelfExpression();
 
 		/**
 		 * The meta object literal for the '{@link nl.tue.gtl.tql.model.Type <em>Type</em>}' enum.

@@ -82,83 +82,83 @@ public class DomainmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainmodelPackage.AND:
+      case DomainmodelPackage.AND_EXPRESSION:
       {
-        And and = (And)theEObject;
-        T result = caseAnd(and);
-        if (result == null) result = caseExpression(and);
+        And_Expression and_Expression = (And_Expression)theEObject;
+        T result = caseAnd_Expression(and_Expression);
+        if (result == null) result = caseExpression(and_Expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainmodelPackage.OR:
+      case DomainmodelPackage.OR_EXPRESSION:
       {
-        Or or = (Or)theEObject;
-        T result = caseOr(or);
-        if (result == null) result = caseExpression(or);
+        Or_Expression or_Expression = (Or_Expression)theEObject;
+        T result = caseOr_Expression(or_Expression);
+        if (result == null) result = caseExpression(or_Expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainmodelPackage.EQUALS:
+      case DomainmodelPackage.EQUALS_EXPRESSION:
       {
-        Equals equals = (Equals)theEObject;
-        T result = caseEquals(equals);
-        if (result == null) result = caseExpression(equals);
+        Equals_Expression equals_Expression = (Equals_Expression)theEObject;
+        T result = caseEquals_Expression(equals_Expression);
+        if (result == null) result = caseExpression(equals_Expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainmodelPackage.NOT_EQUALS:
+      case DomainmodelPackage.NOT_EQUALS_EXPRESSION:
       {
-        NotEquals notEquals = (NotEquals)theEObject;
-        T result = caseNotEquals(notEquals);
-        if (result == null) result = caseExpression(notEquals);
+        NotEquals_Expression notEquals_Expression = (NotEquals_Expression)theEObject;
+        T result = caseNotEquals_Expression(notEquals_Expression);
+        if (result == null) result = caseExpression(notEquals_Expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainmodelPackage.LESS:
+      case DomainmodelPackage.LESS_EXPRESSION:
       {
-        Less less = (Less)theEObject;
-        T result = caseLess(less);
-        if (result == null) result = caseExpression(less);
+        Less_Expression less_Expression = (Less_Expression)theEObject;
+        T result = caseLess_Expression(less_Expression);
+        if (result == null) result = caseExpression(less_Expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainmodelPackage.GREATER:
+      case DomainmodelPackage.GREATER_EXPRESSION:
       {
-        Greater greater = (Greater)theEObject;
-        T result = caseGreater(greater);
-        if (result == null) result = caseExpression(greater);
+        Greater_Expression greater_Expression = (Greater_Expression)theEObject;
+        T result = caseGreater_Expression(greater_Expression);
+        if (result == null) result = caseExpression(greater_Expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainmodelPackage.MULTIPLY:
+      case DomainmodelPackage.MULTIPLY_EXPRESSION:
       {
-        Multiply multiply = (Multiply)theEObject;
-        T result = caseMultiply(multiply);
-        if (result == null) result = caseExpression(multiply);
+        Multiply_Expression multiply_Expression = (Multiply_Expression)theEObject;
+        T result = caseMultiply_Expression(multiply_Expression);
+        if (result == null) result = caseExpression(multiply_Expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainmodelPackage.DIVIDE:
+      case DomainmodelPackage.DIVIDE_EXPRESSION:
       {
-        Divide divide = (Divide)theEObject;
-        T result = caseDivide(divide);
-        if (result == null) result = caseExpression(divide);
+        Divide_Expression divide_Expression = (Divide_Expression)theEObject;
+        T result = caseDivide_Expression(divide_Expression);
+        if (result == null) result = caseExpression(divide_Expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainmodelPackage.ADD:
+      case DomainmodelPackage.ADD_EXPRESSION:
       {
-        Add add = (Add)theEObject;
-        T result = caseAdd(add);
-        if (result == null) result = caseExpression(add);
+        Add_Expression add_Expression = (Add_Expression)theEObject;
+        T result = caseAdd_Expression(add_Expression);
+        if (result == null) result = caseExpression(add_Expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainmodelPackage.SUBTRACT:
+      case DomainmodelPackage.SUBTRACT_EXPRESSION:
       {
-        Subtract subtract = (Subtract)theEObject;
-        T result = caseSubtract(subtract);
-        if (result == null) result = caseExpression(subtract);
+        Subtract_Expression subtract_Expression = (Subtract_Expression)theEObject;
+        T result = caseSubtract_Expression(subtract_Expression);
+        if (result == null) result = caseExpression(subtract_Expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -183,161 +183,161 @@ public class DomainmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>And</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>And Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>And</em>'.
+   * @return the result of interpreting the object as an instance of '<em>And Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAnd(And object)
+  public T caseAnd_Expression(And_Expression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Or</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Or Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Or</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Or Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseOr(Or object)
+  public T caseOr_Expression(Or_Expression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Equals</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Equals Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Equals</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Equals Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEquals(Equals object)
+  public T caseEquals_Expression(Equals_Expression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Not Equals</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Not Equals Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Not Equals</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Not Equals Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNotEquals(NotEquals object)
+  public T caseNotEquals_Expression(NotEquals_Expression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Less</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Less Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Less</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Less Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseLess(Less object)
+  public T caseLess_Expression(Less_Expression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Greater</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Greater Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Greater</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Greater Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseGreater(Greater object)
+  public T caseGreater_Expression(Greater_Expression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Multiply</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Multiply Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Multiply</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Multiply Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMultiply(Multiply object)
+  public T caseMultiply_Expression(Multiply_Expression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Divide</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Divide Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Divide</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Divide Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDivide(Divide object)
+  public T caseDivide_Expression(Divide_Expression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Add</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Add Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Add</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Add Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAdd(Add object)
+  public T caseAdd_Expression(Add_Expression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Subtract</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Subtract Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Subtract</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Subtract Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSubtract(Subtract object)
+  public T caseSubtract_Expression(Subtract_Expression object)
   {
     return null;
   }

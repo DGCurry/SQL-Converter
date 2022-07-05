@@ -88,14 +88,14 @@ public interface DomainmodelPackage extends EPackage
   int TQL_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.AndImpl <em>And</em>}' class.
+   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.And_ExpressionImpl <em>And Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see nl.tue.gtl.domainmodel.impl.AndImpl
-   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getAnd()
+   * @see nl.tue.gtl.domainmodel.impl.And_ExpressionImpl
+   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getAnd_Expression()
    * @generated
    */
-  int AND = 1;
+  int AND_EXPRESSION = 1;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -104,7 +104,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AND__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
+  int AND_EXPRESSION__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -113,7 +113,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AND__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
+  int AND_EXPRESSION__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -122,26 +122,26 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AND__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
+  int AND_EXPRESSION__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>And</em>' class.
+   * The number of structural features of the '<em>And Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
+  int AND_EXPRESSION_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.OrImpl <em>Or</em>}' class.
+   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.Or_ExpressionImpl <em>Or Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see nl.tue.gtl.domainmodel.impl.OrImpl
-   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getOr()
+   * @see nl.tue.gtl.domainmodel.impl.Or_ExpressionImpl
+   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getOr_Expression()
    * @generated
    */
-  int OR = 2;
+  int OR_EXPRESSION = 2;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -150,7 +150,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OR__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
+  int OR_EXPRESSION__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -159,7 +159,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OR__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
+  int OR_EXPRESSION__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -168,26 +168,26 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OR__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
+  int OR_EXPRESSION__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Or</em>' class.
+   * The number of structural features of the '<em>Or Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OR_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
+  int OR_EXPRESSION_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.EqualsImpl <em>Equals</em>}' class.
+   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.Equals_ExpressionImpl <em>Equals Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see nl.tue.gtl.domainmodel.impl.EqualsImpl
-   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getEquals()
+   * @see nl.tue.gtl.domainmodel.impl.Equals_ExpressionImpl
+   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getEquals_Expression()
    * @generated
    */
-  int EQUALS = 3;
+  int EQUALS_EXPRESSION = 3;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -196,7 +196,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EQUALS__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
+  int EQUALS_EXPRESSION__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -205,7 +205,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EQUALS__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
+  int EQUALS_EXPRESSION__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -214,26 +214,26 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EQUALS__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
+  int EQUALS_EXPRESSION__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Equals</em>' class.
+   * The number of structural features of the '<em>Equals Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUALS_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
+  int EQUALS_EXPRESSION_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.NotEqualsImpl <em>Not Equals</em>}' class.
+   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.NotEquals_ExpressionImpl <em>Not Equals Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see nl.tue.gtl.domainmodel.impl.NotEqualsImpl
-   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getNotEquals()
+   * @see nl.tue.gtl.domainmodel.impl.NotEquals_ExpressionImpl
+   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getNotEquals_Expression()
    * @generated
    */
-  int NOT_EQUALS = 4;
+  int NOT_EQUALS_EXPRESSION = 4;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -242,7 +242,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NOT_EQUALS__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
+  int NOT_EQUALS_EXPRESSION__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -251,7 +251,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NOT_EQUALS__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
+  int NOT_EQUALS_EXPRESSION__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -260,26 +260,26 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NOT_EQUALS__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
+  int NOT_EQUALS_EXPRESSION__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Not Equals</em>' class.
+   * The number of structural features of the '<em>Not Equals Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NOT_EQUALS_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
+  int NOT_EQUALS_EXPRESSION_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.LessImpl <em>Less</em>}' class.
+   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.Less_ExpressionImpl <em>Less Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see nl.tue.gtl.domainmodel.impl.LessImpl
-   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getLess()
+   * @see nl.tue.gtl.domainmodel.impl.Less_ExpressionImpl
+   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getLess_Expression()
    * @generated
    */
-  int LESS = 5;
+  int LESS_EXPRESSION = 5;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -288,7 +288,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LESS__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
+  int LESS_EXPRESSION__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -297,7 +297,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LESS__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
+  int LESS_EXPRESSION__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -306,26 +306,26 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LESS__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
+  int LESS_EXPRESSION__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Less</em>' class.
+   * The number of structural features of the '<em>Less Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LESS_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
+  int LESS_EXPRESSION_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.GreaterImpl <em>Greater</em>}' class.
+   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.Greater_ExpressionImpl <em>Greater Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see nl.tue.gtl.domainmodel.impl.GreaterImpl
-   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getGreater()
+   * @see nl.tue.gtl.domainmodel.impl.Greater_ExpressionImpl
+   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getGreater_Expression()
    * @generated
    */
-  int GREATER = 6;
+  int GREATER_EXPRESSION = 6;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -334,7 +334,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GREATER__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
+  int GREATER_EXPRESSION__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -343,7 +343,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GREATER__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
+  int GREATER_EXPRESSION__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -352,26 +352,26 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GREATER__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
+  int GREATER_EXPRESSION__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Greater</em>' class.
+   * The number of structural features of the '<em>Greater Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GREATER_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
+  int GREATER_EXPRESSION_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.MultiplyImpl <em>Multiply</em>}' class.
+   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.Multiply_ExpressionImpl <em>Multiply Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see nl.tue.gtl.domainmodel.impl.MultiplyImpl
-   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getMultiply()
+   * @see nl.tue.gtl.domainmodel.impl.Multiply_ExpressionImpl
+   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getMultiply_Expression()
    * @generated
    */
-  int MULTIPLY = 7;
+  int MULTIPLY_EXPRESSION = 7;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -380,7 +380,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MULTIPLY__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
+  int MULTIPLY_EXPRESSION__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -389,7 +389,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MULTIPLY__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
+  int MULTIPLY_EXPRESSION__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -398,26 +398,26 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MULTIPLY__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
+  int MULTIPLY_EXPRESSION__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Multiply</em>' class.
+   * The number of structural features of the '<em>Multiply Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MULTIPLY_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
+  int MULTIPLY_EXPRESSION_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.DivideImpl <em>Divide</em>}' class.
+   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.Divide_ExpressionImpl <em>Divide Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see nl.tue.gtl.domainmodel.impl.DivideImpl
-   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getDivide()
+   * @see nl.tue.gtl.domainmodel.impl.Divide_ExpressionImpl
+   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getDivide_Expression()
    * @generated
    */
-  int DIVIDE = 8;
+  int DIVIDE_EXPRESSION = 8;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -426,7 +426,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIVIDE__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
+  int DIVIDE_EXPRESSION__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -435,7 +435,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIVIDE__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
+  int DIVIDE_EXPRESSION__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -444,26 +444,26 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIVIDE__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
+  int DIVIDE_EXPRESSION__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Divide</em>' class.
+   * The number of structural features of the '<em>Divide Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DIVIDE_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
+  int DIVIDE_EXPRESSION_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.AddImpl <em>Add</em>}' class.
+   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.Add_ExpressionImpl <em>Add Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see nl.tue.gtl.domainmodel.impl.AddImpl
-   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getAdd()
+   * @see nl.tue.gtl.domainmodel.impl.Add_ExpressionImpl
+   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getAdd_Expression()
    * @generated
    */
-  int ADD = 9;
+  int ADD_EXPRESSION = 9;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -472,7 +472,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
+  int ADD_EXPRESSION__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -481,7 +481,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
+  int ADD_EXPRESSION__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -490,26 +490,26 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
+  int ADD_EXPRESSION__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Add</em>' class.
+   * The number of structural features of the '<em>Add Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADD_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
+  int ADD_EXPRESSION_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.SubtractImpl <em>Subtract</em>}' class.
+   * The meta object id for the '{@link nl.tue.gtl.domainmodel.impl.Subtract_ExpressionImpl <em>Subtract Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see nl.tue.gtl.domainmodel.impl.SubtractImpl
-   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getSubtract()
+   * @see nl.tue.gtl.domainmodel.impl.Subtract_ExpressionImpl
+   * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getSubtract_Expression()
    * @generated
    */
-  int SUBTRACT = 10;
+  int SUBTRACT_EXPRESSION = 10;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -518,7 +518,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SUBTRACT__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
+  int SUBTRACT_EXPRESSION__LEFT = ModelPackage.EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -527,7 +527,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SUBTRACT__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
+  int SUBTRACT_EXPRESSION__OPERATOR = ModelPackage.EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -536,16 +536,16 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SUBTRACT__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
+  int SUBTRACT_EXPRESSION__RIGHT = ModelPackage.EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Subtract</em>' class.
+   * The number of structural features of the '<em>Subtract Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SUBTRACT_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
+  int SUBTRACT_EXPRESSION_FEATURE_COUNT = ModelPackage.EXPRESSION_FEATURE_COUNT + 3;
 
 
   /**
@@ -570,434 +570,434 @@ public interface DomainmodelPackage extends EPackage
   EReference getTQL_Blocks();
 
   /**
-   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.And <em>And</em>}'.
+   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.And_Expression <em>And Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>And</em>'.
-   * @see nl.tue.gtl.domainmodel.And
+   * @return the meta object for class '<em>And Expression</em>'.
+   * @see nl.tue.gtl.domainmodel.And_Expression
    * @generated
    */
-  EClass getAnd();
+  EClass getAnd_Expression();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.And#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.And_Expression#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see nl.tue.gtl.domainmodel.And#getLeft()
-   * @see #getAnd()
+   * @see nl.tue.gtl.domainmodel.And_Expression#getLeft()
+   * @see #getAnd_Expression()
    * @generated
    */
-  EReference getAnd_Left();
+  EReference getAnd_Expression_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.And#getOperator <em>Operator</em>}'.
+   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.And_Expression#getOperator <em>Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see nl.tue.gtl.domainmodel.And#getOperator()
-   * @see #getAnd()
+   * @see nl.tue.gtl.domainmodel.And_Expression#getOperator()
+   * @see #getAnd_Expression()
    * @generated
    */
-  EAttribute getAnd_Operator();
+  EAttribute getAnd_Expression_Operator();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.And#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.And_Expression#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see nl.tue.gtl.domainmodel.And#getRight()
-   * @see #getAnd()
+   * @see nl.tue.gtl.domainmodel.And_Expression#getRight()
+   * @see #getAnd_Expression()
    * @generated
    */
-  EReference getAnd_Right();
+  EReference getAnd_Expression_Right();
 
   /**
-   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.Or <em>Or</em>}'.
+   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.Or_Expression <em>Or Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Or</em>'.
-   * @see nl.tue.gtl.domainmodel.Or
+   * @return the meta object for class '<em>Or Expression</em>'.
+   * @see nl.tue.gtl.domainmodel.Or_Expression
    * @generated
    */
-  EClass getOr();
+  EClass getOr_Expression();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Or#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Or_Expression#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see nl.tue.gtl.domainmodel.Or#getLeft()
-   * @see #getOr()
+   * @see nl.tue.gtl.domainmodel.Or_Expression#getLeft()
+   * @see #getOr_Expression()
    * @generated
    */
-  EReference getOr_Left();
+  EReference getOr_Expression_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.Or#getOperator <em>Operator</em>}'.
+   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.Or_Expression#getOperator <em>Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see nl.tue.gtl.domainmodel.Or#getOperator()
-   * @see #getOr()
+   * @see nl.tue.gtl.domainmodel.Or_Expression#getOperator()
+   * @see #getOr_Expression()
    * @generated
    */
-  EAttribute getOr_Operator();
+  EAttribute getOr_Expression_Operator();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Or#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Or_Expression#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see nl.tue.gtl.domainmodel.Or#getRight()
-   * @see #getOr()
+   * @see nl.tue.gtl.domainmodel.Or_Expression#getRight()
+   * @see #getOr_Expression()
    * @generated
    */
-  EReference getOr_Right();
+  EReference getOr_Expression_Right();
 
   /**
-   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.Equals <em>Equals</em>}'.
+   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.Equals_Expression <em>Equals Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Equals</em>'.
-   * @see nl.tue.gtl.domainmodel.Equals
+   * @return the meta object for class '<em>Equals Expression</em>'.
+   * @see nl.tue.gtl.domainmodel.Equals_Expression
    * @generated
    */
-  EClass getEquals();
+  EClass getEquals_Expression();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Equals#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Equals_Expression#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see nl.tue.gtl.domainmodel.Equals#getLeft()
-   * @see #getEquals()
+   * @see nl.tue.gtl.domainmodel.Equals_Expression#getLeft()
+   * @see #getEquals_Expression()
    * @generated
    */
-  EReference getEquals_Left();
+  EReference getEquals_Expression_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.Equals#getOperator <em>Operator</em>}'.
+   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.Equals_Expression#getOperator <em>Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see nl.tue.gtl.domainmodel.Equals#getOperator()
-   * @see #getEquals()
+   * @see nl.tue.gtl.domainmodel.Equals_Expression#getOperator()
+   * @see #getEquals_Expression()
    * @generated
    */
-  EAttribute getEquals_Operator();
+  EAttribute getEquals_Expression_Operator();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Equals#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Equals_Expression#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see nl.tue.gtl.domainmodel.Equals#getRight()
-   * @see #getEquals()
+   * @see nl.tue.gtl.domainmodel.Equals_Expression#getRight()
+   * @see #getEquals_Expression()
    * @generated
    */
-  EReference getEquals_Right();
+  EReference getEquals_Expression_Right();
 
   /**
-   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.NotEquals <em>Not Equals</em>}'.
+   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.NotEquals_Expression <em>Not Equals Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Not Equals</em>'.
-   * @see nl.tue.gtl.domainmodel.NotEquals
+   * @return the meta object for class '<em>Not Equals Expression</em>'.
+   * @see nl.tue.gtl.domainmodel.NotEquals_Expression
    * @generated
    */
-  EClass getNotEquals();
+  EClass getNotEquals_Expression();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.NotEquals#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.NotEquals_Expression#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see nl.tue.gtl.domainmodel.NotEquals#getLeft()
-   * @see #getNotEquals()
+   * @see nl.tue.gtl.domainmodel.NotEquals_Expression#getLeft()
+   * @see #getNotEquals_Expression()
    * @generated
    */
-  EReference getNotEquals_Left();
+  EReference getNotEquals_Expression_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.NotEquals#getOperator <em>Operator</em>}'.
+   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.NotEquals_Expression#getOperator <em>Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see nl.tue.gtl.domainmodel.NotEquals#getOperator()
-   * @see #getNotEquals()
+   * @see nl.tue.gtl.domainmodel.NotEquals_Expression#getOperator()
+   * @see #getNotEquals_Expression()
    * @generated
    */
-  EAttribute getNotEquals_Operator();
+  EAttribute getNotEquals_Expression_Operator();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.NotEquals#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.NotEquals_Expression#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see nl.tue.gtl.domainmodel.NotEquals#getRight()
-   * @see #getNotEquals()
+   * @see nl.tue.gtl.domainmodel.NotEquals_Expression#getRight()
+   * @see #getNotEquals_Expression()
    * @generated
    */
-  EReference getNotEquals_Right();
+  EReference getNotEquals_Expression_Right();
 
   /**
-   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.Less <em>Less</em>}'.
+   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.Less_Expression <em>Less Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Less</em>'.
-   * @see nl.tue.gtl.domainmodel.Less
+   * @return the meta object for class '<em>Less Expression</em>'.
+   * @see nl.tue.gtl.domainmodel.Less_Expression
    * @generated
    */
-  EClass getLess();
+  EClass getLess_Expression();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Less#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Less_Expression#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see nl.tue.gtl.domainmodel.Less#getLeft()
-   * @see #getLess()
+   * @see nl.tue.gtl.domainmodel.Less_Expression#getLeft()
+   * @see #getLess_Expression()
    * @generated
    */
-  EReference getLess_Left();
+  EReference getLess_Expression_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.Less#getOperator <em>Operator</em>}'.
+   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.Less_Expression#getOperator <em>Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see nl.tue.gtl.domainmodel.Less#getOperator()
-   * @see #getLess()
+   * @see nl.tue.gtl.domainmodel.Less_Expression#getOperator()
+   * @see #getLess_Expression()
    * @generated
    */
-  EAttribute getLess_Operator();
+  EAttribute getLess_Expression_Operator();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Less#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Less_Expression#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see nl.tue.gtl.domainmodel.Less#getRight()
-   * @see #getLess()
+   * @see nl.tue.gtl.domainmodel.Less_Expression#getRight()
+   * @see #getLess_Expression()
    * @generated
    */
-  EReference getLess_Right();
+  EReference getLess_Expression_Right();
 
   /**
-   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.Greater <em>Greater</em>}'.
+   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.Greater_Expression <em>Greater Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Greater</em>'.
-   * @see nl.tue.gtl.domainmodel.Greater
+   * @return the meta object for class '<em>Greater Expression</em>'.
+   * @see nl.tue.gtl.domainmodel.Greater_Expression
    * @generated
    */
-  EClass getGreater();
+  EClass getGreater_Expression();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Greater#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Greater_Expression#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see nl.tue.gtl.domainmodel.Greater#getLeft()
-   * @see #getGreater()
+   * @see nl.tue.gtl.domainmodel.Greater_Expression#getLeft()
+   * @see #getGreater_Expression()
    * @generated
    */
-  EReference getGreater_Left();
+  EReference getGreater_Expression_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.Greater#getOperator <em>Operator</em>}'.
+   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.Greater_Expression#getOperator <em>Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see nl.tue.gtl.domainmodel.Greater#getOperator()
-   * @see #getGreater()
+   * @see nl.tue.gtl.domainmodel.Greater_Expression#getOperator()
+   * @see #getGreater_Expression()
    * @generated
    */
-  EAttribute getGreater_Operator();
+  EAttribute getGreater_Expression_Operator();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Greater#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Greater_Expression#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see nl.tue.gtl.domainmodel.Greater#getRight()
-   * @see #getGreater()
+   * @see nl.tue.gtl.domainmodel.Greater_Expression#getRight()
+   * @see #getGreater_Expression()
    * @generated
    */
-  EReference getGreater_Right();
+  EReference getGreater_Expression_Right();
 
   /**
-   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.Multiply <em>Multiply</em>}'.
+   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.Multiply_Expression <em>Multiply Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Multiply</em>'.
-   * @see nl.tue.gtl.domainmodel.Multiply
+   * @return the meta object for class '<em>Multiply Expression</em>'.
+   * @see nl.tue.gtl.domainmodel.Multiply_Expression
    * @generated
    */
-  EClass getMultiply();
+  EClass getMultiply_Expression();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Multiply#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Multiply_Expression#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see nl.tue.gtl.domainmodel.Multiply#getLeft()
-   * @see #getMultiply()
+   * @see nl.tue.gtl.domainmodel.Multiply_Expression#getLeft()
+   * @see #getMultiply_Expression()
    * @generated
    */
-  EReference getMultiply_Left();
+  EReference getMultiply_Expression_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.Multiply#getOperator <em>Operator</em>}'.
+   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.Multiply_Expression#getOperator <em>Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see nl.tue.gtl.domainmodel.Multiply#getOperator()
-   * @see #getMultiply()
+   * @see nl.tue.gtl.domainmodel.Multiply_Expression#getOperator()
+   * @see #getMultiply_Expression()
    * @generated
    */
-  EAttribute getMultiply_Operator();
+  EAttribute getMultiply_Expression_Operator();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Multiply#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Multiply_Expression#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see nl.tue.gtl.domainmodel.Multiply#getRight()
-   * @see #getMultiply()
+   * @see nl.tue.gtl.domainmodel.Multiply_Expression#getRight()
+   * @see #getMultiply_Expression()
    * @generated
    */
-  EReference getMultiply_Right();
+  EReference getMultiply_Expression_Right();
 
   /**
-   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.Divide <em>Divide</em>}'.
+   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.Divide_Expression <em>Divide Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Divide</em>'.
-   * @see nl.tue.gtl.domainmodel.Divide
+   * @return the meta object for class '<em>Divide Expression</em>'.
+   * @see nl.tue.gtl.domainmodel.Divide_Expression
    * @generated
    */
-  EClass getDivide();
+  EClass getDivide_Expression();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Divide#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Divide_Expression#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see nl.tue.gtl.domainmodel.Divide#getLeft()
-   * @see #getDivide()
+   * @see nl.tue.gtl.domainmodel.Divide_Expression#getLeft()
+   * @see #getDivide_Expression()
    * @generated
    */
-  EReference getDivide_Left();
+  EReference getDivide_Expression_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.Divide#getOperator <em>Operator</em>}'.
+   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.Divide_Expression#getOperator <em>Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see nl.tue.gtl.domainmodel.Divide#getOperator()
-   * @see #getDivide()
+   * @see nl.tue.gtl.domainmodel.Divide_Expression#getOperator()
+   * @see #getDivide_Expression()
    * @generated
    */
-  EAttribute getDivide_Operator();
+  EAttribute getDivide_Expression_Operator();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Divide#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Divide_Expression#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see nl.tue.gtl.domainmodel.Divide#getRight()
-   * @see #getDivide()
+   * @see nl.tue.gtl.domainmodel.Divide_Expression#getRight()
+   * @see #getDivide_Expression()
    * @generated
    */
-  EReference getDivide_Right();
+  EReference getDivide_Expression_Right();
 
   /**
-   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.Add <em>Add</em>}'.
+   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.Add_Expression <em>Add Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Add</em>'.
-   * @see nl.tue.gtl.domainmodel.Add
+   * @return the meta object for class '<em>Add Expression</em>'.
+   * @see nl.tue.gtl.domainmodel.Add_Expression
    * @generated
    */
-  EClass getAdd();
+  EClass getAdd_Expression();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Add#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Add_Expression#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see nl.tue.gtl.domainmodel.Add#getLeft()
-   * @see #getAdd()
+   * @see nl.tue.gtl.domainmodel.Add_Expression#getLeft()
+   * @see #getAdd_Expression()
    * @generated
    */
-  EReference getAdd_Left();
+  EReference getAdd_Expression_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.Add#getOperator <em>Operator</em>}'.
+   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.Add_Expression#getOperator <em>Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see nl.tue.gtl.domainmodel.Add#getOperator()
-   * @see #getAdd()
+   * @see nl.tue.gtl.domainmodel.Add_Expression#getOperator()
+   * @see #getAdd_Expression()
    * @generated
    */
-  EAttribute getAdd_Operator();
+  EAttribute getAdd_Expression_Operator();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Add#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Add_Expression#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see nl.tue.gtl.domainmodel.Add#getRight()
-   * @see #getAdd()
+   * @see nl.tue.gtl.domainmodel.Add_Expression#getRight()
+   * @see #getAdd_Expression()
    * @generated
    */
-  EReference getAdd_Right();
+  EReference getAdd_Expression_Right();
 
   /**
-   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.Subtract <em>Subtract</em>}'.
+   * Returns the meta object for class '{@link nl.tue.gtl.domainmodel.Subtract_Expression <em>Subtract Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Subtract</em>'.
-   * @see nl.tue.gtl.domainmodel.Subtract
+   * @return the meta object for class '<em>Subtract Expression</em>'.
+   * @see nl.tue.gtl.domainmodel.Subtract_Expression
    * @generated
    */
-  EClass getSubtract();
+  EClass getSubtract_Expression();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Subtract#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Subtract_Expression#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see nl.tue.gtl.domainmodel.Subtract#getLeft()
-   * @see #getSubtract()
+   * @see nl.tue.gtl.domainmodel.Subtract_Expression#getLeft()
+   * @see #getSubtract_Expression()
    * @generated
    */
-  EReference getSubtract_Left();
+  EReference getSubtract_Expression_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.Subtract#getOperator <em>Operator</em>}'.
+   * Returns the meta object for the attribute '{@link nl.tue.gtl.domainmodel.Subtract_Expression#getOperator <em>Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see nl.tue.gtl.domainmodel.Subtract#getOperator()
-   * @see #getSubtract()
+   * @see nl.tue.gtl.domainmodel.Subtract_Expression#getOperator()
+   * @see #getSubtract_Expression()
    * @generated
    */
-  EAttribute getSubtract_Operator();
+  EAttribute getSubtract_Expression_Operator();
 
   /**
-   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Subtract#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link nl.tue.gtl.domainmodel.Subtract_Expression#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see nl.tue.gtl.domainmodel.Subtract#getRight()
-   * @see #getSubtract()
+   * @see nl.tue.gtl.domainmodel.Subtract_Expression#getRight()
+   * @see #getSubtract_Expression()
    * @generated
    */
-  EReference getSubtract_Right();
+  EReference getSubtract_Expression_Right();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1041,14 +1041,14 @@ public interface DomainmodelPackage extends EPackage
     EReference TQL__BLOCKS = eINSTANCE.getTQL_Blocks();
 
     /**
-     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.AndImpl <em>And</em>}' class.
+     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.And_ExpressionImpl <em>And Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see nl.tue.gtl.domainmodel.impl.AndImpl
-     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getAnd()
+     * @see nl.tue.gtl.domainmodel.impl.And_ExpressionImpl
+     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getAnd_Expression()
      * @generated
      */
-    EClass AND = eINSTANCE.getAnd();
+    EClass AND_EXPRESSION = eINSTANCE.getAnd_Expression();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -1056,7 +1056,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference AND__LEFT = eINSTANCE.getAnd_Left();
+    EReference AND_EXPRESSION__LEFT = eINSTANCE.getAnd_Expression_Left();
 
     /**
      * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
@@ -1064,7 +1064,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute AND__OPERATOR = eINSTANCE.getAnd_Operator();
+    EAttribute AND_EXPRESSION__OPERATOR = eINSTANCE.getAnd_Expression_Operator();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1072,17 +1072,17 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference AND__RIGHT = eINSTANCE.getAnd_Right();
+    EReference AND_EXPRESSION__RIGHT = eINSTANCE.getAnd_Expression_Right();
 
     /**
-     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.OrImpl <em>Or</em>}' class.
+     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.Or_ExpressionImpl <em>Or Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see nl.tue.gtl.domainmodel.impl.OrImpl
-     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getOr()
+     * @see nl.tue.gtl.domainmodel.impl.Or_ExpressionImpl
+     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getOr_Expression()
      * @generated
      */
-    EClass OR = eINSTANCE.getOr();
+    EClass OR_EXPRESSION = eINSTANCE.getOr_Expression();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -1090,7 +1090,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference OR__LEFT = eINSTANCE.getOr_Left();
+    EReference OR_EXPRESSION__LEFT = eINSTANCE.getOr_Expression_Left();
 
     /**
      * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
@@ -1098,7 +1098,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OR__OPERATOR = eINSTANCE.getOr_Operator();
+    EAttribute OR_EXPRESSION__OPERATOR = eINSTANCE.getOr_Expression_Operator();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1106,17 +1106,17 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference OR__RIGHT = eINSTANCE.getOr_Right();
+    EReference OR_EXPRESSION__RIGHT = eINSTANCE.getOr_Expression_Right();
 
     /**
-     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.EqualsImpl <em>Equals</em>}' class.
+     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.Equals_ExpressionImpl <em>Equals Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see nl.tue.gtl.domainmodel.impl.EqualsImpl
-     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getEquals()
+     * @see nl.tue.gtl.domainmodel.impl.Equals_ExpressionImpl
+     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getEquals_Expression()
      * @generated
      */
-    EClass EQUALS = eINSTANCE.getEquals();
+    EClass EQUALS_EXPRESSION = eINSTANCE.getEquals_Expression();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -1124,7 +1124,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EQUALS__LEFT = eINSTANCE.getEquals_Left();
+    EReference EQUALS_EXPRESSION__LEFT = eINSTANCE.getEquals_Expression_Left();
 
     /**
      * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
@@ -1132,7 +1132,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EQUALS__OPERATOR = eINSTANCE.getEquals_Operator();
+    EAttribute EQUALS_EXPRESSION__OPERATOR = eINSTANCE.getEquals_Expression_Operator();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1140,17 +1140,17 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EQUALS__RIGHT = eINSTANCE.getEquals_Right();
+    EReference EQUALS_EXPRESSION__RIGHT = eINSTANCE.getEquals_Expression_Right();
 
     /**
-     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.NotEqualsImpl <em>Not Equals</em>}' class.
+     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.NotEquals_ExpressionImpl <em>Not Equals Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see nl.tue.gtl.domainmodel.impl.NotEqualsImpl
-     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getNotEquals()
+     * @see nl.tue.gtl.domainmodel.impl.NotEquals_ExpressionImpl
+     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getNotEquals_Expression()
      * @generated
      */
-    EClass NOT_EQUALS = eINSTANCE.getNotEquals();
+    EClass NOT_EQUALS_EXPRESSION = eINSTANCE.getNotEquals_Expression();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -1158,7 +1158,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference NOT_EQUALS__LEFT = eINSTANCE.getNotEquals_Left();
+    EReference NOT_EQUALS_EXPRESSION__LEFT = eINSTANCE.getNotEquals_Expression_Left();
 
     /**
      * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
@@ -1166,7 +1166,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute NOT_EQUALS__OPERATOR = eINSTANCE.getNotEquals_Operator();
+    EAttribute NOT_EQUALS_EXPRESSION__OPERATOR = eINSTANCE.getNotEquals_Expression_Operator();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1174,17 +1174,17 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference NOT_EQUALS__RIGHT = eINSTANCE.getNotEquals_Right();
+    EReference NOT_EQUALS_EXPRESSION__RIGHT = eINSTANCE.getNotEquals_Expression_Right();
 
     /**
-     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.LessImpl <em>Less</em>}' class.
+     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.Less_ExpressionImpl <em>Less Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see nl.tue.gtl.domainmodel.impl.LessImpl
-     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getLess()
+     * @see nl.tue.gtl.domainmodel.impl.Less_ExpressionImpl
+     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getLess_Expression()
      * @generated
      */
-    EClass LESS = eINSTANCE.getLess();
+    EClass LESS_EXPRESSION = eINSTANCE.getLess_Expression();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -1192,7 +1192,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LESS__LEFT = eINSTANCE.getLess_Left();
+    EReference LESS_EXPRESSION__LEFT = eINSTANCE.getLess_Expression_Left();
 
     /**
      * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
@@ -1200,7 +1200,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LESS__OPERATOR = eINSTANCE.getLess_Operator();
+    EAttribute LESS_EXPRESSION__OPERATOR = eINSTANCE.getLess_Expression_Operator();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1208,17 +1208,17 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LESS__RIGHT = eINSTANCE.getLess_Right();
+    EReference LESS_EXPRESSION__RIGHT = eINSTANCE.getLess_Expression_Right();
 
     /**
-     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.GreaterImpl <em>Greater</em>}' class.
+     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.Greater_ExpressionImpl <em>Greater Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see nl.tue.gtl.domainmodel.impl.GreaterImpl
-     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getGreater()
+     * @see nl.tue.gtl.domainmodel.impl.Greater_ExpressionImpl
+     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getGreater_Expression()
      * @generated
      */
-    EClass GREATER = eINSTANCE.getGreater();
+    EClass GREATER_EXPRESSION = eINSTANCE.getGreater_Expression();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -1226,7 +1226,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference GREATER__LEFT = eINSTANCE.getGreater_Left();
+    EReference GREATER_EXPRESSION__LEFT = eINSTANCE.getGreater_Expression_Left();
 
     /**
      * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
@@ -1234,7 +1234,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GREATER__OPERATOR = eINSTANCE.getGreater_Operator();
+    EAttribute GREATER_EXPRESSION__OPERATOR = eINSTANCE.getGreater_Expression_Operator();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1242,17 +1242,17 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference GREATER__RIGHT = eINSTANCE.getGreater_Right();
+    EReference GREATER_EXPRESSION__RIGHT = eINSTANCE.getGreater_Expression_Right();
 
     /**
-     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.MultiplyImpl <em>Multiply</em>}' class.
+     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.Multiply_ExpressionImpl <em>Multiply Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see nl.tue.gtl.domainmodel.impl.MultiplyImpl
-     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getMultiply()
+     * @see nl.tue.gtl.domainmodel.impl.Multiply_ExpressionImpl
+     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getMultiply_Expression()
      * @generated
      */
-    EClass MULTIPLY = eINSTANCE.getMultiply();
+    EClass MULTIPLY_EXPRESSION = eINSTANCE.getMultiply_Expression();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -1260,7 +1260,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MULTIPLY__LEFT = eINSTANCE.getMultiply_Left();
+    EReference MULTIPLY_EXPRESSION__LEFT = eINSTANCE.getMultiply_Expression_Left();
 
     /**
      * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
@@ -1268,7 +1268,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MULTIPLY__OPERATOR = eINSTANCE.getMultiply_Operator();
+    EAttribute MULTIPLY_EXPRESSION__OPERATOR = eINSTANCE.getMultiply_Expression_Operator();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1276,17 +1276,17 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MULTIPLY__RIGHT = eINSTANCE.getMultiply_Right();
+    EReference MULTIPLY_EXPRESSION__RIGHT = eINSTANCE.getMultiply_Expression_Right();
 
     /**
-     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.DivideImpl <em>Divide</em>}' class.
+     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.Divide_ExpressionImpl <em>Divide Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see nl.tue.gtl.domainmodel.impl.DivideImpl
-     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getDivide()
+     * @see nl.tue.gtl.domainmodel.impl.Divide_ExpressionImpl
+     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getDivide_Expression()
      * @generated
      */
-    EClass DIVIDE = eINSTANCE.getDivide();
+    EClass DIVIDE_EXPRESSION = eINSTANCE.getDivide_Expression();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -1294,7 +1294,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DIVIDE__LEFT = eINSTANCE.getDivide_Left();
+    EReference DIVIDE_EXPRESSION__LEFT = eINSTANCE.getDivide_Expression_Left();
 
     /**
      * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
@@ -1302,7 +1302,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIVIDE__OPERATOR = eINSTANCE.getDivide_Operator();
+    EAttribute DIVIDE_EXPRESSION__OPERATOR = eINSTANCE.getDivide_Expression_Operator();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1310,17 +1310,17 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DIVIDE__RIGHT = eINSTANCE.getDivide_Right();
+    EReference DIVIDE_EXPRESSION__RIGHT = eINSTANCE.getDivide_Expression_Right();
 
     /**
-     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.AddImpl <em>Add</em>}' class.
+     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.Add_ExpressionImpl <em>Add Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see nl.tue.gtl.domainmodel.impl.AddImpl
-     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getAdd()
+     * @see nl.tue.gtl.domainmodel.impl.Add_ExpressionImpl
+     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getAdd_Expression()
      * @generated
      */
-    EClass ADD = eINSTANCE.getAdd();
+    EClass ADD_EXPRESSION = eINSTANCE.getAdd_Expression();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -1328,7 +1328,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ADD__LEFT = eINSTANCE.getAdd_Left();
+    EReference ADD_EXPRESSION__LEFT = eINSTANCE.getAdd_Expression_Left();
 
     /**
      * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
@@ -1336,7 +1336,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ADD__OPERATOR = eINSTANCE.getAdd_Operator();
+    EAttribute ADD_EXPRESSION__OPERATOR = eINSTANCE.getAdd_Expression_Operator();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1344,17 +1344,17 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ADD__RIGHT = eINSTANCE.getAdd_Right();
+    EReference ADD_EXPRESSION__RIGHT = eINSTANCE.getAdd_Expression_Right();
 
     /**
-     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.SubtractImpl <em>Subtract</em>}' class.
+     * The meta object literal for the '{@link nl.tue.gtl.domainmodel.impl.Subtract_ExpressionImpl <em>Subtract Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see nl.tue.gtl.domainmodel.impl.SubtractImpl
-     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getSubtract()
+     * @see nl.tue.gtl.domainmodel.impl.Subtract_ExpressionImpl
+     * @see nl.tue.gtl.domainmodel.impl.DomainmodelPackageImpl#getSubtract_Expression()
      * @generated
      */
-    EClass SUBTRACT = eINSTANCE.getSubtract();
+    EClass SUBTRACT_EXPRESSION = eINSTANCE.getSubtract_Expression();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -1362,7 +1362,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SUBTRACT__LEFT = eINSTANCE.getSubtract_Left();
+    EReference SUBTRACT_EXPRESSION__LEFT = eINSTANCE.getSubtract_Expression_Left();
 
     /**
      * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
@@ -1370,7 +1370,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SUBTRACT__OPERATOR = eINSTANCE.getSubtract_Operator();
+    EAttribute SUBTRACT_EXPRESSION__OPERATOR = eINSTANCE.getSubtract_Expression_Operator();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1378,7 +1378,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SUBTRACT__RIGHT = eINSTANCE.getSubtract_Right();
+    EReference SUBTRACT_EXPRESSION__RIGHT = eINSTANCE.getSubtract_Expression_Right();
 
   }
 

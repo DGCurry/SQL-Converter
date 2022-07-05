@@ -23,6 +23,23 @@ import nl.tue.gtl.tql.model.CallParameter
 import nl.tue.gtl.tql.model.ConstantCallParameter
 import nl.tue.gtl.tql.model.ReferenceCallParameter
 import nl.tue.gtl.tql.model.Mapping
+import nl.tue.gtl.tql.model.Transformation
+import nl.tue.gtl.tql.model.Expression
+import nl.tue.gtl.tql.model.ParameterExpression
+import nl.tue.gtl.tql.model.SelfExpression
+import nl.tue.gtl.tql.model.Operator
+import nl.tue.gtl.tql.model.BinaryOperatorExpression
+import nl.tue.gtl.tql.model.MappedColumn
+import nl.tue.gtl.domainmodel.Add_Expression
+import nl.tue.gtl.domainmodel.And_Expression
+import nl.tue.gtl.domainmodel.Or_Expression
+import nl.tue.gtl.domainmodel.Equals_Expression
+import nl.tue.gtl.domainmodel.NotEquals_Expression
+import nl.tue.gtl.domainmodel.Less_Expression
+import nl.tue.gtl.domainmodel.Greater_Expression
+import nl.tue.gtl.domainmodel.Multiply_Expression
+import nl.tue.gtl.domainmodel.Divide_Expression
+import nl.tue.gtl.domainmodel.Subtract_Expression
 
 /**
  * Generates code from your model files on save.
@@ -30,7 +47,7 @@ import nl.tue.gtl.tql.model.Mapping
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class TQLGenerator extends AbstractGenerator {
-
+	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 //		var x = resource.allContents.filter(TransformationCall).map[mapParameterAndParameterCall].toList()
 		fsa.generateFile('Create_Target.sql', getTargetTables(resource))
@@ -62,9 +79,56 @@ class TQLGenerator extends AbstractGenerator {
 		'''
 		INSERT INTO [«mapping.target.name»] («mapping.mappedColumns.map[target.name].join(', ')»)
 		SELECT 
-			«mapping.mappedColumns.map[source.name].join(',\n')»
+			«mapping.mappedColumns.map[mapMappedColumnSource].join(',\n')»
 		FROM [«mapping.source.name»]
 		'''
+	}
+	
+	def mapMappedColumnSource(MappedColumn mappedColumn) {
+		var selfReference = mappedColumn.source.name
+		for (transformationCall : mappedColumn.transformationCalls) {
+			selfReference = unzipTransformationCall(transformationCall, selfReference).toString()
+		}
+		return selfReference;
+	}
+	
+	// Self gewoon mee geven aan de volgende transfomration call zo is het eerst de column naam daarna is self het return statement van de eerste call
+	def unzipTransformationCall(TransformationCall transformationCall, CharSequence selfReference) {
+		var referenceDict = mapParameterAndParameterCall(transformationCall)
+		return resolveExpression(transformationCall.transformation.body, selfReference, referenceDict)
+	}
+	
+	def CharSequence resolveExpression(Expression expression, CharSequence selfReference, HashMap<String, CharSequence> referenceDict) {
+		switch (expression) {
+			ParameterExpression : '''«referenceDict.get(expression.parameter.name)»'''
+			SelfExpression : selfReference
+			And_Expression : '''«resolveExpression(expression.left, selfReference, referenceDict)» «getOperator(expression.operator)» «resolveExpression(expression.right, selfReference, referenceDict)»'''
+			Or_Expression : '''«resolveExpression(expression.left, selfReference, referenceDict)» «getOperator(expression.operator)» «resolveExpression(expression.right, selfReference, referenceDict)»'''
+			Equals_Expression : '''«resolveExpression(expression.left, selfReference, referenceDict)» «getOperator(expression.operator)» «resolveExpression(expression.right, selfReference, referenceDict)»''' 
+			NotEquals_Expression : '''«resolveExpression(expression.left, selfReference, referenceDict)» «getOperator(expression.operator)» «resolveExpression(expression.right, selfReference, referenceDict)»'''
+			Less_Expression : '''«resolveExpression(expression.left, selfReference, referenceDict)» «getOperator(expression.operator)» «resolveExpression(expression.right, selfReference, referenceDict)»'''
+			Greater_Expression : '''«resolveExpression(expression.left, selfReference, referenceDict)» «getOperator(expression.operator)» «resolveExpression(expression.right, selfReference, referenceDict)»'''
+			Multiply_Expression : '''«resolveExpression(expression.left, selfReference, referenceDict)» «getOperator(expression.operator)» «resolveExpression(expression.right, selfReference, referenceDict)»'''
+			Divide_Expression : '''«resolveExpression(expression.left, selfReference, referenceDict)» «getOperator(expression.operator)» «resolveExpression(expression.right, selfReference, referenceDict)»'''
+			Add_Expression : '''«resolveExpression(expression.left, selfReference, referenceDict)» «getOperator(expression.operator)» «resolveExpression(expression.right, selfReference, referenceDict)»'''
+			Subtract_Expression : '''«resolveExpression(expression.left, selfReference, referenceDict)» «getOperator(expression.operator)» «resolveExpression(expression.right, selfReference, referenceDict)»'''
+			BinaryOperatorExpression : '''«resolveExpression(expression.left, selfReference, referenceDict)» «getOperator(expression.operator)» «resolveExpression(expression.right, selfReference, referenceDict)»'''
+		}
+	}
+	
+	def getOperator(Operator operator) {
+		switch (operator) {
+			case ADD: '''+'''
+			case AND: '''AND'''
+			case DIVIDE: '''/'''
+			case EQUALS: '''='''
+			case GREATER: '''>'''
+			case LESS: '''<'''
+			case MULTIPLY: '''*'''
+			case NOT_EQUALS: '''<>'''
+			case OR: '''OR'''
+			case SUBTRACT: '''-'''
+		}
 	}
 	
 	def mapParameterAndParameterCall(TransformationCall transformationCall) {

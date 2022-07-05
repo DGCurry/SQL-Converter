@@ -202,6 +202,15 @@ public interface ModelFactory extends EFactory {
 	BinaryOperatorExpression createBinaryOperatorExpression();
 
 	/**
+	 * Returns a new object of class '<em>Self Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Self Expression</em>'.
+	 * @generated
+	 */
+	SelfExpression createSelfExpression();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

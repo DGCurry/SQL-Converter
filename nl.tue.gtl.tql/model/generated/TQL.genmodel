@@ -9,55 +9,55 @@
     <genClasses ecoreClass="TQL.ecore#//TQL">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//TQL/blocks"/>
     </genClasses>
-    <genClasses ecoreClass="TQL.ecore#//And">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//And/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//And/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//And/right"/>
+    <genClasses ecoreClass="TQL.ecore#//And_Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//And_Expression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//And_Expression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//And_Expression/right"/>
     </genClasses>
-    <genClasses ecoreClass="TQL.ecore#//Or">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Or/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//Or/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Or/right"/>
+    <genClasses ecoreClass="TQL.ecore#//Or_Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Or_Expression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//Or_Expression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Or_Expression/right"/>
     </genClasses>
-    <genClasses ecoreClass="TQL.ecore#//Equals">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Equals/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//Equals/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Equals/right"/>
+    <genClasses ecoreClass="TQL.ecore#//Equals_Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Equals_Expression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//Equals_Expression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Equals_Expression/right"/>
     </genClasses>
-    <genClasses ecoreClass="TQL.ecore#//NotEquals">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//NotEquals/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//NotEquals/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//NotEquals/right"/>
+    <genClasses ecoreClass="TQL.ecore#//NotEquals_Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//NotEquals_Expression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//NotEquals_Expression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//NotEquals_Expression/right"/>
     </genClasses>
-    <genClasses ecoreClass="TQL.ecore#//Less">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Less/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//Less/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Less/right"/>
+    <genClasses ecoreClass="TQL.ecore#//Less_Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Less_Expression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//Less_Expression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Less_Expression/right"/>
     </genClasses>
-    <genClasses ecoreClass="TQL.ecore#//Greater">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Greater/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//Greater/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Greater/right"/>
+    <genClasses ecoreClass="TQL.ecore#//Greater_Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Greater_Expression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//Greater_Expression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Greater_Expression/right"/>
     </genClasses>
-    <genClasses ecoreClass="TQL.ecore#//Multiply">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Multiply/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//Multiply/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Multiply/right"/>
+    <genClasses ecoreClass="TQL.ecore#//Multiply_Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Multiply_Expression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//Multiply_Expression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Multiply_Expression/right"/>
     </genClasses>
-    <genClasses ecoreClass="TQL.ecore#//Divide">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Divide/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//Divide/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Divide/right"/>
+    <genClasses ecoreClass="TQL.ecore#//Divide_Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Divide_Expression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//Divide_Expression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Divide_Expression/right"/>
     </genClasses>
-    <genClasses ecoreClass="TQL.ecore#//Add">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Add/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//Add/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Add/right"/>
+    <genClasses ecoreClass="TQL.ecore#//Add_Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Add_Expression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//Add_Expression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Add_Expression/right"/>
     </genClasses>
-    <genClasses ecoreClass="TQL.ecore#//Subtract">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Subtract/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//Subtract/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Subtract/right"/>
+    <genClasses ecoreClass="TQL.ecore#//Subtract_Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Subtract_Expression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TQL.ecore#//Subtract_Expression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TQL.ecore#//Subtract_Expression/right"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

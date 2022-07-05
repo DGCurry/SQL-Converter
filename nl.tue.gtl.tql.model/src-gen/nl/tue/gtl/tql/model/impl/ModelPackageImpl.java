@@ -23,6 +23,7 @@ import nl.tue.gtl.tql.model.Operator;
 import nl.tue.gtl.tql.model.Parameter;
 import nl.tue.gtl.tql.model.ParameterExpression;
 import nl.tue.gtl.tql.model.ReferenceCallParameter;
+import nl.tue.gtl.tql.model.SelfExpression;
 import nl.tue.gtl.tql.model.SetConstant;
 import nl.tue.gtl.tql.model.SourceTable;
 import nl.tue.gtl.tql.model.StringConstant;
@@ -221,6 +222,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EClass binaryOperatorExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass selfExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -818,6 +826,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSelfExpression() {
+		return selfExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getType() {
 		return typeEEnum;
 	}
@@ -942,6 +959,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(binaryOperatorExpressionEClass, BINARY_OPERATOR_EXPRESSION__LEFT);
 		createEReference(binaryOperatorExpressionEClass, BINARY_OPERATOR_EXPRESSION__RIGHT);
 
+		selfExpressionEClass = createEClass(SELF_EXPRESSION);
+
 		// Create enums
 		typeEEnum = createEEnum(TYPE);
 		operatorEEnum = createEEnum(OPERATOR);
@@ -994,6 +1013,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		parameterExpressionEClass.getESuperTypes().add(this.getExpression());
 		columnExpressionEClass.getESuperTypes().add(this.getExpression());
 		binaryOperatorExpressionEClass.getESuperTypes().add(this.getExpression());
+		selfExpressionEClass.getESuperTypes().add(this.getExpression());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(tableEClass, Table.class, "Table", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1149,6 +1169,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getBinaryOperatorExpression_Right(), this.getExpression(), null, "right", null, 1, 1,
 				BinaryOperatorExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(selfExpressionEClass, SelfExpression.class, "SelfExpression", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(typeEEnum, Type.class, "Type");

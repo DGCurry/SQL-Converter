@@ -5,18 +5,33 @@ package nl.tue.gtl.generator;
 
 import com.google.common.collect.Iterators;
 import java.util.HashMap;
+import nl.tue.gtl.domainmodel.Add_Expression;
+import nl.tue.gtl.domainmodel.And_Expression;
+import nl.tue.gtl.domainmodel.Divide_Expression;
+import nl.tue.gtl.domainmodel.Equals_Expression;
+import nl.tue.gtl.domainmodel.Greater_Expression;
+import nl.tue.gtl.domainmodel.Less_Expression;
+import nl.tue.gtl.domainmodel.Multiply_Expression;
+import nl.tue.gtl.domainmodel.NotEquals_Expression;
+import nl.tue.gtl.domainmodel.Or_Expression;
+import nl.tue.gtl.domainmodel.Subtract_Expression;
+import nl.tue.gtl.tql.model.BinaryOperatorExpression;
 import nl.tue.gtl.tql.model.BooleanConstant;
 import nl.tue.gtl.tql.model.CallParameter;
 import nl.tue.gtl.tql.model.Constant;
 import nl.tue.gtl.tql.model.ConstantCallParameter;
 import nl.tue.gtl.tql.model.DateConstant;
+import nl.tue.gtl.tql.model.Expression;
 import nl.tue.gtl.tql.model.FloatConstant;
 import nl.tue.gtl.tql.model.IntegerConstant;
 import nl.tue.gtl.tql.model.MappedColumn;
 import nl.tue.gtl.tql.model.Mapping;
 import nl.tue.gtl.tql.model.NullConstant;
+import nl.tue.gtl.tql.model.Operator;
 import nl.tue.gtl.tql.model.Parameter;
+import nl.tue.gtl.tql.model.ParameterExpression;
 import nl.tue.gtl.tql.model.ReferenceCallParameter;
+import nl.tue.gtl.tql.model.SelfExpression;
 import nl.tue.gtl.tql.model.SetConstant;
 import nl.tue.gtl.tql.model.StringConstant;
 import nl.tue.gtl.tql.model.TargetTable;
@@ -95,7 +110,7 @@ public class TQLGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t");
     final Function1<MappedColumn, String> _function_1 = (MappedColumn it) -> {
-      return it.getSource().getName();
+      return this.mapMappedColumnSource(it);
     };
     String _join_1 = IterableExtensions.join(ListExtensions.<MappedColumn, String>map(mapping.getMappedColumns(), _function_1), ",\n");
     _builder.append(_join_1, "\t");
@@ -106,6 +121,265 @@ public class TQLGenerator extends AbstractGenerator {
     _builder.append("]");
     _builder.newLineIfNotEmpty();
     return _builder;
+  }
+
+  public String mapMappedColumnSource(final MappedColumn mappedColumn) {
+    String selfReference = mappedColumn.getSource().getName();
+    EList<TransformationCall> _transformationCalls = mappedColumn.getTransformationCalls();
+    for (final TransformationCall transformationCall : _transformationCalls) {
+      selfReference = this.unzipTransformationCall(transformationCall, selfReference).toString();
+    }
+    return selfReference;
+  }
+
+  public CharSequence unzipTransformationCall(final TransformationCall transformationCall, final CharSequence selfReference) {
+    HashMap<String, CharSequence> referenceDict = this.mapParameterAndParameterCall(transformationCall);
+    return this.resolveExpression(transformationCall.getTransformation().getBody(), selfReference, referenceDict);
+  }
+
+  public CharSequence resolveExpression(final Expression expression, final CharSequence selfReference, final HashMap<String, CharSequence> referenceDict) {
+    CharSequence _switchResult = null;
+    boolean _matched = false;
+    if (expression instanceof ParameterExpression) {
+      _matched=true;
+      StringConcatenation _builder = new StringConcatenation();
+      CharSequence _get = referenceDict.get(((ParameterExpression)expression).getParameter().getName());
+      _builder.append(_get);
+      _switchResult = _builder;
+    }
+    if (!_matched) {
+      if (expression instanceof SelfExpression) {
+        _matched=true;
+        _switchResult = selfReference;
+      }
+    }
+    if (!_matched) {
+      if (expression instanceof And_Expression) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        CharSequence _resolveExpression = this.resolveExpression(((And_Expression)expression).getLeft(), selfReference, referenceDict);
+        _builder.append(_resolveExpression);
+        _builder.append(" ");
+        CharSequence _operator = this.getOperator(((And_Expression)expression).getOperator());
+        _builder.append(_operator);
+        _builder.append(" ");
+        CharSequence _resolveExpression_1 = this.resolveExpression(((And_Expression)expression).getRight(), selfReference, referenceDict);
+        _builder.append(_resolveExpression_1);
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      if (expression instanceof Or_Expression) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        CharSequence _resolveExpression = this.resolveExpression(((Or_Expression)expression).getLeft(), selfReference, referenceDict);
+        _builder.append(_resolveExpression);
+        _builder.append(" ");
+        CharSequence _operator = this.getOperator(((Or_Expression)expression).getOperator());
+        _builder.append(_operator);
+        _builder.append(" ");
+        CharSequence _resolveExpression_1 = this.resolveExpression(((Or_Expression)expression).getRight(), selfReference, referenceDict);
+        _builder.append(_resolveExpression_1);
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      if (expression instanceof Equals_Expression) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        CharSequence _resolveExpression = this.resolveExpression(((Equals_Expression)expression).getLeft(), selfReference, referenceDict);
+        _builder.append(_resolveExpression);
+        _builder.append(" ");
+        CharSequence _operator = this.getOperator(((Equals_Expression)expression).getOperator());
+        _builder.append(_operator);
+        _builder.append(" ");
+        CharSequence _resolveExpression_1 = this.resolveExpression(((Equals_Expression)expression).getRight(), selfReference, referenceDict);
+        _builder.append(_resolveExpression_1);
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      if (expression instanceof NotEquals_Expression) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        CharSequence _resolveExpression = this.resolveExpression(((NotEquals_Expression)expression).getLeft(), selfReference, referenceDict);
+        _builder.append(_resolveExpression);
+        _builder.append(" ");
+        CharSequence _operator = this.getOperator(((NotEquals_Expression)expression).getOperator());
+        _builder.append(_operator);
+        _builder.append(" ");
+        CharSequence _resolveExpression_1 = this.resolveExpression(((NotEquals_Expression)expression).getRight(), selfReference, referenceDict);
+        _builder.append(_resolveExpression_1);
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      if (expression instanceof Less_Expression) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        CharSequence _resolveExpression = this.resolveExpression(((Less_Expression)expression).getLeft(), selfReference, referenceDict);
+        _builder.append(_resolveExpression);
+        _builder.append(" ");
+        CharSequence _operator = this.getOperator(((Less_Expression)expression).getOperator());
+        _builder.append(_operator);
+        _builder.append(" ");
+        CharSequence _resolveExpression_1 = this.resolveExpression(((Less_Expression)expression).getRight(), selfReference, referenceDict);
+        _builder.append(_resolveExpression_1);
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      if (expression instanceof Greater_Expression) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        CharSequence _resolveExpression = this.resolveExpression(((Greater_Expression)expression).getLeft(), selfReference, referenceDict);
+        _builder.append(_resolveExpression);
+        _builder.append(" ");
+        CharSequence _operator = this.getOperator(((Greater_Expression)expression).getOperator());
+        _builder.append(_operator);
+        _builder.append(" ");
+        CharSequence _resolveExpression_1 = this.resolveExpression(((Greater_Expression)expression).getRight(), selfReference, referenceDict);
+        _builder.append(_resolveExpression_1);
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      if (expression instanceof Multiply_Expression) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        CharSequence _resolveExpression = this.resolveExpression(((Multiply_Expression)expression).getLeft(), selfReference, referenceDict);
+        _builder.append(_resolveExpression);
+        _builder.append(" ");
+        CharSequence _operator = this.getOperator(((Multiply_Expression)expression).getOperator());
+        _builder.append(_operator);
+        _builder.append(" ");
+        CharSequence _resolveExpression_1 = this.resolveExpression(((Multiply_Expression)expression).getRight(), selfReference, referenceDict);
+        _builder.append(_resolveExpression_1);
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      if (expression instanceof Divide_Expression) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        CharSequence _resolveExpression = this.resolveExpression(((Divide_Expression)expression).getLeft(), selfReference, referenceDict);
+        _builder.append(_resolveExpression);
+        _builder.append(" ");
+        CharSequence _operator = this.getOperator(((Divide_Expression)expression).getOperator());
+        _builder.append(_operator);
+        _builder.append(" ");
+        CharSequence _resolveExpression_1 = this.resolveExpression(((Divide_Expression)expression).getRight(), selfReference, referenceDict);
+        _builder.append(_resolveExpression_1);
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      if (expression instanceof Add_Expression) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        CharSequence _resolveExpression = this.resolveExpression(((Add_Expression)expression).getLeft(), selfReference, referenceDict);
+        _builder.append(_resolveExpression);
+        _builder.append(" ");
+        CharSequence _operator = this.getOperator(((Add_Expression)expression).getOperator());
+        _builder.append(_operator);
+        _builder.append(" ");
+        CharSequence _resolveExpression_1 = this.resolveExpression(((Add_Expression)expression).getRight(), selfReference, referenceDict);
+        _builder.append(_resolveExpression_1);
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      if (expression instanceof Subtract_Expression) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        CharSequence _resolveExpression = this.resolveExpression(((Subtract_Expression)expression).getLeft(), selfReference, referenceDict);
+        _builder.append(_resolveExpression);
+        _builder.append(" ");
+        CharSequence _operator = this.getOperator(((Subtract_Expression)expression).getOperator());
+        _builder.append(_operator);
+        _builder.append(" ");
+        CharSequence _resolveExpression_1 = this.resolveExpression(((Subtract_Expression)expression).getRight(), selfReference, referenceDict);
+        _builder.append(_resolveExpression_1);
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      if (expression instanceof BinaryOperatorExpression) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        CharSequence _resolveExpression = this.resolveExpression(((BinaryOperatorExpression)expression).getLeft(), selfReference, referenceDict);
+        _builder.append(_resolveExpression);
+        _builder.append(" ");
+        CharSequence _operator = this.getOperator(((BinaryOperatorExpression)expression).getOperator());
+        _builder.append(_operator);
+        _builder.append(" ");
+        CharSequence _resolveExpression_1 = this.resolveExpression(((BinaryOperatorExpression)expression).getRight(), selfReference, referenceDict);
+        _builder.append(_resolveExpression_1);
+        _switchResult = _builder;
+      }
+    }
+    return _switchResult;
+  }
+
+  public CharSequence getOperator(final Operator operator) {
+    CharSequence _switchResult = null;
+    if (operator != null) {
+      switch (operator) {
+        case ADD:
+          StringConcatenation _builder = new StringConcatenation();
+          _builder.append("+");
+          _switchResult = _builder;
+          break;
+        case AND:
+          StringConcatenation _builder_1 = new StringConcatenation();
+          _builder_1.append("AND");
+          _switchResult = _builder_1;
+          break;
+        case DIVIDE:
+          StringConcatenation _builder_2 = new StringConcatenation();
+          _builder_2.append("/");
+          _switchResult = _builder_2;
+          break;
+        case EQUALS:
+          StringConcatenation _builder_3 = new StringConcatenation();
+          _builder_3.append("=");
+          _switchResult = _builder_3;
+          break;
+        case GREATER:
+          StringConcatenation _builder_4 = new StringConcatenation();
+          _builder_4.append(">");
+          _switchResult = _builder_4;
+          break;
+        case LESS:
+          StringConcatenation _builder_5 = new StringConcatenation();
+          _builder_5.append("<");
+          _switchResult = _builder_5;
+          break;
+        case MULTIPLY:
+          StringConcatenation _builder_6 = new StringConcatenation();
+          _builder_6.append("*");
+          _switchResult = _builder_6;
+          break;
+        case NOT_EQUALS:
+          StringConcatenation _builder_7 = new StringConcatenation();
+          _builder_7.append("<>");
+          _switchResult = _builder_7;
+          break;
+        case OR:
+          StringConcatenation _builder_8 = new StringConcatenation();
+          _builder_8.append("OR");
+          _switchResult = _builder_8;
+          break;
+        case SUBTRACT:
+          StringConcatenation _builder_9 = new StringConcatenation();
+          _builder_9.append("-");
+          _switchResult = _builder_9;
+          break;
+        default:
+          break;
+      }
+    }
+    return _switchResult;
   }
 
   public HashMap<String, CharSequence> mapParameterAndParameterCall(final TransformationCall transformationCall) {

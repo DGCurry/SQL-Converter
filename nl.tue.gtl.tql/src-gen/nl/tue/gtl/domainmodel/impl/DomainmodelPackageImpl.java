@@ -3,18 +3,18 @@
  */
 package nl.tue.gtl.domainmodel.impl;
 
-import nl.tue.gtl.domainmodel.Add;
-import nl.tue.gtl.domainmodel.And;
-import nl.tue.gtl.domainmodel.Divide;
+import nl.tue.gtl.domainmodel.Add_Expression;
+import nl.tue.gtl.domainmodel.And_Expression;
+import nl.tue.gtl.domainmodel.Divide_Expression;
 import nl.tue.gtl.domainmodel.DomainmodelFactory;
 import nl.tue.gtl.domainmodel.DomainmodelPackage;
-import nl.tue.gtl.domainmodel.Equals;
-import nl.tue.gtl.domainmodel.Greater;
-import nl.tue.gtl.domainmodel.Less;
-import nl.tue.gtl.domainmodel.Multiply;
-import nl.tue.gtl.domainmodel.NotEquals;
-import nl.tue.gtl.domainmodel.Or;
-import nl.tue.gtl.domainmodel.Subtract;
+import nl.tue.gtl.domainmodel.Equals_Expression;
+import nl.tue.gtl.domainmodel.Greater_Expression;
+import nl.tue.gtl.domainmodel.Less_Expression;
+import nl.tue.gtl.domainmodel.Multiply_Expression;
+import nl.tue.gtl.domainmodel.NotEquals_Expression;
+import nl.tue.gtl.domainmodel.Or_Expression;
+import nl.tue.gtl.domainmodel.Subtract_Expression;
 
 import nl.tue.gtl.tql.model.ModelPackage;
 
@@ -45,70 +45,70 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass andEClass = null;
+  private EClass and_ExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass orEClass = null;
+  private EClass or_ExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass equalsEClass = null;
+  private EClass equals_ExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass notEqualsEClass = null;
+  private EClass notEquals_ExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass lessEClass = null;
+  private EClass less_ExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass greaterEClass = null;
+  private EClass greater_ExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass multiplyEClass = null;
+  private EClass multiply_ExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass divideEClass = null;
+  private EClass divide_ExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass addEClass = null;
+  private EClass add_ExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass subtractEClass = null;
+  private EClass subtract_ExpressionEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -204,9 +204,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getAnd()
+  public EClass getAnd_Expression()
   {
-    return andEClass;
+    return and_ExpressionEClass;
   }
 
   /**
@@ -215,9 +215,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getAnd_Left()
+  public EReference getAnd_Expression_Left()
   {
-    return (EReference)andEClass.getEStructuralFeatures().get(0);
+    return (EReference)and_ExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -226,9 +226,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getAnd_Operator()
+  public EAttribute getAnd_Expression_Operator()
   {
-    return (EAttribute)andEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)and_ExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -237,9 +237,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getAnd_Right()
+  public EReference getAnd_Expression_Right()
   {
-    return (EReference)andEClass.getEStructuralFeatures().get(2);
+    return (EReference)and_ExpressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -248,9 +248,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getOr()
+  public EClass getOr_Expression()
   {
-    return orEClass;
+    return or_ExpressionEClass;
   }
 
   /**
@@ -259,9 +259,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getOr_Left()
+  public EReference getOr_Expression_Left()
   {
-    return (EReference)orEClass.getEStructuralFeatures().get(0);
+    return (EReference)or_ExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -270,9 +270,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getOr_Operator()
+  public EAttribute getOr_Expression_Operator()
   {
-    return (EAttribute)orEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)or_ExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -281,9 +281,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getOr_Right()
+  public EReference getOr_Expression_Right()
   {
-    return (EReference)orEClass.getEStructuralFeatures().get(2);
+    return (EReference)or_ExpressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -292,9 +292,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getEquals()
+  public EClass getEquals_Expression()
   {
-    return equalsEClass;
+    return equals_ExpressionEClass;
   }
 
   /**
@@ -303,9 +303,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getEquals_Left()
+  public EReference getEquals_Expression_Left()
   {
-    return (EReference)equalsEClass.getEStructuralFeatures().get(0);
+    return (EReference)equals_ExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -314,9 +314,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getEquals_Operator()
+  public EAttribute getEquals_Expression_Operator()
   {
-    return (EAttribute)equalsEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)equals_ExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -325,9 +325,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getEquals_Right()
+  public EReference getEquals_Expression_Right()
   {
-    return (EReference)equalsEClass.getEStructuralFeatures().get(2);
+    return (EReference)equals_ExpressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -336,9 +336,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getNotEquals()
+  public EClass getNotEquals_Expression()
   {
-    return notEqualsEClass;
+    return notEquals_ExpressionEClass;
   }
 
   /**
@@ -347,9 +347,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getNotEquals_Left()
+  public EReference getNotEquals_Expression_Left()
   {
-    return (EReference)notEqualsEClass.getEStructuralFeatures().get(0);
+    return (EReference)notEquals_ExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -358,9 +358,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getNotEquals_Operator()
+  public EAttribute getNotEquals_Expression_Operator()
   {
-    return (EAttribute)notEqualsEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)notEquals_ExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -369,9 +369,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getNotEquals_Right()
+  public EReference getNotEquals_Expression_Right()
   {
-    return (EReference)notEqualsEClass.getEStructuralFeatures().get(2);
+    return (EReference)notEquals_ExpressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -380,9 +380,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getLess()
+  public EClass getLess_Expression()
   {
-    return lessEClass;
+    return less_ExpressionEClass;
   }
 
   /**
@@ -391,9 +391,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getLess_Left()
+  public EReference getLess_Expression_Left()
   {
-    return (EReference)lessEClass.getEStructuralFeatures().get(0);
+    return (EReference)less_ExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -402,9 +402,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getLess_Operator()
+  public EAttribute getLess_Expression_Operator()
   {
-    return (EAttribute)lessEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)less_ExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -413,9 +413,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getLess_Right()
+  public EReference getLess_Expression_Right()
   {
-    return (EReference)lessEClass.getEStructuralFeatures().get(2);
+    return (EReference)less_ExpressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -424,9 +424,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getGreater()
+  public EClass getGreater_Expression()
   {
-    return greaterEClass;
+    return greater_ExpressionEClass;
   }
 
   /**
@@ -435,9 +435,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getGreater_Left()
+  public EReference getGreater_Expression_Left()
   {
-    return (EReference)greaterEClass.getEStructuralFeatures().get(0);
+    return (EReference)greater_ExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -446,9 +446,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getGreater_Operator()
+  public EAttribute getGreater_Expression_Operator()
   {
-    return (EAttribute)greaterEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)greater_ExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -457,9 +457,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getGreater_Right()
+  public EReference getGreater_Expression_Right()
   {
-    return (EReference)greaterEClass.getEStructuralFeatures().get(2);
+    return (EReference)greater_ExpressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -468,9 +468,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getMultiply()
+  public EClass getMultiply_Expression()
   {
-    return multiplyEClass;
+    return multiply_ExpressionEClass;
   }
 
   /**
@@ -479,9 +479,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getMultiply_Left()
+  public EReference getMultiply_Expression_Left()
   {
-    return (EReference)multiplyEClass.getEStructuralFeatures().get(0);
+    return (EReference)multiply_ExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -490,9 +490,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getMultiply_Operator()
+  public EAttribute getMultiply_Expression_Operator()
   {
-    return (EAttribute)multiplyEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)multiply_ExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -501,9 +501,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getMultiply_Right()
+  public EReference getMultiply_Expression_Right()
   {
-    return (EReference)multiplyEClass.getEStructuralFeatures().get(2);
+    return (EReference)multiply_ExpressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -512,9 +512,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getDivide()
+  public EClass getDivide_Expression()
   {
-    return divideEClass;
+    return divide_ExpressionEClass;
   }
 
   /**
@@ -523,9 +523,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getDivide_Left()
+  public EReference getDivide_Expression_Left()
   {
-    return (EReference)divideEClass.getEStructuralFeatures().get(0);
+    return (EReference)divide_ExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -534,9 +534,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getDivide_Operator()
+  public EAttribute getDivide_Expression_Operator()
   {
-    return (EAttribute)divideEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)divide_ExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -545,9 +545,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getDivide_Right()
+  public EReference getDivide_Expression_Right()
   {
-    return (EReference)divideEClass.getEStructuralFeatures().get(2);
+    return (EReference)divide_ExpressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -556,9 +556,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getAdd()
+  public EClass getAdd_Expression()
   {
-    return addEClass;
+    return add_ExpressionEClass;
   }
 
   /**
@@ -567,9 +567,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getAdd_Left()
+  public EReference getAdd_Expression_Left()
   {
-    return (EReference)addEClass.getEStructuralFeatures().get(0);
+    return (EReference)add_ExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -578,9 +578,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getAdd_Operator()
+  public EAttribute getAdd_Expression_Operator()
   {
-    return (EAttribute)addEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)add_ExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -589,9 +589,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getAdd_Right()
+  public EReference getAdd_Expression_Right()
   {
-    return (EReference)addEClass.getEStructuralFeatures().get(2);
+    return (EReference)add_ExpressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -600,9 +600,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getSubtract()
+  public EClass getSubtract_Expression()
   {
-    return subtractEClass;
+    return subtract_ExpressionEClass;
   }
 
   /**
@@ -611,9 +611,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getSubtract_Left()
+  public EReference getSubtract_Expression_Left()
   {
-    return (EReference)subtractEClass.getEStructuralFeatures().get(0);
+    return (EReference)subtract_ExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -622,9 +622,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getSubtract_Operator()
+  public EAttribute getSubtract_Expression_Operator()
   {
-    return (EAttribute)subtractEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)subtract_ExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -633,9 +633,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getSubtract_Right()
+  public EReference getSubtract_Expression_Right()
   {
-    return (EReference)subtractEClass.getEStructuralFeatures().get(2);
+    return (EReference)subtract_ExpressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -672,55 +672,55 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
     tqlEClass = createEClass(TQL);
     createEReference(tqlEClass, TQL__BLOCKS);
 
-    andEClass = createEClass(AND);
-    createEReference(andEClass, AND__LEFT);
-    createEAttribute(andEClass, AND__OPERATOR);
-    createEReference(andEClass, AND__RIGHT);
+    and_ExpressionEClass = createEClass(AND_EXPRESSION);
+    createEReference(and_ExpressionEClass, AND_EXPRESSION__LEFT);
+    createEAttribute(and_ExpressionEClass, AND_EXPRESSION__OPERATOR);
+    createEReference(and_ExpressionEClass, AND_EXPRESSION__RIGHT);
 
-    orEClass = createEClass(OR);
-    createEReference(orEClass, OR__LEFT);
-    createEAttribute(orEClass, OR__OPERATOR);
-    createEReference(orEClass, OR__RIGHT);
+    or_ExpressionEClass = createEClass(OR_EXPRESSION);
+    createEReference(or_ExpressionEClass, OR_EXPRESSION__LEFT);
+    createEAttribute(or_ExpressionEClass, OR_EXPRESSION__OPERATOR);
+    createEReference(or_ExpressionEClass, OR_EXPRESSION__RIGHT);
 
-    equalsEClass = createEClass(EQUALS);
-    createEReference(equalsEClass, EQUALS__LEFT);
-    createEAttribute(equalsEClass, EQUALS__OPERATOR);
-    createEReference(equalsEClass, EQUALS__RIGHT);
+    equals_ExpressionEClass = createEClass(EQUALS_EXPRESSION);
+    createEReference(equals_ExpressionEClass, EQUALS_EXPRESSION__LEFT);
+    createEAttribute(equals_ExpressionEClass, EQUALS_EXPRESSION__OPERATOR);
+    createEReference(equals_ExpressionEClass, EQUALS_EXPRESSION__RIGHT);
 
-    notEqualsEClass = createEClass(NOT_EQUALS);
-    createEReference(notEqualsEClass, NOT_EQUALS__LEFT);
-    createEAttribute(notEqualsEClass, NOT_EQUALS__OPERATOR);
-    createEReference(notEqualsEClass, NOT_EQUALS__RIGHT);
+    notEquals_ExpressionEClass = createEClass(NOT_EQUALS_EXPRESSION);
+    createEReference(notEquals_ExpressionEClass, NOT_EQUALS_EXPRESSION__LEFT);
+    createEAttribute(notEquals_ExpressionEClass, NOT_EQUALS_EXPRESSION__OPERATOR);
+    createEReference(notEquals_ExpressionEClass, NOT_EQUALS_EXPRESSION__RIGHT);
 
-    lessEClass = createEClass(LESS);
-    createEReference(lessEClass, LESS__LEFT);
-    createEAttribute(lessEClass, LESS__OPERATOR);
-    createEReference(lessEClass, LESS__RIGHT);
+    less_ExpressionEClass = createEClass(LESS_EXPRESSION);
+    createEReference(less_ExpressionEClass, LESS_EXPRESSION__LEFT);
+    createEAttribute(less_ExpressionEClass, LESS_EXPRESSION__OPERATOR);
+    createEReference(less_ExpressionEClass, LESS_EXPRESSION__RIGHT);
 
-    greaterEClass = createEClass(GREATER);
-    createEReference(greaterEClass, GREATER__LEFT);
-    createEAttribute(greaterEClass, GREATER__OPERATOR);
-    createEReference(greaterEClass, GREATER__RIGHT);
+    greater_ExpressionEClass = createEClass(GREATER_EXPRESSION);
+    createEReference(greater_ExpressionEClass, GREATER_EXPRESSION__LEFT);
+    createEAttribute(greater_ExpressionEClass, GREATER_EXPRESSION__OPERATOR);
+    createEReference(greater_ExpressionEClass, GREATER_EXPRESSION__RIGHT);
 
-    multiplyEClass = createEClass(MULTIPLY);
-    createEReference(multiplyEClass, MULTIPLY__LEFT);
-    createEAttribute(multiplyEClass, MULTIPLY__OPERATOR);
-    createEReference(multiplyEClass, MULTIPLY__RIGHT);
+    multiply_ExpressionEClass = createEClass(MULTIPLY_EXPRESSION);
+    createEReference(multiply_ExpressionEClass, MULTIPLY_EXPRESSION__LEFT);
+    createEAttribute(multiply_ExpressionEClass, MULTIPLY_EXPRESSION__OPERATOR);
+    createEReference(multiply_ExpressionEClass, MULTIPLY_EXPRESSION__RIGHT);
 
-    divideEClass = createEClass(DIVIDE);
-    createEReference(divideEClass, DIVIDE__LEFT);
-    createEAttribute(divideEClass, DIVIDE__OPERATOR);
-    createEReference(divideEClass, DIVIDE__RIGHT);
+    divide_ExpressionEClass = createEClass(DIVIDE_EXPRESSION);
+    createEReference(divide_ExpressionEClass, DIVIDE_EXPRESSION__LEFT);
+    createEAttribute(divide_ExpressionEClass, DIVIDE_EXPRESSION__OPERATOR);
+    createEReference(divide_ExpressionEClass, DIVIDE_EXPRESSION__RIGHT);
 
-    addEClass = createEClass(ADD);
-    createEReference(addEClass, ADD__LEFT);
-    createEAttribute(addEClass, ADD__OPERATOR);
-    createEReference(addEClass, ADD__RIGHT);
+    add_ExpressionEClass = createEClass(ADD_EXPRESSION);
+    createEReference(add_ExpressionEClass, ADD_EXPRESSION__LEFT);
+    createEAttribute(add_ExpressionEClass, ADD_EXPRESSION__OPERATOR);
+    createEReference(add_ExpressionEClass, ADD_EXPRESSION__RIGHT);
 
-    subtractEClass = createEClass(SUBTRACT);
-    createEReference(subtractEClass, SUBTRACT__LEFT);
-    createEAttribute(subtractEClass, SUBTRACT__OPERATOR);
-    createEReference(subtractEClass, SUBTRACT__RIGHT);
+    subtract_ExpressionEClass = createEClass(SUBTRACT_EXPRESSION);
+    createEReference(subtract_ExpressionEClass, SUBTRACT_EXPRESSION__LEFT);
+    createEAttribute(subtract_ExpressionEClass, SUBTRACT_EXPRESSION__OPERATOR);
+    createEReference(subtract_ExpressionEClass, SUBTRACT_EXPRESSION__RIGHT);
   }
 
   /**
@@ -755,70 +755,70 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    andEClass.getESuperTypes().add(theModelPackage.getExpression());
-    orEClass.getESuperTypes().add(theModelPackage.getExpression());
-    equalsEClass.getESuperTypes().add(theModelPackage.getExpression());
-    notEqualsEClass.getESuperTypes().add(theModelPackage.getExpression());
-    lessEClass.getESuperTypes().add(theModelPackage.getExpression());
-    greaterEClass.getESuperTypes().add(theModelPackage.getExpression());
-    multiplyEClass.getESuperTypes().add(theModelPackage.getExpression());
-    divideEClass.getESuperTypes().add(theModelPackage.getExpression());
-    addEClass.getESuperTypes().add(theModelPackage.getExpression());
-    subtractEClass.getESuperTypes().add(theModelPackage.getExpression());
+    and_ExpressionEClass.getESuperTypes().add(theModelPackage.getExpression());
+    or_ExpressionEClass.getESuperTypes().add(theModelPackage.getExpression());
+    equals_ExpressionEClass.getESuperTypes().add(theModelPackage.getExpression());
+    notEquals_ExpressionEClass.getESuperTypes().add(theModelPackage.getExpression());
+    less_ExpressionEClass.getESuperTypes().add(theModelPackage.getExpression());
+    greater_ExpressionEClass.getESuperTypes().add(theModelPackage.getExpression());
+    multiply_ExpressionEClass.getESuperTypes().add(theModelPackage.getExpression());
+    divide_ExpressionEClass.getESuperTypes().add(theModelPackage.getExpression());
+    add_ExpressionEClass.getESuperTypes().add(theModelPackage.getExpression());
+    subtract_ExpressionEClass.getESuperTypes().add(theModelPackage.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(tqlEClass, nl.tue.gtl.domainmodel.TQL.class, "TQL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTQL_Blocks(), theModelPackage.getBlock(), null, "blocks", null, 0, -1, nl.tue.gtl.domainmodel.TQL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(andEClass, And.class, "And", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAnd_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAnd_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAnd_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(and_ExpressionEClass, And_Expression.class, "And_Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAnd_Expression_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, And_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAnd_Expression_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, And_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAnd_Expression_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, And_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(orEClass, Or.class, "Or", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOr_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getOr_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOr_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(or_ExpressionEClass, Or_Expression.class, "Or_Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOr_Expression_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, Or_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOr_Expression_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, Or_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOr_Expression_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, Or_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(equalsEClass, Equals.class, "Equals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEquals_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, Equals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEquals_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, Equals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEquals_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, Equals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(equals_ExpressionEClass, Equals_Expression.class, "Equals_Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEquals_Expression_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, Equals_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEquals_Expression_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, Equals_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEquals_Expression_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, Equals_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(notEqualsEClass, NotEquals.class, "NotEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getNotEquals_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, NotEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getNotEquals_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, NotEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getNotEquals_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, NotEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(notEquals_ExpressionEClass, NotEquals_Expression.class, "NotEquals_Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNotEquals_Expression_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, NotEquals_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNotEquals_Expression_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, NotEquals_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNotEquals_Expression_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, NotEquals_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(lessEClass, Less.class, "Less", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLess_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, Less.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLess_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, Less.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLess_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, Less.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(less_ExpressionEClass, Less_Expression.class, "Less_Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLess_Expression_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, Less_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLess_Expression_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, Less_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLess_Expression_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, Less_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(greaterEClass, Greater.class, "Greater", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getGreater_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, Greater.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getGreater_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, Greater.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGreater_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, Greater.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(greater_ExpressionEClass, Greater_Expression.class, "Greater_Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getGreater_Expression_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, Greater_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGreater_Expression_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, Greater_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGreater_Expression_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, Greater_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(multiplyEClass, Multiply.class, "Multiply", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMultiply_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, Multiply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMultiply_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, Multiply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMultiply_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, Multiply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(multiply_ExpressionEClass, Multiply_Expression.class, "Multiply_Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMultiply_Expression_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, Multiply_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMultiply_Expression_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, Multiply_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMultiply_Expression_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, Multiply_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(divideEClass, Divide.class, "Divide", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDivide_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, Divide.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDivide_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, Divide.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDivide_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, Divide.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(divide_ExpressionEClass, Divide_Expression.class, "Divide_Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDivide_Expression_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, Divide_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDivide_Expression_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, Divide_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDivide_Expression_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, Divide_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(addEClass, Add.class, "Add", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAdd_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAdd_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAdd_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(add_ExpressionEClass, Add_Expression.class, "Add_Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAdd_Expression_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, Add_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAdd_Expression_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, Add_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAdd_Expression_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, Add_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(subtractEClass, Subtract.class, "Subtract", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSubtract_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, Subtract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSubtract_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, Subtract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSubtract_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, Subtract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(subtract_ExpressionEClass, Subtract_Expression.class, "Subtract_Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSubtract_Expression_Left(), theModelPackage.getExpression(), null, "left", null, 0, 1, Subtract_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSubtract_Expression_Operator(), theModelPackage.getOperator(), "operator", null, 0, 1, Subtract_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSubtract_Expression_Right(), theModelPackage.getExpression(), null, "right", null, 0, 1, Subtract_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

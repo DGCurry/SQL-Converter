@@ -66,16 +66,16 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
     switch (eClass.getClassifierID())
     {
       case DomainmodelPackage.TQL: return createTQL();
-      case DomainmodelPackage.AND: return createAnd();
-      case DomainmodelPackage.OR: return createOr();
-      case DomainmodelPackage.EQUALS: return createEquals();
-      case DomainmodelPackage.NOT_EQUALS: return createNotEquals();
-      case DomainmodelPackage.LESS: return createLess();
-      case DomainmodelPackage.GREATER: return createGreater();
-      case DomainmodelPackage.MULTIPLY: return createMultiply();
-      case DomainmodelPackage.DIVIDE: return createDivide();
-      case DomainmodelPackage.ADD: return createAdd();
-      case DomainmodelPackage.SUBTRACT: return createSubtract();
+      case DomainmodelPackage.AND_EXPRESSION: return createAnd_Expression();
+      case DomainmodelPackage.OR_EXPRESSION: return createOr_Expression();
+      case DomainmodelPackage.EQUALS_EXPRESSION: return createEquals_Expression();
+      case DomainmodelPackage.NOT_EQUALS_EXPRESSION: return createNotEquals_Expression();
+      case DomainmodelPackage.LESS_EXPRESSION: return createLess_Expression();
+      case DomainmodelPackage.GREATER_EXPRESSION: return createGreater_Expression();
+      case DomainmodelPackage.MULTIPLY_EXPRESSION: return createMultiply_Expression();
+      case DomainmodelPackage.DIVIDE_EXPRESSION: return createDivide_Expression();
+      case DomainmodelPackage.ADD_EXPRESSION: return createAdd_Expression();
+      case DomainmodelPackage.SUBTRACT_EXPRESSION: return createSubtract_Expression();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -99,10 +99,10 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public And createAnd()
+  public And_Expression createAnd_Expression()
   {
-    AndImpl and = new AndImpl();
-    return and;
+    And_ExpressionImpl and_Expression = new And_ExpressionImpl();
+    return and_Expression;
   }
 
   /**
@@ -111,10 +111,10 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public Or createOr()
+  public Or_Expression createOr_Expression()
   {
-    OrImpl or = new OrImpl();
-    return or;
+    Or_ExpressionImpl or_Expression = new Or_ExpressionImpl();
+    return or_Expression;
   }
 
   /**
@@ -123,10 +123,10 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public Equals createEquals()
+  public Equals_Expression createEquals_Expression()
   {
-    EqualsImpl equals = new EqualsImpl();
-    return equals;
+    Equals_ExpressionImpl equals_Expression = new Equals_ExpressionImpl();
+    return equals_Expression;
   }
 
   /**
@@ -135,10 +135,10 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public NotEquals createNotEquals()
+  public NotEquals_Expression createNotEquals_Expression()
   {
-    NotEqualsImpl notEquals = new NotEqualsImpl();
-    return notEquals;
+    NotEquals_ExpressionImpl notEquals_Expression = new NotEquals_ExpressionImpl();
+    return notEquals_Expression;
   }
 
   /**
@@ -147,10 +147,10 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public Less createLess()
+  public Less_Expression createLess_Expression()
   {
-    LessImpl less = new LessImpl();
-    return less;
+    Less_ExpressionImpl less_Expression = new Less_ExpressionImpl();
+    return less_Expression;
   }
 
   /**
@@ -159,10 +159,10 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public Greater createGreater()
+  public Greater_Expression createGreater_Expression()
   {
-    GreaterImpl greater = new GreaterImpl();
-    return greater;
+    Greater_ExpressionImpl greater_Expression = new Greater_ExpressionImpl();
+    return greater_Expression;
   }
 
   /**
@@ -171,10 +171,10 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public Multiply createMultiply()
+  public Multiply_Expression createMultiply_Expression()
   {
-    MultiplyImpl multiply = new MultiplyImpl();
-    return multiply;
+    Multiply_ExpressionImpl multiply_Expression = new Multiply_ExpressionImpl();
+    return multiply_Expression;
   }
 
   /**
@@ -183,10 +183,10 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public Divide createDivide()
+  public Divide_Expression createDivide_Expression()
   {
-    DivideImpl divide = new DivideImpl();
-    return divide;
+    Divide_ExpressionImpl divide_Expression = new Divide_ExpressionImpl();
+    return divide_Expression;
   }
 
   /**
@@ -195,10 +195,10 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public Add createAdd()
+  public Add_Expression createAdd_Expression()
   {
-    AddImpl add = new AddImpl();
-    return add;
+    Add_ExpressionImpl add_Expression = new Add_ExpressionImpl();
+    return add_Expression;
   }
 
   /**
@@ -207,10 +207,10 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public Subtract createSubtract()
+  public Subtract_Expression createSubtract_Expression()
   {
-    SubtractImpl subtract = new SubtractImpl();
-    return subtract;
+    Subtract_ExpressionImpl subtract_Expression = new Subtract_ExpressionImpl();
+    return subtract_Expression;
   }
 
   /**

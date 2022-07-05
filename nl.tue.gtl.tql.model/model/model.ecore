@@ -116,4 +116,5 @@
     <eLiterals name="less" value="8"/>
     <eLiterals name="greater" value="9"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SelfExpression" eSuperTypes="#//Expression"/>
 </ecore:EPackage>

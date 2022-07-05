@@ -5,17 +5,17 @@ package nl.tue.gtl.serializer;
 
 import com.google.inject.Inject;
 import java.util.Set;
-import nl.tue.gtl.domainmodel.Add;
-import nl.tue.gtl.domainmodel.And;
-import nl.tue.gtl.domainmodel.Divide;
+import nl.tue.gtl.domainmodel.Add_Expression;
+import nl.tue.gtl.domainmodel.And_Expression;
+import nl.tue.gtl.domainmodel.Divide_Expression;
 import nl.tue.gtl.domainmodel.DomainmodelPackage;
-import nl.tue.gtl.domainmodel.Equals;
-import nl.tue.gtl.domainmodel.Greater;
-import nl.tue.gtl.domainmodel.Less;
-import nl.tue.gtl.domainmodel.Multiply;
-import nl.tue.gtl.domainmodel.NotEquals;
-import nl.tue.gtl.domainmodel.Or;
-import nl.tue.gtl.domainmodel.Subtract;
+import nl.tue.gtl.domainmodel.Equals_Expression;
+import nl.tue.gtl.domainmodel.Greater_Expression;
+import nl.tue.gtl.domainmodel.Less_Expression;
+import nl.tue.gtl.domainmodel.Multiply_Expression;
+import nl.tue.gtl.domainmodel.NotEquals_Expression;
+import nl.tue.gtl.domainmodel.Or_Expression;
+import nl.tue.gtl.domainmodel.Subtract_Expression;
 import nl.tue.gtl.domainmodel.TQL;
 import nl.tue.gtl.services.TQLGrammarAccess;
 import nl.tue.gtl.tql.model.BooleanConstant;
@@ -30,6 +30,7 @@ import nl.tue.gtl.tql.model.ModelPackage;
 import nl.tue.gtl.tql.model.NullConstant;
 import nl.tue.gtl.tql.model.ParameterExpression;
 import nl.tue.gtl.tql.model.ReferenceCallParameter;
+import nl.tue.gtl.tql.model.SelfExpression;
 import nl.tue.gtl.tql.model.SetConstant;
 import nl.tue.gtl.tql.model.SourceTable;
 import nl.tue.gtl.tql.model.StringConstant;
@@ -60,35 +61,35 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == DomainmodelPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case DomainmodelPackage.ADD:
-				sequence_Add(context, (Add) semanticObject); 
+			case DomainmodelPackage.ADD_EXPRESSION:
+				sequence_Add_Expression(context, (Add_Expression) semanticObject); 
 				return; 
-			case DomainmodelPackage.AND:
-				sequence_And(context, (And) semanticObject); 
+			case DomainmodelPackage.AND_EXPRESSION:
+				sequence_And_Expression(context, (And_Expression) semanticObject); 
 				return; 
-			case DomainmodelPackage.DIVIDE:
-				sequence_Divide(context, (Divide) semanticObject); 
+			case DomainmodelPackage.DIVIDE_EXPRESSION:
+				sequence_Divide_Expression(context, (Divide_Expression) semanticObject); 
 				return; 
-			case DomainmodelPackage.EQUALS:
-				sequence_Equals(context, (Equals) semanticObject); 
+			case DomainmodelPackage.EQUALS_EXPRESSION:
+				sequence_Equals_Expression(context, (Equals_Expression) semanticObject); 
 				return; 
-			case DomainmodelPackage.GREATER:
-				sequence_Greater(context, (Greater) semanticObject); 
+			case DomainmodelPackage.GREATER_EXPRESSION:
+				sequence_Greater_Expression(context, (Greater_Expression) semanticObject); 
 				return; 
-			case DomainmodelPackage.LESS:
-				sequence_Less(context, (Less) semanticObject); 
+			case DomainmodelPackage.LESS_EXPRESSION:
+				sequence_Less_Expression(context, (Less_Expression) semanticObject); 
 				return; 
-			case DomainmodelPackage.MULTIPLY:
-				sequence_Multiply(context, (Multiply) semanticObject); 
+			case DomainmodelPackage.MULTIPLY_EXPRESSION:
+				sequence_Multiply_Expression(context, (Multiply_Expression) semanticObject); 
 				return; 
-			case DomainmodelPackage.NOT_EQUALS:
-				sequence_NotEquals(context, (NotEquals) semanticObject); 
+			case DomainmodelPackage.NOT_EQUALS_EXPRESSION:
+				sequence_NotEquals_Expression(context, (NotEquals_Expression) semanticObject); 
 				return; 
-			case DomainmodelPackage.OR:
-				sequence_Or(context, (Or) semanticObject); 
+			case DomainmodelPackage.OR_EXPRESSION:
+				sequence_Or_Expression(context, (Or_Expression) semanticObject); 
 				return; 
-			case DomainmodelPackage.SUBTRACT:
-				sequence_Subtract(context, (Subtract) semanticObject); 
+			case DomainmodelPackage.SUBTRACT_EXPRESSION:
+				sequence_Subtract_Expression(context, (Subtract_Expression) semanticObject); 
 				return; 
 			case DomainmodelPackage.TQL:
 				sequence_TQL(context, (TQL) semanticObject); 
@@ -132,6 +133,9 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case ModelPackage.REFERENCE_CALL_PARAMETER:
 				sequence_Reference_Call_Parameter(context, (ReferenceCallParameter) semanticObject); 
 				return; 
+			case ModelPackage.SELF_EXPRESSION:
+				sequence_Self_Expression(context, (SelfExpression) semanticObject); 
+				return; 
 			case ModelPackage.SET_CONSTANT:
 				sequence_Set_Constant(context, (SetConstant) semanticObject); 
 				return; 
@@ -158,43 +162,43 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Expression returns Add
-	 *     And returns Add
-	 *     And.And_1_0 returns Add
-	 *     Or returns Add
-	 *     Or.Or_1_0 returns Add
-	 *     Equals returns Add
-	 *     Equals.Equals_1_0 returns Add
-	 *     NotEquals returns Add
-	 *     NotEquals.NotEquals_1_0 returns Add
-	 *     Less returns Add
-	 *     Less.Less_1_0 returns Add
-	 *     Greater returns Add
-	 *     Greater.Greater_1_0 returns Add
-	 *     Multiply returns Add
-	 *     Multiply.Multiply_1_0 returns Add
-	 *     Divide returns Add
-	 *     Divide.Divide_1_0 returns Add
-	 *     Add returns Add
-	 *     Add.Add_1_0 returns Add
+	 *     Expression returns Add_Expression
+	 *     And_Expression returns Add_Expression
+	 *     And_Expression.And_Expression_1_0 returns Add_Expression
+	 *     Or_Expression returns Add_Expression
+	 *     Or_Expression.Or_Expression_1_0 returns Add_Expression
+	 *     Equals_Expression returns Add_Expression
+	 *     Equals_Expression.Equals_Expression_1_0 returns Add_Expression
+	 *     NotEquals_Expression returns Add_Expression
+	 *     NotEquals_Expression.NotEquals_Expression_1_0 returns Add_Expression
+	 *     Less_Expression returns Add_Expression
+	 *     Less_Expression.Less_Expression_1_0 returns Add_Expression
+	 *     Greater_Expression returns Add_Expression
+	 *     Greater_Expression.Greater_Expression_1_0 returns Add_Expression
+	 *     Multiply_Expression returns Add_Expression
+	 *     Multiply_Expression.Multiply_Expression_1_0 returns Add_Expression
+	 *     Divide_Expression returns Add_Expression
+	 *     Divide_Expression.Divide_Expression_1_0 returns Add_Expression
+	 *     Add_Expression returns Add_Expression
+	 *     Add_Expression.Add_Expression_1_0 returns Add_Expression
 	 *
 	 * Constraint:
-	 *     (left=Add_Add_1_0 operator=AddOperator right=Subtract)
+	 *     (left=Add_Expression_Add_Expression_1_0 operator=AddOperator right=Subtract_Expression)
 	 * </pre>
 	 */
-	protected void sequence_Add(ISerializationContext context, Add semanticObject) {
+	protected void sequence_Add_Expression(ISerializationContext context, Add_Expression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.ADD__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.ADD__LEFT));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.ADD__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.ADD__OPERATOR));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.ADD__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.ADD__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.ADD_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.ADD_EXPRESSION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.ADD_EXPRESSION__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.ADD_EXPRESSION__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.ADD_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.ADD_EXPRESSION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAddAccess().getAddLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getAddAccess().getOperatorAddOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
-		feeder.accept(grammarAccess.getAddAccess().getRightSubtractParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getAdd_ExpressionAccess().getAdd_ExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getAdd_ExpressionAccess().getOperatorAddOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getAdd_ExpressionAccess().getRightSubtract_ExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -202,27 +206,27 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Expression returns And
-	 *     And returns And
-	 *     And.And_1_0 returns And
+	 *     Expression returns And_Expression
+	 *     And_Expression returns And_Expression
+	 *     And_Expression.And_Expression_1_0 returns And_Expression
 	 *
 	 * Constraint:
-	 *     (left=And_And_1_0 operator=AndOperator right=Or)
+	 *     (left=And_Expression_And_Expression_1_0 operator=AndOperator right=Or_Expression)
 	 * </pre>
 	 */
-	protected void sequence_And(ISerializationContext context, And semanticObject) {
+	protected void sequence_And_Expression(ISerializationContext context, And_Expression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.AND__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.AND__LEFT));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.AND__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.AND__OPERATOR));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.AND__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.AND__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.AND_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.AND_EXPRESSION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.AND_EXPRESSION__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.AND_EXPRESSION__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.AND_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.AND_EXPRESSION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAndAccess().getAndLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getAndAccess().getOperatorAndOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
-		feeder.accept(grammarAccess.getAndAccess().getRightOrParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getAnd_ExpressionAccess().getAnd_ExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getAnd_ExpressionAccess().getOperatorAndOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getAnd_ExpressionAccess().getRightOr_ExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -231,27 +235,27 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Expression returns BooleanConstant
-	 *     And returns BooleanConstant
-	 *     And.And_1_0 returns BooleanConstant
-	 *     Or returns BooleanConstant
-	 *     Or.Or_1_0 returns BooleanConstant
-	 *     Equals returns BooleanConstant
-	 *     Equals.Equals_1_0 returns BooleanConstant
-	 *     NotEquals returns BooleanConstant
-	 *     NotEquals.NotEquals_1_0 returns BooleanConstant
-	 *     Less returns BooleanConstant
-	 *     Less.Less_1_0 returns BooleanConstant
-	 *     Greater returns BooleanConstant
-	 *     Greater.Greater_1_0 returns BooleanConstant
-	 *     Multiply returns BooleanConstant
-	 *     Multiply.Multiply_1_0 returns BooleanConstant
-	 *     Divide returns BooleanConstant
-	 *     Divide.Divide_1_0 returns BooleanConstant
-	 *     Add returns BooleanConstant
-	 *     Add.Add_1_0 returns BooleanConstant
-	 *     Subtract returns BooleanConstant
-	 *     Subtract.Subtract_1_0 returns BooleanConstant
-	 *     Literals returns BooleanConstant
+	 *     And_Expression returns BooleanConstant
+	 *     And_Expression.And_Expression_1_0 returns BooleanConstant
+	 *     Or_Expression returns BooleanConstant
+	 *     Or_Expression.Or_Expression_1_0 returns BooleanConstant
+	 *     Equals_Expression returns BooleanConstant
+	 *     Equals_Expression.Equals_Expression_1_0 returns BooleanConstant
+	 *     NotEquals_Expression returns BooleanConstant
+	 *     NotEquals_Expression.NotEquals_Expression_1_0 returns BooleanConstant
+	 *     Less_Expression returns BooleanConstant
+	 *     Less_Expression.Less_Expression_1_0 returns BooleanConstant
+	 *     Greater_Expression returns BooleanConstant
+	 *     Greater_Expression.Greater_Expression_1_0 returns BooleanConstant
+	 *     Multiply_Expression returns BooleanConstant
+	 *     Multiply_Expression.Multiply_Expression_1_0 returns BooleanConstant
+	 *     Divide_Expression returns BooleanConstant
+	 *     Divide_Expression.Divide_Expression_1_0 returns BooleanConstant
+	 *     Add_Expression returns BooleanConstant
+	 *     Add_Expression.Add_Expression_1_0 returns BooleanConstant
+	 *     Subtract_Expression returns BooleanConstant
+	 *     Subtract_Expression.Subtract_Expression_1_0 returns BooleanConstant
+	 *     Literal_Expression returns BooleanConstant
 	 *     Constant returns BooleanConstant
 	 *     Single_Constant returns BooleanConstant
 	 *     Boolean_Constant returns BooleanConstant
@@ -338,41 +342,41 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Expression returns Divide
-	 *     And returns Divide
-	 *     And.And_1_0 returns Divide
-	 *     Or returns Divide
-	 *     Or.Or_1_0 returns Divide
-	 *     Equals returns Divide
-	 *     Equals.Equals_1_0 returns Divide
-	 *     NotEquals returns Divide
-	 *     NotEquals.NotEquals_1_0 returns Divide
-	 *     Less returns Divide
-	 *     Less.Less_1_0 returns Divide
-	 *     Greater returns Divide
-	 *     Greater.Greater_1_0 returns Divide
-	 *     Multiply returns Divide
-	 *     Multiply.Multiply_1_0 returns Divide
-	 *     Divide returns Divide
-	 *     Divide.Divide_1_0 returns Divide
+	 *     Expression returns Divide_Expression
+	 *     And_Expression returns Divide_Expression
+	 *     And_Expression.And_Expression_1_0 returns Divide_Expression
+	 *     Or_Expression returns Divide_Expression
+	 *     Or_Expression.Or_Expression_1_0 returns Divide_Expression
+	 *     Equals_Expression returns Divide_Expression
+	 *     Equals_Expression.Equals_Expression_1_0 returns Divide_Expression
+	 *     NotEquals_Expression returns Divide_Expression
+	 *     NotEquals_Expression.NotEquals_Expression_1_0 returns Divide_Expression
+	 *     Less_Expression returns Divide_Expression
+	 *     Less_Expression.Less_Expression_1_0 returns Divide_Expression
+	 *     Greater_Expression returns Divide_Expression
+	 *     Greater_Expression.Greater_Expression_1_0 returns Divide_Expression
+	 *     Multiply_Expression returns Divide_Expression
+	 *     Multiply_Expression.Multiply_Expression_1_0 returns Divide_Expression
+	 *     Divide_Expression returns Divide_Expression
+	 *     Divide_Expression.Divide_Expression_1_0 returns Divide_Expression
 	 *
 	 * Constraint:
-	 *     (left=Divide_Divide_1_0 operator=DivideOperator right=Add)
+	 *     (left=Divide_Expression_Divide_Expression_1_0 operator=DivideOperator right=Add_Expression)
 	 * </pre>
 	 */
-	protected void sequence_Divide(ISerializationContext context, Divide semanticObject) {
+	protected void sequence_Divide_Expression(ISerializationContext context, Divide_Expression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.DIVIDE__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.DIVIDE__LEFT));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.DIVIDE__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.DIVIDE__OPERATOR));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.DIVIDE__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.DIVIDE__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.DIVIDE_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.DIVIDE_EXPRESSION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.DIVIDE_EXPRESSION__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.DIVIDE_EXPRESSION__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.DIVIDE_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.DIVIDE_EXPRESSION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDivideAccess().getDivideLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getDivideAccess().getOperatorDivideOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
-		feeder.accept(grammarAccess.getDivideAccess().getRightAddParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getDivide_ExpressionAccess().getDivide_ExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getDivide_ExpressionAccess().getOperatorDivideOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getDivide_ExpressionAccess().getRightAdd_ExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -380,31 +384,31 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Expression returns Equals
-	 *     And returns Equals
-	 *     And.And_1_0 returns Equals
-	 *     Or returns Equals
-	 *     Or.Or_1_0 returns Equals
-	 *     Equals returns Equals
-	 *     Equals.Equals_1_0 returns Equals
+	 *     Expression returns Equals_Expression
+	 *     And_Expression returns Equals_Expression
+	 *     And_Expression.And_Expression_1_0 returns Equals_Expression
+	 *     Or_Expression returns Equals_Expression
+	 *     Or_Expression.Or_Expression_1_0 returns Equals_Expression
+	 *     Equals_Expression returns Equals_Expression
+	 *     Equals_Expression.Equals_Expression_1_0 returns Equals_Expression
 	 *
 	 * Constraint:
-	 *     (left=Equals_Equals_1_0 operator=EqualsOperator right=NotEquals)
+	 *     (left=Equals_Expression_Equals_Expression_1_0 operator=EqualsOperator right=NotEquals_Expression)
 	 * </pre>
 	 */
-	protected void sequence_Equals(ISerializationContext context, Equals semanticObject) {
+	protected void sequence_Equals_Expression(ISerializationContext context, Equals_Expression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.EQUALS__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.EQUALS__LEFT));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.EQUALS__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.EQUALS__OPERATOR));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.EQUALS__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.EQUALS__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.EQUALS_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.EQUALS_EXPRESSION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.EQUALS_EXPRESSION__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.EQUALS_EXPRESSION__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.EQUALS_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.EQUALS_EXPRESSION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEqualsAccess().getEqualsLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getEqualsAccess().getOperatorEqualsOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
-		feeder.accept(grammarAccess.getEqualsAccess().getRightNotEqualsParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getEquals_ExpressionAccess().getEquals_ExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getEquals_ExpressionAccess().getOperatorEqualsOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getEquals_ExpressionAccess().getRightNotEquals_ExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -413,27 +417,27 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Expression returns FloatConstant
-	 *     And returns FloatConstant
-	 *     And.And_1_0 returns FloatConstant
-	 *     Or returns FloatConstant
-	 *     Or.Or_1_0 returns FloatConstant
-	 *     Equals returns FloatConstant
-	 *     Equals.Equals_1_0 returns FloatConstant
-	 *     NotEquals returns FloatConstant
-	 *     NotEquals.NotEquals_1_0 returns FloatConstant
-	 *     Less returns FloatConstant
-	 *     Less.Less_1_0 returns FloatConstant
-	 *     Greater returns FloatConstant
-	 *     Greater.Greater_1_0 returns FloatConstant
-	 *     Multiply returns FloatConstant
-	 *     Multiply.Multiply_1_0 returns FloatConstant
-	 *     Divide returns FloatConstant
-	 *     Divide.Divide_1_0 returns FloatConstant
-	 *     Add returns FloatConstant
-	 *     Add.Add_1_0 returns FloatConstant
-	 *     Subtract returns FloatConstant
-	 *     Subtract.Subtract_1_0 returns FloatConstant
-	 *     Literals returns FloatConstant
+	 *     And_Expression returns FloatConstant
+	 *     And_Expression.And_Expression_1_0 returns FloatConstant
+	 *     Or_Expression returns FloatConstant
+	 *     Or_Expression.Or_Expression_1_0 returns FloatConstant
+	 *     Equals_Expression returns FloatConstant
+	 *     Equals_Expression.Equals_Expression_1_0 returns FloatConstant
+	 *     NotEquals_Expression returns FloatConstant
+	 *     NotEquals_Expression.NotEquals_Expression_1_0 returns FloatConstant
+	 *     Less_Expression returns FloatConstant
+	 *     Less_Expression.Less_Expression_1_0 returns FloatConstant
+	 *     Greater_Expression returns FloatConstant
+	 *     Greater_Expression.Greater_Expression_1_0 returns FloatConstant
+	 *     Multiply_Expression returns FloatConstant
+	 *     Multiply_Expression.Multiply_Expression_1_0 returns FloatConstant
+	 *     Divide_Expression returns FloatConstant
+	 *     Divide_Expression.Divide_Expression_1_0 returns FloatConstant
+	 *     Add_Expression returns FloatConstant
+	 *     Add_Expression.Add_Expression_1_0 returns FloatConstant
+	 *     Subtract_Expression returns FloatConstant
+	 *     Subtract_Expression.Subtract_Expression_1_0 returns FloatConstant
+	 *     Literal_Expression returns FloatConstant
 	 *     Constant returns FloatConstant
 	 *     Single_Constant returns FloatConstant
 	 *     Float_Constant returns FloatConstant
@@ -456,37 +460,37 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Expression returns Greater
-	 *     And returns Greater
-	 *     And.And_1_0 returns Greater
-	 *     Or returns Greater
-	 *     Or.Or_1_0 returns Greater
-	 *     Equals returns Greater
-	 *     Equals.Equals_1_0 returns Greater
-	 *     NotEquals returns Greater
-	 *     NotEquals.NotEquals_1_0 returns Greater
-	 *     Less returns Greater
-	 *     Less.Less_1_0 returns Greater
-	 *     Greater returns Greater
-	 *     Greater.Greater_1_0 returns Greater
+	 *     Expression returns Greater_Expression
+	 *     And_Expression returns Greater_Expression
+	 *     And_Expression.And_Expression_1_0 returns Greater_Expression
+	 *     Or_Expression returns Greater_Expression
+	 *     Or_Expression.Or_Expression_1_0 returns Greater_Expression
+	 *     Equals_Expression returns Greater_Expression
+	 *     Equals_Expression.Equals_Expression_1_0 returns Greater_Expression
+	 *     NotEquals_Expression returns Greater_Expression
+	 *     NotEquals_Expression.NotEquals_Expression_1_0 returns Greater_Expression
+	 *     Less_Expression returns Greater_Expression
+	 *     Less_Expression.Less_Expression_1_0 returns Greater_Expression
+	 *     Greater_Expression returns Greater_Expression
+	 *     Greater_Expression.Greater_Expression_1_0 returns Greater_Expression
 	 *
 	 * Constraint:
-	 *     (left=Greater_Greater_1_0 operator=GreaterOperator right=Multiply)
+	 *     (left=Greater_Expression_Greater_Expression_1_0 operator=GreaterOperator right=Multiply_Expression)
 	 * </pre>
 	 */
-	protected void sequence_Greater(ISerializationContext context, Greater semanticObject) {
+	protected void sequence_Greater_Expression(ISerializationContext context, Greater_Expression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.GREATER__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.GREATER__LEFT));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.GREATER__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.GREATER__OPERATOR));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.GREATER__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.GREATER__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.GREATER_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.GREATER_EXPRESSION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.GREATER_EXPRESSION__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.GREATER_EXPRESSION__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.GREATER_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.GREATER_EXPRESSION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGreaterAccess().getGreaterLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getGreaterAccess().getOperatorGreaterOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
-		feeder.accept(grammarAccess.getGreaterAccess().getRightMultiplyParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getGreater_ExpressionAccess().getGreater_ExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getGreater_ExpressionAccess().getOperatorGreaterOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getGreater_ExpressionAccess().getRightMultiply_ExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -495,27 +499,27 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Expression returns IntegerConstant
-	 *     And returns IntegerConstant
-	 *     And.And_1_0 returns IntegerConstant
-	 *     Or returns IntegerConstant
-	 *     Or.Or_1_0 returns IntegerConstant
-	 *     Equals returns IntegerConstant
-	 *     Equals.Equals_1_0 returns IntegerConstant
-	 *     NotEquals returns IntegerConstant
-	 *     NotEquals.NotEquals_1_0 returns IntegerConstant
-	 *     Less returns IntegerConstant
-	 *     Less.Less_1_0 returns IntegerConstant
-	 *     Greater returns IntegerConstant
-	 *     Greater.Greater_1_0 returns IntegerConstant
-	 *     Multiply returns IntegerConstant
-	 *     Multiply.Multiply_1_0 returns IntegerConstant
-	 *     Divide returns IntegerConstant
-	 *     Divide.Divide_1_0 returns IntegerConstant
-	 *     Add returns IntegerConstant
-	 *     Add.Add_1_0 returns IntegerConstant
-	 *     Subtract returns IntegerConstant
-	 *     Subtract.Subtract_1_0 returns IntegerConstant
-	 *     Literals returns IntegerConstant
+	 *     And_Expression returns IntegerConstant
+	 *     And_Expression.And_Expression_1_0 returns IntegerConstant
+	 *     Or_Expression returns IntegerConstant
+	 *     Or_Expression.Or_Expression_1_0 returns IntegerConstant
+	 *     Equals_Expression returns IntegerConstant
+	 *     Equals_Expression.Equals_Expression_1_0 returns IntegerConstant
+	 *     NotEquals_Expression returns IntegerConstant
+	 *     NotEquals_Expression.NotEquals_Expression_1_0 returns IntegerConstant
+	 *     Less_Expression returns IntegerConstant
+	 *     Less_Expression.Less_Expression_1_0 returns IntegerConstant
+	 *     Greater_Expression returns IntegerConstant
+	 *     Greater_Expression.Greater_Expression_1_0 returns IntegerConstant
+	 *     Multiply_Expression returns IntegerConstant
+	 *     Multiply_Expression.Multiply_Expression_1_0 returns IntegerConstant
+	 *     Divide_Expression returns IntegerConstant
+	 *     Divide_Expression.Divide_Expression_1_0 returns IntegerConstant
+	 *     Add_Expression returns IntegerConstant
+	 *     Add_Expression.Add_Expression_1_0 returns IntegerConstant
+	 *     Subtract_Expression returns IntegerConstant
+	 *     Subtract_Expression.Subtract_Expression_1_0 returns IntegerConstant
+	 *     Literal_Expression returns IntegerConstant
 	 *     Constant returns IntegerConstant
 	 *     Single_Constant returns IntegerConstant
 	 *     Integer_Constant returns IntegerConstant
@@ -538,35 +542,35 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Expression returns Less
-	 *     And returns Less
-	 *     And.And_1_0 returns Less
-	 *     Or returns Less
-	 *     Or.Or_1_0 returns Less
-	 *     Equals returns Less
-	 *     Equals.Equals_1_0 returns Less
-	 *     NotEquals returns Less
-	 *     NotEquals.NotEquals_1_0 returns Less
-	 *     Less returns Less
-	 *     Less.Less_1_0 returns Less
+	 *     Expression returns Less_Expression
+	 *     And_Expression returns Less_Expression
+	 *     And_Expression.And_Expression_1_0 returns Less_Expression
+	 *     Or_Expression returns Less_Expression
+	 *     Or_Expression.Or_Expression_1_0 returns Less_Expression
+	 *     Equals_Expression returns Less_Expression
+	 *     Equals_Expression.Equals_Expression_1_0 returns Less_Expression
+	 *     NotEquals_Expression returns Less_Expression
+	 *     NotEquals_Expression.NotEquals_Expression_1_0 returns Less_Expression
+	 *     Less_Expression returns Less_Expression
+	 *     Less_Expression.Less_Expression_1_0 returns Less_Expression
 	 *
 	 * Constraint:
-	 *     (left=Less_Less_1_0 operator=LessOperator right=Greater)
+	 *     (left=Less_Expression_Less_Expression_1_0 operator=LessOperator right=Greater_Expression)
 	 * </pre>
 	 */
-	protected void sequence_Less(ISerializationContext context, Less semanticObject) {
+	protected void sequence_Less_Expression(ISerializationContext context, Less_Expression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.LESS__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.LESS__LEFT));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.LESS__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.LESS__OPERATOR));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.LESS__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.LESS__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.LESS_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.LESS_EXPRESSION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.LESS_EXPRESSION__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.LESS_EXPRESSION__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.LESS_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.LESS_EXPRESSION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLessAccess().getLessLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getLessAccess().getOperatorLessOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
-		feeder.accept(grammarAccess.getLessAccess().getRightGreaterParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getLess_ExpressionAccess().getLess_ExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getLess_ExpressionAccess().getOperatorLessOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getLess_ExpressionAccess().getRightGreater_ExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -577,7 +581,7 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Mapped_Column returns MappedColumn
 	 *
 	 * Constraint:
-	 *     (source=[Column|EString] target=[Column|EString] transformationCalls+=Transformation_Call*)
+	 *     (target=[Column|EString] source=[Column|EString] transformationCalls+=Transformation_Call*)
 	 * </pre>
 	 */
 	protected void sequence_Mapped_Column(ISerializationContext context, MappedColumn semanticObject) {
@@ -603,39 +607,39 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Expression returns Multiply
-	 *     And returns Multiply
-	 *     And.And_1_0 returns Multiply
-	 *     Or returns Multiply
-	 *     Or.Or_1_0 returns Multiply
-	 *     Equals returns Multiply
-	 *     Equals.Equals_1_0 returns Multiply
-	 *     NotEquals returns Multiply
-	 *     NotEquals.NotEquals_1_0 returns Multiply
-	 *     Less returns Multiply
-	 *     Less.Less_1_0 returns Multiply
-	 *     Greater returns Multiply
-	 *     Greater.Greater_1_0 returns Multiply
-	 *     Multiply returns Multiply
-	 *     Multiply.Multiply_1_0 returns Multiply
+	 *     Expression returns Multiply_Expression
+	 *     And_Expression returns Multiply_Expression
+	 *     And_Expression.And_Expression_1_0 returns Multiply_Expression
+	 *     Or_Expression returns Multiply_Expression
+	 *     Or_Expression.Or_Expression_1_0 returns Multiply_Expression
+	 *     Equals_Expression returns Multiply_Expression
+	 *     Equals_Expression.Equals_Expression_1_0 returns Multiply_Expression
+	 *     NotEquals_Expression returns Multiply_Expression
+	 *     NotEquals_Expression.NotEquals_Expression_1_0 returns Multiply_Expression
+	 *     Less_Expression returns Multiply_Expression
+	 *     Less_Expression.Less_Expression_1_0 returns Multiply_Expression
+	 *     Greater_Expression returns Multiply_Expression
+	 *     Greater_Expression.Greater_Expression_1_0 returns Multiply_Expression
+	 *     Multiply_Expression returns Multiply_Expression
+	 *     Multiply_Expression.Multiply_Expression_1_0 returns Multiply_Expression
 	 *
 	 * Constraint:
-	 *     (left=Multiply_Multiply_1_0 operator=MultiplyOperator right=Divide)
+	 *     (left=Multiply_Expression_Multiply_Expression_1_0 operator=MultiplyOperator right=Divide_Expression)
 	 * </pre>
 	 */
-	protected void sequence_Multiply(ISerializationContext context, Multiply semanticObject) {
+	protected void sequence_Multiply_Expression(ISerializationContext context, Multiply_Expression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.MULTIPLY__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.MULTIPLY__LEFT));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.MULTIPLY__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.MULTIPLY__OPERATOR));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.MULTIPLY__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.MULTIPLY__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.MULTIPLY_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.MULTIPLY_EXPRESSION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.MULTIPLY_EXPRESSION__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.MULTIPLY_EXPRESSION__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.MULTIPLY_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.MULTIPLY_EXPRESSION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMultiplyAccess().getMultiplyLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getMultiplyAccess().getOperatorMultiplyOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
-		feeder.accept(grammarAccess.getMultiplyAccess().getRightDivideParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getMultiply_ExpressionAccess().getMultiply_ExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getMultiply_ExpressionAccess().getOperatorMultiplyOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getMultiply_ExpressionAccess().getRightDivide_ExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -643,33 +647,33 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Expression returns NotEquals
-	 *     And returns NotEquals
-	 *     And.And_1_0 returns NotEquals
-	 *     Or returns NotEquals
-	 *     Or.Or_1_0 returns NotEquals
-	 *     Equals returns NotEquals
-	 *     Equals.Equals_1_0 returns NotEquals
-	 *     NotEquals returns NotEquals
-	 *     NotEquals.NotEquals_1_0 returns NotEquals
+	 *     Expression returns NotEquals_Expression
+	 *     And_Expression returns NotEquals_Expression
+	 *     And_Expression.And_Expression_1_0 returns NotEquals_Expression
+	 *     Or_Expression returns NotEquals_Expression
+	 *     Or_Expression.Or_Expression_1_0 returns NotEquals_Expression
+	 *     Equals_Expression returns NotEquals_Expression
+	 *     Equals_Expression.Equals_Expression_1_0 returns NotEquals_Expression
+	 *     NotEquals_Expression returns NotEquals_Expression
+	 *     NotEquals_Expression.NotEquals_Expression_1_0 returns NotEquals_Expression
 	 *
 	 * Constraint:
-	 *     (left=NotEquals_NotEquals_1_0 operator=NotEqualsOperator right=Less)
+	 *     (left=NotEquals_Expression_NotEquals_Expression_1_0 operator=NotEqualsOperator right=Less_Expression)
 	 * </pre>
 	 */
-	protected void sequence_NotEquals(ISerializationContext context, NotEquals semanticObject) {
+	protected void sequence_NotEquals_Expression(ISerializationContext context, NotEquals_Expression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS__LEFT));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS__OPERATOR));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS_EXPRESSION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS_EXPRESSION__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS_EXPRESSION__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.NOT_EQUALS_EXPRESSION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNotEqualsAccess().getNotEqualsLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getNotEqualsAccess().getOperatorNotEqualsOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
-		feeder.accept(grammarAccess.getNotEqualsAccess().getRightLessParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getNotEquals_ExpressionAccess().getNotEquals_ExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getNotEquals_ExpressionAccess().getOperatorNotEqualsOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getNotEquals_ExpressionAccess().getRightLess_ExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -678,27 +682,27 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Expression returns NullConstant
-	 *     And returns NullConstant
-	 *     And.And_1_0 returns NullConstant
-	 *     Or returns NullConstant
-	 *     Or.Or_1_0 returns NullConstant
-	 *     Equals returns NullConstant
-	 *     Equals.Equals_1_0 returns NullConstant
-	 *     NotEquals returns NullConstant
-	 *     NotEquals.NotEquals_1_0 returns NullConstant
-	 *     Less returns NullConstant
-	 *     Less.Less_1_0 returns NullConstant
-	 *     Greater returns NullConstant
-	 *     Greater.Greater_1_0 returns NullConstant
-	 *     Multiply returns NullConstant
-	 *     Multiply.Multiply_1_0 returns NullConstant
-	 *     Divide returns NullConstant
-	 *     Divide.Divide_1_0 returns NullConstant
-	 *     Add returns NullConstant
-	 *     Add.Add_1_0 returns NullConstant
-	 *     Subtract returns NullConstant
-	 *     Subtract.Subtract_1_0 returns NullConstant
-	 *     Literals returns NullConstant
+	 *     And_Expression returns NullConstant
+	 *     And_Expression.And_Expression_1_0 returns NullConstant
+	 *     Or_Expression returns NullConstant
+	 *     Or_Expression.Or_Expression_1_0 returns NullConstant
+	 *     Equals_Expression returns NullConstant
+	 *     Equals_Expression.Equals_Expression_1_0 returns NullConstant
+	 *     NotEquals_Expression returns NullConstant
+	 *     NotEquals_Expression.NotEquals_Expression_1_0 returns NullConstant
+	 *     Less_Expression returns NullConstant
+	 *     Less_Expression.Less_Expression_1_0 returns NullConstant
+	 *     Greater_Expression returns NullConstant
+	 *     Greater_Expression.Greater_Expression_1_0 returns NullConstant
+	 *     Multiply_Expression returns NullConstant
+	 *     Multiply_Expression.Multiply_Expression_1_0 returns NullConstant
+	 *     Divide_Expression returns NullConstant
+	 *     Divide_Expression.Divide_Expression_1_0 returns NullConstant
+	 *     Add_Expression returns NullConstant
+	 *     Add_Expression.Add_Expression_1_0 returns NullConstant
+	 *     Subtract_Expression returns NullConstant
+	 *     Subtract_Expression.Subtract_Expression_1_0 returns NullConstant
+	 *     Literal_Expression returns NullConstant
 	 *     Constant returns NullConstant
 	 *     Single_Constant returns NullConstant
 	 *     Null_Constant returns NullConstant
@@ -715,29 +719,29 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Expression returns Or
-	 *     And returns Or
-	 *     And.And_1_0 returns Or
-	 *     Or returns Or
-	 *     Or.Or_1_0 returns Or
+	 *     Expression returns Or_Expression
+	 *     And_Expression returns Or_Expression
+	 *     And_Expression.And_Expression_1_0 returns Or_Expression
+	 *     Or_Expression returns Or_Expression
+	 *     Or_Expression.Or_Expression_1_0 returns Or_Expression
 	 *
 	 * Constraint:
-	 *     (left=Or_Or_1_0 operator=OrOperator right=Equals)
+	 *     (left=Or_Expression_Or_Expression_1_0 operator=OrOperator right=Equals_Expression)
 	 * </pre>
 	 */
-	protected void sequence_Or(ISerializationContext context, Or semanticObject) {
+	protected void sequence_Or_Expression(ISerializationContext context, Or_Expression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.OR__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.OR__LEFT));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.OR__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.OR__OPERATOR));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.OR__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.OR__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.OR_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.OR_EXPRESSION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.OR_EXPRESSION__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.OR_EXPRESSION__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.OR_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.OR_EXPRESSION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOrAccess().getOrLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getOrAccess().getOperatorOrOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
-		feeder.accept(grammarAccess.getOrAccess().getRightEqualsParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getOr_ExpressionAccess().getOr_ExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getOr_ExpressionAccess().getOperatorOrOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getOr_ExpressionAccess().getRightEquals_ExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -746,27 +750,27 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Expression returns ParameterExpression
-	 *     And returns ParameterExpression
-	 *     And.And_1_0 returns ParameterExpression
-	 *     Or returns ParameterExpression
-	 *     Or.Or_1_0 returns ParameterExpression
-	 *     Equals returns ParameterExpression
-	 *     Equals.Equals_1_0 returns ParameterExpression
-	 *     NotEquals returns ParameterExpression
-	 *     NotEquals.NotEquals_1_0 returns ParameterExpression
-	 *     Less returns ParameterExpression
-	 *     Less.Less_1_0 returns ParameterExpression
-	 *     Greater returns ParameterExpression
-	 *     Greater.Greater_1_0 returns ParameterExpression
-	 *     Multiply returns ParameterExpression
-	 *     Multiply.Multiply_1_0 returns ParameterExpression
-	 *     Divide returns ParameterExpression
-	 *     Divide.Divide_1_0 returns ParameterExpression
-	 *     Add returns ParameterExpression
-	 *     Add.Add_1_0 returns ParameterExpression
-	 *     Subtract returns ParameterExpression
-	 *     Subtract.Subtract_1_0 returns ParameterExpression
-	 *     Literals returns ParameterExpression
+	 *     And_Expression returns ParameterExpression
+	 *     And_Expression.And_Expression_1_0 returns ParameterExpression
+	 *     Or_Expression returns ParameterExpression
+	 *     Or_Expression.Or_Expression_1_0 returns ParameterExpression
+	 *     Equals_Expression returns ParameterExpression
+	 *     Equals_Expression.Equals_Expression_1_0 returns ParameterExpression
+	 *     NotEquals_Expression returns ParameterExpression
+	 *     NotEquals_Expression.NotEquals_Expression_1_0 returns ParameterExpression
+	 *     Less_Expression returns ParameterExpression
+	 *     Less_Expression.Less_Expression_1_0 returns ParameterExpression
+	 *     Greater_Expression returns ParameterExpression
+	 *     Greater_Expression.Greater_Expression_1_0 returns ParameterExpression
+	 *     Multiply_Expression returns ParameterExpression
+	 *     Multiply_Expression.Multiply_Expression_1_0 returns ParameterExpression
+	 *     Divide_Expression returns ParameterExpression
+	 *     Divide_Expression.Divide_Expression_1_0 returns ParameterExpression
+	 *     Add_Expression returns ParameterExpression
+	 *     Add_Expression.Add_Expression_1_0 returns ParameterExpression
+	 *     Subtract_Expression returns ParameterExpression
+	 *     Subtract_Expression.Subtract_Expression_1_0 returns ParameterExpression
+	 *     Literal_Expression returns ParameterExpression
 	 *     Parameter_Expression returns ParameterExpression
 	 *
 	 * Constraint:
@@ -831,28 +835,64 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Expression returns SelfExpression
+	 *     And_Expression returns SelfExpression
+	 *     And_Expression.And_Expression_1_0 returns SelfExpression
+	 *     Or_Expression returns SelfExpression
+	 *     Or_Expression.Or_Expression_1_0 returns SelfExpression
+	 *     Equals_Expression returns SelfExpression
+	 *     Equals_Expression.Equals_Expression_1_0 returns SelfExpression
+	 *     NotEquals_Expression returns SelfExpression
+	 *     NotEquals_Expression.NotEquals_Expression_1_0 returns SelfExpression
+	 *     Less_Expression returns SelfExpression
+	 *     Less_Expression.Less_Expression_1_0 returns SelfExpression
+	 *     Greater_Expression returns SelfExpression
+	 *     Greater_Expression.Greater_Expression_1_0 returns SelfExpression
+	 *     Multiply_Expression returns SelfExpression
+	 *     Multiply_Expression.Multiply_Expression_1_0 returns SelfExpression
+	 *     Divide_Expression returns SelfExpression
+	 *     Divide_Expression.Divide_Expression_1_0 returns SelfExpression
+	 *     Add_Expression returns SelfExpression
+	 *     Add_Expression.Add_Expression_1_0 returns SelfExpression
+	 *     Subtract_Expression returns SelfExpression
+	 *     Subtract_Expression.Subtract_Expression_1_0 returns SelfExpression
+	 *     Literal_Expression returns SelfExpression
+	 *     Self_Expression returns SelfExpression
+	 *
+	 * Constraint:
+	 *     {SelfExpression}
+	 * </pre>
+	 */
+	protected void sequence_Self_Expression(ISerializationContext context, SelfExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Expression returns SetConstant
-	 *     And returns SetConstant
-	 *     And.And_1_0 returns SetConstant
-	 *     Or returns SetConstant
-	 *     Or.Or_1_0 returns SetConstant
-	 *     Equals returns SetConstant
-	 *     Equals.Equals_1_0 returns SetConstant
-	 *     NotEquals returns SetConstant
-	 *     NotEquals.NotEquals_1_0 returns SetConstant
-	 *     Less returns SetConstant
-	 *     Less.Less_1_0 returns SetConstant
-	 *     Greater returns SetConstant
-	 *     Greater.Greater_1_0 returns SetConstant
-	 *     Multiply returns SetConstant
-	 *     Multiply.Multiply_1_0 returns SetConstant
-	 *     Divide returns SetConstant
-	 *     Divide.Divide_1_0 returns SetConstant
-	 *     Add returns SetConstant
-	 *     Add.Add_1_0 returns SetConstant
-	 *     Subtract returns SetConstant
-	 *     Subtract.Subtract_1_0 returns SetConstant
-	 *     Literals returns SetConstant
+	 *     And_Expression returns SetConstant
+	 *     And_Expression.And_Expression_1_0 returns SetConstant
+	 *     Or_Expression returns SetConstant
+	 *     Or_Expression.Or_Expression_1_0 returns SetConstant
+	 *     Equals_Expression returns SetConstant
+	 *     Equals_Expression.Equals_Expression_1_0 returns SetConstant
+	 *     NotEquals_Expression returns SetConstant
+	 *     NotEquals_Expression.NotEquals_Expression_1_0 returns SetConstant
+	 *     Less_Expression returns SetConstant
+	 *     Less_Expression.Less_Expression_1_0 returns SetConstant
+	 *     Greater_Expression returns SetConstant
+	 *     Greater_Expression.Greater_Expression_1_0 returns SetConstant
+	 *     Multiply_Expression returns SetConstant
+	 *     Multiply_Expression.Multiply_Expression_1_0 returns SetConstant
+	 *     Divide_Expression returns SetConstant
+	 *     Divide_Expression.Divide_Expression_1_0 returns SetConstant
+	 *     Add_Expression returns SetConstant
+	 *     Add_Expression.Add_Expression_1_0 returns SetConstant
+	 *     Subtract_Expression returns SetConstant
+	 *     Subtract_Expression.Subtract_Expression_1_0 returns SetConstant
+	 *     Literal_Expression returns SetConstant
 	 *     Constant returns SetConstant
 	 *     Set_Constant returns SetConstant
 	 *
@@ -885,27 +925,27 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Expression returns StringConstant
-	 *     And returns StringConstant
-	 *     And.And_1_0 returns StringConstant
-	 *     Or returns StringConstant
-	 *     Or.Or_1_0 returns StringConstant
-	 *     Equals returns StringConstant
-	 *     Equals.Equals_1_0 returns StringConstant
-	 *     NotEquals returns StringConstant
-	 *     NotEquals.NotEquals_1_0 returns StringConstant
-	 *     Less returns StringConstant
-	 *     Less.Less_1_0 returns StringConstant
-	 *     Greater returns StringConstant
-	 *     Greater.Greater_1_0 returns StringConstant
-	 *     Multiply returns StringConstant
-	 *     Multiply.Multiply_1_0 returns StringConstant
-	 *     Divide returns StringConstant
-	 *     Divide.Divide_1_0 returns StringConstant
-	 *     Add returns StringConstant
-	 *     Add.Add_1_0 returns StringConstant
-	 *     Subtract returns StringConstant
-	 *     Subtract.Subtract_1_0 returns StringConstant
-	 *     Literals returns StringConstant
+	 *     And_Expression returns StringConstant
+	 *     And_Expression.And_Expression_1_0 returns StringConstant
+	 *     Or_Expression returns StringConstant
+	 *     Or_Expression.Or_Expression_1_0 returns StringConstant
+	 *     Equals_Expression returns StringConstant
+	 *     Equals_Expression.Equals_Expression_1_0 returns StringConstant
+	 *     NotEquals_Expression returns StringConstant
+	 *     NotEquals_Expression.NotEquals_Expression_1_0 returns StringConstant
+	 *     Less_Expression returns StringConstant
+	 *     Less_Expression.Less_Expression_1_0 returns StringConstant
+	 *     Greater_Expression returns StringConstant
+	 *     Greater_Expression.Greater_Expression_1_0 returns StringConstant
+	 *     Multiply_Expression returns StringConstant
+	 *     Multiply_Expression.Multiply_Expression_1_0 returns StringConstant
+	 *     Divide_Expression returns StringConstant
+	 *     Divide_Expression.Divide_Expression_1_0 returns StringConstant
+	 *     Add_Expression returns StringConstant
+	 *     Add_Expression.Add_Expression_1_0 returns StringConstant
+	 *     Subtract_Expression returns StringConstant
+	 *     Subtract_Expression.Subtract_Expression_1_0 returns StringConstant
+	 *     Literal_Expression returns StringConstant
 	 *     Constant returns StringConstant
 	 *     Single_Constant returns StringConstant
 	 *     String_Constant returns StringConstant
@@ -928,45 +968,45 @@ public class TQLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Expression returns Subtract
-	 *     And returns Subtract
-	 *     And.And_1_0 returns Subtract
-	 *     Or returns Subtract
-	 *     Or.Or_1_0 returns Subtract
-	 *     Equals returns Subtract
-	 *     Equals.Equals_1_0 returns Subtract
-	 *     NotEquals returns Subtract
-	 *     NotEquals.NotEquals_1_0 returns Subtract
-	 *     Less returns Subtract
-	 *     Less.Less_1_0 returns Subtract
-	 *     Greater returns Subtract
-	 *     Greater.Greater_1_0 returns Subtract
-	 *     Multiply returns Subtract
-	 *     Multiply.Multiply_1_0 returns Subtract
-	 *     Divide returns Subtract
-	 *     Divide.Divide_1_0 returns Subtract
-	 *     Add returns Subtract
-	 *     Add.Add_1_0 returns Subtract
-	 *     Subtract returns Subtract
-	 *     Subtract.Subtract_1_0 returns Subtract
+	 *     Expression returns Subtract_Expression
+	 *     And_Expression returns Subtract_Expression
+	 *     And_Expression.And_Expression_1_0 returns Subtract_Expression
+	 *     Or_Expression returns Subtract_Expression
+	 *     Or_Expression.Or_Expression_1_0 returns Subtract_Expression
+	 *     Equals_Expression returns Subtract_Expression
+	 *     Equals_Expression.Equals_Expression_1_0 returns Subtract_Expression
+	 *     NotEquals_Expression returns Subtract_Expression
+	 *     NotEquals_Expression.NotEquals_Expression_1_0 returns Subtract_Expression
+	 *     Less_Expression returns Subtract_Expression
+	 *     Less_Expression.Less_Expression_1_0 returns Subtract_Expression
+	 *     Greater_Expression returns Subtract_Expression
+	 *     Greater_Expression.Greater_Expression_1_0 returns Subtract_Expression
+	 *     Multiply_Expression returns Subtract_Expression
+	 *     Multiply_Expression.Multiply_Expression_1_0 returns Subtract_Expression
+	 *     Divide_Expression returns Subtract_Expression
+	 *     Divide_Expression.Divide_Expression_1_0 returns Subtract_Expression
+	 *     Add_Expression returns Subtract_Expression
+	 *     Add_Expression.Add_Expression_1_0 returns Subtract_Expression
+	 *     Subtract_Expression returns Subtract_Expression
+	 *     Subtract_Expression.Subtract_Expression_1_0 returns Subtract_Expression
 	 *
 	 * Constraint:
-	 *     (left=Subtract_Subtract_1_0 operator=SubtractOperator right=Literals)
+	 *     (left=Subtract_Expression_Subtract_Expression_1_0 operator=SubtractOperator right=Literal_Expression)
 	 * </pre>
 	 */
-	protected void sequence_Subtract(ISerializationContext context, Subtract semanticObject) {
+	protected void sequence_Subtract_Expression(ISerializationContext context, Subtract_Expression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.SUBTRACT__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.SUBTRACT__LEFT));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.SUBTRACT__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.SUBTRACT__OPERATOR));
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.SUBTRACT__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.SUBTRACT__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.SUBTRACT_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.SUBTRACT_EXPRESSION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.SUBTRACT_EXPRESSION__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.SUBTRACT_EXPRESSION__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.SUBTRACT_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.SUBTRACT_EXPRESSION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSubtractAccess().getSubtractLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getSubtractAccess().getOperatorSubtractOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
-		feeder.accept(grammarAccess.getSubtractAccess().getRightLiteralsParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getSubtract_ExpressionAccess().getSubtract_ExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getSubtract_ExpressionAccess().getOperatorSubtractOperatorEnumRuleCall_1_1_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getSubtract_ExpressionAccess().getRightLiteral_ExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	

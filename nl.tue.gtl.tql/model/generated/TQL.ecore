@@ -7,70 +7,70 @@
         eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Block"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="And" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="And_Expression" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EEnum platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Operator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Or" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="Or_Expression" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EEnum platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Operator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Equals" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="Equals_Expression" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EEnum platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Operator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NotEquals" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="NotEquals_Expression" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EEnum platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Operator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Less" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="Less_Expression" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EEnum platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Operator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Greater" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="Greater_Expression" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EEnum platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Operator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Multiply" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="Multiply_Expression" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EEnum platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Operator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Divide" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="Divide_Expression" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EEnum platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Operator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Add" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="Add_Expression" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EEnum platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Operator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Subtract" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="Subtract_Expression" eSuperTypes="platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EEnum platform:/resource/nl.tue.gtl.tql.model/model/model.ecore#//Operator"/>

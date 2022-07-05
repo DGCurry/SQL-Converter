@@ -83,54 +83,54 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
         return createTQLAdapter();
       }
       @Override
-      public Adapter caseAnd(And object)
+      public Adapter caseAnd_Expression(And_Expression object)
       {
-        return createAndAdapter();
+        return createAnd_ExpressionAdapter();
       }
       @Override
-      public Adapter caseOr(Or object)
+      public Adapter caseOr_Expression(Or_Expression object)
       {
-        return createOrAdapter();
+        return createOr_ExpressionAdapter();
       }
       @Override
-      public Adapter caseEquals(Equals object)
+      public Adapter caseEquals_Expression(Equals_Expression object)
       {
-        return createEqualsAdapter();
+        return createEquals_ExpressionAdapter();
       }
       @Override
-      public Adapter caseNotEquals(NotEquals object)
+      public Adapter caseNotEquals_Expression(NotEquals_Expression object)
       {
-        return createNotEqualsAdapter();
+        return createNotEquals_ExpressionAdapter();
       }
       @Override
-      public Adapter caseLess(Less object)
+      public Adapter caseLess_Expression(Less_Expression object)
       {
-        return createLessAdapter();
+        return createLess_ExpressionAdapter();
       }
       @Override
-      public Adapter caseGreater(Greater object)
+      public Adapter caseGreater_Expression(Greater_Expression object)
       {
-        return createGreaterAdapter();
+        return createGreater_ExpressionAdapter();
       }
       @Override
-      public Adapter caseMultiply(Multiply object)
+      public Adapter caseMultiply_Expression(Multiply_Expression object)
       {
-        return createMultiplyAdapter();
+        return createMultiply_ExpressionAdapter();
       }
       @Override
-      public Adapter caseDivide(Divide object)
+      public Adapter caseDivide_Expression(Divide_Expression object)
       {
-        return createDivideAdapter();
+        return createDivide_ExpressionAdapter();
       }
       @Override
-      public Adapter caseAdd(Add object)
+      public Adapter caseAdd_Expression(Add_Expression object)
       {
-        return createAddAdapter();
+        return createAdd_ExpressionAdapter();
       }
       @Override
-      public Adapter caseSubtract(Subtract object)
+      public Adapter caseSubtract_Expression(Subtract_Expression object)
       {
-        return createSubtractAdapter();
+        return createSubtract_ExpressionAdapter();
       }
       @Override
       public Adapter caseExpression(Expression object)
@@ -175,151 +175,151 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.And <em>And</em>}'.
+   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.And_Expression <em>And Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see nl.tue.gtl.domainmodel.And
+   * @see nl.tue.gtl.domainmodel.And_Expression
    * @generated
    */
-  public Adapter createAndAdapter()
+  public Adapter createAnd_ExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.Or <em>Or</em>}'.
+   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.Or_Expression <em>Or Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see nl.tue.gtl.domainmodel.Or
+   * @see nl.tue.gtl.domainmodel.Or_Expression
    * @generated
    */
-  public Adapter createOrAdapter()
+  public Adapter createOr_ExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.Equals <em>Equals</em>}'.
+   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.Equals_Expression <em>Equals Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see nl.tue.gtl.domainmodel.Equals
+   * @see nl.tue.gtl.domainmodel.Equals_Expression
    * @generated
    */
-  public Adapter createEqualsAdapter()
+  public Adapter createEquals_ExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.NotEquals <em>Not Equals</em>}'.
+   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.NotEquals_Expression <em>Not Equals Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see nl.tue.gtl.domainmodel.NotEquals
+   * @see nl.tue.gtl.domainmodel.NotEquals_Expression
    * @generated
    */
-  public Adapter createNotEqualsAdapter()
+  public Adapter createNotEquals_ExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.Less <em>Less</em>}'.
+   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.Less_Expression <em>Less Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see nl.tue.gtl.domainmodel.Less
+   * @see nl.tue.gtl.domainmodel.Less_Expression
    * @generated
    */
-  public Adapter createLessAdapter()
+  public Adapter createLess_ExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.Greater <em>Greater</em>}'.
+   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.Greater_Expression <em>Greater Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see nl.tue.gtl.domainmodel.Greater
+   * @see nl.tue.gtl.domainmodel.Greater_Expression
    * @generated
    */
-  public Adapter createGreaterAdapter()
+  public Adapter createGreater_ExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.Multiply <em>Multiply</em>}'.
+   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.Multiply_Expression <em>Multiply Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see nl.tue.gtl.domainmodel.Multiply
+   * @see nl.tue.gtl.domainmodel.Multiply_Expression
    * @generated
    */
-  public Adapter createMultiplyAdapter()
+  public Adapter createMultiply_ExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.Divide <em>Divide</em>}'.
+   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.Divide_Expression <em>Divide Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see nl.tue.gtl.domainmodel.Divide
+   * @see nl.tue.gtl.domainmodel.Divide_Expression
    * @generated
    */
-  public Adapter createDivideAdapter()
+  public Adapter createDivide_ExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.Add <em>Add</em>}'.
+   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.Add_Expression <em>Add Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see nl.tue.gtl.domainmodel.Add
+   * @see nl.tue.gtl.domainmodel.Add_Expression
    * @generated
    */
-  public Adapter createAddAdapter()
+  public Adapter createAdd_ExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.Subtract <em>Subtract</em>}'.
+   * Creates a new adapter for an object of class '{@link nl.tue.gtl.domainmodel.Subtract_Expression <em>Subtract Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see nl.tue.gtl.domainmodel.Subtract
+   * @see nl.tue.gtl.domainmodel.Subtract_Expression
    * @generated
    */
-  public Adapter createSubtractAdapter()
+  public Adapter createSubtract_ExpressionAdapter()
   {
     return null;
   }

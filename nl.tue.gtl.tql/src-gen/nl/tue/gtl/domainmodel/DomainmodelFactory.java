@@ -33,94 +33,94 @@ public interface DomainmodelFactory extends EFactory
   TQL createTQL();
 
   /**
-   * Returns a new object of class '<em>And</em>'.
+   * Returns a new object of class '<em>And Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>And</em>'.
+   * @return a new object of class '<em>And Expression</em>'.
    * @generated
    */
-  And createAnd();
+  And_Expression createAnd_Expression();
 
   /**
-   * Returns a new object of class '<em>Or</em>'.
+   * Returns a new object of class '<em>Or Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Or</em>'.
+   * @return a new object of class '<em>Or Expression</em>'.
    * @generated
    */
-  Or createOr();
+  Or_Expression createOr_Expression();
 
   /**
-   * Returns a new object of class '<em>Equals</em>'.
+   * Returns a new object of class '<em>Equals Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Equals</em>'.
+   * @return a new object of class '<em>Equals Expression</em>'.
    * @generated
    */
-  Equals createEquals();
+  Equals_Expression createEquals_Expression();
 
   /**
-   * Returns a new object of class '<em>Not Equals</em>'.
+   * Returns a new object of class '<em>Not Equals Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Not Equals</em>'.
+   * @return a new object of class '<em>Not Equals Expression</em>'.
    * @generated
    */
-  NotEquals createNotEquals();
+  NotEquals_Expression createNotEquals_Expression();
 
   /**
-   * Returns a new object of class '<em>Less</em>'.
+   * Returns a new object of class '<em>Less Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Less</em>'.
+   * @return a new object of class '<em>Less Expression</em>'.
    * @generated
    */
-  Less createLess();
+  Less_Expression createLess_Expression();
 
   /**
-   * Returns a new object of class '<em>Greater</em>'.
+   * Returns a new object of class '<em>Greater Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Greater</em>'.
+   * @return a new object of class '<em>Greater Expression</em>'.
    * @generated
    */
-  Greater createGreater();
+  Greater_Expression createGreater_Expression();
 
   /**
-   * Returns a new object of class '<em>Multiply</em>'.
+   * Returns a new object of class '<em>Multiply Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Multiply</em>'.
+   * @return a new object of class '<em>Multiply Expression</em>'.
    * @generated
    */
-  Multiply createMultiply();
+  Multiply_Expression createMultiply_Expression();
 
   /**
-   * Returns a new object of class '<em>Divide</em>'.
+   * Returns a new object of class '<em>Divide Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Divide</em>'.
+   * @return a new object of class '<em>Divide Expression</em>'.
    * @generated
    */
-  Divide createDivide();
+  Divide_Expression createDivide_Expression();
 
   /**
-   * Returns a new object of class '<em>Add</em>'.
+   * Returns a new object of class '<em>Add Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Add</em>'.
+   * @return a new object of class '<em>Add Expression</em>'.
    * @generated
    */
-  Add createAdd();
+  Add_Expression createAdd_Expression();
 
   /**
-   * Returns a new object of class '<em>Subtract</em>'.
+   * Returns a new object of class '<em>Subtract Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Subtract</em>'.
+   * @return a new object of class '<em>Subtract Expression</em>'.
    * @generated
    */
-  Subtract createSubtract();
+  Subtract_Expression createSubtract_Expression();
 
   /**
    * Returns the package supported by this factory.

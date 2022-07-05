@@ -333,46 +333,46 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	public class Mapped_ColumnElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Mapped_Column");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cSourceColumnCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
-		private final RuleCall cSourceColumnEStringParserRuleCall_0_0_1 = (RuleCall)cSourceColumnCrossReference_0_0.eContents().get(1);
+		private final Assignment cTargetAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cTargetColumnCrossReference_0_0 = (CrossReference)cTargetAssignment_0.eContents().get(0);
+		private final RuleCall cTargetColumnEStringParserRuleCall_0_0_1 = (RuleCall)cTargetColumnCrossReference_0_0.eContents().get(1);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTargetAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cTargetColumnCrossReference_2_0 = (CrossReference)cTargetAssignment_2.eContents().get(0);
-		private final RuleCall cTargetColumnEStringParserRuleCall_2_0_1 = (RuleCall)cTargetColumnCrossReference_2_0.eContents().get(1);
+		private final Assignment cSourceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cSourceColumnCrossReference_2_0 = (CrossReference)cSourceAssignment_2.eContents().get(0);
+		private final RuleCall cSourceColumnEStringParserRuleCall_2_0_1 = (RuleCall)cSourceColumnCrossReference_2_0.eContents().get(1);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cVerticalLineKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cTransformationCallsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cTransformationCallsTransformation_CallParserRuleCall_3_1_0 = (RuleCall)cTransformationCallsAssignment_3_1.eContents().get(0);
 		
 		//Mapped_Column returns MappedColumn:
-		//    source=[Column|EString] ':' target=[Column|EString] ( '|' transformationCalls+=Transformation_Call)*
+		//    target=[Column|EString] ':' source=[Column|EString] ( '|' transformationCalls+=Transformation_Call)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//source=[Column|EString] ':' target=[Column|EString] ( '|' transformationCalls+=Transformation_Call)*
+		//target=[Column|EString] ':' source=[Column|EString] ( '|' transformationCalls+=Transformation_Call)*
 		public Group getGroup() { return cGroup; }
 		
-		//source=[Column|EString]
-		public Assignment getSourceAssignment_0() { return cSourceAssignment_0; }
+		//target=[Column|EString]
+		public Assignment getTargetAssignment_0() { return cTargetAssignment_0; }
 		
 		//[Column|EString]
-		public CrossReference getSourceColumnCrossReference_0_0() { return cSourceColumnCrossReference_0_0; }
+		public CrossReference getTargetColumnCrossReference_0_0() { return cTargetColumnCrossReference_0_0; }
 		
 		//EString
-		public RuleCall getSourceColumnEStringParserRuleCall_0_0_1() { return cSourceColumnEStringParserRuleCall_0_0_1; }
+		public RuleCall getTargetColumnEStringParserRuleCall_0_0_1() { return cTargetColumnEStringParserRuleCall_0_0_1; }
 		
 		//':'
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
 		
-		//target=[Column|EString]
-		public Assignment getTargetAssignment_2() { return cTargetAssignment_2; }
+		//source=[Column|EString]
+		public Assignment getSourceAssignment_2() { return cSourceAssignment_2; }
 		
 		//[Column|EString]
-		public CrossReference getTargetColumnCrossReference_2_0() { return cTargetColumnCrossReference_2_0; }
+		public CrossReference getSourceColumnCrossReference_2_0() { return cSourceColumnCrossReference_2_0; }
 		
 		//EString
-		public RuleCall getTargetColumnEStringParserRuleCall_2_0_1() { return cTargetColumnEStringParserRuleCall_2_0_1; }
+		public RuleCall getSourceColumnEStringParserRuleCall_2_0_1() { return cSourceColumnEStringParserRuleCall_2_0_1; }
 		
 		//( '|' transformationCalls+=Transformation_Call)*
 		public Group getGroup_3() { return cGroup_3; }
@@ -635,40 +635,40 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Expression");
-		private final RuleCall cAndParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final RuleCall cAnd_ExpressionParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//// Expressions
-		//Expression returns Expression : And;
+		//Expression returns Expression : And_Expression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//And
-		public RuleCall getAndParserRuleCall() { return cAndParserRuleCall; }
+		//And_Expression
+		public RuleCall getAnd_ExpressionParserRuleCall() { return cAnd_ExpressionParserRuleCall; }
 	}
-	public class AndElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.And");
+	public class And_ExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.And_Expression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cOrParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cOr_ExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cAndLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Action cAnd_ExpressionLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cOperatorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cOperatorAndOperatorEnumRuleCall_1_1_0 = (RuleCall)cOperatorAssignment_1_1.eContents().get(0);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightOrParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final RuleCall cRightOr_ExpressionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//And returns Expression: Or ({And.left = current} operator=AndOperator right = Or)*;
+		//And_Expression returns Expression: Or_Expression ({And_Expression.left = current} operator=AndOperator right = Or_Expression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Or ({And.left = current} operator=AndOperator right = Or)*
+		//Or_Expression ({And_Expression.left = current} operator=AndOperator right = Or_Expression)*
 		public Group getGroup() { return cGroup; }
 		
-		//Or
-		public RuleCall getOrParserRuleCall_0() { return cOrParserRuleCall_0; }
+		//Or_Expression
+		public RuleCall getOr_ExpressionParserRuleCall_0() { return cOr_ExpressionParserRuleCall_0; }
 		
-		//({And.left = current} operator=AndOperator right = Or)*
+		//({And_Expression.left = current} operator=AndOperator right = Or_Expression)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{And.left = current}
-		public Action getAndLeftAction_1_0() { return cAndLeftAction_1_0; }
+		//{And_Expression.left = current}
+		public Action getAnd_ExpressionLeftAction_1_0() { return cAnd_ExpressionLeftAction_1_0; }
 		
 		//operator=AndOperator
 		public Assignment getOperatorAssignment_1_1() { return cOperatorAssignment_1_1; }
@@ -676,37 +676,37 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//AndOperator
 		public RuleCall getOperatorAndOperatorEnumRuleCall_1_1_0() { return cOperatorAndOperatorEnumRuleCall_1_1_0; }
 		
-		//right = Or
+		//right = Or_Expression
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 		
-		//Or
-		public RuleCall getRightOrParserRuleCall_1_2_0() { return cRightOrParserRuleCall_1_2_0; }
+		//Or_Expression
+		public RuleCall getRightOr_ExpressionParserRuleCall_1_2_0() { return cRightOr_ExpressionParserRuleCall_1_2_0; }
 	}
-	public class OrElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Or");
+	public class Or_ExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Or_Expression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cEqualsParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cEquals_ExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cOrLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Action cOr_ExpressionLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cOperatorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cOperatorOrOperatorEnumRuleCall_1_1_0 = (RuleCall)cOperatorAssignment_1_1.eContents().get(0);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightEqualsParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final RuleCall cRightEquals_ExpressionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//Or returns Expression: Equals ({Or.left = current} operator=OrOperator right = Equals)*;
+		//Or_Expression returns Expression: Equals_Expression ({Or_Expression.left = current} operator=OrOperator right = Equals_Expression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Equals ({Or.left = current} operator=OrOperator right = Equals)*
+		//Equals_Expression ({Or_Expression.left = current} operator=OrOperator right = Equals_Expression)*
 		public Group getGroup() { return cGroup; }
 		
-		//Equals
-		public RuleCall getEqualsParserRuleCall_0() { return cEqualsParserRuleCall_0; }
+		//Equals_Expression
+		public RuleCall getEquals_ExpressionParserRuleCall_0() { return cEquals_ExpressionParserRuleCall_0; }
 		
-		//({Or.left = current} operator=OrOperator right = Equals)*
+		//({Or_Expression.left = current} operator=OrOperator right = Equals_Expression)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{Or.left = current}
-		public Action getOrLeftAction_1_0() { return cOrLeftAction_1_0; }
+		//{Or_Expression.left = current}
+		public Action getOr_ExpressionLeftAction_1_0() { return cOr_ExpressionLeftAction_1_0; }
 		
 		//operator=OrOperator
 		public Assignment getOperatorAssignment_1_1() { return cOperatorAssignment_1_1; }
@@ -714,37 +714,37 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//OrOperator
 		public RuleCall getOperatorOrOperatorEnumRuleCall_1_1_0() { return cOperatorOrOperatorEnumRuleCall_1_1_0; }
 		
-		//right = Equals
+		//right = Equals_Expression
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 		
-		//Equals
-		public RuleCall getRightEqualsParserRuleCall_1_2_0() { return cRightEqualsParserRuleCall_1_2_0; }
+		//Equals_Expression
+		public RuleCall getRightEquals_ExpressionParserRuleCall_1_2_0() { return cRightEquals_ExpressionParserRuleCall_1_2_0; }
 	}
-	public class EqualsElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Equals");
+	public class Equals_ExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Equals_Expression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cNotEqualsParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cNotEquals_ExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cEqualsLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Action cEquals_ExpressionLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cOperatorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cOperatorEqualsOperatorEnumRuleCall_1_1_0 = (RuleCall)cOperatorAssignment_1_1.eContents().get(0);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightNotEqualsParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final RuleCall cRightNotEquals_ExpressionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//Equals returns Expression: NotEquals ({Equals.left = current} operator=EqualsOperator right = NotEquals)*;
+		//Equals_Expression returns Expression: NotEquals_Expression ({Equals_Expression.left = current} operator=EqualsOperator right = NotEquals_Expression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//NotEquals ({Equals.left = current} operator=EqualsOperator right = NotEquals)*
+		//NotEquals_Expression ({Equals_Expression.left = current} operator=EqualsOperator right = NotEquals_Expression)*
 		public Group getGroup() { return cGroup; }
 		
-		//NotEquals
-		public RuleCall getNotEqualsParserRuleCall_0() { return cNotEqualsParserRuleCall_0; }
+		//NotEquals_Expression
+		public RuleCall getNotEquals_ExpressionParserRuleCall_0() { return cNotEquals_ExpressionParserRuleCall_0; }
 		
-		//({Equals.left = current} operator=EqualsOperator right = NotEquals)*
+		//({Equals_Expression.left = current} operator=EqualsOperator right = NotEquals_Expression)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{Equals.left = current}
-		public Action getEqualsLeftAction_1_0() { return cEqualsLeftAction_1_0; }
+		//{Equals_Expression.left = current}
+		public Action getEquals_ExpressionLeftAction_1_0() { return cEquals_ExpressionLeftAction_1_0; }
 		
 		//operator=EqualsOperator
 		public Assignment getOperatorAssignment_1_1() { return cOperatorAssignment_1_1; }
@@ -752,37 +752,37 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//EqualsOperator
 		public RuleCall getOperatorEqualsOperatorEnumRuleCall_1_1_0() { return cOperatorEqualsOperatorEnumRuleCall_1_1_0; }
 		
-		//right = NotEquals
+		//right = NotEquals_Expression
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 		
-		//NotEquals
-		public RuleCall getRightNotEqualsParserRuleCall_1_2_0() { return cRightNotEqualsParserRuleCall_1_2_0; }
+		//NotEquals_Expression
+		public RuleCall getRightNotEquals_ExpressionParserRuleCall_1_2_0() { return cRightNotEquals_ExpressionParserRuleCall_1_2_0; }
 	}
-	public class NotEqualsElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.NotEquals");
+	public class NotEquals_ExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.NotEquals_Expression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cLessParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cLess_ExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cNotEqualsLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Action cNotEquals_ExpressionLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cOperatorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cOperatorNotEqualsOperatorEnumRuleCall_1_1_0 = (RuleCall)cOperatorAssignment_1_1.eContents().get(0);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightLessParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final RuleCall cRightLess_ExpressionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//NotEquals returns Expression: Less ({NotEquals.left = current} operator=NotEqualsOperator right = Less)*;
+		//NotEquals_Expression returns Expression: Less_Expression ({NotEquals_Expression.left = current} operator=NotEqualsOperator right = Less_Expression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Less ({NotEquals.left = current} operator=NotEqualsOperator right = Less)*
+		//Less_Expression ({NotEquals_Expression.left = current} operator=NotEqualsOperator right = Less_Expression)*
 		public Group getGroup() { return cGroup; }
 		
-		//Less
-		public RuleCall getLessParserRuleCall_0() { return cLessParserRuleCall_0; }
+		//Less_Expression
+		public RuleCall getLess_ExpressionParserRuleCall_0() { return cLess_ExpressionParserRuleCall_0; }
 		
-		//({NotEquals.left = current} operator=NotEqualsOperator right = Less)*
+		//({NotEquals_Expression.left = current} operator=NotEqualsOperator right = Less_Expression)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{NotEquals.left = current}
-		public Action getNotEqualsLeftAction_1_0() { return cNotEqualsLeftAction_1_0; }
+		//{NotEquals_Expression.left = current}
+		public Action getNotEquals_ExpressionLeftAction_1_0() { return cNotEquals_ExpressionLeftAction_1_0; }
 		
 		//operator=NotEqualsOperator
 		public Assignment getOperatorAssignment_1_1() { return cOperatorAssignment_1_1; }
@@ -790,37 +790,37 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//NotEqualsOperator
 		public RuleCall getOperatorNotEqualsOperatorEnumRuleCall_1_1_0() { return cOperatorNotEqualsOperatorEnumRuleCall_1_1_0; }
 		
-		//right = Less
+		//right = Less_Expression
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 		
-		//Less
-		public RuleCall getRightLessParserRuleCall_1_2_0() { return cRightLessParserRuleCall_1_2_0; }
+		//Less_Expression
+		public RuleCall getRightLess_ExpressionParserRuleCall_1_2_0() { return cRightLess_ExpressionParserRuleCall_1_2_0; }
 	}
-	public class LessElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Less");
+	public class Less_ExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Less_Expression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cGreaterParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cGreater_ExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cLessLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Action cLess_ExpressionLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cOperatorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cOperatorLessOperatorEnumRuleCall_1_1_0 = (RuleCall)cOperatorAssignment_1_1.eContents().get(0);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightGreaterParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final RuleCall cRightGreater_ExpressionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//Less returns Expression: Greater ({Less.left = current} operator=LessOperator right = Greater)*;
+		//Less_Expression returns Expression: Greater_Expression ({Less_Expression.left = current} operator=LessOperator right = Greater_Expression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Greater ({Less.left = current} operator=LessOperator right = Greater)*
+		//Greater_Expression ({Less_Expression.left = current} operator=LessOperator right = Greater_Expression)*
 		public Group getGroup() { return cGroup; }
 		
-		//Greater
-		public RuleCall getGreaterParserRuleCall_0() { return cGreaterParserRuleCall_0; }
+		//Greater_Expression
+		public RuleCall getGreater_ExpressionParserRuleCall_0() { return cGreater_ExpressionParserRuleCall_0; }
 		
-		//({Less.left = current} operator=LessOperator right = Greater)*
+		//({Less_Expression.left = current} operator=LessOperator right = Greater_Expression)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{Less.left = current}
-		public Action getLessLeftAction_1_0() { return cLessLeftAction_1_0; }
+		//{Less_Expression.left = current}
+		public Action getLess_ExpressionLeftAction_1_0() { return cLess_ExpressionLeftAction_1_0; }
 		
 		//operator=LessOperator
 		public Assignment getOperatorAssignment_1_1() { return cOperatorAssignment_1_1; }
@@ -828,37 +828,37 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//LessOperator
 		public RuleCall getOperatorLessOperatorEnumRuleCall_1_1_0() { return cOperatorLessOperatorEnumRuleCall_1_1_0; }
 		
-		//right = Greater
+		//right = Greater_Expression
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 		
-		//Greater
-		public RuleCall getRightGreaterParserRuleCall_1_2_0() { return cRightGreaterParserRuleCall_1_2_0; }
+		//Greater_Expression
+		public RuleCall getRightGreater_ExpressionParserRuleCall_1_2_0() { return cRightGreater_ExpressionParserRuleCall_1_2_0; }
 	}
-	public class GreaterElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Greater");
+	public class Greater_ExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Greater_Expression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cMultiplyParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cMultiply_ExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cGreaterLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Action cGreater_ExpressionLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cOperatorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cOperatorGreaterOperatorEnumRuleCall_1_1_0 = (RuleCall)cOperatorAssignment_1_1.eContents().get(0);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightMultiplyParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final RuleCall cRightMultiply_ExpressionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//Greater returns Expression: Multiply ({Greater.left = current} operator=GreaterOperator right = Multiply)*;
+		//Greater_Expression returns Expression: Multiply_Expression ({Greater_Expression.left = current} operator=GreaterOperator right = Multiply_Expression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Multiply ({Greater.left = current} operator=GreaterOperator right = Multiply)*
+		//Multiply_Expression ({Greater_Expression.left = current} operator=GreaterOperator right = Multiply_Expression)*
 		public Group getGroup() { return cGroup; }
 		
-		//Multiply
-		public RuleCall getMultiplyParserRuleCall_0() { return cMultiplyParserRuleCall_0; }
+		//Multiply_Expression
+		public RuleCall getMultiply_ExpressionParserRuleCall_0() { return cMultiply_ExpressionParserRuleCall_0; }
 		
-		//({Greater.left = current} operator=GreaterOperator right = Multiply)*
+		//({Greater_Expression.left = current} operator=GreaterOperator right = Multiply_Expression)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{Greater.left = current}
-		public Action getGreaterLeftAction_1_0() { return cGreaterLeftAction_1_0; }
+		//{Greater_Expression.left = current}
+		public Action getGreater_ExpressionLeftAction_1_0() { return cGreater_ExpressionLeftAction_1_0; }
 		
 		//operator=GreaterOperator
 		public Assignment getOperatorAssignment_1_1() { return cOperatorAssignment_1_1; }
@@ -866,37 +866,37 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//GreaterOperator
 		public RuleCall getOperatorGreaterOperatorEnumRuleCall_1_1_0() { return cOperatorGreaterOperatorEnumRuleCall_1_1_0; }
 		
-		//right = Multiply
+		//right = Multiply_Expression
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 		
-		//Multiply
-		public RuleCall getRightMultiplyParserRuleCall_1_2_0() { return cRightMultiplyParserRuleCall_1_2_0; }
+		//Multiply_Expression
+		public RuleCall getRightMultiply_ExpressionParserRuleCall_1_2_0() { return cRightMultiply_ExpressionParserRuleCall_1_2_0; }
 	}
-	public class MultiplyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Multiply");
+	public class Multiply_ExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Multiply_Expression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cDivideParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cDivide_ExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cMultiplyLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Action cMultiply_ExpressionLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cOperatorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cOperatorMultiplyOperatorEnumRuleCall_1_1_0 = (RuleCall)cOperatorAssignment_1_1.eContents().get(0);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightDivideParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final RuleCall cRightDivide_ExpressionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//Multiply returns Expression: Divide ({Multiply.left = current} operator=MultiplyOperator right = Divide)*;
+		//Multiply_Expression returns Expression: Divide_Expression ({Multiply_Expression.left = current} operator=MultiplyOperator right = Divide_Expression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Divide ({Multiply.left = current} operator=MultiplyOperator right = Divide)*
+		//Divide_Expression ({Multiply_Expression.left = current} operator=MultiplyOperator right = Divide_Expression)*
 		public Group getGroup() { return cGroup; }
 		
-		//Divide
-		public RuleCall getDivideParserRuleCall_0() { return cDivideParserRuleCall_0; }
+		//Divide_Expression
+		public RuleCall getDivide_ExpressionParserRuleCall_0() { return cDivide_ExpressionParserRuleCall_0; }
 		
-		//({Multiply.left = current} operator=MultiplyOperator right = Divide)*
+		//({Multiply_Expression.left = current} operator=MultiplyOperator right = Divide_Expression)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{Multiply.left = current}
-		public Action getMultiplyLeftAction_1_0() { return cMultiplyLeftAction_1_0; }
+		//{Multiply_Expression.left = current}
+		public Action getMultiply_ExpressionLeftAction_1_0() { return cMultiply_ExpressionLeftAction_1_0; }
 		
 		//operator=MultiplyOperator
 		public Assignment getOperatorAssignment_1_1() { return cOperatorAssignment_1_1; }
@@ -904,37 +904,37 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//MultiplyOperator
 		public RuleCall getOperatorMultiplyOperatorEnumRuleCall_1_1_0() { return cOperatorMultiplyOperatorEnumRuleCall_1_1_0; }
 		
-		//right = Divide
+		//right = Divide_Expression
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 		
-		//Divide
-		public RuleCall getRightDivideParserRuleCall_1_2_0() { return cRightDivideParserRuleCall_1_2_0; }
+		//Divide_Expression
+		public RuleCall getRightDivide_ExpressionParserRuleCall_1_2_0() { return cRightDivide_ExpressionParserRuleCall_1_2_0; }
 	}
-	public class DivideElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Divide");
+	public class Divide_ExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Divide_Expression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cAddParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cAdd_ExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cDivideLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Action cDivide_ExpressionLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cOperatorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cOperatorDivideOperatorEnumRuleCall_1_1_0 = (RuleCall)cOperatorAssignment_1_1.eContents().get(0);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightAddParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final RuleCall cRightAdd_ExpressionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//Divide returns Expression: Add ({Divide.left = current} operator=DivideOperator right = Add)*;
+		//Divide_Expression returns Expression: Add_Expression ({Divide_Expression.left = current} operator=DivideOperator right = Add_Expression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Add ({Divide.left = current} operator=DivideOperator right = Add)*
+		//Add_Expression ({Divide_Expression.left = current} operator=DivideOperator right = Add_Expression)*
 		public Group getGroup() { return cGroup; }
 		
-		//Add
-		public RuleCall getAddParserRuleCall_0() { return cAddParserRuleCall_0; }
+		//Add_Expression
+		public RuleCall getAdd_ExpressionParserRuleCall_0() { return cAdd_ExpressionParserRuleCall_0; }
 		
-		//({Divide.left = current} operator=DivideOperator right = Add)*
+		//({Divide_Expression.left = current} operator=DivideOperator right = Add_Expression)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{Divide.left = current}
-		public Action getDivideLeftAction_1_0() { return cDivideLeftAction_1_0; }
+		//{Divide_Expression.left = current}
+		public Action getDivide_ExpressionLeftAction_1_0() { return cDivide_ExpressionLeftAction_1_0; }
 		
 		//operator=DivideOperator
 		public Assignment getOperatorAssignment_1_1() { return cOperatorAssignment_1_1; }
@@ -942,37 +942,37 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//DivideOperator
 		public RuleCall getOperatorDivideOperatorEnumRuleCall_1_1_0() { return cOperatorDivideOperatorEnumRuleCall_1_1_0; }
 		
-		//right = Add
+		//right = Add_Expression
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 		
-		//Add
-		public RuleCall getRightAddParserRuleCall_1_2_0() { return cRightAddParserRuleCall_1_2_0; }
+		//Add_Expression
+		public RuleCall getRightAdd_ExpressionParserRuleCall_1_2_0() { return cRightAdd_ExpressionParserRuleCall_1_2_0; }
 	}
-	public class AddElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Add");
+	public class Add_ExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Add_Expression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cSubtractParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cSubtract_ExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cAddLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Action cAdd_ExpressionLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cOperatorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cOperatorAddOperatorEnumRuleCall_1_1_0 = (RuleCall)cOperatorAssignment_1_1.eContents().get(0);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightSubtractParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final RuleCall cRightSubtract_ExpressionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//Add returns Expression: Subtract ({Add.left = current} operator=AddOperator right = Subtract)*;
+		//Add_Expression returns Expression: Subtract_Expression ({Add_Expression.left = current} operator=AddOperator right = Subtract_Expression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Subtract ({Add.left = current} operator=AddOperator right = Subtract)*
+		//Subtract_Expression ({Add_Expression.left = current} operator=AddOperator right = Subtract_Expression)*
 		public Group getGroup() { return cGroup; }
 		
-		//Subtract
-		public RuleCall getSubtractParserRuleCall_0() { return cSubtractParserRuleCall_0; }
+		//Subtract_Expression
+		public RuleCall getSubtract_ExpressionParserRuleCall_0() { return cSubtract_ExpressionParserRuleCall_0; }
 		
-		//({Add.left = current} operator=AddOperator right = Subtract)*
+		//({Add_Expression.left = current} operator=AddOperator right = Subtract_Expression)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{Add.left = current}
-		public Action getAddLeftAction_1_0() { return cAddLeftAction_1_0; }
+		//{Add_Expression.left = current}
+		public Action getAdd_ExpressionLeftAction_1_0() { return cAdd_ExpressionLeftAction_1_0; }
 		
 		//operator=AddOperator
 		public Assignment getOperatorAssignment_1_1() { return cOperatorAssignment_1_1; }
@@ -980,37 +980,37 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//AddOperator
 		public RuleCall getOperatorAddOperatorEnumRuleCall_1_1_0() { return cOperatorAddOperatorEnumRuleCall_1_1_0; }
 		
-		//right = Subtract
+		//right = Subtract_Expression
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 		
-		//Subtract
-		public RuleCall getRightSubtractParserRuleCall_1_2_0() { return cRightSubtractParserRuleCall_1_2_0; }
+		//Subtract_Expression
+		public RuleCall getRightSubtract_ExpressionParserRuleCall_1_2_0() { return cRightSubtract_ExpressionParserRuleCall_1_2_0; }
 	}
-	public class SubtractElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Subtract");
+	public class Subtract_ExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Subtract_Expression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cLiteralsParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cLiteral_ExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cSubtractLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Action cSubtract_ExpressionLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cOperatorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cOperatorSubtractOperatorEnumRuleCall_1_1_0 = (RuleCall)cOperatorAssignment_1_1.eContents().get(0);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightLiteralsParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final RuleCall cRightLiteral_ExpressionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//Subtract returns Expression: Literals ({Subtract.left = current} operator=SubtractOperator right = Literals)*;
+		//Subtract_Expression returns Expression: Literal_Expression ({Subtract_Expression.left = current} operator=SubtractOperator right = Literal_Expression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Literals ({Subtract.left = current} operator=SubtractOperator right = Literals)*
+		//Literal_Expression ({Subtract_Expression.left = current} operator=SubtractOperator right = Literal_Expression)*
 		public Group getGroup() { return cGroup; }
 		
-		//Literals
-		public RuleCall getLiteralsParserRuleCall_0() { return cLiteralsParserRuleCall_0; }
+		//Literal_Expression
+		public RuleCall getLiteral_ExpressionParserRuleCall_0() { return cLiteral_ExpressionParserRuleCall_0; }
 		
-		//({Subtract.left = current} operator=SubtractOperator right = Literals)*
+		//({Subtract_Expression.left = current} operator=SubtractOperator right = Literal_Expression)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{Subtract.left = current}
-		public Action getSubtractLeftAction_1_0() { return cSubtractLeftAction_1_0; }
+		//{Subtract_Expression.left = current}
+		public Action getSubtract_ExpressionLeftAction_1_0() { return cSubtract_ExpressionLeftAction_1_0; }
 		
 		//operator=SubtractOperator
 		public Assignment getOperatorAssignment_1_1() { return cOperatorAssignment_1_1; }
@@ -1018,22 +1018,23 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//SubtractOperator
 		public RuleCall getOperatorSubtractOperatorEnumRuleCall_1_1_0() { return cOperatorSubtractOperatorEnumRuleCall_1_1_0; }
 		
-		//right = Literals
+		//right = Literal_Expression
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 		
-		//Literals
-		public RuleCall getRightLiteralsParserRuleCall_1_2_0() { return cRightLiteralsParserRuleCall_1_2_0; }
+		//Literal_Expression
+		public RuleCall getRightLiteral_ExpressionParserRuleCall_1_2_0() { return cRightLiteral_ExpressionParserRuleCall_1_2_0; }
 	}
-	public class LiteralsElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Literals");
+	public class Literal_ExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Literal_Expression");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cConstantParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cParameter_ExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cSelf_ExpressionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		//Literals returns Expression: Constant | Parameter_Expression;
+		//Literal_Expression returns Expression: Constant | Parameter_Expression | Self_Expression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Constant | Parameter_Expression
+		//Constant | Parameter_Expression | Self_Expression
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Constant
@@ -1041,6 +1042,9 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//Parameter_Expression
 		public RuleCall getParameter_ExpressionParserRuleCall_1() { return cParameter_ExpressionParserRuleCall_1; }
+		
+		//Self_Expression
+		public RuleCall getSelf_ExpressionParserRuleCall_2() { return cSelf_ExpressionParserRuleCall_2; }
 	}
 	public class Column_ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Column_Expression");
@@ -1078,6 +1082,24 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//EString
 		public RuleCall getParameterParameterEStringParserRuleCall_0_1() { return cParameterParameterEStringParserRuleCall_0_1; }
+	}
+	public class Self_ExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Self_Expression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cSelfExpressionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cSelfKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//Self_Expression returns SelfExpression: {SelfExpression} 'self';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{SelfExpression} 'self'
+		public Group getGroup() { return cGroup; }
+		
+		//{SelfExpression}
+		public Action getSelfExpressionAction_0() { return cSelfExpressionAction_0; }
+		
+		//'self'
+		public Keyword getSelfKeyword_1() { return cSelfKeyword_1; }
 	}
 	public class ConstantElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.gtl.TQL.Constant");
@@ -1589,19 +1611,20 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final Constant_Call_ParameterElements pConstant_Call_Parameter;
 	private final Reference_Call_ParameterElements pReference_Call_Parameter;
 	private final ExpressionElements pExpression;
-	private final AndElements pAnd;
-	private final OrElements pOr;
-	private final EqualsElements pEquals;
-	private final NotEqualsElements pNotEquals;
-	private final LessElements pLess;
-	private final GreaterElements pGreater;
-	private final MultiplyElements pMultiply;
-	private final DivideElements pDivide;
-	private final AddElements pAdd;
-	private final SubtractElements pSubtract;
-	private final LiteralsElements pLiterals;
+	private final And_ExpressionElements pAnd_Expression;
+	private final Or_ExpressionElements pOr_Expression;
+	private final Equals_ExpressionElements pEquals_Expression;
+	private final NotEquals_ExpressionElements pNotEquals_Expression;
+	private final Less_ExpressionElements pLess_Expression;
+	private final Greater_ExpressionElements pGreater_Expression;
+	private final Multiply_ExpressionElements pMultiply_Expression;
+	private final Divide_ExpressionElements pDivide_Expression;
+	private final Add_ExpressionElements pAdd_Expression;
+	private final Subtract_ExpressionElements pSubtract_Expression;
+	private final Literal_ExpressionElements pLiteral_Expression;
 	private final Column_ExpressionElements pColumn_Expression;
 	private final Parameter_ExpressionElements pParameter_Expression;
+	private final Self_ExpressionElements pSelf_Expression;
 	private final ConstantElements pConstant;
 	private final Single_ConstantElements pSingle_Constant;
 	private final Boolean_ConstantElements pBoolean_Constant;
@@ -1650,19 +1673,20 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pConstant_Call_Parameter = new Constant_Call_ParameterElements();
 		this.pReference_Call_Parameter = new Reference_Call_ParameterElements();
 		this.pExpression = new ExpressionElements();
-		this.pAnd = new AndElements();
-		this.pOr = new OrElements();
-		this.pEquals = new EqualsElements();
-		this.pNotEquals = new NotEqualsElements();
-		this.pLess = new LessElements();
-		this.pGreater = new GreaterElements();
-		this.pMultiply = new MultiplyElements();
-		this.pDivide = new DivideElements();
-		this.pAdd = new AddElements();
-		this.pSubtract = new SubtractElements();
-		this.pLiterals = new LiteralsElements();
+		this.pAnd_Expression = new And_ExpressionElements();
+		this.pOr_Expression = new Or_ExpressionElements();
+		this.pEquals_Expression = new Equals_ExpressionElements();
+		this.pNotEquals_Expression = new NotEquals_ExpressionElements();
+		this.pLess_Expression = new Less_ExpressionElements();
+		this.pGreater_Expression = new Greater_ExpressionElements();
+		this.pMultiply_Expression = new Multiply_ExpressionElements();
+		this.pDivide_Expression = new Divide_ExpressionElements();
+		this.pAdd_Expression = new Add_ExpressionElements();
+		this.pSubtract_Expression = new Subtract_ExpressionElements();
+		this.pLiteral_Expression = new Literal_ExpressionElements();
 		this.pColumn_Expression = new Column_ExpressionElements();
 		this.pParameter_Expression = new Parameter_ExpressionElements();
+		this.pSelf_Expression = new Self_ExpressionElements();
 		this.pConstant = new ConstantElements();
 		this.pSingle_Constant = new Single_ConstantElements();
 		this.pBoolean_Constant = new Boolean_ConstantElements();
@@ -1799,7 +1823,7 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//Mapped_Column returns MappedColumn:
-	//    source=[Column|EString] ':' target=[Column|EString] ( '|' transformationCalls+=Transformation_Call)*
+	//    target=[Column|EString] ':' source=[Column|EString] ( '|' transformationCalls+=Transformation_Call)*
 	//;
 	public Mapped_ColumnElements getMapped_ColumnAccess() {
 		return pMapped_Column;
@@ -1872,7 +1896,7 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//// Expressions
-	//Expression returns Expression : And;
+	//Expression returns Expression : And_Expression;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
 	}
@@ -1881,103 +1905,103 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getExpressionAccess().getRule();
 	}
 	
-	//And returns Expression: Or ({And.left = current} operator=AndOperator right = Or)*;
-	public AndElements getAndAccess() {
-		return pAnd;
+	//And_Expression returns Expression: Or_Expression ({And_Expression.left = current} operator=AndOperator right = Or_Expression)*;
+	public And_ExpressionElements getAnd_ExpressionAccess() {
+		return pAnd_Expression;
 	}
 	
-	public ParserRule getAndRule() {
-		return getAndAccess().getRule();
+	public ParserRule getAnd_ExpressionRule() {
+		return getAnd_ExpressionAccess().getRule();
 	}
 	
-	//Or returns Expression: Equals ({Or.left = current} operator=OrOperator right = Equals)*;
-	public OrElements getOrAccess() {
-		return pOr;
+	//Or_Expression returns Expression: Equals_Expression ({Or_Expression.left = current} operator=OrOperator right = Equals_Expression)*;
+	public Or_ExpressionElements getOr_ExpressionAccess() {
+		return pOr_Expression;
 	}
 	
-	public ParserRule getOrRule() {
-		return getOrAccess().getRule();
+	public ParserRule getOr_ExpressionRule() {
+		return getOr_ExpressionAccess().getRule();
 	}
 	
-	//Equals returns Expression: NotEquals ({Equals.left = current} operator=EqualsOperator right = NotEquals)*;
-	public EqualsElements getEqualsAccess() {
-		return pEquals;
+	//Equals_Expression returns Expression: NotEquals_Expression ({Equals_Expression.left = current} operator=EqualsOperator right = NotEquals_Expression)*;
+	public Equals_ExpressionElements getEquals_ExpressionAccess() {
+		return pEquals_Expression;
 	}
 	
-	public ParserRule getEqualsRule() {
-		return getEqualsAccess().getRule();
+	public ParserRule getEquals_ExpressionRule() {
+		return getEquals_ExpressionAccess().getRule();
 	}
 	
-	//NotEquals returns Expression: Less ({NotEquals.left = current} operator=NotEqualsOperator right = Less)*;
-	public NotEqualsElements getNotEqualsAccess() {
-		return pNotEquals;
+	//NotEquals_Expression returns Expression: Less_Expression ({NotEquals_Expression.left = current} operator=NotEqualsOperator right = Less_Expression)*;
+	public NotEquals_ExpressionElements getNotEquals_ExpressionAccess() {
+		return pNotEquals_Expression;
 	}
 	
-	public ParserRule getNotEqualsRule() {
-		return getNotEqualsAccess().getRule();
+	public ParserRule getNotEquals_ExpressionRule() {
+		return getNotEquals_ExpressionAccess().getRule();
 	}
 	
-	//Less returns Expression: Greater ({Less.left = current} operator=LessOperator right = Greater)*;
-	public LessElements getLessAccess() {
-		return pLess;
+	//Less_Expression returns Expression: Greater_Expression ({Less_Expression.left = current} operator=LessOperator right = Greater_Expression)*;
+	public Less_ExpressionElements getLess_ExpressionAccess() {
+		return pLess_Expression;
 	}
 	
-	public ParserRule getLessRule() {
-		return getLessAccess().getRule();
+	public ParserRule getLess_ExpressionRule() {
+		return getLess_ExpressionAccess().getRule();
 	}
 	
-	//Greater returns Expression: Multiply ({Greater.left = current} operator=GreaterOperator right = Multiply)*;
-	public GreaterElements getGreaterAccess() {
-		return pGreater;
+	//Greater_Expression returns Expression: Multiply_Expression ({Greater_Expression.left = current} operator=GreaterOperator right = Multiply_Expression)*;
+	public Greater_ExpressionElements getGreater_ExpressionAccess() {
+		return pGreater_Expression;
 	}
 	
-	public ParserRule getGreaterRule() {
-		return getGreaterAccess().getRule();
+	public ParserRule getGreater_ExpressionRule() {
+		return getGreater_ExpressionAccess().getRule();
 	}
 	
-	//Multiply returns Expression: Divide ({Multiply.left = current} operator=MultiplyOperator right = Divide)*;
-	public MultiplyElements getMultiplyAccess() {
-		return pMultiply;
+	//Multiply_Expression returns Expression: Divide_Expression ({Multiply_Expression.left = current} operator=MultiplyOperator right = Divide_Expression)*;
+	public Multiply_ExpressionElements getMultiply_ExpressionAccess() {
+		return pMultiply_Expression;
 	}
 	
-	public ParserRule getMultiplyRule() {
-		return getMultiplyAccess().getRule();
+	public ParserRule getMultiply_ExpressionRule() {
+		return getMultiply_ExpressionAccess().getRule();
 	}
 	
-	//Divide returns Expression: Add ({Divide.left = current} operator=DivideOperator right = Add)*;
-	public DivideElements getDivideAccess() {
-		return pDivide;
+	//Divide_Expression returns Expression: Add_Expression ({Divide_Expression.left = current} operator=DivideOperator right = Add_Expression)*;
+	public Divide_ExpressionElements getDivide_ExpressionAccess() {
+		return pDivide_Expression;
 	}
 	
-	public ParserRule getDivideRule() {
-		return getDivideAccess().getRule();
+	public ParserRule getDivide_ExpressionRule() {
+		return getDivide_ExpressionAccess().getRule();
 	}
 	
-	//Add returns Expression: Subtract ({Add.left = current} operator=AddOperator right = Subtract)*;
-	public AddElements getAddAccess() {
-		return pAdd;
+	//Add_Expression returns Expression: Subtract_Expression ({Add_Expression.left = current} operator=AddOperator right = Subtract_Expression)*;
+	public Add_ExpressionElements getAdd_ExpressionAccess() {
+		return pAdd_Expression;
 	}
 	
-	public ParserRule getAddRule() {
-		return getAddAccess().getRule();
+	public ParserRule getAdd_ExpressionRule() {
+		return getAdd_ExpressionAccess().getRule();
 	}
 	
-	//Subtract returns Expression: Literals ({Subtract.left = current} operator=SubtractOperator right = Literals)*;
-	public SubtractElements getSubtractAccess() {
-		return pSubtract;
+	//Subtract_Expression returns Expression: Literal_Expression ({Subtract_Expression.left = current} operator=SubtractOperator right = Literal_Expression)*;
+	public Subtract_ExpressionElements getSubtract_ExpressionAccess() {
+		return pSubtract_Expression;
 	}
 	
-	public ParserRule getSubtractRule() {
-		return getSubtractAccess().getRule();
+	public ParserRule getSubtract_ExpressionRule() {
+		return getSubtract_ExpressionAccess().getRule();
 	}
 	
-	//Literals returns Expression: Constant | Parameter_Expression;
-	public LiteralsElements getLiteralsAccess() {
-		return pLiterals;
+	//Literal_Expression returns Expression: Constant | Parameter_Expression | Self_Expression;
+	public Literal_ExpressionElements getLiteral_ExpressionAccess() {
+		return pLiteral_Expression;
 	}
 	
-	public ParserRule getLiteralsRule() {
-		return getLiteralsAccess().getRule();
+	public ParserRule getLiteral_ExpressionRule() {
+		return getLiteral_ExpressionAccess().getRule();
 	}
 	
 	// //| Column_Expression TODO for when statement
@@ -1997,6 +2021,15 @@ public class TQLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	public ParserRule getParameter_ExpressionRule() {
 		return getParameter_ExpressionAccess().getRule();
+	}
+	
+	//Self_Expression returns SelfExpression: {SelfExpression} 'self';
+	public Self_ExpressionElements getSelf_ExpressionAccess() {
+		return pSelf_Expression;
+	}
+	
+	public ParserRule getSelf_ExpressionRule() {
+		return getSelf_ExpressionAccess().getRule();
 	}
 	
 	//// Constants

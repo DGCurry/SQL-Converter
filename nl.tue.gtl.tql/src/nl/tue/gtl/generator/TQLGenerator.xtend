@@ -8,8 +8,21 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import nl.tue.gtl.tql.model.TargetTable
-import nl.tue.gtl.tql.model.Column
-import nl.tue.gtl.tql.model.Type
+import nl.tue.gtl.tql.model.Parameter
+import nl.tue.gtl.tql.model.TransformationCall
+import java.util.HashMap
+import nl.tue.gtl.tql.model.Constant
+import nl.tue.gtl.tql.model.BooleanConstant
+import nl.tue.gtl.tql.model.FloatConstant
+import nl.tue.gtl.tql.model.IntegerConstant
+import nl.tue.gtl.tql.model.StringConstant
+import nl.tue.gtl.tql.model.DateConstant
+import nl.tue.gtl.tql.model.NullConstant
+import nl.tue.gtl.tql.model.SetConstant
+import nl.tue.gtl.tql.model.CallParameter
+import nl.tue.gtl.tql.model.ConstantCallParameter
+import nl.tue.gtl.tql.model.ReferenceCallParameter
+import nl.tue.gtl.tql.model.Mapping
 
 /**
  * Generates code from your model files on save.
@@ -19,37 +32,70 @@ import nl.tue.gtl.tql.model.Type
 class TQLGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+//		var x = resource.allContents.filter(TransformationCall).map[mapParameterAndParameterCall].toList()
 		fsa.generateFile('Create_Target.sql', getTargetTables(resource))
+		fsa.generateFile('Transfer.sql', getInsertQueries(resource))
 	}
 	
-	def getTargetTables(Resource resource)
-	{
-		resource.allContents.filter(TargetTable).map[mapTargetTableToTable].join('\n\n')
-	}
-	
-	def mapTargetTableToTable(TargetTable targetTable) {
-		'''
-		CREATE TABLE «targetTable.name»
-		(
-			«targetTable.columns.map[mapTargetColumnToColumn].join(',\n')»
-		);
+	def getTargetTables(Resource resource) {
+		var tableGenerator = new TargetTableGenerator()
+		return '''
+		«FOR table : resource.allContents.filter(TargetTable).toIterable()»
+			 «tableGenerator.mapTargetTableToTable(table)»
+			 
+			 
+		«ENDFOR»
 		'''
 	}
 	
-	def mapTargetColumnToColumn(Column column) {
-		println(column.type)
-		var parsedType = typeToSQLType(column.type)
-		println(parsedType)
-		return '''«column.name» «parsedType»'''
+	def getInsertQueries(Resource resource) {
+		return '''
+		«FOR mapping : resource.allContents.filter(Mapping).toIterable()»
+			 «mapMappingToInsert(mapping)»
+			 
+			 
+		«ENDFOR»
+		'''
 	}
 	
-	def typeToSQLType(Type type) {
-		switch (type) {
-			case BOOLEAN : '''bit'''
-			case DATE : '''Date'''
-			case FLOAT : '''Float'''
-			case INTEGER : '''int'''
-			default : '''VARCHAR(max)'''
+	def mapMappingToInsert(Mapping mapping) {
+		'''
+		INSERT INTO [«mapping.target.name»] («mapping.mappedColumns.map[target.name].join(', ')»)
+		SELECT 
+			«mapping.mappedColumns.map[source.name].join(',\n')»
+		FROM [«mapping.source.name»]
+		'''
+	}
+	
+	def mapParameterAndParameterCall(TransformationCall transformationCall) {
+		var callParameters = transformationCall.callParameters;
+		var parameters = transformationCall.transformation.parameters;
+		var parameterDict = new HashMap<String, CharSequence>();
+		
+		for (i : 0 ..< callParameters.length) {
+			parameterDict.put(parameters.get(i).name, mapParameter(callParameters.get(i)))
+		}
+		
+		return parameterDict
+	}
+	
+	def mapParameter(CallParameter callParameter) {
+		switch (callParameter) {
+			ConstantCallParameter : mapConstant(callParameter.parameter)
+			ReferenceCallParameter : callParameter.reference.name
+		}
+	}
+	
+	def CharSequence mapConstant(Constant constant) {
+		switch (constant) {
+			BooleanConstant : '''«constant.value»'''
+			FloatConstant : '''«constant.value»'''
+			IntegerConstant : '''«constant.value»'''
+			StringConstant : '''N'«constant.value»' '''
+			DateConstant : '''N'«constant.value»' '''
+			NullConstant : '''NULL'''
+			SetConstant : ''' [ «constant.values.map[mapConstant].join(', ')» ] '''
+			default : '''NULL'''
 		}
 	}
 }

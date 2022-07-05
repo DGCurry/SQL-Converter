@@ -4,16 +4,32 @@
 package nl.tue.gtl.generator;
 
 import com.google.common.collect.Iterators;
-import nl.tue.gtl.tql.model.Column;
+import java.util.HashMap;
+import nl.tue.gtl.tql.model.BooleanConstant;
+import nl.tue.gtl.tql.model.CallParameter;
+import nl.tue.gtl.tql.model.Constant;
+import nl.tue.gtl.tql.model.ConstantCallParameter;
+import nl.tue.gtl.tql.model.DateConstant;
+import nl.tue.gtl.tql.model.FloatConstant;
+import nl.tue.gtl.tql.model.IntegerConstant;
+import nl.tue.gtl.tql.model.MappedColumn;
+import nl.tue.gtl.tql.model.Mapping;
+import nl.tue.gtl.tql.model.NullConstant;
+import nl.tue.gtl.tql.model.Parameter;
+import nl.tue.gtl.tql.model.ReferenceCallParameter;
+import nl.tue.gtl.tql.model.SetConstant;
+import nl.tue.gtl.tql.model.StringConstant;
 import nl.tue.gtl.tql.model.TargetTable;
-import nl.tue.gtl.tql.model.Type;
+import nl.tue.gtl.tql.model.TransformationCall;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
@@ -28,81 +44,176 @@ public class TQLGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     fsa.generateFile("Create_Target.sql", this.getTargetTables(resource));
+    fsa.generateFile("Transfer.sql", this.getInsertQueries(resource));
   }
 
   public String getTargetTables(final Resource resource) {
-    final Function1<TargetTable, CharSequence> _function = (TargetTable it) -> {
-      return this.mapTargetTableToTable(it);
-    };
-    return IteratorExtensions.join(IteratorExtensions.<TargetTable, CharSequence>map(Iterators.<TargetTable>filter(resource.getAllContents(), TargetTable.class), _function), "\n\n");
-  }
-
-  public CharSequence mapTargetTableToTable(final TargetTable targetTable) {
+    TargetTableGenerator tableGenerator = new TargetTableGenerator();
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("CREATE TABLE ");
-    String _name = targetTable.getName();
-    _builder.append(_name);
-    _builder.newLineIfNotEmpty();
-    _builder.append("(");
-    _builder.newLine();
-    _builder.append("\t");
-    final Function1<Column, String> _function = (Column it) -> {
-      return this.mapTargetColumnToColumn(it);
-    };
-    String _join = IterableExtensions.join(ListExtensions.<Column, String>map(targetTable.getColumns(), _function), ",\n");
-    _builder.append(_join, "\t");
-    _builder.newLineIfNotEmpty();
-    _builder.append(");");
-    _builder.newLine();
-    return _builder;
-  }
-
-  public String mapTargetColumnToColumn(final Column column) {
-    InputOutput.<Type>println(column.getType());
-    CharSequence parsedType = this.typeToSQLType(column.getType());
-    InputOutput.<CharSequence>println(parsedType);
-    StringConcatenation _builder = new StringConcatenation();
-    String _name = column.getName();
-    _builder.append(_name);
-    _builder.append(" ");
-    _builder.append(parsedType);
+    {
+      Iterable<TargetTable> _iterable = IteratorExtensions.<TargetTable>toIterable(Iterators.<TargetTable>filter(resource.getAllContents(), TargetTable.class));
+      for(final TargetTable table : _iterable) {
+        CharSequence _mapTargetTableToTable = tableGenerator.mapTargetTableToTable(table);
+        _builder.append(_mapTargetTableToTable);
+        _builder.newLineIfNotEmpty();
+        _builder.newLine();
+        _builder.newLine();
+      }
+    }
     return _builder.toString();
   }
 
-  public CharSequence typeToSQLType(final Type type) {
-    CharSequence _switchResult = null;
-    if (type != null) {
-      switch (type) {
-        case BOOLEAN:
-          StringConcatenation _builder = new StringConcatenation();
-          _builder.append("bit");
-          _switchResult = _builder;
-          break;
-        case DATE:
-          StringConcatenation _builder_1 = new StringConcatenation();
-          _builder_1.append("Date");
-          _switchResult = _builder_1;
-          break;
-        case FLOAT:
-          StringConcatenation _builder_2 = new StringConcatenation();
-          _builder_2.append("Float");
-          _switchResult = _builder_2;
-          break;
-        case INTEGER:
-          StringConcatenation _builder_3 = new StringConcatenation();
-          _builder_3.append("int");
-          _switchResult = _builder_3;
-          break;
-        default:
-          StringConcatenation _builder_4 = new StringConcatenation();
-          _builder_4.append("VARCHAR(max)");
-          _switchResult = _builder_4;
-          break;
+  public String getInsertQueries(final Resource resource) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      Iterable<Mapping> _iterable = IteratorExtensions.<Mapping>toIterable(Iterators.<Mapping>filter(resource.getAllContents(), Mapping.class));
+      for(final Mapping mapping : _iterable) {
+        CharSequence _mapMappingToInsert = this.mapMappingToInsert(mapping);
+        _builder.append(_mapMappingToInsert);
+        _builder.newLineIfNotEmpty();
+        _builder.newLine();
+        _builder.newLine();
       }
-    } else {
-      StringConcatenation _builder_4 = new StringConcatenation();
-      _builder_4.append("VARCHAR(max)");
-      _switchResult = _builder_4;
+    }
+    return _builder.toString();
+  }
+
+  public CharSequence mapMappingToInsert(final Mapping mapping) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("INSERT INTO [");
+    String _name = mapping.getTarget().getName();
+    _builder.append(_name);
+    _builder.append("] (");
+    final Function1<MappedColumn, String> _function = (MappedColumn it) -> {
+      return it.getTarget().getName();
+    };
+    String _join = IterableExtensions.join(ListExtensions.<MappedColumn, String>map(mapping.getMappedColumns(), _function), ", ");
+    _builder.append(_join);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    _builder.append("SELECT ");
+    _builder.newLine();
+    _builder.append("\t");
+    final Function1<MappedColumn, String> _function_1 = (MappedColumn it) -> {
+      return it.getSource().getName();
+    };
+    String _join_1 = IterableExtensions.join(ListExtensions.<MappedColumn, String>map(mapping.getMappedColumns(), _function_1), ",\n");
+    _builder.append(_join_1, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("FROM [");
+    String _name_1 = mapping.getSource().getName();
+    _builder.append(_name_1);
+    _builder.append("]");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+
+  public HashMap<String, CharSequence> mapParameterAndParameterCall(final TransformationCall transformationCall) {
+    EList<CallParameter> callParameters = transformationCall.getCallParameters();
+    EList<Parameter> parameters = transformationCall.getTransformation().getParameters();
+    HashMap<String, CharSequence> parameterDict = new HashMap<String, CharSequence>();
+    final EList<CallParameter> _converted_callParameters = (EList<CallParameter>)callParameters;
+    int _length = ((Object[])Conversions.unwrapArray(_converted_callParameters, Object.class)).length;
+    ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
+    for (final Integer i : _doubleDotLessThan) {
+      parameterDict.put(parameters.get((i).intValue()).getName(), this.mapParameter(callParameters.get((i).intValue())));
+    }
+    return parameterDict;
+  }
+
+  public CharSequence mapParameter(final CallParameter callParameter) {
+    CharSequence _switchResult = null;
+    boolean _matched = false;
+    if (callParameter instanceof ConstantCallParameter) {
+      _matched=true;
+      _switchResult = this.mapConstant(((ConstantCallParameter)callParameter).getParameter());
+    }
+    if (!_matched) {
+      if (callParameter instanceof ReferenceCallParameter) {
+        _matched=true;
+        _switchResult = ((ReferenceCallParameter)callParameter).getReference().getName();
+      }
+    }
+    return _switchResult;
+  }
+
+  public CharSequence mapConstant(final Constant constant) {
+    CharSequence _switchResult = null;
+    boolean _matched = false;
+    if (constant instanceof BooleanConstant) {
+      _matched=true;
+      StringConcatenation _builder = new StringConcatenation();
+      boolean _isValue = ((BooleanConstant)constant).isValue();
+      _builder.append(_isValue);
+      _switchResult = _builder;
+    }
+    if (!_matched) {
+      if (constant instanceof FloatConstant) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        float _value = ((FloatConstant)constant).getValue();
+        _builder.append(_value);
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      if (constant instanceof IntegerConstant) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        int _value = ((IntegerConstant)constant).getValue();
+        _builder.append(_value);
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      if (constant instanceof StringConstant) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("N\'");
+        String _value = ((StringConstant)constant).getValue();
+        _builder.append(_value);
+        _builder.append("\' ");
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      if (constant instanceof DateConstant) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("N\'");
+        String _value = ((DateConstant)constant).getValue();
+        _builder.append(_value);
+        _builder.append("\' ");
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      if (constant instanceof NullConstant) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("NULL");
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      if (constant instanceof SetConstant) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append(" ");
+        _builder.append("[ ");
+        final Function1<Constant, CharSequence> _function = (Constant it) -> {
+          return this.mapConstant(it);
+        };
+        String _join = IterableExtensions.join(ListExtensions.<Constant, CharSequence>map(((SetConstant)constant).getValues(), _function), ", ");
+        _builder.append(_join, " ");
+        _builder.append(" ] ");
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("NULL");
+      _switchResult = _builder;
     }
     return _switchResult;
   }

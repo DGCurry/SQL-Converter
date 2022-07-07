@@ -36,8 +36,13 @@ public class TQLValidator extends AbstractTQLValidator {
 	private static Table[] sourceTables;
 	private static Table[] targetTables;
 	
+	/* +++ ERROR STRINGS MAPPING +++ */
 	private static final String INVALID_ASSIGNMENT_TYPE = "Invalid assignment type of target field";
 	private static final String INVALID_IN_TYPE = "Invalid input type for mapping";
+	
+	/* +++ ERROR STRINGS FOR TRANSFORMATION +++ */
+	private static final String INVALID_PARAMETER_SIZE = "Invalid transformation call, size does not compare";
+	private static final String INVALID_PARAMETER_TYPE = "Invalid transformation call, type does not compare";
 
 	public static final String INVALID_NAME = "invalidName";
 	
@@ -97,8 +102,31 @@ public class TQLValidator extends AbstractTQLValidator {
 //			
 //		}
 //	}
+    
+    
 
-	
+    @Check(CheckType.FAST)
+    private void checkCallParameters(TransformationCall tc) {
+    	// check if callParameters correspond with the transformation parameters
+    	EList<CallParameter> cp = tc.getCallParameters();
+    	EList<Parameter> p  = tc.getTransformation().getParameters();
+    	int parameterSize = Math.max(cp.size(), p.size());
+    	for (int i = 0; i < parameterSize; i++) {
+    		if (cp.size() - 1 < i || p.size() - 1 < i) { // amount of parameters does not match
+    			error("ERROR: " + INVALID_PARAMETER_SIZE, null);
+    		}
+    		
+    		// either parameter is a ReferenceCallParameter
+    		if (cp.get(i) instanceof ReferenceCallParameter) {
+    			if (((ReferenceCallParameter) cp.get(i)).getReference().getType() != p.get(i).getType()) {
+        			error("ERROR: " + INVALID_PARAMETER_TYPE + " :: Expected " + p.get(i).getType() + ", got " + ((ReferenceCallParameter) cp.get(i)).getReference().getType() , null);
+    			}
+    		} else { // or a ConstantCallParameter (type must be decided)
+    			// TODO
+    		}
+    	}
+    }
+    
 	/**
 	 * Fast check of the Mapping function. 
 	 * Check if SourceTable and TargetTable existed on compilation

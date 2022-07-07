@@ -10,8 +10,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.xtext.resource.IContainer;
 import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
@@ -32,10 +30,7 @@ import nl.tue.gtl.tql.model.*;
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 public class TQLValidator extends AbstractTQLValidator {
-	
-	private static Table[] sourceTables;
-	private static Table[] targetTables;
-	
+		
 	/* +++ ERROR STRINGS MAPPING +++ */
 	private static final String INVALID_ASSIGNMENT_TYPE = "Invalid assignment type of target field";
 	private static final String INVALID_IN_TYPE = "Invalid input type for mapping";
@@ -45,87 +40,122 @@ public class TQLValidator extends AbstractTQLValidator {
 	private static final String INVALID_PARAMETER_TYPE = "Invalid transformation call, type does not compare";
 
 	public static final String INVALID_NAME = "invalidName";
+	    
 	
-	@Inject
-    IContainer.Manager containerManager;
+	/**
+	 * Switch statement for expressions
+	 * @param expression Expression to decide against
+	 * @return ExpressionDecorator with the expression to decide loaded in
+	 */
+	private ExpressionDecorator switchExpression(Object expression) {
+		return new ExpressionDecorator(expression);
+	}
 	
-	@com.google.inject.Inject
-	IResourceDescriptions iResourceDescriptions;
+	/**
+	 * Nested class that checks the subtype of an expression
+	 * Used as a sort of switch statement
+	 * @author Diederik Geertzen
+	 *
+	 */
+	private class ExpressionDecorator {
+		private Object expression;
+		private Type foundType;
+		
+		public ExpressionDecorator(Object constant) {
+			this.expression = constant;
+		}
+		
+		/**
+		 * For a constant expression, we decide whether the expression is of given Type
+		 * @param c
+		 * @param assignType
+		 * @return
+		 */
+		public ExpressionDecorator checkExpressionType(Class c, Type assignType) {
+			if (c.isAssignableFrom(expression.getClass())) {
+				this.foundType = assignType;
+			}
+			return this;
+		}		
+		
+		/**
+		 * For a binary operator, we decide the most common Type. 
+		 * If it has no common Type, found Type will be set to null.
+		 * @param b The binary operator left and right are part of
+		 * @param left The type found in the left argument of the binary operator
+		 * @param right The type found in the left argument of the binary operator
+		 * @return this
+		 */
+		public ExpressionDecorator checkExpressionType(BinaryOperatorExpression b, Type left, Type right) {
+			if (Arrays.asList(Operator.ADD, Operator.SUBTRACT, Operator.DIVIDE, Operator.MULTIPLY).contains(b.getOperator())) {
+				if (left.equals(Type.FLOAT) || right.equals(Type.FLOAT)) {
+					this.foundType = Type.FLOAT;
+				} else if (left.equals(Type.INTEGER) && right.equals(Type.INTEGER)) {
+					this.foundType = Type.INTEGER;
+				} else {
+					this.foundType = null;
+				}
+			} else if (Arrays.asList(Operator.AND, Operator.OR).contains(b.getOperator())) {
+				if (left.equals(Type.BOOLEAN) || right.equals(Type.BOOLEAN)) {
+					this.foundType = Type.BOOLEAN;
+				} else {
+					this.foundType = null;
+				}
+			} else if (Arrays.asList(Operator.LESS, Operator.GREATER).contains(b.getOperator())) {
+				if (Arrays.asList(Type.FLOAT, Type.INTEGER).contains(left) && Arrays.asList(Type.FLOAT, Type.INTEGER).contains(right)) {
+					this.foundType = Type.BOOLEAN;
+				} else {
+					this.foundType = null;
+				}
+			} else if (Arrays.asList(Operator.EQUALS, Operator.NOT_EQUALS).contains(b.getOperator())) {
+				if (left.equals(Type.FLOAT)) {
+					this.foundType = (right.equals(Type.FLOAT) || right.equals(Type.INTEGER)) ? Type.FLOAT : null;
+				} else if (right.equals(Type.FLOAT)) {
+					this.foundType = (left.equals(Type.FLOAT) || left.equals(Type.INTEGER)) ? Type.FLOAT : null;
+				} else if (right.equals(left)) {
+					this.foundType = right;
+				} else {
+					this.foundType = null;
+				}
+			}
+			return this;
+		}	
+	}
 	
-	@Inject
-	Provider<XtextResourceSet> resourceSetProvider;
-    
-	
-    @Inject
-    ResourceDescriptionsProvider resourceDescriptionsProvider;
-
-//	@Check
-//	public void checkGreetingStartsWithCapital(Parameter greeting) {
-//		if (!Character.isUpperCase(greeting.type.charAt(0))) {
-//			warning("Name should start with a capital",
-//					TQLPackage.Literals.GREETING__NAME,
-//					INVALID_NAME);
-//		}
-//	}
-//	
-
-//	/**
-//	 * Checks at save/build
-//	 * Load in all static variables to be used for CheckType.FAST
-//	 */
-//	@Check(CheckType.NORMAL)
-//	public void preValidation(Block block) {
-//        var greeting_description = iResourceDescriptions.getResourceDescription(block.eResource().getURI());
-//        var visibleContainers = containerManager.getVisibleContainers(greeting_description, resourceDescriptions)
-//
-//	   for (var visibleContainer : visibleContainers) {
-//            for (_greetingDescription : visibleContainer.getExportedObjectsByType(MyDslPackage.Literals.GREETING)) {
-//                val _greeting = resourceSetProvider.get.getEObject(_greetingDescription.EObjectURI, true) as Greeting
-//
-//                // don't use equality, ALWAYS greeting != _greeting !!
-//                if (greeting.eResource.URI != _greeting.eResource.URI) {
-//                    // this means distinct files, all greetings in same file have same uri
-//                    if (greeting.name == _greeting.name) {
-//                        warning('Global greeting duplication', MyDslPackage.Literals.GREETING__NAME,
-//                            GLOBALLY_DUPLICATE_NAME)
-//                    }
-//                }
-//
-//            }
-//            
-//        warning("Name should start with a capital" + greeting_description.,
-//				null,
-//				INVALID_NAME);
-//		checkMapping((Mapping)block);
-//		sourceTables = new Table[5];
-//		if (block instanceof Mapping) {
-//			
-//		}
-//	}
-    
-    
-
     @Check(CheckType.FAST)
     private void checkCallParameters(TransformationCall tc) {
     	// check if callParameters correspond with the transformation parameters
     	EList<CallParameter> cp = tc.getCallParameters();
     	EList<Parameter> p  = tc.getTransformation().getParameters();
-    	int parameterSize = Math.max(cp.size(), p.size());
-    	for (int i = 0; i < parameterSize; i++) {
-    		if (cp.size() - 1 < i || p.size() - 1 < i) { // amount of parameters does not match
-    			error("ERROR: " + INVALID_PARAMETER_SIZE, null);
-    		}
-    		
-    		// either parameter is a ReferenceCallParameter
-    		if (cp.get(i) instanceof ReferenceCallParameter) {
+		if (cp.size() != p.size()) { // amount of parameters does not match
+			error("ERROR: " + INVALID_PARAMETER_SIZE + " :: Expected " + p.size() + " parameter(s), got " + cp.size(), null);
+		}
+    	for (int i = 0; i < cp.size(); i++) {
+    		if (cp.get(i) instanceof ReferenceCallParameter) { // either parameter is a ReferenceCallParameter
     			if (((ReferenceCallParameter) cp.get(i)).getReference().getType() != p.get(i).getType()) {
         			error("ERROR: " + INVALID_PARAMETER_TYPE + " :: Expected " + p.get(i).getType() + ", got " + ((ReferenceCallParameter) cp.get(i)).getReference().getType() , null);
     			}
     		} else { // or a ConstantCallParameter (type must be decided)
-    			// TODO
+    			System.err.println(decideExpressionType(((ConstantCallParameter)cp.get(i)).getParameter()));
     		}
     	}
     }
+        
+    private Type decideExpressionType(Expression expression) {
+    	return switchExpression(expression)
+        .checkExpressionType(BooleanConstant.class, Type.BOOLEAN) // CONSTANTS
+        .checkExpressionType(FloatConstant.class, Type.FLOAT)
+        .checkExpressionType(StringConstant.class, Type.STRING)
+        .checkExpressionType(IntegerConstant.class, Type.INTEGER)
+        .checkExpressionType(NullConstant.class, Type.NULL)
+    	.checkExpressionType(
+    			(expression instanceof BinaryOperatorExpression) ? (BinaryOperatorExpression)expression : null, 
+    			(expression instanceof BinaryOperatorExpression) ? decideExpressionType(((BinaryOperatorExpression)expression).getLeft()) : null, 
+				(expression instanceof BinaryOperatorExpression) ? decideExpressionType(((BinaryOperatorExpression)expression).getRight()) : null) // FUNCTION, recursive check
+    	.foundType;
+    }
+    
+
     
 	/**
 	 * Fast check of the Mapping function. 
@@ -134,40 +164,21 @@ public class TQLValidator extends AbstractTQLValidator {
 	 */
 	@Check(CheckType.FAST)
 	private void checkMapping(MappedColumn mc) {
-		Type chainedType = checkTypesCompatibleTransformationChain((List<TransformationCall>)mc.getTransformationCalls(), mc.getSource().getType());
-		if (chainedType == null) return; // There is already an error; after solving, we can check more
-		if (mc.getTarget().getType() != chainedType) {
+		checkTypesCompatibleTransformationChain((List<TransformationCall>)mc.getTransformationCalls(), mc.getSource().getType());
+		
+		if (mc.getTarget().getType() != mc.getTransformationCalls().get(mc.getTransformationCalls().size() - 1).getTransformation().getOutType()) {
+			System.out.println("Expected type " + mc.getTarget().getType() + ", got " + mc.getTransformationCalls().get(mc.getTransformationCalls().size() - 1).getTransformation().getOutType());
 			 error("ERROR: " + INVALID_ASSIGNMENT_TYPE, null);
 		}
-	
 	}
 	
-	private Type checkTypesCompatibleTransformationChain(List<TransformationCall> tc, Type currentType) {
-		if (tc.size() == 0) return currentType;
+	private void checkTypesCompatibleTransformationChain(List<TransformationCall> tc, Type currentType) {
+		if (tc.size() == 0) return; // 
 		if (currentType == tc.get(0).getTransformation().getInType()) {
-			return checkTypesCompatibleTransformationChain((List<TransformationCall>) tc.subList(1, tc.size()), tc.get(0).getTransformation().getInType());
+			checkTypesCompatibleTransformationChain((List<TransformationCall>) tc.subList(1, tc.size()), tc.get(0).getTransformation().getInType());
 		} else {
 			 error("ERROR: " + INVALID_IN_TYPE + " :: Expected " + tc.get(0).getTransformation().getInType() + ", got " + currentType + " for " + tc.get(0).getTransformation().getName(), null);
-			 return null;
+				checkTypesCompatibleTransformationChain((List<TransformationCall>) tc.subList(1, tc.size()), tc.get(0).getTransformation().getInType());
 		}
 	}
-	
-//	private Type resolveTransformationCallType(ReferenceCallParameter rParameter) {
-//		
-//	}
-	
-	
-//	@Inject IResourceValidator resourceValidator;
-//	public void checkResource(Resource resource) {
-//		System.out.println('h');
-//		List<Issue> issues = resourceValidator.validate(resource, CheckMode.ALL, getCancelIndicator());
-//		for (Issue issue : issues) {
-//			switch (issue.getSeverity()) {
-//			case ERROR:
-//				System.out.println("error: " + issue.getMessage());
-//			default:
-//				System.out.println("warning: " + "je bent een mongool");
-//			}
-//		}
-//	}
 }

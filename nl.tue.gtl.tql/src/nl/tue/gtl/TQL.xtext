@@ -58,8 +58,6 @@ Transformation returns Transformation:
 	
 Parameter returns Parameter: name=EString ':' type=Type;
 
-Field returns Field: Parameter | Column;
-
 // CallParameters
 Call_Parameter returns CallParameter: Constant_Call_Parameter | Reference_Call_Parameter;
 Constant_Call_Parameter returns ConstantCallParameter: parameter=Constant;
@@ -82,8 +80,9 @@ Divide_Expression returns Expression: Add_Expression ({Divide_Expression.left = 
 Add_Expression returns Expression: Subtract_Expression ({Add_Expression.left = current} operator=AddOperator right = Subtract_Expression)*;
 Subtract_Expression returns Expression: Literal_Expression ({Subtract_Expression.left = current} operator=SubtractOperator right = Literal_Expression)*;
 
-Literal_Expression returns Expression: Constant | Parameter_Expression | Self_Expression; //| Column_Expression; // TODO for when statement
-Parameter_Expression returns ParameterExpression: parameter=[Field|EString];
+Literal_Expression returns Expression: Constant | Parameter_Expression | Self_Expression| Column_Expression; //| Column_Expression TODO for when statement
+Column_Expression returns ColumnExpression: column=[Column|EString];
+Parameter_Expression returns ParameterExpression: parameter=[Parameter|EString];
 Self_Expression returns SelfExpression: {SelfExpression} 'self';
 
 // Constants

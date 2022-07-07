@@ -51,8 +51,8 @@ import nl.tue.gtl.tql.model.ConditionalExpression
 class TQLGenerator extends AbstractGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		var x = resource.allContents.filter(TransformationCall).map[mapParameterAndParameterCall].toList()
 		fsa.generateFile('Create_Target.sql', getTargetTables(resource))
+		fsa.generateFile('Select.sql', getSelectQueries(resource))
 		fsa.generateFile('Transfer.sql', getInsertQueries(resource))
 	}
 	
@@ -67,6 +67,16 @@ class TQLGenerator extends AbstractGenerator {
 		'''
 	}
 	
+	def getSelectQueries(Resource resource) {
+		return '''
+		«FOR mapping : resource.allContents.filter(Mapping).toIterable()»
+			 «mapMappingToSelect(mapping)»
+			 
+			 
+		«ENDFOR»
+		'''
+	}
+	
 	def getInsertQueries(Resource resource) {
 		return '''
 		«FOR mapping : resource.allContents.filter(Mapping).toIterable()»
@@ -74,6 +84,22 @@ class TQLGenerator extends AbstractGenerator {
 			 
 			 
 		«ENDFOR»
+		'''
+	}
+	
+	def mapMappingToSelect(Mapping mapping) {
+		var simpleReferenceDict = new HashMap<String, CharSequence>();
+		for (sourceColumn : mapping.source.columns) {
+			simpleReferenceDict.put(sourceColumn.name, sourceColumn.name)
+		}
+		
+		return '''
+		SELECT 
+			«mapping.mappedColumns.map[mapMappedColumnSource].join(',\n')»
+		FROM [«mapping.source.name»]
+		«IF mapping.where != null»
+		WHERE «resolveExpression(mapping.where, null, simpleReferenceDict)»
+		«ENDIF»
 		'''
 	}
 	
@@ -99,7 +125,7 @@ class TQLGenerator extends AbstractGenerator {
 		for (transformationCall : mappedColumn.transformationCalls) {
 			selfReference = unzipTransformationCall(transformationCall, selfReference).toString()
 		}
-		return selfReference;
+		return '''«selfReference» AS «mappedColumn.target.name»''';
 	}
 	
 	// Self gewoon mee geven aan de volgende transfomration call zo is het eerst de column naam daarna is self het return statement van de eerste call

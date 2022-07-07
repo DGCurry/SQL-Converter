@@ -1,0 +1,45 @@
+source customers {
+	CustomerId: int,
+	FirstName: string,
+	LastName: string,
+	Company: string,
+	Address: string,
+	City: string,
+	State: string,
+	Country: string,
+	PostalCode: string,
+	Phone: string,
+	Fax: string,
+	Email: string,
+	SupportRepId: int
+}
+
+target customer {
+	CustomerId: int,
+	FirstName: string,
+	LastName: string
+}
+
+target addressInfo {
+	CustomerId: int,
+	Address: string,
+	City: string,
+	State: string,
+	Country: string,
+	PostalCode: string
+}
+
+mapping customers -> customer {
+	CustomerId: CustomerId,
+	FirstName: FirstName,
+	LastName: LastName
+}
+
+mapping customers -> addressInfo {
+	CustomerId: CustomerId,
+	Address: Address,
+	City: City,
+	State: State,
+	Country: Country,
+	PostalCode: PostalCode
+}

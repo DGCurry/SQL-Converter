@@ -35,6 +35,7 @@ Target_Table returns TargetTable:
 	
 Mapping returns Mapping:
 	'mapping' source=[SourceTable|EString] '->' target=[TargetTable|EString]
+	('where' where=Statement)?
 	'{'
 		mappedColumns+=Mapped_Column ( ',' mappedColumns+=Mapped_Column)*
 	'}'
@@ -63,7 +64,11 @@ Constant_Call_Parameter returns ConstantCallParameter: parameter=Constant;
 Reference_Call_Parameter returns ReferenceCallParameter: reference=[Column|EString];
 
 // Expressions
+Statement returns Statement: Conditional_Expression | Expression;
+Conditional_Expression returns Statement: 'if' If_Expression '{' ifBody '}' 'else' '{' elseBody '}';
+If_Expression returns Expression;
 Expression returns Expression : And_Expression;
+
 And_Expression returns Expression: Or_Expression ({And_Expression.left = current} operator=AndOperator right = Or_Expression)*;
 Or_Expression returns Expression: Equals_Expression ({Or_Expression.left = current} operator=OrOperator right = Equals_Expression)*;
 Equals_Expression returns Expression: NotEquals_Expression ({Equals_Expression.left = current} operator=EqualsOperator right = NotEquals_Expression)*;

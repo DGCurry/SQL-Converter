@@ -3,6 +3,27 @@
  */
 package nl.tue.gtl.validation;
 
+import java.lang.reflect.Array;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.resource.IContainer;
+import org.eclipse.xtext.resource.IResourceDescriptions;
+import org.eclipse.xtext.resource.XtextResourceSet;
+import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.validation.CheckMode;
+import org.eclipse.xtext.validation.CheckType;
+import org.eclipse.xtext.validation.IResourceValidator;
+import org.eclipse.xtext.validation.Issue;
+
+import com.google.inject.Provider;
+
+import nl.tue.gtl.domainmodel.DomainmodelPackage;
+import nl.tue.gtl.tql.model.*;
 
 /**
  * This class contains custom validation rules. 
@@ -10,16 +31,7 @@ package nl.tue.gtl.validation;
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 public class TQLValidator extends AbstractTQLValidator {
-	
-//	public static final String INVALID_NAME = "invalidName";
-//
-//	@Check
-//	public void checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
-//			warning("Name should start with a capital",
-//					TQLPackage.Literals.GREETING__NAME,
-//					INVALID_NAME);
-//		}
-//	}
-	
+
+	// removed omdat het errors nu heeft
 }
+

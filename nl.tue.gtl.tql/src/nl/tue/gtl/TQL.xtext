@@ -35,7 +35,7 @@ Target_Table returns TargetTable:
 	
 Mapping returns Mapping:
 	'mapping' source=[SourceTable|EString] '->' target=[TargetTable|EString]
-	('where' where=Statement)?
+	('where' where=Expression)?
 	'{'
 		mappedColumns+=Mapped_Column ( ',' mappedColumns+=Mapped_Column)*
 	'}'
@@ -52,7 +52,7 @@ Transformation_Call returns TransformationCall:
 Transformation returns Transformation: 
 	'transformation' inType=Type '::' name=EString '(' (parameters+=Parameter ( ',' parameters+=Parameter )* )? ')' ':' outType=Type
 	'{'
-		body=Expression
+		body=Statement
 	'}'
 	;
 	
@@ -65,8 +65,8 @@ Reference_Call_Parameter returns ReferenceCallParameter: reference=[Column|EStri
 
 // Expressions
 Statement returns Statement: Conditional_Expression | Expression;
-Conditional_Expression returns Statement: 'if' If_Expression '{' ifBody '}' 'else' '{' elseBody '}';
-If_Expression returns Expression;
+Conditional_Expression returns ConditionalExpression: 'if' ifExpression=Expression '{' ifBody=Statement '}' 'else' '{' elseBody=Statement '}';
+
 Expression returns Expression : And_Expression;
 
 And_Expression returns Expression: Or_Expression ({And_Expression.left = current} operator=AndOperator right = Or_Expression)*;

@@ -51,7 +51,7 @@ class TQLGenerator extends AbstractGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 //		var x = resource.allContents.filter(TransformationCall).map[mapParameterAndParameterCall].toList()
 		fsa.generateFile('Create_Target.sql', getTargetTables(resource))
-		fsa.generateFile('Transfer.sql', getInsertQueries(resource))
+//		fsa.generateFile('Transfer.sql', getInsertQueries(resource))
 	}
 	
 	def getTargetTables(Resource resource) {
@@ -65,38 +65,38 @@ class TQLGenerator extends AbstractGenerator {
 		'''
 	}
 	
-	def getInsertQueries(Resource resource) {
-		return '''
-		«FOR mapping : resource.allContents.filter(Mapping).toIterable()»
-			 «mapMappingToInsert(mapping)»
-			 
-			 
-		«ENDFOR»
-		'''
-	}
-	
-	def mapMappingToInsert(Mapping mapping) {
-		'''
-		INSERT INTO [«mapping.target.name»] («mapping.mappedColumns.map[target.name].join(', ')»)
-		SELECT 
-			«mapping.mappedColumns.map[mapMappedColumnSource].join(',\n')»
-		FROM [«mapping.source.name»]
-		'''
-	}
-	
-	def mapMappedColumnSource(MappedColumn mappedColumn) {
-		var selfReference = mappedColumn.source.name
-		for (transformationCall : mappedColumn.transformationCalls) {
-			selfReference = unzipTransformationCall(transformationCall, selfReference).toString()
-		}
-		return selfReference;
-	}
-	
-	// Self gewoon mee geven aan de volgende transfomration call zo is het eerst de column naam daarna is self het return statement van de eerste call
-	def unzipTransformationCall(TransformationCall transformationCall, CharSequence selfReference) {
-		var referenceDict = mapParameterAndParameterCall(transformationCall)
-		return resolveExpression(transformationCall.transformation.body, selfReference, referenceDict)
-	}
+//	def getInsertQueries(Resource resource) {
+//		return '''
+//		«FOR mapping : resource.allContents.filter(Mapping).toIterable()»
+//			 «mapMappingToInsert(mapping)»
+//			 
+//			 
+//		«ENDFOR»
+//		'''
+//	}
+//	
+//	def mapMappingToInsert(Mapping mapping) {
+//		'''
+//		INSERT INTO [«mapping.target.name»] («mapping.mappedColumns.map[target.name].join(', ')»)
+//		SELECT 
+//			«mapping.mappedColumns.map[mapMappedColumnSource].join(',\n')»
+//		FROM [«mapping.source.name»]
+//		'''
+//	}
+//	
+//	def mapMappedColumnSource(MappedColumn mappedColumn) {
+//		var selfReference = mappedColumn.source.name
+//		for (transformationCall : mappedColumn.transformationCalls) {
+//			selfReference = unzipTransformationCall(transformationCall, selfReference).toString()
+//		}
+//		return selfReference;
+//	}
+//	
+//	// Self gewoon mee geven aan de volgende transfomration call zo is het eerst de column naam daarna is self het return statement van de eerste call
+//	def unzipTransformationCall(TransformationCall transformationCall, CharSequence selfReference) {
+//		var referenceDict = mapParameterAndParameterCall(transformationCall)
+//		return resolveExpression(transformationCall.transformation.body, selfReference, referenceDict)
+//	}
 	
 	def CharSequence resolveExpression(Expression expression, CharSequence selfReference, HashMap<String, CharSequence> referenceDict) {
 		switch (expression) {

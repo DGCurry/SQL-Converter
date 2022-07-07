@@ -4,6 +4,7 @@
 package nl.tue.gtl.validation;
 
 import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -31,7 +32,114 @@ import nl.tue.gtl.tql.model.*;
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 public class TQLValidator extends AbstractTQLValidator {
+	
+	private static Table[] sourceTables;
+	private static Table[] targetTables;
+	
+	private static final String INVALID_ASSIGNMENT_TYPE = "Invalid assignment type of target field";
+	private static final String INVALID_IN_TYPE = "Invalid input type for mapping";
 
-	// removed omdat het errors nu heeft
+	public static final String INVALID_NAME = "invalidName";
+	
+	@Inject
+    IContainer.Manager containerManager;
+	
+	@com.google.inject.Inject
+	IResourceDescriptions iResourceDescriptions;
+	
+	@Inject
+	Provider<XtextResourceSet> resourceSetProvider;
+    
+	
+    @Inject
+    ResourceDescriptionsProvider resourceDescriptionsProvider;
+
+//	@Check
+//	public void checkGreetingStartsWithCapital(Parameter greeting) {
+//		if (!Character.isUpperCase(greeting.type.charAt(0))) {
+//			warning("Name should start with a capital",
+//					TQLPackage.Literals.GREETING__NAME,
+//					INVALID_NAME);
+//		}
+//	}
+//	
+
+//	/**
+//	 * Checks at save/build
+//	 * Load in all static variables to be used for CheckType.FAST
+//	 */
+//	@Check(CheckType.NORMAL)
+//	public void preValidation(Block block) {
+//        var greeting_description = iResourceDescriptions.getResourceDescription(block.eResource().getURI());
+//        var visibleContainers = containerManager.getVisibleContainers(greeting_description, resourceDescriptions)
+//
+//	   for (var visibleContainer : visibleContainers) {
+//            for (_greetingDescription : visibleContainer.getExportedObjectsByType(MyDslPackage.Literals.GREETING)) {
+//                val _greeting = resourceSetProvider.get.getEObject(_greetingDescription.EObjectURI, true) as Greeting
+//
+//                // don't use equality, ALWAYS greeting != _greeting !!
+//                if (greeting.eResource.URI != _greeting.eResource.URI) {
+//                    // this means distinct files, all greetings in same file have same uri
+//                    if (greeting.name == _greeting.name) {
+//                        warning('Global greeting duplication', MyDslPackage.Literals.GREETING__NAME,
+//                            GLOBALLY_DUPLICATE_NAME)
+//                    }
+//                }
+//
+//            }
+//            
+//        warning("Name should start with a capital" + greeting_description.,
+//				null,
+//				INVALID_NAME);
+//		checkMapping((Mapping)block);
+//		sourceTables = new Table[5];
+//		if (block instanceof Mapping) {
+//			
+//		}
+//	}
+
+	
+	/**
+	 * Fast check of the Mapping function. 
+	 * Check if SourceTable and TargetTable existed on compilation
+	 * @param mapping
+	 */
+	@Check(CheckType.FAST)
+	private void checkMapping(MappedColumn mc) {
+		Type chainedType = checkTypesCompatibleTransformationChain((List<TransformationCall>)mc.getTransformationCalls(), mc.getSource().getType());
+		if (chainedType == null) return; // There is already an error; after solving, we can check more
+		if (mc.getTarget().getType() != chainedType) {
+			 error("ERROR: " + INVALID_ASSIGNMENT_TYPE, null);
+		}
+	
+	}
+	
+	private Type checkTypesCompatibleTransformationChain(List<TransformationCall> tc, Type currentType) {
+		if (tc.size() == 0) return currentType;
+		if (currentType == tc.get(0).getTransformation().getInType()) {
+			return checkTypesCompatibleTransformationChain((List<TransformationCall>) tc.subList(1, tc.size()), tc.get(0).getTransformation().getInType());
+		} else {
+			 error("ERROR: " + INVALID_IN_TYPE + " :: Expected " + tc.get(0).getTransformation().getInType() + ", got " + currentType + " for " + tc.get(0).getTransformation().getName(), null);
+			 return null;
+		}
+	}
+	
+//	private Type resolveTransformationCallType(ReferenceCallParameter rParameter) {
+//		
+//	}
+	
+	
+//	@Inject IResourceValidator resourceValidator;
+//	public void checkResource(Resource resource) {
+//		System.out.println('h');
+//		List<Issue> issues = resourceValidator.validate(resource, CheckMode.ALL, getCancelIndicator());
+//		for (Issue issue : issues) {
+//			switch (issue.getSeverity()) {
+//			case ERROR:
+//				System.out.println("error: " + issue.getMessage());
+//			default:
+//				System.out.println("warning: " + "je bent een mongool");
+//			}
+//		}
+//	}
 }
-

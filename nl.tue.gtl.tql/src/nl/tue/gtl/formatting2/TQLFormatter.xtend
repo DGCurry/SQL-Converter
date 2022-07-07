@@ -18,6 +18,7 @@ class TQLFormatter extends AbstractFormatter2 {
 		for (column : table.columns) {
 			column.format
 		}
+		println("miauw");
 	}
 	
 }

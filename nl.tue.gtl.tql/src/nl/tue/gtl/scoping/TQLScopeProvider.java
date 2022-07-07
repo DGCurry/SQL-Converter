@@ -8,10 +8,16 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 
+import nl.tue.gtl.tql.model.Column;
+import nl.tue.gtl.tql.model.Field;
 import nl.tue.gtl.tql.model.MappedColumn;
 import nl.tue.gtl.tql.model.Mapping;
 import nl.tue.gtl.tql.model.ModelPackage;
+import nl.tue.gtl.tql.model.Parameter;
+import nl.tue.gtl.tql.model.ParameterExpression;
 import nl.tue.gtl.tql.model.ReferenceCallParameter;
+import nl.tue.gtl.tql.model.Table;
+import nl.tue.gtl.tql.model.Transformation;
 
 /**
  * This class contains custom scoping description.
@@ -46,6 +52,20 @@ public class TQLScopeProvider extends AbstractTQLScopeProvider {
     			Mapping mapping = (Mapping)container;
 	        	
 	        	return Scopes.scopeFor(mapping.getSource().getColumns());
+	    	}
+	    } else if (context instanceof ParameterExpression && reference == ModelPackage.Literals.PARAMETER_EXPRESSION__PARAMETER) {
+	    	EObject container = context.eContainer();
+	    	
+	    	while (container != null) {
+	    		if (container instanceof Transformation) {
+	    			Transformation transformation = (Transformation)container;
+	    			return Scopes.scopeFor(transformation.getParameters());
+	    		} if (container instanceof Mapping) {
+	    			Mapping mapping = (Mapping)container;
+					return Scopes.scopeFor(mapping.getSource().getColumns());
+				}
+	    		
+	    		container = container.eContainer();
 	    	}
 	    }
 	    return super.getScope(context, reference);

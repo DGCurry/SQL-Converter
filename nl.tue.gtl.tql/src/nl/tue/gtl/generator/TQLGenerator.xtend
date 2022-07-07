@@ -40,6 +40,8 @@ import nl.tue.gtl.domainmodel.Greater_Expression
 import nl.tue.gtl.domainmodel.Multiply_Expression
 import nl.tue.gtl.domainmodel.Divide_Expression
 import nl.tue.gtl.domainmodel.Subtract_Expression
+import nl.tue.gtl.tql.model.Statement
+import nl.tue.gtl.tql.model.ConditionalExpression
 
 /**
  * Generates code from your model files on save.
@@ -51,7 +53,7 @@ class TQLGenerator extends AbstractGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 //		var x = resource.allContents.filter(TransformationCall).map[mapParameterAndParameterCall].toList()
 		fsa.generateFile('Create_Target.sql', getTargetTables(resource))
-//		fsa.generateFile('Transfer.sql', getInsertQueries(resource))
+		fsa.generateFile('Transfer.sql', getInsertQueries(resource))
 	}
 	
 	def getTargetTables(Resource resource) {
@@ -65,42 +67,68 @@ class TQLGenerator extends AbstractGenerator {
 		'''
 	}
 	
-//	def getInsertQueries(Resource resource) {
-//		return '''
-//		«FOR mapping : resource.allContents.filter(Mapping).toIterable()»
-//			 «mapMappingToInsert(mapping)»
-//			 
-//			 
-//		«ENDFOR»
-//		'''
-//	}
-//	
-//	def mapMappingToInsert(Mapping mapping) {
-//		'''
-//		INSERT INTO [«mapping.target.name»] («mapping.mappedColumns.map[target.name].join(', ')»)
-//		SELECT 
-//			«mapping.mappedColumns.map[mapMappedColumnSource].join(',\n')»
-//		FROM [«mapping.source.name»]
-//		'''
-//	}
-//	
-//	def mapMappedColumnSource(MappedColumn mappedColumn) {
-//		var selfReference = mappedColumn.source.name
-//		for (transformationCall : mappedColumn.transformationCalls) {
-//			selfReference = unzipTransformationCall(transformationCall, selfReference).toString()
-//		}
-//		return selfReference;
-//	}
-//	
-//	// Self gewoon mee geven aan de volgende transfomration call zo is het eerst de column naam daarna is self het return statement van de eerste call
-//	def unzipTransformationCall(TransformationCall transformationCall, CharSequence selfReference) {
-//		var referenceDict = mapParameterAndParameterCall(transformationCall)
-//		return resolveExpression(transformationCall.transformation.body, selfReference, referenceDict)
-//	}
+	def getInsertQueries(Resource resource) {
+		return '''
+		«FOR mapping : resource.allContents.filter(Mapping).toIterable()»
+			 «mapMappingToInsert(mapping)»
+			 
+			 
+		«ENDFOR»
+		'''
+	}
+	
+	def mapMappingToInsert(Mapping mapping) {
+		var simpleReferenceDict = new HashMap<String, CharSequence>();
+		for (sourceColumn : mapping.source.columns) {
+			simpleReferenceDict.put(sourceColumn.name, sourceColumn.name)
+		}
+		
+		return '''
+		INSERT INTO [«mapping.target.name»] («mapping.mappedColumns.map[target.name].join(', ')»)
+		SELECT 
+			«mapping.mappedColumns.map[mapMappedColumnSource].join(',\n')»
+		FROM [«mapping.source.name»]
+		«IF mapping.where != null»
+		WHERE «resolveExpression(mapping.where, null, simpleReferenceDict)»
+		«ENDIF»
+		'''
+	}
+	
+	def mapMappedColumnSource(MappedColumn mappedColumn) {
+		var selfReference = mappedColumn.source.name
+		for (transformationCall : mappedColumn.transformationCalls) {
+			selfReference = unzipTransformationCall(transformationCall, selfReference).toString()
+		}
+		return selfReference;
+	}
+	
+	// Self gewoon mee geven aan de volgende transfomration call zo is het eerst de column naam daarna is self het return statement van de eerste call
+	def unzipTransformationCall(TransformationCall transformationCall, CharSequence selfReference) {
+		var referenceDict = mapParameterAndParameterCall(transformationCall)
+		return resolveStatement(transformationCall.transformation.body, selfReference, referenceDict)
+	}
+	
+	def CharSequence resolveStatement(Statement statement, CharSequence selfReference, HashMap<String, CharSequence> referenceDict) {
+		switch (statement) {
+			Expression: resolveExpression(statement, selfReference, referenceDict)
+			ConditionalExpression: resolveConditionalExpression(statement, selfReference, referenceDict)
+		}
+	}
+	
+	def CharSequence resolveConditionalExpression(ConditionalExpression expression, CharSequence selfReference, HashMap<String, CharSequence> referenceDict) {
+		'''
+		CASE WHEN «resolveExpression(expression.ifExpression, selfReference, referenceDict)» THEN
+			«resolveStatement(expression.ifBody, selfReference, referenceDict)»
+		ELSE
+			«resolveStatement(expression.elseBody, selfReference, referenceDict)»
+		END
+		'''
+	}
 	
 	def CharSequence resolveExpression(Expression expression, CharSequence selfReference, HashMap<String, CharSequence> referenceDict) {
 		switch (expression) {
 			ParameterExpression : '''«referenceDict.get(expression.parameter.name)»'''
+			Constant : mapConstant(expression)
 			SelfExpression : selfReference
 			And_Expression : '''«resolveExpression(expression.left, selfReference, referenceDict)» «getOperator(expression.operator)» «resolveExpression(expression.right, selfReference, referenceDict)»'''
 			Or_Expression : '''«resolveExpression(expression.left, selfReference, referenceDict)» «getOperator(expression.operator)» «resolveExpression(expression.right, selfReference, referenceDict)»'''

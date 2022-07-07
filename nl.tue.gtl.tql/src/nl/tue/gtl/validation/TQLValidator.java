@@ -10,8 +10,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.xtext.resource.IContainer;
 import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
@@ -25,7 +23,6 @@ import com.google.inject.Provider;
 
 import nl.tue.gtl.domainmodel.DomainmodelPackage;
 import nl.tue.gtl.tql.model.*;
-import nl.tue.gtl.validation.HelpClasses.OnMatchDo;
 
 /**
  * This class contains custom validation rules. 
@@ -82,7 +79,7 @@ public class TQLValidator extends AbstractTQLValidator {
 		}		
 		
 		/**
-		 * For an binary operator, we decide the most common Type. 
+		 * For a binary operator, we decide the most common Type. 
 		 * If it has no common Type, found Type will be set to null.
 		 * @param b The binary operator left and right are part of
 		 * @param left The type found in the left argument of the binary operator
@@ -139,7 +136,7 @@ public class TQLValidator extends AbstractTQLValidator {
         			error("ERROR: " + INVALID_PARAMETER_TYPE + " :: Expected " + p.get(i).getType() + ", got " + ((ReferenceCallParameter) cp.get(i)).getReference().getType() , null);
     			}
     		} else { // or a ConstantCallParameter (type must be decided)
-    			decideExpressionType(((ConstantCallParameter)cp.get(i)).getParameter());
+    			System.err.println(decideExpressionType(((ConstantCallParameter)cp.get(i)).getParameter()));
     		}
     	}
     }
@@ -151,7 +148,10 @@ public class TQLValidator extends AbstractTQLValidator {
         .checkExpressionType(StringConstant.class, Type.STRING)
         .checkExpressionType(IntegerConstant.class, Type.INTEGER)
         .checkExpressionType(NullConstant.class, Type.NULL)
-    	.checkExpressionType((BinaryOperatorExpression)expression, decideExpressionType(((BinaryOperatorExpression)expression).getLeft()), decideExpressionType(((BinaryOperatorExpression)expression).getRight())) // FUNCTION, recursive check
+    	.checkExpressionType(
+    			(expression instanceof BinaryOperatorExpression) ? (BinaryOperatorExpression)expression : null, 
+    			(expression instanceof BinaryOperatorExpression) ? decideExpressionType(((BinaryOperatorExpression)expression).getLeft()) : null, 
+				(expression instanceof BinaryOperatorExpression) ? decideExpressionType(((BinaryOperatorExpression)expression).getRight()) : null) // FUNCTION, recursive check
     	.foundType;
     }
     

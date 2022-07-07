@@ -45,6 +45,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Mapping/mappedColumns"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Mapping/source"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Mapping/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Mapping/where"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//MappedColumn">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//MappedColumn/source"/>
@@ -106,5 +107,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//BinaryOperatorExpression/right"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//SelfExpression"/>
+    <genClasses ecoreClass="model.ecore#//Statement"/>
+    <genClasses ecoreClass="model.ecore#//ConditionalExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//ConditionalExpression/ifBody"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//ConditionalExpression/elseBody"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//ConditionalExpression/ifExpression"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

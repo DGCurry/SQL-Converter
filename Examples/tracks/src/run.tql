@@ -1,0 +1,63 @@
+source tracks {
+	TrackId: int,
+	Name: string,
+	AlbumId: int,
+	MediaTypeId: int,
+	GenreId: int,
+	Composer: string,
+	Milliseconds: int,
+	Bytes: int,
+	UnitPrice: float
+}
+
+source media_types {
+	MediaTypeId: int,
+	Name: string
+}
+
+target spefic_media_type {
+	Name: string
+}
+
+target cheap_tracks {
+	Name: string,
+	Composer: string,
+	MinutesInRange: int,
+	MegaBytes: int,
+	Price: float
+}
+
+mapping media_types -> spefic_media_type
+where MediaTypeId == 3
+{
+	Name: Name
+}
+
+mapping tracks -> cheap_tracks 
+where MediaTypeId == 3
+{
+	Name: Name,
+	MinutesInRange: Milliseconds | millisecondsToMinutes() | forceRange(30, 42),
+	MegaBytes: Bytes | byteToMegaBytes(),
+	Price: UnitPrice
+}
+
+transformation int::millisecondsToMinutes(): int {
+	self / 1000 / 60
+}
+
+transformation int::byteToMegaBytes(): int {
+	self / 1000000
+}
+
+transformation int::forceRange(minimum: int, maximum: int): int {
+	if self < minimum {
+		minimum
+	} else {
+		if self > maximum {
+			maximum
+		} else {
+			self
+		}
+	}
+}

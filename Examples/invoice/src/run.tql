@@ -1,0 +1,41 @@
+source invoices {
+	InvoiceId: int,
+	CustomerId: int,
+	InvoiceDate: date,
+	BillingAddress: string,
+	BillingCity: string
+}
+
+source invoice_items {
+	InvoiceLineId: int,
+	InvoiceId: int,
+	TrackId: int,
+	UnitPrice: float,
+	Quantity: int
+}
+
+target specific_item {
+	InvoiceItemId: int,
+	PercentageForTotal: float,
+	CombinedPrice: float
+}
+
+mapping invoice_items -> specific_item 
+where InvoiceLineId < 50
+{
+	InvoiceItemId: InvoiceLineId,
+	PercentageForTotal: Quantity | asPercentage() | normalizePercentage(),
+	CombinedPrice: UnitPrice | sum(Quantity)
+}
+
+transformation int::asPercentage(): float {
+	1 / self
+}
+
+transformation float::normalizePercentage(): float {
+	self * 100
+}
+
+transformation float::sum(value: int): float {
+	self * value
+}

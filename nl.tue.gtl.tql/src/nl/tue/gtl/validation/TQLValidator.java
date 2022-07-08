@@ -3,25 +3,13 @@
  */
 package nl.tue.gtl.validation;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.xtext.resource.IResourceDescriptions;
-import org.eclipse.xtext.resource.XtextResourceSet;
-import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
 import org.eclipse.xtext.validation.Check;
-import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.CheckType;
-import org.eclipse.xtext.validation.IResourceValidator;
-import org.eclipse.xtext.validation.Issue;
 
-import com.google.inject.Provider;
-
-import nl.tue.gtl.domainmodel.DomainmodelPackage;
 import nl.tue.gtl.tql.model.*;
 
 /**
@@ -87,6 +75,8 @@ public class TQLValidator extends AbstractTQLValidator {
 		 * @return this
 		 */
 		public ExpressionDecorator checkExpressionType(BinaryOperatorExpression b, Type left, Type right) {
+			System.out.println("getting type " + b + " " + left + " " + right);
+			if (b == null || left == null || right == null) return this;
 			if (Arrays.asList(Operator.ADD, Operator.SUBTRACT, Operator.DIVIDE, Operator.MULTIPLY).contains(b.getOperator())) {
 				if (left.equals(Type.FLOAT) || right.equals(Type.FLOAT)) {
 					this.foundType = Type.FLOAT;
@@ -136,13 +126,14 @@ public class TQLValidator extends AbstractTQLValidator {
         			error("ERROR: " + INVALID_PARAMETER_TYPE + " :: Expected " + p.get(i).getType() + ", got " + ((ReferenceCallParameter) cp.get(i)).getReference().getType() , null);
     			}
     		} else { // or a ConstantCallParameter (type must be decided)
-    			System.err.println(decideExpressionType(((ConstantCallParameter)cp.get(i)).getParameter()));
+//    			System.err.println(decideExpressionType(((ConstantCallParameter)cp.get(i)).getParameter()));
     		}
     	}
     }
-        
+    
+    @Check(CheckType.FAST)
     private Type decideExpressionType(Expression expression) {
-    	return switchExpression(expression)
+    	Type type =  switchExpression(expression)
         .checkExpressionType(BooleanConstant.class, Type.BOOLEAN) // CONSTANTS
         .checkExpressionType(FloatConstant.class, Type.FLOAT)
         .checkExpressionType(StringConstant.class, Type.STRING)
@@ -153,6 +144,8 @@ public class TQLValidator extends AbstractTQLValidator {
     			(expression instanceof BinaryOperatorExpression) ? decideExpressionType(((BinaryOperatorExpression)expression).getLeft()) : null, 
 				(expression instanceof BinaryOperatorExpression) ? decideExpressionType(((BinaryOperatorExpression)expression).getRight()) : null) // FUNCTION, recursive check
     	.foundType;
+    	System.err.println(expression + " " + type);
+    	return type;
     }
     
 

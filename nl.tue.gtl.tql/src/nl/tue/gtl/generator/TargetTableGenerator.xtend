@@ -25,6 +25,7 @@ class TargetTableGenerator {
 			case DATE : '''Date'''
 			case FLOAT : '''Float'''
 			case INTEGER : '''int'''
+			case NULL : '''NULL'''
 			default : '''NVARCHAR(max)'''
 		}
 	}

@@ -1,8 +1,8 @@
 INSERT INTO [specific_item] (InvoiceItemId, PercentageForTotal, CombinedPrice)
 SELECT 
 	InvoiceLineId AS InvoiceItemId,
-	 *  AS PercentageForTotal,
-	 *  AS CombinedPrice
+	1 / Quantity * 100.0 AS PercentageForTotal,
+	UnitPrice * Quantity AS CombinedPrice
 FROM [invoice_items]
 WHERE InvoiceLineId < 50
 

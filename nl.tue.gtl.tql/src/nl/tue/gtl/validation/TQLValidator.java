@@ -3,20 +3,26 @@
  */
 package nl.tue.gtl.validation;
 
-import java.util.ArrayList;
+import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import javax.inject.Inject;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.resource.IResourceDescriptions;
+import org.eclipse.xtext.resource.XtextResourceSet;
+import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.CheckType;
+import org.eclipse.xtext.validation.IResourceValidator;
+import org.eclipse.xtext.validation.Issue;
 
-import nl.tue.gtl.domainmodel.impl.*;
+import com.google.inject.Provider;
+
+import nl.tue.gtl.domainmodel.DomainmodelPackage;
 import nl.tue.gtl.tql.model.*;
-import nl.tue.gtl.tql.model.Parameter;
-import nl.tue.gtl.tql.model.impl.*;
 
 /**
  * This class contains custom validation rules. 
@@ -24,7 +30,7 @@ import nl.tue.gtl.tql.model.impl.*;
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 public class TQLValidator extends AbstractTQLValidator {
-
+		
 	/* +++ ERROR STRINGS MAPPING +++ */
 	private static final String INVALID_ASSIGNMENT_TYPE = "Invalid assignment type of target field";
 	private static final String INVALID_IN_TYPE = "Invalid input type for mapping";
@@ -32,77 +38,45 @@ public class TQLValidator extends AbstractTQLValidator {
 	/* +++ ERROR STRINGS FOR TRANSFORMATION +++ */
 	private static final String INVALID_PARAMETER_SIZE = "Invalid transformation call, size does not compare";
 	private static final String INVALID_PARAMETER_TYPE = "Invalid transformation call, type does not compare";
-	private static final String INVALID_RETURN_TYPE = "Invalid return type, type of transformation and type of returned value do not compare";
 
-	/* +++ ERROR STRINGS FOR EXPRESSIONS +++ */
-	private static final String INVALID_IF_EXPRESSION_TYPE = "Invalid if expression, expected boolean";
-	private static final String INVALID_TYPE_COMPATIBILITY = "Types are not compatible";
+	public static final String INVALID_NAME = "invalidName";
+	    
 	
 	/**
 	 * Switch statement for expressions
 	 * @param expression Expression to decide against
 	 * @return ExpressionDecorator with the expression to decide loaded in
 	 */
-	private ExpressionDecorator decorateExpression(Object expression) {
-	
+	private ExpressionDecorator switchExpression(Object expression) {
 		return new ExpressionDecorator(expression);
 	}
 	
 	/**
 	 * Nested class that checks the subtype of an expression
+	 * Used as a sort of switch statement
 	 * @author Diederik Geertzen
 	 *
 	 */
 	private class ExpressionDecorator {
 		private Object expression;
-		private Type foundType = null;
+		private Type foundType;
 		
-		/**
-		 * Constructor for only constants. 
-		 * @param constant
-		 */
 		public ExpressionDecorator(Object constant) {
 			this.expression = constant;
 		}
 		
 		/**
 		 * For a constant expression, we decide whether the expression is of given Type
-		 * @param <T>
 		 * @param c
 		 * @param assignType
 		 * @return
 		 */
-		public <T> ExpressionDecorator checkExpressionType(Class<T> c, Type assignType) {
+		public ExpressionDecorator checkExpressionType(Class c, Type assignType) {
 			if (c.isAssignableFrom(expression.getClass())) {
 				this.foundType = assignType;
 			}
 			return this;
 		}		
-		
-
-		/**
-		 * Casts an expression to a BinaryOperatorExpression, if it is able to
-		 * 
-		 * @param Object castClass
-		 * @return
-		 */
-		public BinaryOperatorExpression expressionCasting() {
-			BinaryOperatorExpressionImpl boe = null;
-	
-			if (Arrays.asList(Add_ExpressionImpl.class, And_ExpressionImpl.class, Divide_ExpressionImpl.class, Equals_ExpressionImpl.class,
-					Greater_ExpressionImpl.class, Less_ExpressionImpl.class, Multiply_ExpressionImpl.class, NotEquals_ExpressionImpl.class, 
-					Or_ExpressionImpl.class, Subtract_ExpressionImpl.class).contains(expression.getClass())) {
-				try {
-					boe = new BinaryOperatorExpressionImpl();
-					boe.setLeft((Expression)expression.getClass().getMethod("getLeft").invoke(expression));
-					boe.setRight((Expression)expression.getClass().getMethod("getRight").invoke(expression));
-					boe.setOperator((Operator)expression.getClass().getMethod("getOperator").invoke(expression));			
-					} catch (Exception e) {
-						System.err.println(e);
-					}
-			}
-			return boe;
-		}
 		
 		/**
 		 * For a binary operator, we decide the most common Type. 
@@ -113,64 +87,41 @@ public class TQLValidator extends AbstractTQLValidator {
 		 * @return this
 		 */
 		public ExpressionDecorator checkExpressionType(BinaryOperatorExpression b, Type left, Type right) {
-			System.out.println("left " + left + " right " + right);
-			if (b == null || left == null || right == null) return this;
 			if (Arrays.asList(Operator.ADD, Operator.SUBTRACT, Operator.DIVIDE, Operator.MULTIPLY).contains(b.getOperator())) {
 				if (left.equals(Type.FLOAT) || right.equals(Type.FLOAT)) {
 					this.foundType = Type.FLOAT;
 				} else if (left.equals(Type.INTEGER) && right.equals(Type.INTEGER)) {
 					this.foundType = Type.INTEGER;
+				} else {
+					this.foundType = null;
 				}
 			} else if (Arrays.asList(Operator.AND, Operator.OR).contains(b.getOperator())) {
-				if (left.equals(Type.BOOLEAN) && right.equals(Type.BOOLEAN)) {
+				if (left.equals(Type.BOOLEAN) || right.equals(Type.BOOLEAN)) {
 					this.foundType = Type.BOOLEAN;
+				} else {
+					this.foundType = null;
 				}
 			} else if (Arrays.asList(Operator.LESS, Operator.GREATER).contains(b.getOperator())) {
-				System.out.println("found");
 				if (Arrays.asList(Type.FLOAT, Type.INTEGER).contains(left) && Arrays.asList(Type.FLOAT, Type.INTEGER).contains(right)) {
 					this.foundType = Type.BOOLEAN;
+				} else {
+					this.foundType = null;
 				}
 			} else if (Arrays.asList(Operator.EQUALS, Operator.NOT_EQUALS).contains(b.getOperator())) {
-				if (left.equals(Type.FLOAT) || left.equals(Type.INTEGER)) {
-					this.foundType = (right.equals(Type.FLOAT) || right.equals(Type.INTEGER)) ? Type.BOOLEAN : null;
-				} else if (right.equals(Type.FLOAT) || left.equals(Type.INTEGER)) {
-					this.foundType = (left.equals(Type.FLOAT) || left.equals(Type.INTEGER)) ? Type.BOOLEAN : null;
+				if (left.equals(Type.FLOAT)) {
+					this.foundType = (right.equals(Type.FLOAT) || right.equals(Type.INTEGER)) ? Type.FLOAT : null;
+				} else if (right.equals(Type.FLOAT)) {
+					this.foundType = (left.equals(Type.FLOAT) || left.equals(Type.INTEGER)) ? Type.FLOAT : null;
+				} else if (right.equals(left)) {
+					this.foundType = right;
+				} else {
+					this.foundType = null;
 				}
-			} 
-			if (this.foundType == null) {
-				error("ERROR: " + INVALID_TYPE_COMPATIBILITY + " :: " + b.getOperator() + " with " +  left + " and " + right, null);
 			}
 			return this;
 		}	
 	}
 	
-	/**
-	 * Check transformations
-	 * 
-	 * @param t
-	 */
-	@Check(CheckType.FAST)
-	private void checkTransformation(Transformation transformation) {
-		Statement body = transformation.getBody();
-		Map<String, Type> parameters = new HashMap();
-		for (Parameter p : transformation.getParameters()) {
-			parameters.put(p.getName(), p.getType());
-		}
-		ArrayList<Type> bodyTypes = decideStatementType(body, transformation.getInType(), parameters);
-		
-		for (Type foundType : bodyTypes) {
-			if (!foundType.equals(transformation.getOutType())) {
-				error("ERROR: " + INVALID_RETURN_TYPE + " :: Expected " + transformation.getOutType() + ", got "+ foundType, null);
-			}
-		}
-	}
-	
-	/**
-	 * Method that checks the parameters in a transformation call
-	 * Checks size of parameter list, and checks type of parameter list
-	 * If not compatible, raises error
-	 * @param tc
-	 */
     @Check(CheckType.FAST)
     private void checkCallParameters(TransformationCall tc) {
     	// check if callParameters correspond with the transformation parameters
@@ -178,7 +129,6 @@ public class TQLValidator extends AbstractTQLValidator {
     	EList<Parameter> p  = tc.getTransformation().getParameters();
 		if (cp.size() != p.size()) { // amount of parameters does not match
 			error("ERROR: " + INVALID_PARAMETER_SIZE + " :: Expected " + p.size() + " parameter(s), got " + cp.size(), null);
-			return;
 		}
     	for (int i = 0; i < cp.size(); i++) {
     		if (cp.get(i) instanceof ReferenceCallParameter) { // either parameter is a ReferenceCallParameter
@@ -186,86 +136,26 @@ public class TQLValidator extends AbstractTQLValidator {
         			error("ERROR: " + INVALID_PARAMETER_TYPE + " :: Expected " + p.get(i).getType() + ", got " + ((ReferenceCallParameter) cp.get(i)).getReference().getType() , null);
     			}
     		} else { // or a ConstantCallParameter (type must be decided)
-    			if (resolveConstantExpressionType(((ConstantCallParameter)cp.get(i)).getParameter()) != p.get(i).getType()) {
-        			error("ERROR: " + INVALID_PARAMETER_TYPE + " :: Expected " + p.get(i).getType() + ", got " + resolveConstantExpressionType(((ConstantCallParameter)cp.get(i)).getParameter()) , null);
-    			}
+    			System.err.println(decideExpressionType(((ConstantCallParameter)cp.get(i)).getParameter()));
     		}
-    	}
-    }
-    
-    /**
-     * Method that decides the type of a statement
-     * @param statement
-     * @param pMap
-     * @param selfType
-     * @return
-     */
-    private ArrayList<Type> decideStatementType(Statement statement, Type self,  Map<String, Type> parameters) {
-    	if (statement instanceof Expression) {
-    		return new ArrayList<Type>(Arrays.asList(new Type[] {resolveExpressionType((Expression)statement, self, parameters)}));
-    	} else {
-    		// Check whether the if statement is a valid boolean value
-    		Expression ifExpression = ((ConditionalExpression)statement).getIfExpression();
-    		if (resolveExpressionType(ifExpression, self, parameters) != Type.BOOLEAN) {
-    			error("ERROR: " + INVALID_IF_EXPRESSION_TYPE, null);
-    		}
-    		// Check if and else body for types
-    		ArrayList<Type> returnList = new ArrayList<Type>();
-			Statement ifBody = ((ConditionalExpression)statement).getIfBody();
-			Statement elseBody = ((ConditionalExpression)statement).getElseBody();
-			returnList.addAll(decideStatementType(ifBody, self, parameters));
-			returnList.addAll(decideStatementType(elseBody, self, parameters));
-			return returnList;
     	}
     }
         
-    /**
-     * Resolve an expression to a type
-     * Expression is either a ParameterExpression, SelfExpression, BinaryOperatorExpression
-     * If neither, it is a Constant
-     * @param expression
-     * @param self
-     * @param parameters
-     * @return
-     */
-    private Type resolveExpressionType(Expression expression, Type self, Map<String, Type> parameters) {
-    	ExpressionDecorator decoratedExpression =  decorateExpression(expression);
-    	BinaryOperatorExpression castedExpression = decoratedExpression.expressionCasting();
-    	System.out.println(expression);
-    	if (castedExpression != null) {
-        	return decoratedExpression.
-        			checkExpressionType(castedExpression, resolveExpressionType(castedExpression.getLeft(), self, parameters), resolveExpressionType(castedExpression.getRight(), self, parameters))
-        			.foundType;
-    	} else if (expression.getClass().equals(SelfExpressionImpl.class)) {
-    		System.out.println("self");
-			return self;
-		} else if (expression.getClass().equals(ParameterExpressionImpl.class)) {
-			System.out.println("parameter");
-			return parameters.get(((ParameterExpression)expression).getParameter().getName());
-		} else {
-    		return resolveConstantExpressionType(expression);
-    	}
-    }
-   
-    /**
-     * Method to decide the type of an expression
-     * Does not work for the ParameterExpression, and SelfExpression, and ConditionalExpression. These are handled by...
-     * Simply check for the constants. If a constant type is found, the foundType will be set to that type
-     * If an operation is found, the common type will be determined by recursion on the left and right hand side of the expression
-     * @param expression
-     * @return
-     */
-    private Type resolveConstantExpressionType(Expression expression) {
-    	ExpressionDecorator decoratedExpression =  decorateExpression(expression);
-    	return decoratedExpression
-        .checkExpressionType(BooleanConstant.class, Type.BOOLEAN)
+    private Type decideExpressionType(Expression expression) {
+    	return switchExpression(expression)
+        .checkExpressionType(BooleanConstant.class, Type.BOOLEAN) // CONSTANTS
         .checkExpressionType(FloatConstant.class, Type.FLOAT)
         .checkExpressionType(StringConstant.class, Type.STRING)
         .checkExpressionType(IntegerConstant.class, Type.INTEGER)
         .checkExpressionType(NullConstant.class, Type.NULL)
-        .checkExpressionType(DateConstant.class, Type.DATE)
+    	.checkExpressionType(
+    			(expression instanceof BinaryOperatorExpression) ? (BinaryOperatorExpression)expression : null, 
+    			(expression instanceof BinaryOperatorExpression) ? decideExpressionType(((BinaryOperatorExpression)expression).getLeft()) : null, 
+				(expression instanceof BinaryOperatorExpression) ? decideExpressionType(((BinaryOperatorExpression)expression).getRight()) : null) // FUNCTION, recursive check
     	.foundType;
     }
+    
+
     
 	/**
 	 * Fast check of the Mapping function. 
@@ -274,22 +164,20 @@ public class TQLValidator extends AbstractTQLValidator {
 	 */
 	@Check(CheckType.FAST)
 	private void checkMapping(MappedColumn mc) {
-		EList<TransformationCall> tc = mc.getTransformationCalls();
-		checkTypesCompatibleTransformationChain((List<TransformationCall>)tc, mc.getSource().getType());
-		
-		Type checkType = (tc.size() > 0) ? tc.get(tc.size() - 1).getTransformation().getOutType() : mc.getSource().getType(); 
-		
-		if (mc.getTarget().getType() != checkType) {
-			error("ERROR: " + INVALID_ASSIGNMENT_TYPE, null);
+		checkTypesCompatibleTransformationChain((List<TransformationCall>)mc.getTransformationCalls(), mc.getSource().getType());
+		if (mc.getTransformationCalls().size() == 0) {
+			if (mc.getTarget().getType() != mc.getSource().getType()) {
+				System.out.println("Expected type " + mc.getTarget().getType() + ", got " + mc.getSource().getType());
+				 error("ERROR: " + INVALID_ASSIGNMENT_TYPE, null);
+			}
+		} else {
+			if (mc.getTarget().getType() != mc.getTransformationCalls().get(mc.getTransformationCalls().size() - 1).getTransformation().getOutType()) {
+				System.out.println("Expected type " + mc.getTarget().getType() + ", got " + mc.getTransformationCalls().get(mc.getTransformationCalls().size() - 1).getTransformation().getOutType());
+				 error("ERROR: " + INVALID_ASSIGNMENT_TYPE, null);
+			}
 		}
 	}
 	
-	/** 
-	 * Recursive method to check whether chained mappings have correct typing
-	 * If a mapping has a different input than given from a column, or another mapping, an error is raised
-	 * @param tc
-	 * @param currentType
-	 */
 	private void checkTypesCompatibleTransformationChain(List<TransformationCall> tc, Type currentType) {
 		if (tc.size() == 0) return; // 
 		if (currentType == tc.get(0).getTransformation().getInType()) {

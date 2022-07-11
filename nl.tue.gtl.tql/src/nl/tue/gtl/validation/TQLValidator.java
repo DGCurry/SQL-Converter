@@ -37,8 +37,6 @@ public class TQLValidator extends AbstractTQLValidator {
 	/* +++ ERROR STRINGS FOR EXPRESSIONS +++ */
 	private static final String INVALID_IF_EXPRESSION_TYPE = "Invalid if expression, expected boolean";
 	private static final String INVALID_TYPE_COMPATIBILITY = "Types are not compatible";
-
-	public static final String INVALID_NAME = "invalidName";
 	
 	/**
 	 * Switch statement for expressions
@@ -89,7 +87,7 @@ public class TQLValidator extends AbstractTQLValidator {
 		 * @return
 		 */
 		public BinaryOperatorExpression expressionCasting() {
-			BinaryOperatorExpression boe = null;
+			BinaryOperatorExpressionImpl boe = null;
 	
 			if (Arrays.asList(Add_ExpressionImpl.class, And_ExpressionImpl.class, Divide_ExpressionImpl.class, Equals_ExpressionImpl.class,
 					Greater_ExpressionImpl.class, Less_ExpressionImpl.class, Multiply_ExpressionImpl.class, NotEquals_ExpressionImpl.class, 
@@ -115,6 +113,7 @@ public class TQLValidator extends AbstractTQLValidator {
 		 * @return this
 		 */
 		public ExpressionDecorator checkExpressionType(BinaryOperatorExpression b, Type left, Type right) {
+			System.out.println("left " + left + " right " + right);
 			if (b == null || left == null || right == null) return this;
 			if (Arrays.asList(Operator.ADD, Operator.SUBTRACT, Operator.DIVIDE, Operator.MULTIPLY).contains(b.getOperator())) {
 				if (left.equals(Type.FLOAT) || right.equals(Type.FLOAT)) {
@@ -127,20 +126,18 @@ public class TQLValidator extends AbstractTQLValidator {
 					this.foundType = Type.BOOLEAN;
 				}
 			} else if (Arrays.asList(Operator.LESS, Operator.GREATER).contains(b.getOperator())) {
+				System.out.println("found");
 				if (Arrays.asList(Type.FLOAT, Type.INTEGER).contains(left) && Arrays.asList(Type.FLOAT, Type.INTEGER).contains(right)) {
 					this.foundType = Type.BOOLEAN;
 				}
 			} else if (Arrays.asList(Operator.EQUALS, Operator.NOT_EQUALS).contains(b.getOperator())) {
-				if (left.equals(Type.FLOAT)) {
+				if (left.equals(Type.FLOAT) || left.equals(Type.INTEGER)) {
 					this.foundType = (right.equals(Type.FLOAT) || right.equals(Type.INTEGER)) ? Type.BOOLEAN : null;
-				} else if (right.equals(Type.FLOAT)) {
+				} else if (right.equals(Type.FLOAT) || left.equals(Type.INTEGER)) {
 					this.foundType = (left.equals(Type.FLOAT) || left.equals(Type.INTEGER)) ? Type.BOOLEAN : null;
-				} else if (right.equals(left)) {
-					this.foundType = right;
 				}
 			} 
 			if (this.foundType == null) {
-				System.out.println(left + " " + right);
 				error("ERROR: " + INVALID_TYPE_COMPATIBILITY + " :: " + b.getOperator() + " with " +  left + " and " + right, null);
 			}
 			return this;
@@ -234,13 +231,16 @@ public class TQLValidator extends AbstractTQLValidator {
     private Type resolveExpressionType(Expression expression, Type self, Map<String, Type> parameters) {
     	ExpressionDecorator decoratedExpression =  decorateExpression(expression);
     	BinaryOperatorExpression castedExpression = decoratedExpression.expressionCasting();
+    	System.out.println(expression);
     	if (castedExpression != null) {
         	return decoratedExpression.
         			checkExpressionType(castedExpression, resolveExpressionType(castedExpression.getLeft(), self, parameters), resolveExpressionType(castedExpression.getRight(), self, parameters))
         			.foundType;
-    	} else if (expression.getClass().equals(SelfExpression.class)) {
+    	} else if (expression.getClass().equals(SelfExpressionImpl.class)) {
+    		System.out.println("self");
 			return self;
-		} else if (expression.getClass().equals(ParameterExpression.class)) {
+		} else if (expression.getClass().equals(ParameterExpressionImpl.class)) {
+			System.out.println("parameter");
 			return parameters.get(((ParameterExpression)expression).getParameter().getName());
 		} else {
     		return resolveConstantExpressionType(expression);

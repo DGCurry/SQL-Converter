@@ -28,12 +28,12 @@ where InvoiceLineId < 50
 	CombinedPrice: UnitPrice | sum(Quantity)
 }
 
-transformation int::asPercentage(): float {
+transformation int::asPercentage(): int {
 	1 / self
 }
 
-transformation float::normalizePercentage(): float {
-	self * 100
+transformation int::normalizePercentage(): float {
+	self * 100.0
 }
 
 transformation float::sum(value: int): float {
